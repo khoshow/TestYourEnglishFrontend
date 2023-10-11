@@ -1,0 +1,93 @@
+:root {
+  --color1: #48494e;
+  --color2: #f0f696;
+  --color3: #f0f696;
+  --color4: #f5b5fc;
+  --color5: #3d5af1;
+}
+
+/* Apply a basic reset to remove default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style the form container */
+.quizContainer {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style form elements */
+.optionSection {
+  margin-bottom: 20px;
+}
+
+.questionText {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.optionButton {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  text-align: inherit;
+}
+.optionButton:hover {
+  border: 1px solid var(--color5);
+}
+
+/* Style the submit button */
+.nextButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 auto;
+}
+
+.nextButton:hover {
+  background-color: #45a049;
+}
+.selected {
+  background-color: var(--color5);
+}
+.selectCorrect {
+  background-color: #45a049;
+}
+
+.selectIncorrect {
+  background-color: var(--color1);
+}
+.questionText {
+  margin-top: 10px;
+  padding: 10px 0;
+}
+.questionCount {
+  text-align: center;
+}
+
+/* Optional: Add media queries for responsive design */
+@media (max-width: 768px) {
+  .quizContainer {
+    max-width: 100%;
+  }
+}
+
+.buttonUnClickable {
+  cursor: not-allowed;
+  pointer-events: none;
+}

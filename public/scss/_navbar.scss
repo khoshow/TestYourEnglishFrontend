@@ -62,6 +62,7 @@
 	margin: 0 26px;
 	position: relative;
   transition: all 0.3s ease-in-out;
+  white-space: nowrap;
 }
 .navbar .navbar-nav .nav-item.active .nav-link,
 .navbar .navbar-nav .nav-item:hover .nav-link {color: var(--prime-one);}

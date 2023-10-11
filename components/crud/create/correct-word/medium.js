@@ -100,7 +100,7 @@ const CorrectWordMedium = () => {
     e.preventDefault();
     console.log("create Data values", values);
 
-    create(formData, token)
+    create(values, token)
     // .then((data) => {
     //   if (data.error) {
     //     setValues({ ...values, error: data.error, success: false });

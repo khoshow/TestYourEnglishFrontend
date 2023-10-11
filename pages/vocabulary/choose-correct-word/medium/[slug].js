@@ -1,21 +1,54 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import TestType from "../../../../../components/aaComponents/Test";
-import DefaultHeader from "../../../../../components/aaComponents/header/DefaultHeader";
+import DefaultHeader from "../../../../components/aaComponents/header/DefaultHeader";
 import Link from "next/link";
-import { getCorrectWordsMedium } from "../../../../../actions/correct-word/medium";
+import { getCorrectWordsMedium } from "../../../../actions/correct-word/medium";
+import Words from "../../../../components/words";
 
-const CorrectWordsMedium = () => {
+const CorrectWordsMedium = ({ incomingData }) => {
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(router.asPath);
 
+  const fetchedData = [];
+  let j = 0;
+
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1)); // Random index from 0 to i
+      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+    return array;
+  };
+
+  while (j < incomingData.length) {
+    let i = 0;
+    let array = [
+      incomingData[j].correctOption,
+      incomingData[j].wrongOption1,
+      incomingData[j].wrongOption2,
+      incomingData[j].wrongOption3,
+    ];
+    let options1 = shuffleArray(array);
+
+    const insideData = {
+      question: incomingData[j].question,
+
+      options: options1,
+      correctAnswer: incomingData[j].correctOption,
+    };
+    fetchedData.push(insideData);
+    j++;
+  }
+
   const pageData = () => {
     return {
+      data: fetchedData,
       section: "choose-correct-word",
       level: "medium",
       path: currentUrl,
     };
   };
+
   return (
     <>
       <DefaultHeader />
@@ -35,7 +68,7 @@ const CorrectWordsMedium = () => {
             </div>
           </div>
           <div className="row justify-content-center">
-            <CorrectWord sendToChild={pageData} />
+            <Words sendToChild={pageData} />
           </div>
           {/* End .row */}
         </div>
@@ -68,12 +101,12 @@ CorrectWordsMedium.getInitialProps = async function () {
     if (data.error) {
       console.log(data.error);
     } else {
-      console.log("Data", data);
+      // console.log("Data", data);
       return {
-        testName: data,
+        incomingData: data,
       };
     }
   });
 };
 
-export default Test;
+export default CorrectWordsMedium;

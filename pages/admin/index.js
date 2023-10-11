@@ -1,11 +1,11 @@
-import DefaulHeader from "../../components/header/DefaulHeader";
+import DefaultHeader from "../../components/header/DefaultHeader";
 
 import Link from "next/link";
 
 const UserIndex = () => {
   return (
     <>
-      <DefaulHeader />
+      <DefaultHeader />
       <div className="fancy-feature-twentyOne position-relative mt-50 pt-80 pb-150 lg-mt-130 lg-pt-60 lg-pb-60">
         <div className="container-fluid">
           <div className="row">

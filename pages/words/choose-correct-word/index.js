@@ -1,19 +1,22 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import TestType from "../../../../../components/aaComponents/Test";
-import DefaultHeader from "../../../../../components/aaComponents/header/DefaultHeader";
+import TestType from "../../../../components/aaComponents/Test";
+import DefaultHeader from "../../../../components/aaComponents/header/DefaultHeader";
 import Link from "next/link";
-import { getCorrectWordsMedium } from "../../../../../actions/correct-word/medium";
+import { getTestTypes } from "../../../../actions/test";
 
-const CorrectWordsMedium = () => {
+const Test = () => {
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(router.asPath);
-
+  const [pageInfo, setPageInfo] = useState([
+    { url: currentUrl + "/beginner", title: "Beginner", image:"/images/icon/beginner.png" },
+    { url: currentUrl + "/medium", title: "Medium", image:"/images/icon/medium.png" },
+    { url: currentUrl + "/advanced", title: "Advanced", image:"/images/icon/advanced.png" },
+  ]);
   const pageData = () => {
     return {
-      section: "choose-correct-word",
-      level: "medium",
       path: currentUrl,
+      pageInfo: pageInfo,
     };
   };
   return (
@@ -35,7 +38,7 @@ const CorrectWordsMedium = () => {
             </div>
           </div>
           <div className="row justify-content-center">
-            <CorrectWord sendToChild={pageData} />
+            <TestType sendToChild={pageData} />
           </div>
           {/* End .row */}
         </div>
@@ -57,23 +60,26 @@ const CorrectWordsMedium = () => {
           className="col-xxl-2 col-xl-3 col-lg-3 col-sm-5 ms-auto d-flex align-items-center justify-content-center text-center text-sm-start mt-40"
           data-aos="fade-up"
           data-aos-delay="400"
-        ></div>
+        >
+         
+        </div>
       </div>
     </>
   );
 };
 
-CorrectWordsMedium.getInitialProps = async function () {
-  return getCorrectWordsMedium().then((data) => {
-    if (data.error) {
-      console.log(data.error);
-    } else {
-      console.log("Data", data);
-      return {
-        testName: data,
-      };
-    }
-  });
-};
+// Test.getInitialProps = async function () {
+//   let skip = 0;
+//   let limit = 4;
+//   return getTestTypes().then((data) => {
+//     if (data.error) {
+//       console.log(data.error);
+//     } else {
+//       return {
+//         testName: data.name,
+//       };
+//     }
+//   });
+// };
 
 export default Test;

@@ -1,45 +1,56 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
-import TestType from "../../../../../components/aaComponents/Test";
-import DefaultHeader from "../../../../../components/aaComponents/header/DefaultHeader";
+import React, { useState } from "react";
+import TestType from "../../../../../../components/aaComponents/Test";
+import DefaultHeader from "../../../../../../components/aaComponents/header/DefaultHeader";
 import Link from "next/link";
-import { getCorrectWordsMedium } from "../../../../../actions/correct-word/medium";
+import { getTestTypes } from "../../../../../../actions/test";
+import { useRouter } from "next/router";
 
-const CorrectWordsMedium = () => {
+const Test = () => {
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(router.asPath);
-
+  const [pageInfo, setPageInfo] = useState([
+    {
+      url: currentUrl + "/beginner",
+      title: "Beginner",
+      image: "/images/icon/beginner.png",
+    },
+    {
+      url: currentUrl + "/medium",
+      title: "Medium",
+      image: "/images/icon/medium.png",
+    },
+    {
+      url: currentUrl + "/advanced",
+      title: "Advanced",
+      image: "/images/icon/advanced.png",
+    },
+  ]);
   const pageData = () => {
     return {
-      section: "choose-correct-word",
-      level: "medium",
       path: currentUrl,
+      pageInfo: pageInfo,
     };
   };
+
   return (
     <>
       <DefaultHeader />
-
       <div className="fancy-feature-twentyOne position-relative mt-50 pt-80 pb-150 lg-mt-130 lg-pt-60 lg-pb-60">
         <div className="container">
           <div className="row">
             <div className="col-lg-9 m-auto text-center">
               <div className=" me-auto  md-mt-10">
                 <div className="title-style-two">
-                  <h2 className="main-title fw-normal tx-dark m0">
-                    {/* Test your English */}
-                  </h2>
+                  <h2 className="main-title fw-normal tx-dark m0"></h2>
                 </div>
-                {/* /.title-style-one */}
               </div>
             </div>
           </div>
           <div className="row justify-content-center">
-            <CorrectWord sendToChild={pageData} />
+            <TestType sendToChild={pageData} />
           </div>
-          {/* End .row */}
         </div>
-        {/* End .container */}
+
         <div className="shapes shape-one rounded-circle" />
         <div className="shapes shape-two rounded-circle" />
         <div className="shapes shape-three rounded-circle" />
@@ -63,17 +74,18 @@ const CorrectWordsMedium = () => {
   );
 };
 
-CorrectWordsMedium.getInitialProps = async function () {
-  return getCorrectWordsMedium().then((data) => {
-    if (data.error) {
-      console.log(data.error);
-    } else {
-      console.log("Data", data);
-      return {
-        testName: data,
-      };
-    }
-  });
-};
+// Test.getInitialProps = async function () {
+//   let skip = 0;
+//   let limit = 4;
+//   return getTestTypes().then((data) => {
+//     if (data.error) {
+//       console.log(data.error);
+//     } else {
+//       return {
+//         testName: data.name,
+//       };
+//     }
+//   });
+// };
 
 export default Test;

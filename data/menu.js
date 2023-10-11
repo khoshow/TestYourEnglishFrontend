@@ -107,3 +107,14 @@ export const navItems = [
   { title: "Grid With sidebar", link: "/blog/blog-v2" },
   { title: "Contact us", link: "/contact" },
 ];
+
+export const myMenuItems = [
+  
+    { title: "Home", link: "/" },
+    { title: "Admin", link: "/admin/crud" },
+    { title: "Sign In", link: "/signin" },
+    { title: "Sign Up", link: "/signup" },
+  
+ 
+
+];

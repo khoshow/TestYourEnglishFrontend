@@ -1,21 +1,32 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
-import TestType from "../../../../../components/aaComponents/Test";
-import DefaultHeader from "../../../../../components/aaComponents/header/DefaultHeader";
+import React, { useState } from "react";
+import TestCategory from "../../components/words/Test";
+import DefaultHeader from "../../components/aaComponents/header/DefaultHeader";
 import Link from "next/link";
-import { getCorrectWordsMedium } from "../../../../../actions/correct-word/medium";
+import { getTestTypes } from "../../actions/test";
+import { useRouter } from "next/router";
 
-const CorrectWordsMedium = () => {
+const Test = (props) => {
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(router.asPath);
-
+  const [pageInfo, setPageInfo] = useState([
+    {
+      url: currentUrl + "/choose-correct-word",
+      title: "Correct Word",
+      image: "/images/icon/choose.png",
+    },
+    {
+      url: currentUrl + "/synonyms",
+      title: "Synonyms",
+      image: "/images/icon/synonyms.png",
+    },
+  ]);
   const pageData = () => {
     return {
-      section: "choose-correct-word",
-      level: "medium",
       path: currentUrl,
+      pageInfo: pageInfo,
     };
   };
+
   return (
     <>
       <DefaultHeader />
@@ -35,7 +46,7 @@ const CorrectWordsMedium = () => {
             </div>
           </div>
           <div className="row justify-content-center">
-            <CorrectWord sendToChild={pageData} />
+            {/* <TestCategory sendToChild={pageData} /> */}
           </div>
           {/* End .row */}
         </div>
@@ -53,27 +64,23 @@ const CorrectWordsMedium = () => {
           alt="shape"
           className="lazy-img shapes shape-five"
         />
-        <div
-          className="col-xxl-2 col-xl-3 col-lg-3 col-sm-5 ms-auto d-flex align-items-center justify-content-center text-center text-sm-start mt-40"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        ></div>
       </div>
     </>
   );
 };
 
-CorrectWordsMedium.getInitialProps = async function () {
-  return getCorrectWordsMedium().then((data) => {
-    if (data.error) {
-      console.log(data.error);
-    } else {
-      console.log("Data", data);
-      return {
-        testName: data,
-      };
-    }
-  });
-};
+// Test.getInitialProps = async function () {
+//   let skip = 0;
+//   let limit = 4;
+//   return getTestTypes().then((data) => {
+//     if (data.error) {
+//       console.log(data.error);
+//     } else {
+//       return {
+//         testName: data.name,
+//       };
+//     }
+//   });
+// };
 
 export default Test;

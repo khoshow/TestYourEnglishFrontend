@@ -1,4 +1,4 @@
-import Header from "./header/DefaulHeader";
+import Header from "./header/DefaultHeader";
 import React from "react";
 import ReactDOM from "react-dom";
 

@@ -9,10 +9,10 @@ export const create = (correctWordsMedium, token) => {
     method: "POST",
     headers: {
       Accept: "application/json",
-
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: correctWordsMedium,
+    body: JSON.stringify(correctWordsMedium),
   })
     .then((response) => {
       // console.log(category.name);
@@ -24,6 +24,7 @@ export const create = (correctWordsMedium, token) => {
 
 export const getCorrectWordsMedium = () => {
   return fetch(`${API}/api/correct-words-medium`, {
+    Accept: "json/application",
     method: "GET",
   })
     .then((response) => {
