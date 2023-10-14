@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 // import { getRanking } from "../../actions/correct-word";
 
-function QuizForm(pageData) {
+function Second2(pageData) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [correctSelection, setCorrectSelection] = useState(null);
-  // const [quizInfo, setquizInfo] = useState(pageData.data().data);
+  const [quizInfo, setquizInfo] = useState(pageData.data);
   const [rightlyAnswered, setRightlyAnswered] = useState([]);
   const [wronglyAnswered, setWronglyAnswered] = useState([]);
   const [disableAfterSelect, setDisableAfterSelect] = useState(false);
+  const router = useRouter();
+  const [currentUrl, setcurrentUrl] = useState(router.asPath);
 
-  console.log("PageDataCom", pageData);
+  const slug = currentUrl.split("/").pop();
+  const testNo = parseInt(slug.split("-").pop());
+
+  const finalSlug = "test-" + testNo;
+
   const [hydrated, setHydrated] = React.useState(false);
   React.useEffect(() => {
     setHydrated(true);
@@ -42,6 +50,7 @@ function QuizForm(pageData) {
 
   const handleNextQuestion = () => {
     // Check if the selected option is correct
+
     setDisableAfterSelect(false);
     if (selectedOption === quizInfo[currentQuestion].correctAnswer) {
       setScore(score + 1);
@@ -70,13 +79,40 @@ function QuizForm(pageData) {
       console.log("Wrongly Answered", wronglyAnswered);
     }
   };
+  const handleNextTest = (e) => {
+    e.preventDefault()
+    // Set the new URL
+    setShowScore(false);
+    // setSelectedOption(null);
+  };
+  const handlePreviousTest = () => {
+    // Set the new URL
+    const newUrl = `/vocabulary/correct-word/intermediate/test-${testNo - 1}`; // Replace this with your desired URL
+    // Change the window location to the new URL, which will reload the page
+    window.location.href = newUrl;
+  };
 
   return (
     // <div></div>
     <div className="quizContainer">
       {showScore ? (
         <div className="scoreSection">
-          You scored {score} out of {quizInfo.length} questions.
+          <p>
+            You scored {score} out of {quizInfo.length} questions.
+          </p>
+
+          {/* <Link className="btn btn-primary" onClick={handlePreviousTest}>
+            Previous Test
+          </b> */}
+          <Link
+            href={`/vocabulary/correct-word/intermediate/test-${testNo + 1}`}
+            onClick={e => {
+              handleNextTest()
+            }}
+            className="btn btn-primary"
+          >
+            Next Test
+          </Link>
         </div>
       ) : (
         <>
@@ -89,6 +125,7 @@ function QuizForm(pageData) {
             </div>
           </div>
           <div className="optionSection">
+            {console.log("Curr", quizInfo[currentQuestion])}
             {quizInfo[currentQuestion].options.map((option, index) => (
               <button
                 key={index}
@@ -110,4 +147,4 @@ function QuizForm(pageData) {
   );
 }
 
-export default QuizForm;
+export default Second2;

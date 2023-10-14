@@ -2,52 +2,65 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import DefaultHeader from "../../../../components/header/DefaultHeader";
 import Link from "next/link";
-import { getCorrectWordsMedium } from "../../../../actions/correct-word/medium";
-import Words from "../../../../components/words";
+import {
+  getCorrectWordsMedium,
+  getTestNo,
+} from "../../../../actions/correct-word/intermediate";
+import Words from "../../../../components/words/First";
 
-const CorrectWordsMedium = ({ incomingData }) => {
+const CorrectWordsMedium = () => {
   const router = useRouter();
-  const [currentUrl, setcurrentUrl] = useState(router.asPath);
+  // const [currentUrl, setcurrentUrl] = useState(null);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [reload, setReload] = useState(false);
+  const [prevUrl, setPrevUrl] = useState(null);
 
-  const fetchedData = [];
   let j = 0;
 
-  const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1)); // Random index from 0 to i
-      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-    }
-    return array;
-  };
+  useEffect(() => {
+    // const { slug } = router.query;
 
-  while (j < incomingData.length) {
-    let i = 0;
-    let array = [
-      incomingData[j].correctOption,
-      incomingData[j].wrongOption1,
-      incomingData[j].wrongOption2,
-      incomingData[j].wrongOption3,
-    ];
-    let options1 = shuffleArray(array);
+    const fetchData = async () => {
+      if (!router.query.slug) {
+        return; //If slug value is undefined/null returns before getting updated value. use the dependency array for the updated value
+      }
 
-    const insideData = {
-      question: incomingData[j].question,
+      try {
+        const slug = router.query.slug;
+        // setcurrentUrl(slug)
+        const response = await getTestNo(slug);
+        if (response.error) {
+          throw new Error("Failed to fetch data from the API.");
+        }
 
-      options: options1,
-      correctAnswer: incomingData[j].correctOption,
+        setData(response);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message); // Set error message in case of an error
+      } finally {
+        setLoading(false); // Set loading to false regardless of success or failure
+      }
     };
-    fetchedData.push(insideData);
-    j++;
+    // Call the fetchData function
+
+    fetchData();
+  }, [router.query.slug, router.asPath]);
+
+  // Empty dependency array ensures that the effect runs only once, similar to componentDidMount
+  if (reload) {
+    setReload(false);
+  }
+  // Render loading message while data is being fetched
+  if (loading) {
+    return <div>Loading...</div>;
   }
 
-  const pageData = () => {
-    return {
-      data: fetchedData,
-      section: "choose-correct-word",
-      level: "medium",
-      path: currentUrl,
-    };
-  };
+  // Render error message if there is an error
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <>
@@ -68,7 +81,10 @@ const CorrectWordsMedium = ({ incomingData }) => {
             </div>
           </div>
           <div className="row justify-content-center">
-            <Words sendToChild={pageData} />
+            {loading && <p>Loading...</p>}
+            {/* {console.log("From Inside Html", currentUrl)} */}
+            {console.log("From Inside Html data", data)}
+            {data && <Words data={data} />}
           </div>
           {/* End .row */}
         </div>
@@ -94,19 +110,6 @@ const CorrectWordsMedium = ({ incomingData }) => {
       </div>
     </>
   );
-};
-
-CorrectWordsMedium.getInitialProps = async function () {
-  return getCorrectWordsMedium().then((data) => {
-    if (data.error) {
-      console.log(data.error);
-    } else {
-      // console.log("Data", data);
-      return {
-        incomingData: data,
-      };
-    }
-  });
 };
 
 export default CorrectWordsMedium;

@@ -23,7 +23,18 @@ export const create = (correctWordsMedium, token) => {
 };
 
 export const getCorrectWordsMedium = () => {
-  return fetch(`${API}/api/correct-words-medium`, {
+  return fetch(`${API}/api/correct-words-intermediate`, {
+    Accept: "json/application",
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const getTestNo = (testNo) => {
+  return fetch(`${API}/api/correct-words-intermediate/${testNo}`, {
     Accept: "json/application",
     method: "GET",
   })
