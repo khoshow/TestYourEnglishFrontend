@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { isAuth } from "../../actions/auth";
 // import { getRanking } from "../../actions/correct-word";
 
 function Second2(pageData) {
@@ -29,6 +30,15 @@ function Second2(pageData) {
     // Returns null on first render, so the client and server match
     return null;
   }
+
+  const updateUserScore = () => {
+    if (isAuth()) {
+      console.log("Is Auth");
+      console.log("Is Auth", isAuth);
+    } else {
+      console.log("Not Auth");
+    }
+  };
 
   const wrongOrRight = (option) => {
     if (selectedOption === quizInfo[currentQuestion].correctAnswer) {
@@ -75,15 +85,17 @@ function Second2(pageData) {
     } else {
       setShowScore(true);
       // getRanking(score);
+      // updateUserScore();
       console.log("Rightly Answered", rightlyAnswered);
       console.log("Wrongly Answered", wronglyAnswered);
     }
   };
   const handleNextTest = (e) => {
-    e.preventDefault()
-    // Set the new URL
+    // e.preventDefault();
     setShowScore(false);
-    // setSelectedOption(null);
+    // Set the new URL
+
+    setSelectedOption(null);
   };
   const handlePreviousTest = () => {
     // Set the new URL
@@ -106,8 +118,8 @@ function Second2(pageData) {
           </b> */}
           <Link
             href={`/vocabulary/correct-word/intermediate/test-${testNo + 1}`}
-            onClick={e => {
-              handleNextTest()
+            onClick={(e) => {
+              handleNextTest(e);
             }}
             className="btn btn-primary"
           >

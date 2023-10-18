@@ -10,11 +10,19 @@ import Link from "next/link";
 //   isActiveParent,
 //   isActiveParentChaild,
 // } from "../../../utils/linkActiveChecker";
+import { signout, isAuth } from "../../actions/auth";
 
 import { useRouter } from "next/router";
 
 const MainMenu = () => {
   const router = useRouter();
+
+  const clicksignout = () => {
+    const response = signout();
+    console.log("response", response);
+    router.push("/signin");
+  };
+
   return (
     <nav className="navbar navbar-expand-lg order-lg-2">
       <button
@@ -43,7 +51,7 @@ const MainMenu = () => {
           <li className="nav-item dropdown mega-dropdown-md active">
             <a
               className="nav-link dropdown-toggle"
-              href="#"
+              href="/"
               role="button"
               data-bs-toggle="dropdown"
               data-bs-auto-close="outside"
@@ -68,11 +76,22 @@ const MainMenu = () => {
               Sign Up
             </Link>
           </li>
-          <li className="nav-item">
+          {isAuth() && (
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                style={{ cursor: "pointer" }}
+                onClick={ clicksignout}
+              >
+                Sign Out
+              </a>
+            </li>
+          )}
+          {/* <li className="nav-item">
             <Link className="nav-link" href="/signout" role="button">
               Sign Out
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item">
             <Link className="nav-link" href="/contact" role="button">
               Contact

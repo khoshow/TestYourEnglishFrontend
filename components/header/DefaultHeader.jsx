@@ -2,10 +2,20 @@ import { useEffect, useState } from "react";
 import MainMenu from "./MainMenu";
 import Link from "next/link";
 import Image from "next/image";
+import { isAuth } from "../../actions/auth";
 
 const DefaultHeader = () => {
   const [navbar, setNavbar] = useState(false);
+  const [firstName, setFirstName] = useState();
 
+  const getFirstName = () => {
+    if (isAuth()) {
+      let fullName = isAuth().name;
+      let displayName = fullName.split(" ")[0];
+      console.log("DName", displayName);
+      setFirstName(displayName);
+    } else return;
+  };
   const changeBackground = () => {
     if (window.scrollY >= 10) {
       setNavbar(true);
@@ -15,6 +25,7 @@ const DefaultHeader = () => {
   };
 
   useEffect(() => {
+    getFirstName();
     window.addEventListener("scroll", changeBackground);
     return () => {
       window.removeEventListener("scroll", changeBackground);
@@ -39,12 +50,12 @@ const DefaultHeader = () => {
               />
             </Link>
           </div>
-          <div className="right-widget ms-auto d-flex align-items-center order-lg-3">
+          <div className="right-widget ms-auto d-flex align-items-center ">
             <Link
-              href="/login"
-              className="login-btn-three rounded-circle tran3s me-3"
+              href={`/profile/${firstName}`}
+              className="login-btn-three rounded-circle d-flex"
             >
-              <i className="bi bi-person" />
+              <p>{firstName}</p> <i className="bi bi-person" />
             </Link>
             <Link
               href="/contact"

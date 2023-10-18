@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import React from "react";
 import ReactDOM from "react-dom";
 import Link from "next/link";
-import { preSignup, isAuth, signup } from "../../actions/auth";
+import Router from "next/router";
+import { preSignup, isAuth, signup,  } from "../../actions/auth";
 
 // import Router from "next/router";
 // import SignupGoogle from "./SignupGoogle";
@@ -10,6 +11,7 @@ import { preSignup, isAuth, signup } from "../../actions/auth";
 const SignupForm = () => {
   const [values, setValues] = useState({
     name: "",
+
     email: "",
     password: "",
     confirmPassword: "",
@@ -32,6 +34,31 @@ const SignupForm = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  // const [username, setUsername] = useState();
+  // const [isUsernameAvailable, setIsUsernameAvailable] = useState(false);
+
+  // const handleUsernameChange = (e) => {
+    
+  //     // Set the state after 1 second (1000 milliseconds)
+  //     setUsername(e.target.value);
+  //     console.log(username);
+    
+  // };
+
+  // const checkUsernameAvailability = (username) => {
+  //   // Call your API endpoint to check if the username is available in the database
+  //   // Example API call using fetch:
+  //    checkUsername(username);
+  //   // console.log("Response", response);
+  //   // const data =  response.json();
+  //   // return data.isAvailable; // Assume the API returns an object like { isAvailable: true }
+  // };
+
+  // const userNameLoad = () => {
+  //   if (!isUsernameAvailable) {
+  //     return <p>Loading Username</p>;
+  //   } else return <p>Username Available!</p>;
+  // };
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -41,14 +68,24 @@ const SignupForm = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-//   useEffect(() => {
-//     isAuth() && Router.push(`/`);
-//     loadPhoto()
-//   }, []);
+  useEffect(() => {
+    isAuth() && Router.push(`/`);
+
+    // timer();
+  }, []);
+
+  // const timer = () => {
+  //   if (username) {
+  //     const timer = setTimeout(() => {
+  //       // Set the state after 1 second (1000 milliseconds)
+  //       checkUsernameAvailability(username);
+  //     }, 1000);
+  //   }
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.table({ name, email, password, error, loading, message, showForm });
+
     setValues({ ...values, loading: true, error: false });
     const user = { name, email, password, confirmPassword };
 
@@ -56,6 +93,7 @@ const SignupForm = () => {
       return setValues({
         ...values,
         name: name,
+
         email: email,
         password: password,
         error: "Password Mismatch. Please try again.",
@@ -70,6 +108,7 @@ const SignupForm = () => {
         setValues({
           ...values,
           name: "",
+
           email: "",
           password: "",
           error: "",
@@ -77,8 +116,10 @@ const SignupForm = () => {
           message: data.message,
           showForm: false,
         });
+        setUsername("");
       }
     });
+    // Call your signup API endpoint here
   };
 
   const handleChange = (name) => (e) => {
@@ -108,6 +149,20 @@ const SignupForm = () => {
               />
             </div>
           </div>
+
+          {/* <div className="col-12">
+            <div className="input-group-meta mb-30">
+              <label>Username</label>
+              <input
+                value={username}
+                onChange={handleUsernameChange}
+                type="text"
+                placeholder="Enter your username"
+                required
+              />
+              {userNameLoad()}
+            </div>
+          </div> */}
 
           <div className="col-12">
             <div className="input-group-meta mb-30">

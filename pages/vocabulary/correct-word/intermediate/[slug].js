@@ -6,7 +6,8 @@ import {
   getCorrectWordsMedium,
   getTestNo,
 } from "../../../../actions/correct-word/intermediate";
-import Words from "../../../../components/words/First";
+import Words from "../../../../components/correctWord/First";
+import Fallback from "../../../../components/fallback";
 
 const CorrectWordsMedium = () => {
   const router = useRouter();
@@ -32,9 +33,8 @@ const CorrectWordsMedium = () => {
         // setcurrentUrl(slug)
         const response = await getTestNo(slug);
         if (response.error) {
-          throw new Error("Failed to fetch data from the API.");
+          throw new Error(response.error);
         }
-
         setData(response);
         setLoading(false);
       } catch (error) {
@@ -59,7 +59,11 @@ const CorrectWordsMedium = () => {
 
   // Render error message if there is an error
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <>
+        <Fallback message={error} />
+      </>
+    );
   }
 
   return (
