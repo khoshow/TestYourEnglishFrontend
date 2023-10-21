@@ -3,12 +3,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Link from "next/link";
 import Router from "next/router";
-import { getCookie } from "../../../../actions/auth";
-import {
-  create,
-  //   getCorrectWordsMedium,
-  removeCorrectWordMedium,
-} from "../../../../actions/correct-word/medium";
+import { getCookie } from "../../../actions/auth";
+// import {
+//   create,
+//   //   getCorrectWordsMedium,
+//   removeCorrectWordMedium,
+// } from "../../../actions/correct-word/medium";
+import {create} from "../../../actions/correct-word/intermediate"
 
 const CorrectWordMedium = () => {
   const [values, setValues] = useState({

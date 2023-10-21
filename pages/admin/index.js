@@ -24,7 +24,7 @@ const UserIndex = () => {
                     </li>
                     <li className="list-group-item">
                       <Link
-                        href="/admin/crud/vocabulary/correct-word/medium/add"
+                        href="/admin/crud/vocabulary/correct-word/intermediate/add"
                         style={{ display: "block" }}
                       >
                         Add

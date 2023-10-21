@@ -2,17 +2,17 @@ import fetch from "isomorphic-fetch";
 import { API } from "../../config";
 import { isAuth, handleResponse } from "../auth";
 
-export const create = (correctWordsMedium, token) => {
-  console.log("Data from action", correctWordsMedium);
+export const create = (correctWordsIntermediate, token) => {
+  console.log("Data from action", correctWordsIntermediate);
   console.log("Token", token);
-  return fetch(`${API}/api/correct-word-medium`, {
+  return fetch(`${API}/api/correct-word-intermediate`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(correctWordsMedium),
+    body: JSON.stringify(correctWordsIntermediate),
   })
     .then((response) => {
       // console.log(category.name);
@@ -22,7 +22,7 @@ export const create = (correctWordsMedium, token) => {
     .catch((err) => console.log(err));
 };
 
-export const getCorrectWordsMedium = () => {
+export const getCorrectWordsIntermediate = () => {
   return fetch(`${API}/api/correct-words-intermediate`, {
     Accept: "json/application",
     method: "GET",

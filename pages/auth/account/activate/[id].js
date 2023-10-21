@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 import { withRouter } from "next/router";
 import { signup } from "../../../../actions/auth";
-import DefaulHeader from "../../../../components/header/DefaulHeader";
+import DefaulHeader from "../../../../components/header/DefaultHeader";
 
 const ActivateAccount = ({ router }) => {
   const [values, setValues] = useState({

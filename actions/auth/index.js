@@ -29,9 +29,9 @@ export const checkUsername = username => {
 };
 
 export const preSignup = (user) => {
-  // console.log("Uaiu: "+user);
-  console.log("API: " + `${API}/pre-signup`);
-  return fetch(`${API}/pre-signup`, {
+  console.log("Uaiu: "+user);
+  console.log("API: " + `${API}/api/pre-signup`);
+  return fetch(`${API}/api/pre-signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -78,9 +78,9 @@ export const signin = (user) => {
 export const signout = (next) => {
   removeCookie("token");
   removeLocalStorage("user");
-  next();
+  // next();
 
-  return fetch(`${API}/signout`, {
+  return fetch(`${API}/api/signout`, {
     method: "GET",
   })
     .then((response) => {

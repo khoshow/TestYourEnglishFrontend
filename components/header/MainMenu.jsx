@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import Router from "next/router";
+import { NavItem } from "reactstrap";
 // import {
 //   menuItems,
 //   pagesItems,
@@ -14,14 +17,22 @@ import { signout, isAuth } from "../../actions/auth";
 
 import { useRouter } from "next/router";
 
+
 const MainMenu = () => {
   const router = useRouter();
+  const [userAuth, setUserAuth] = useState(false);
 
   const clicksignout = () => {
     const response = signout();
     console.log("response", response);
     router.push("/signin");
   };
+
+  useEffect(() => {
+    if (isAuth()) {
+      setUserAuth(true);
+    }
+  }, []);
 
   return (
     <nav className="navbar navbar-expand-lg order-lg-2">
@@ -76,7 +87,22 @@ const MainMenu = () => {
               Sign Up
             </Link>
           </li>
-          {isAuth() && (
+          {userAuth && (
+            <NavItem>
+              <a
+                className="nav-link"
+                style={{ cursor: "pointer" }}
+                // onClick={() => signout(() => Router.replace(`/signin`))}
+                onClick={() => clicksignout()}
+              >
+                <i
+                  class="fas fa-lightbulb fa-lightbulb-hover"
+                  title="Sign Out"
+                >Signout</i>
+              </a>
+            </NavItem>
+          )}
+          {/* {isAuth() && (
             <li className="nav-item">
               <a
                 className="nav-link"
@@ -86,7 +112,7 @@ const MainMenu = () => {
                 Sign Out
               </a>
             </li>
-          )}
+          )} */}
           {/* <li className="nav-item">
             <Link className="nav-link" href="/signout" role="button">
               Sign Out

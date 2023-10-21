@@ -39,9 +39,9 @@ const SigninForm = () => {
         // authenticate user
         authenticate(data, () => {
           if (isAuth() && isAuth().role === 1) {
-            Router.push(`/admin`);
+            Router.push(`/admin/${data.user.username}`);
           } else {
-            Router.push(`/user`);
+            Router.push(`/profile/${data.user.username}`);
           }
         });
       }

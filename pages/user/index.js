@@ -1,4 +1,4 @@
-import DefaulHeader from "../../components/header/DefaulHeader";
+import DefaulHeader from "../../components/header/DefaultHeader";
 
 import Link from "next/link";
 
@@ -13,7 +13,7 @@ const UserIndex = () => {
               <h2>User Dashboard</h2>
             </div>
             <div className="col-md-4">
-              <ul class="list-group">
+              <ul className="list-group">
                 <li className="list-group-item bg-dark">
                   <Link
                     href="/user/crud/blog"

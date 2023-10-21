@@ -25,7 +25,12 @@ const DefaultHeader = () => {
   };
 
   useEffect(() => {
-    getFirstName();
+    if (isAuth()) {
+      let fullName = isAuth().name;
+      let displayName = fullName.split(" ")[0];
+      console.log("DName", displayName);
+      setFirstName(displayName);
+    }
     window.addEventListener("scroll", changeBackground);
     return () => {
       window.removeEventListener("scroll", changeBackground);
@@ -50,20 +55,23 @@ const DefaultHeader = () => {
               />
             </Link>
           </div>
-          <div className="right-widget ms-auto d-flex align-items-center ">
-            <Link
-              href={`/profile/${firstName}`}
-              className="login-btn-three rounded-circle d-flex"
-            >
-              <p>{firstName}</p> <i className="bi bi-person" />
-            </Link>
-            <Link
-              href="/contact"
-              className="btn-twentyOne fw-500 tran3s d-none d-lg-block"
-            >
-              Contact us
-            </Link>
-          </div>{" "}
+          {firstName && (
+            <div className="right-widget ms-auto d-flex align-items-center ">
+              <Link
+                href={`/profile/${firstName}`}
+                className="login-btn-three rounded-circle d-flex"
+              >
+                <p>{firstName}</p> <i className="bi bi-person" />
+              </Link>
+              <Link
+                href="/contact"
+                className="btn-twentyOne fw-500 tran3s d-none d-lg-block"
+              >
+                Contact us
+              </Link>
+            </div>
+          )}
+
           {/* /.right-widget */}
           <MainMenu />
         </div>

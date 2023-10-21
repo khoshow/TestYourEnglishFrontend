@@ -1,6 +1,7 @@
 import Layout from "../../../../../../components/Layout";
 import Admin from "../../../../../../components/auth/Admin";
-import CorrectWordMedium from "../../../../../../components/crud/create/correct-word/medium";
+// import CorrectWordMedium from "../../../../../../components/crud/create/correct-word/medium";
+import CorrectWordMedium from "../../../../../../components/crud/correct-word/intermediate"
 
 import Link from "next/link";
 

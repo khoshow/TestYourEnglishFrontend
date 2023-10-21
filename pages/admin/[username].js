@@ -1,4 +1,4 @@
-import DefaultHeader from "../../../components/header/DefaultHeader";
+import DefaultHeader from "../../components/header/DefaultHeader";
 
 import Link from "next/link";
 
@@ -24,7 +24,7 @@ const UserIndex = () => {
                     </li>
                     <li className="list-group-item">
                       <Link
-                        href="/admin/crud/vocabulary/correct-word/intermediate/add"
+                        href="/admin/crud/vocabulary/correct-word/medium/add"
                         style={{ display: "block" }}
                       >
                         Add

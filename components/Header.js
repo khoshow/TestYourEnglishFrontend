@@ -30,7 +30,7 @@ Router.onRouteChangeError = (url) => NProgress.done();
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenLogin, setIsOpenLogin] = useState(false);
-  const [firstName, setFirstName] = useState();
+  const [firstName, setFirstName] = useState("user");
   const [mounted, setMounted] = useState(false);
 
   const getFirstName =()=>{
@@ -45,7 +45,7 @@ const Header = () => {
  
   useEffect(() => {
     setMounted(true);
-    getFirstName()
+    // getFirstName()
   }, []);
 
   const toggle = () => {

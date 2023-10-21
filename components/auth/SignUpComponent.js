@@ -116,7 +116,7 @@ const SignupForm = () => {
           message: data.message,
           showForm: false,
         });
-        setUsername("");
+       
       }
     });
     // Call your signup API endpoint here
