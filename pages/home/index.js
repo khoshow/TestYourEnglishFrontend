@@ -62,7 +62,75 @@ const Test = () => {
                 className={`col-lg-4 col-md-6 col-sm-7 mt-40`}
                 style={{ textAlign: "center" }}
               >
-                {/* <Link href="/vocabulary" className="read-btn mt-auto "> */}
+                {/* <Link href="/vocabulary/correct-word" className="read-btn mt-auto "> */}
+                <div
+                  className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
+                  style={{ minWidth: "300px" }}
+                >
+                  <Link
+                    href="/vocabulary/correct-word"
+                    className="read-btn mt-auto "
+                  >
+                    <div>
+                      <div className="icon d-flex justify-content-center">
+                        <img
+                          src="/images/icon/vocabulary.png"
+                          alt="icon"
+                          className="lazy-img "
+                        />
+                      </div>
+                      <h4 className="fw-300 mt-20 mb-50">The Correct Word</h4>
+                      <p className="btn-eleven fs-15 fw-500  text-center">
+                        Start
+                      </p>
+                    </div>
+                  </Link>
+                  <div className=" p-2">
+                    <div className=" " style={{}}>
+                      <div
+                        className="d-flex"
+                        style={{
+                          height: "100%",
+                          fontSize: "14px",
+                          alignItems: "center",
+                          flexWrap: "wrap",
+                          justifyContent: "space-evenly",
+                        }}
+                      >
+                        <div style={{ margin: "5px" }}>
+                          <Link
+                            href="/vocabulary/correct-word/intermediate"
+                            className=""
+                            style={{
+                              textDecoration: "",
+                            }}
+                          >
+                            Intermediate
+                          </Link>
+                        </div>
+                        <div style={{ textAlign: "" }}>
+                          {/* <button className="">Correct Meaning</button> */}
+                          <Link
+                            href="/vocabulary/correct-word/advanced"
+                            className=""
+                            style={{
+                              textDecoration: "",
+                            }}
+                          >
+                            Advanced
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className={`col-lg-4 col-md-6 col-sm-7 mt-40`}
+                style={{ textAlign: "center" }}
+              >
+                {/* <Link href="/vocabulary/correct-meaning" className="read-btn mt-auto "> */}
                 <div
                   className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
                   style={{ minWidth: "300px" }}
@@ -76,85 +144,44 @@ const Test = () => {
                           className="lazy-img "
                         />
                       </div>
-                      <h4 className="fw-300 mt-20 mb-50">Vocabulary</h4>
+                      <h4 className="fw-300 mt-20 mb-50">
+                        The Correct Meaning
+                      </h4>
                       <p className="btn-eleven fs-15 fw-500 tran3s text-center">
                         Start
                       </p>
                     </div>
                   </Link>
-                </div>
-                <div>
                   <div className=" p-2">
-                    <div
-                      className=" "
-                      // style={{
-                      //   alignItems: "center",
-                      //   flexWrap: "wrap",
-                      //   justifyContent: "center",
-                      // }}
-                    >
+                    <div className=" " style={{}}>
                       <div
                         className="d-flex"
-                        style={{ height: "100%", fontSize: "14px" }}
+                        style={{
+                          height: "100%",
+                          fontSize: "14px",
+                          alignItems: "center",
+                          flexWrap: "wrap",
+                          justifyContent: "space-evenly",
+                        }}
                       >
-                        <div style={{ textAlign: "left" }}>
-                          <button className="">Correct Word</button>
-                          <Link
-                            href="/vocabulary/correct-word/intermediate"
-                            className=""
-                            style={{
-                              textDecoration: "underline",
-                            }}
-                          >
-                            Intermediate
-                          </Link>
-                          <Link
-                            href="/vocabulary/correct-word/advanced"
-                            className=""
-                            style={{
-                              textDecoration: "underline",
-                            }}
-                          >
-                            Advanced
-                          </Link>
-                        </div>
-                        <div style={{ textAlign: "left" }}>
-                          <button className="">Correct Meaning</button>
+                        <div style={{ margin: "5px" }}>
                           <Link
                             href="/vocabulary/correct-meaning/intermediate"
                             className=""
                             style={{
-                              textDecoration: "underline",
+                              textDecoration: "",
                             }}
                           >
                             Intermediate
-                          </Link>
-                          <Link
-                            href="/vocabulary/correct-word/advanced"
-                            className=""
-                            style={{
-                              textDecoration: "underline",
-                            }}
-                          >
-                            Advanced
                           </Link>
                         </div>
-                        <div style={{ textAlign: "left" }}>
-                          <button className="">Synonyms</button>
+                        <div style={{ textAlign: "" }}>
+                          {/* <button className="">Correct Meaning</button> */}
                           <Link
-                            href="/vocabulary/synonyms/intermediate"
+                            href="/vocabulary/correct-meaning/advanced"
                             className=""
                             style={{
-                              textDecoration: "underline",
-                            }}
-                          >
-                            Intermediate
-                          </Link>
-                          <Link
-                            href="/vocabulary/synonyms/advanced"
-                            className=""
-                            style={{
-                              textDecoration: "underline",
+                              textDecoration: "",
                             }}
                           >
                             Advanced
@@ -165,65 +192,82 @@ const Test = () => {
                     <div></div>
                   </div>
                 </div>
-                {/* /.card-style-ten */}
+              
               </div>
-            </div>
-            <div className="row justify-content-center " style={{}}>
               <div
                 className={`col-lg-4 col-md-6 col-sm-7 mt-40`}
                 style={{ textAlign: "center" }}
               >
-                <Link href="/vocabulary" className="read-btn mt-auto ">
-                  <div
-                    className="card-style-ten d-flex flex-column 
-                   pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
-                    style={{ minWidth: "300px" }}
+                {/* <Link href="/vocabulary" className="read-btn mt-auto "> */}
+                <div
+                  className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
+                  style={{ minWidth: "300px" }}
+                >
+                  <Link
+                    href="/vocabulary/synonym"
+                    className="read-btn mt-auto "
                   >
-                    <div className="icon d-flex justify-content-center">
-                      <img
-                        src="/images/icon/vocabulary.png"
-                        alt="icon"
-                        className="lazy-img "
-                      />
+                    <div>
+                      <div className="icon d-flex justify-content-center">
+                        <img
+                          src="/images/icon/vocabulary.png"
+                          alt="icon"
+                          className="lazy-img "
+                        />
+                      </div>
+                      <h4 className="fw-300 mt-20 mb-50">Synonym</h4>
+                      <p className="btn-eleven fs-15 fw-500 tran3s text-center">
+                        Start
+                      </p>
                     </div>
-                    <h4 className="fw-300 mt-20 mb-50">Vocabulary</h4>
-                    <p className="btn-eleven fs-15 fw-500 tran3s text-center">
-                      Start
-                    </p>
-                  </div>
-                </Link>
-                <div>
-                  <div className="card-style-ten bg-white">
-                    <h3>Categories</h3>
-
+                  </Link>
+                  <div className=" p-2">
+                    <div className=" " style={{}}>
+                      <div
+                        className="d-flex"
+                        style={{
+                          height: "100%",
+                          fontSize: "14px",
+                          alignItems: "center",
+                          flexWrap: "wrap",
+                          justifyContent: "space-evenly",
+                        }}
+                      >
+                        <div style={{ margin: "5px" }}>
+                          <Link
+                            href="/vocabulary/synonyms/intermediate"
+                            className=""
+                            style={{
+                              textDecoration: "",
+                            }}
+                          >
+                            Intermediate
+                          </Link>
+                        </div>
+                        <div style={{ textAlign: "" }}>
+                          {/* <button className="">Correct Meaning</button> */}
+                          <Link
+                            href="/vocabulary/synonyms/advanced"
+                            className=""
+                            style={{
+                              textDecoration: "",
+                            }}
+                          >
+                            Advanced
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                     <div></div>
                   </div>
                 </div>
-                {/* /.card-style-ten */}
+             
               </div>
             </div>
-            {/* End .row */}
+         
+           
           </div>
-          {/* End .container */}
-          <div className="shapes shape-one rounded-circle" />
-          <div className="shapes shape-two rounded-circle" />
-          <div className="shapes shape-three rounded-circle" />
-          <img
-            src="/images/shape/shape_88.svg"
-            alt="shape"
-            className="lazy-img shapes shape-four"
-          />
-
-          <img
-            src="/images/shape/shape_89.svg"
-            alt="shape"
-            className="lazy-img shapes shape-five"
-          />
-          <div
-            className="col-xxl-2 col-xl-3 col-lg-3 col-sm-5 ms-auto d-flex align-items-center justify-content-center text-center text-sm-start mt-40"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          ></div>
+        
         </div>
       </Layout>
     </>

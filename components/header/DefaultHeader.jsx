@@ -39,7 +39,7 @@ const DefaultHeader = () => {
 
   return (
     <header
-      className={`theme-main-menu sticky-menu theme-menu-eight border-bottom ${
+      className={`theme-main-menu sticky-menu theme-menu-eight  ${
         navbar ? "fixed" : ""
       }`}
     >

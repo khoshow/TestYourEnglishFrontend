@@ -8,21 +8,27 @@ import {
 } from "../../../../actions/correct-word/intermediate";
 import Words from "../../../../components/correctWord/First";
 import Fallback from "../../../../components/fallback";
+import Layout from "../../../../components/Layout";
+import ThreeSides from "../../../../components/ThreeSides";
 
 const CorrectWordsMedium = () => {
   const router = useRouter();
-  // const [currentUrl, setcurrentUrl] = useState(null);
+  const [currentUrl, setcurrentUrl] = useState(null);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [reload, setReload] = useState(false);
   const [prevUrl, setPrevUrl] = useState(null);
 
+  const urlChanged = () => {
+    setcurrentUrl(router.query.slug);
+  };
+
   let j = 0;
 
   useEffect(() => {
     // const { slug } = router.query;
-
+    setcurrentUrl(router.query.slug);
     const fetchData = async () => {
       if (!router.query.slug) {
         return; //If slug value is undefined/null returns before getting updated value. use the dependency array for the updated value
@@ -46,7 +52,7 @@ const CorrectWordsMedium = () => {
     // Call the fetchData function
 
     fetchData();
-  }, [router.query.slug, router.asPath]);
+  }, [router.query.slug, router.asPath, currentUrl]);
 
   // Empty dependency array ensures that the effect runs only once, similar to componentDidMount
   if (reload) {
@@ -68,50 +74,33 @@ const CorrectWordsMedium = () => {
 
   return (
     <>
-      <DefaultHeader />
-
-      <div className="fancy-feature-twentyOne position-relative mt-50 pt-80 pb-150 lg-mt-130 lg-pt-60 lg-pb-60">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-9 m-auto text-center">
-              <div className=" me-auto  md-mt-10">
-                <div className="title-style-two">
-                  <h2 className="main-title fw-normal tx-dark m0">
-                    {/* Test your English */}
-                  </h2>
+      <Layout>
+        <ThreeSides>
+          <div className="fancy-feature-twentyOne position-relative mt-50 lg-pb-60">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-9 m-auto text-center">
+                  <div className=" me-auto  md-mt-10">
+                    <div className="title-style-two">
+                      <h2 className="main-title fw-normal tx-dark m0">
+                        {/* Test your English */}
+                      </h2>
+                    </div>
+                    {/* /.title-style-one */}
+                  </div>
                 </div>
-                {/* /.title-style-one */}
               </div>
+              <div className="row justify-content-center">
+                {loading && <p>Loading...</p>}
+                {/* {console.log("From Inside Html", currentUrl)} */}
+                {console.log("From Inside Html data", data)}
+                {data && <Words data={data} />}
+              </div>
+              {/* End .row */}
             </div>
           </div>
-          <div className="row justify-content-center">
-            {loading && <p>Loading...</p>}
-            {/* {console.log("From Inside Html", currentUrl)} */}
-            {console.log("From Inside Html data", data)}
-            {data && <Words data={data} />}
-          </div>
-          {/* End .row */}
-        </div>
-        {/* End .container */}
-        <div className="shapes shape-one rounded-circle" />
-        <div className="shapes shape-two rounded-circle" />
-        <div className="shapes shape-three rounded-circle" />
-        <img
-          src="/images/shape/shape_88.svg"
-          alt="shape"
-          className="lazy-img shapes shape-four"
-        />
-        <img
-          src="/images/shape/shape_89.svg"
-          alt="shape"
-          className="lazy-img shapes shape-five"
-        />
-        <div
-          className="col-xxl-2 col-xl-3 col-lg-3 col-sm-5 ms-auto d-flex align-items-center justify-content-center text-center text-sm-start mt-40"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        ></div>
-      </div>
+        </ThreeSides>
+      </Layout>
     </>
   );
 };

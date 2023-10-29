@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Second2 from "./Second";
 
-const CorrectWordsMedium = (data) => {
+const CorrectWordsMedium = (data, next) => {
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(router.asPath);
   //   const [data, setData] = useState(null);
@@ -17,13 +17,12 @@ const CorrectWordsMedium = (data) => {
     }
     return array;
   };
- 
 
   const shuffle = (incomingData) => {
     return new Promise((resolve, reject) => {
       let j = 0;
       let fetchedData = [];
-  
+
       try {
         while (j < incomingData.length) {
           let i = 0;
@@ -34,17 +33,18 @@ const CorrectWordsMedium = (data) => {
             incomingData[j].wrongOption3,
           ];
           let options1 = shuffleArray(array);
-  
+
           const insideData = {
             question: incomingData[j].question,
             options: options1,
             correctAnswer: incomingData[j].correctOption,
+            id: incomingData[j]._id,
           };
-  
+
           fetchedData.push(insideData);
           j++;
         }
-  
+
         resolve(fetchedData); // Resolve the Promise with the processed data
       } catch (error) {
         reject(error); // Reject the Promise if there's an error
@@ -53,16 +53,17 @@ const CorrectWordsMedium = (data) => {
   };
   useEffect(() => {
     // Function to fetch data and handle errors
+
     const fetchData = async () => {
-        const incomingData = data.data.questionNo;
-        console.log("In Data", incomingData);
+      const incomingData = data.data.questionNo;
+      console.log("In Data", incomingData);
       try {
         const response = await shuffle(incomingData);
         if (response.error) {
           throw new Error("Failed to fetch data from the API.");
         }
         console.log("Response", response);
-        setDataToSend(response);
+        setDataToSend({ questions: response, testId: data.data._id });
       } catch (error) {
         setError(error.message); // Set error message in case of an error
       } finally {
@@ -72,9 +73,7 @@ const CorrectWordsMedium = (data) => {
 
     // Call the fetchData function
     fetchData();
-  }, []);
-
-
+  }, [currentUrl]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -85,33 +84,32 @@ const CorrectWordsMedium = (data) => {
     return <div>Error: {error}</div>;
   }
 
+  //   const shuffle = async (incomingData) => {
+  //     let j = 0;
+  //     let fetchedData = [];
+  //     try {
+  //       while (j < incomingData.length) {
+  //         let i = 0;
+  //         let array = [
+  //           incomingData[j].correctOption,
+  //           incomingData[j].wrongOption1,
+  //           incomingData[j].wrongOption2,
+  //           incomingData[j].wrongOption3,
+  //         ];
+  //         let options1 = shuffleArray(array);
 
-//   const shuffle = async (incomingData) => {
-//     let j = 0;
-//     let fetchedData = [];
-//     try {
-//       while (j < incomingData.length) {
-//         let i = 0;
-//         let array = [
-//           incomingData[j].correctOption,
-//           incomingData[j].wrongOption1,
-//           incomingData[j].wrongOption2,
-//           incomingData[j].wrongOption3,
-//         ];
-//         let options1 = shuffleArray(array);
+  //         const insideData = {
+  //           question: incomingData[j].question,
 
-//         const insideData = {
-//           question: incomingData[j].question,
-
-//           options: options1,
-//           correctAnswer: incomingData[j].correctOption,
-//         };
-//         fetchedData.push(insideData);
-//         j++;
-//       }
-//     } catch {}
-//     return fetchedData;
-//   };
+  //           options: options1,
+  //           correctAnswer: incomingData[j].correctOption,
+  //         };
+  //         fetchedData.push(insideData);
+  //         j++;
+  //       }
+  //     } catch {}
+  //     return fetchedData;
+  //   };
 
   // const pageData = () => {
   //   console.log("Page Data", data);

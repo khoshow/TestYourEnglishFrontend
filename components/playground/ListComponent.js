@@ -3,131 +3,122 @@ import Link from "next/link";
 
 const ListComponent = ({ items }) => {
   console.log("Items", items);
+
   return (
     <>
       <div
-        className="col-lg-4 col-md-4 col-sm-6 mt-40"
+        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
         style={{ textAlign: "center" }}
       >
-        <Link href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 8}`} className="read-btn mt-auto">
-          <div
-            className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
-            style={{ minWidth: "" }}
-          >
-            <p className="fw-300 mt-20 mb-50">{items * 9 - 8}</p>
-            <p className="btn-eleven fs-15 tran3s text-center">Start</p>
+        <Link
+          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 8}`}
+        >
+          <div className="bg-lightgrey d-flex flex-column p-2">
+            <h3 className="card-title">Group</h3>
+            <div className="weave">{items * 9 - 8}</div>
+            <div className="quote-content">
+              {" "}
+              <p className="font-light">"yay, everything is working."</p>
+            </div>
+
+            <button className="btn btn-primary">continue</button>
           </div>
         </Link>
       </div>
       <div
-        className="col-lg-4 col-md-4 col-sm-6 mt-40"
+        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
         style={{ textAlign: "center" }}
       >
-        <Link href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 7}`} className="read-btn mt-auto ">
-          <div
-            className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
-            style={{ minWidth: "" }}
-          >
-            <p className="fw-300 mt-20 mb-50">{items * 9 - 7}</p>
-            <p className="btn-eleven fs-15 tran3s text-center">Start</p>
+        <Link
+          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 7}`}
+        >
+          <div className="bg-lightgrey text-group d-flex flex-column p-2">
+            <h3 className="card-title">Group</h3>
+            <div className="weave">{items * 9 - 7}</div>
+            <div className="quote-content">
+              {" "}
+              <p className="font-light">"yay, everything is working."</p>
+            </div>
+            <button className="btn btn-primary">continue</button>
           </div>
         </Link>
       </div>
       <div
-        className="col-lg-4 col-md-4 col-sm-6 mt-40"
+        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
         style={{ textAlign: "center" }}
       >
-        <Link href="#" className="read-btn mt-auto ">
-          <div
-            className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
-            style={{ minWidth: "" }}
-          >
-            <p className="fw-300 mt-20 mb-50">{items * 9 - 6}</p>
-            <p className="btn-eleven fs-15 tran3s text-center">Start</p>
+        <Link
+          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 6}`}
+        >
+          <div className="bg-lightgrey d-flex flex-column p-2">
+            <h3 className="card-title">Group</h3>
+            <div className="weave">{items * 9 - 6}</div>
+            <div className="quote-content">
+              {" "}
+              <p className="font-light">
+                "yay, everything is working. But is there anytnbing more we can
+                do"
+              </p>
+            </div>
+
+            <button className="btn btn-primary">continue</button>
           </div>
         </Link>
       </div>
       <div
-        className="col-lg-4 col-md-4 col-sm-6 mt-40"
+        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
         style={{ textAlign: "center" }}
       >
-        <Link href="#" className="read-btn mt-auto ">
-          <div
-            className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
-            style={{ minWidth: "" }}
-          >
-            <p className="fw-300 mt-20 mb-50">{items * 9 - 5}</p>
-            <p className="btn-eleven fs-15 tran3s text-center">Start</p>
+        <Link
+          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 8}`}
+        >
+          <div className="bg-lightgrey d-flex flex-column p-2">
+            <h3 className="card-title">Group</h3>
+            <div className="weave">{items * 9 - 8}</div>
+            <div className="quote-content">
+              {" "}
+              <p className="font-light">"yay, everything is working."</p>
+            </div>
+
+            <button className="btn btn-primary">continue</button>
           </div>
         </Link>
       </div>
       <div
-        className="col-lg-4 col-md-4 col-sm-6 mt-40"
+        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
         style={{ textAlign: "center" }}
       >
-        <Link href="#" className="read-btn mt-auto ">
-          <div
-            className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
-            style={{ minWidth: "" }}
-          >
-            <p className="fw-300 mt-20 mb-50">{items * 9 - 4}</p>
-            <p className="btn-eleven fs-15 tran3s text-center">Start</p>
+        <Link
+          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 8}`}
+        >
+          <div className="bg-lightgrey d-flex flex-column p-2">
+            <h3 className="card-title">Group</h3>
+            <div className="weave">{items * 9 - 8}</div>
+            <div className="quote-content">
+              {" "}
+              <p className="font-light">"yay, everything is working."</p>
+            </div>
+
+            <button className="btn btn-primary">continue</button>
           </div>
         </Link>
       </div>
       <div
-        className="col-lg-4 col-md-4 col-sm-6 mt-40"
+        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
         style={{ textAlign: "center" }}
       >
-        <Link href="#" className="read-btn mt-auto ">
-          <div
-            className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
-            style={{ minWidth: "" }}
-          >
-            <p className="fw-300 mt-20 mb-50">{items * 9 - 3}</p>
-            <p className="btn-eleven fs-15 tran3s text-center">Start</p>
-          </div>
-        </Link>
-      </div>
-      <div
-        className="col-lg-4 col-md-4 col-sm-6 mt-40"
-        style={{ textAlign: "center" }}
-      >
-        <Link href="#" className="read-btn mt-auto ">
-          <div
-            className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
-            style={{ minWidth: "" }}
-          >
-            <p className="fw-300 mt-20 mb-50">{items * 9 - 2}</p>
-            <p className="btn-eleven fs-15 tran3s text-center">Start</p>
-          </div>
-        </Link>
-      </div>
-      <div
-        className="col-lg-4 col-md-4 col-sm-6 mt-40"
-        style={{ textAlign: "center" }}
-      >
-        <Link href="#" className="read-btn mt-auto ">
-          <div
-            className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
-            style={{ minWidth: "" }}
-          >
-            <p className="fw-300 mt-20 mb-50">{items * 9 - 1}</p>
-            <p className="btn-eleven fs-15 tran3s text-center">Start</p>
-          </div>
-        </Link>
-      </div>
-      <div
-        className="col-lg-4 col-md-4 col-sm-6 mt-40"
-        style={{ textAlign: "center" }}
-      >
-        <Link href="#" className="read-btn mt-auto ">
-          <div
-            className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
-            style={{ minWidth: "" }}
-          >
-            <p className="fw-300 mt-20 mb-50">{items * 9}</p>
-            <p className="btn-eleven fs-15 tran3s text-center">Start</p>
+        <Link
+          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 8}`}
+        >
+          <div className="bg-lightgrey d-flex flex-column p-2">
+            <h3 className="card-title">Group</h3>
+            <div className="weave">{items * 9 - 8}</div>
+            <div className="quote-content">
+              {" "}
+              <p className="font-light">"yay, everything is working."</p>
+            </div>
+
+            <button className="btn btn-primary">continue</button>
           </div>
         </Link>
       </div>

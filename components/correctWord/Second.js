@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { isAuth } from "../../actions/auth";
+import { getCookie } from "../../actions/auth";
+import { postScore } from "../../actions/correct-word/intermediate";
 // import { getRanking } from "../../actions/correct-word";
 
-function Second2(pageData) {
+function Second2(pageData, next) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [correctSelection, setCorrectSelection] = useState(null);
-  const [quizInfo, setquizInfo] = useState(pageData.data);
+  const [quizInfo, setquizInfo] = useState(pageData.data.questions);
   const [rightlyAnswered, setRightlyAnswered] = useState([]);
   const [wronglyAnswered, setWronglyAnswered] = useState([]);
   const [disableAfterSelect, setDisableAfterSelect] = useState(false);
@@ -30,14 +32,30 @@ function Second2(pageData) {
     // Returns null on first render, so the client and server match
     return null;
   }
+  const token = getCookie("token");
+  const userId = isAuth()._id
 
+  console.log("userId", userId);
   const updateUserScore = () => {
-    if (isAuth()) {
-      console.log("Is Auth");
-      console.log("Is Auth", isAuth);
-    } else {
-      console.log("Not Auth");
-    }
+    console.log("RightlyAnswered 1", rightlyAnswered);
+    console.log("wrongly Answered 1", wronglyAnswered);
+    console.log("User", isAuth().username);
+    const dataToSend = {
+      userId:userId,
+      testId:pageData.data.testId,
+      testNo: testNo,
+      rightlyAnswered: rightlyAnswered,
+      wronglyAnswered: wronglyAnswered,
+    };
+    console.log("Wha token", token);
+    console.log("data to send", dataToSend);
+    postScore(dataToSend, token, "hello")
+      .then((res) => {
+        console.log("res", res);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
   };
 
   const wrongOrRight = (option) => {
@@ -49,6 +67,27 @@ function Second2(pageData) {
   const handleOptionClick = (option) => {
     setDisableAfterSelect(true);
     setSelectedOption(option);
+    if (option === quizInfo[currentQuestion].correctAnswer) {
+      setRightlyAnswered([
+        ...rightlyAnswered,
+        {
+          question: quizInfo[currentQuestion].question,
+          answer:quizInfo[currentQuestion].correctAnswer,
+          id: quizInfo[currentQuestion].id,
+        },
+      ]);
+      setScore(score + 1);
+    } else {
+      setWronglyAnswered([
+        ...wronglyAnswered,
+        {
+          question: quizInfo[currentQuestion].question,
+          answer:quizInfo[currentQuestion].correctAnswer,
+          id: quizInfo[currentQuestion].id,
+        },
+      ]);
+      setScore(score);
+    }
     // if (selectedOption === option) {
     // }
     if (option === quizInfo[currentQuestion].correctAnswer) {
@@ -64,16 +103,17 @@ function Second2(pageData) {
     setDisableAfterSelect(false);
     if (selectedOption === quizInfo[currentQuestion].correctAnswer) {
       setScore(score + 1);
-      setRightlyAnswered([
-        ...rightlyAnswered,
-        quizInfo[currentQuestion].question,
-      ]);
-    } else {
-      setWronglyAnswered([
-        ...wronglyAnswered,
-        quizInfo[currentQuestion].question,
-      ]);
+      // setRightlyAnswered([
+      //   ...rightlyAnswered,
+      //   quizInfo[currentQuestion].question,
+      // ]);
     }
+    // else {
+    //   setWronglyAnswered([
+    //     ...wronglyAnswered,
+    //     quizInfo[currentQuestion].question,
+    //   ]);
+    // }
 
     // Move to the next question
 
@@ -86,6 +126,9 @@ function Second2(pageData) {
       setShowScore(true);
       // getRanking(score);
       // updateUserScore();
+      if (isAuth()) {
+        updateUserScore();
+      }
       console.log("Rightly Answered", rightlyAnswered);
       console.log("Wrongly Answered", wronglyAnswered);
     }
@@ -93,6 +136,7 @@ function Second2(pageData) {
   const handleNextTest = (e) => {
     // e.preventDefault();
     setShowScore(false);
+    next();
     // Set the new URL
 
     setSelectedOption(null);

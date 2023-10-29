@@ -1,48 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PaginatedList from "../../../../components/playground/PaginatedComponent";
 import Link from "next/link";
-
+import Layout from "../../../../components/Layout";
+import ThreeSides from "../../../../components/ThreeSides";
+import { isAuth, getCookie } from "../../../../actions/auth";
+import { getTestData } from "../../../../actions/correct-word/intermediate";
 const data = 30; // Your data array containing 20 components
 
 const App = () => {
+  const [authStatus, setAuthStatus] = useState(false);
+  const [userId, setUserId] = useState();
+  const [data, setData] = useState();
+  const [interMediateRank, setInterMediateRank] = useState();
+  const [interMediateScore, setInterMediateScore] = useState();
+
   const itemsPerPage = 4; // Number of items to display per page
+  useEffect(() => {
+    const checkAuthStatus = async () => {
+      const authenticated = await isAuth(); // Assuming isAuth returns a promise
+
+      if (!authenticated) {
+        // User is not authenticated, perform necessary actions (e.g., redirect to signin page)
+        console.log("User is not authenticated. Redirecting to signin page...");
+        setAuthStatus(false);
+      } else {
+        const token = getCookie("token");
+        console.log("Auth UserId", authenticated._id);
+        setUserId(authenticated._id);
+        const response = await getTestData(authenticated._id, token)
+          .then((res) => {
+            console.log("response", res);
+            setData(res);
+            setInterMediateScore(res[0].correctWordIntermediate.score);
+            console.log("Score", res[0].correctWordIntermediate.score);
+            setInterMediateRank(res[0].correctWordIntermediate.rank);
+          })
+          .catch((err) => {
+            console.log("err", err);
+          }); // Replace with your API endpoint
+      }
+    };
+
+    checkAuthStatus(); // Call the function to check user authentication status
+  }, []);
+  // const mapTestData = data.correctWordIntermediate.map((obj) => {
+  //   console.log("Obj", obj);
+  // });
 
   return (
-    <div className="fancy-feature-twentyOne position-relative mt-50 pt-80 pb-150 lg-mt-130 lg-pt-60 lg-pb-60">
-      <div className="container">
-      
-        <div className="container">
-          <div className="row ">
-            <div className="col-md-3">Hello</div>
-            <div className="col-md-6">
-              <div className=" row justify-content-center " style={{}}>
-                <PaginatedList itemsPerPage={itemsPerPage} data={data} />
-              </div>
-            </div>
-            <div className="col-md-3">Last column </div>
-          </div>
-          {/* End .container */}
-          <div className="shapes shape-one rounded-circle" />
-          <div className="shapes shape-two rounded-circle" />
-          <div className="shapes shape-three rounded-circle" />
-          <img
-            src="/images/shape/shape_88.svg"
-            alt="shape"
-            className="lazy-img shapes shape-four"
-          />
-          <img
-            src="/images/shape/shape_89.svg"
-            alt="shape"
-            className="lazy-img shapes shape-five"
-          />
-          <div
-            className="col-xxl-2 col-xl-3 col-lg-3 col-sm-5 ms-auto d-flex align-items-center justify-content-center text-center text-sm-start mt-40"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          ></div>
+    <Layout>
+      <ThreeSides>
+        <div className=" row justify-content-center " style={{}}>
+          <PaginatedList itemsPerPage={itemsPerPage} data={data} />
         </div>
-      </div>
-    </div>
+      </ThreeSides>
+    </Layout>
   );
 };
 

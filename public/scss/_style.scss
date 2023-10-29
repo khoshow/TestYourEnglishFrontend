@@ -1,4 +1,3 @@
-
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -36,7 +35,6 @@
 ====================================================================
 
  ***/
-
 
 .ctn-preloader {
   align-items: center;
@@ -88,25 +86,46 @@
   font-size: 35px;
   line-height: 30px;
 }
-.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
+.ctn-preloader
+  .animation-preloader
+  .txt-loading
+  .letters-loading:nth-child(2):before {
   animation-delay: 0.2s;
 }
-.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before {
+.ctn-preloader
+  .animation-preloader
+  .txt-loading
+  .letters-loading:nth-child(3):before {
   animation-delay: 0.4s;
 }
-.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before {
+.ctn-preloader
+  .animation-preloader
+  .txt-loading
+  .letters-loading:nth-child(4):before {
   animation-delay: 0.6s;
 }
-.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before {
+.ctn-preloader
+  .animation-preloader
+  .txt-loading
+  .letters-loading:nth-child(5):before {
   animation-delay: 0.8s;
 }
-.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before {
+.ctn-preloader
+  .animation-preloader
+  .txt-loading
+  .letters-loading:nth-child(6):before {
   animation-delay: 1s;
 }
-.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before {
+.ctn-preloader
+  .animation-preloader
+  .txt-loading
+  .letters-loading:nth-child(7):before {
   animation-delay: 1.2s;
 }
-.ctn-preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before {
+.ctn-preloader
+  .animation-preloader
+  .txt-loading
+  .letters-loading:nth-child(8):before {
   animation-delay: 1.4s;
 }
 .loaded .animation-preloader {
@@ -139,11 +158,9 @@
   }
 }
 /*^^^^^^^^^^^^^^^^^^^^ Global Prefix ^^^^^^^^^^^^^^^^^^^^^*/
-.main-page-wrapper {
-  overflow-x: hidden;
-}
+
 body {
-  font-family: "gordita";
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: normal;
   font-size: 16px;
   position: relative;
@@ -322,7 +339,11 @@ p {
   height: 10px;
   width: 90%;
   opacity: 1;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0) 80%
+  );
 }
 /*^^^^^^^^^^^^^^^^^^^^ Section Title ^^^^^^^^^^^^^^^^^^^^^^*/
 .title-style-one .sc-title {
@@ -850,7 +871,8 @@ body .btn-seventeen:before {
   border-radius: 7px;
   border: 2px solid transparent;
   background: linear-gradient(0deg, #fe3b7d, #ff66c9) border-box;
-  -webkit-mask: /*4*/ linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask: /*4*/ linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: -1;
@@ -1128,7 +1150,6 @@ body .btn-twentyFive:hover {
   color: #000;
 }
 .theme-main-menu .login-btn-three {
- 
   height: 55px;
   border: 1px solid #e9e9e9;
   text-align: center;
@@ -4271,7 +4292,11 @@ body .btn-twentyFive:hover {
   right: 0;
   bottom: 0;
   height: 60%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.586528) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.0001) 0%,
+    rgba(0, 0, 0, 0.586528) 100%
+  );
 }
 .card-style-eight .img-meta .donation-goal {
   left: 20px;
@@ -4396,7 +4421,11 @@ body .btn-twentyFive:hover {
   right: 0;
   bottom: 0;
   height: 34%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
 }
 .team-block-one .img-meta .info {
   left: 0;
@@ -4694,7 +4723,7 @@ body .btn-twentyFive:hover {
 }
 .card-style-ten {
   border-radius: 10px;
-  width:350px;
+  width: 350px;
   width: 100%;
 }
 .card-style-ten .icon {
@@ -5767,8 +5796,14 @@ body .btn-twentyFive:hover {
   height: 100%;
   border-radius: 30px;
   border: 1px solid transparent;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0)) border-box;
-  -webkit-mask: /*4*/ linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.14),
+      rgba(255, 255, 255, 0)
+    )
+    border-box;
+  -webkit-mask: /*4*/ linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: -1;
@@ -5818,7 +5853,11 @@ body .btn-twentyFive:hover {
   letter-spacing: -0.2px;
   color: rgba(255, 255, 255, 0.6);
   margin-top: 35px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.053) 0.94%, rgba(255, 255, 255, 0.019) 98.3%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.053) 0.94%,
+    rgba(255, 255, 255, 0.019) 98.3%
+  );
   border-radius: 10px;
   overflow: hidden;
   z-index: 1;
@@ -6069,7 +6108,8 @@ body .btn-twentyFive:hover {
   border-radius: 5px;
   border: 2px solid transparent;
   background: linear-gradient(0deg, #fe3b7d, #ff66c9) border-box;
-  -webkit-mask: /*4*/ linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask: /*4*/ linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: -1;
@@ -7290,7 +7330,11 @@ body .btn-twentyFive:hover {
   height: 40%;
   z-index: 1;
   padding: 15px 5px 40px 50px;
-  background: linear-gradient(180deg, rgba(14, 14, 14, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 14, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
 }
 .portfolio-block-two.full-width .img-holder .caption {
   padding: 15px 5px 20px 30px;
@@ -8369,7 +8413,11 @@ body .btn-twentyFive:hover {
 .blog-meta-six:before {
   content: "";
   position: absolute;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.56) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.56) 100%
+  );
   width: 100%;
   height: 100%;
   top: 0;
@@ -9030,7 +9078,11 @@ body .btn-twentyFive:hover {
   height: 40%;
   z-index: 1;
   padding: 15px 5px 40px 30px;
-  background: linear-gradient(180deg, rgba(14, 14, 14, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 14, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
   opacity: 0;
 }
 .portfolio-block-six .img-meta .caption .tag {
@@ -9142,7 +9194,11 @@ body .btn-twentyFive:hover {
   height: 32%;
   top: 0;
   left: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
   transform: rotate(-180deg);
   z-index: -1;
 }
@@ -9153,7 +9209,11 @@ body .btn-twentyFive:hover {
   height: 58%;
   bottom: 0;
   left: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
   z-index: -1;
 }
 .inner-banner-two .title {
@@ -9736,7 +9796,10 @@ body .btn-twentyFive:hover {
   top: 3px;
   transition: all 0.1s ease-in-out;
 }
-.user-data-section .agreement-checkbox input[type="checkbox"]:checked + label:before {
+.user-data-section
+  .agreement-checkbox
+  input[type="checkbox"]:checked
+  + label:before {
   content: "\f272";
   font-family: bootstrap-icons !important;
   background: #000;
