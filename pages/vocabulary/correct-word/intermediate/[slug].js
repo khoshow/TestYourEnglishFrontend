@@ -27,7 +27,7 @@ const CorrectWordsMedium = () => {
   let j = 0;
 
   useEffect(() => {
-    // const { slug } = router.query;
+  
     setcurrentUrl(router.query.slug);
     const fetchData = async () => {
       if (!router.query.slug) {
@@ -92,8 +92,7 @@ const CorrectWordsMedium = () => {
               </div>
               <div className="row justify-content-center">
                 {loading && <p>Loading...</p>}
-                {/* {console.log("From Inside Html", currentUrl)} */}
-                {console.log("From Inside Html data", data)}
+            
                 {data && <Words data={data} />}
               </div>
               {/* End .row */}

@@ -15,34 +15,34 @@ const App = () => {
   const [interMediateScore, setInterMediateScore] = useState();
 
   const itemsPerPage = 4; // Number of items to display per page
-  useEffect(() => {
-    const checkAuthStatus = async () => {
-      const authenticated = await isAuth(); // Assuming isAuth returns a promise
+  // useEffect(() => {
+  //   const checkAuthStatus = async () => {
+  //     const authenticated = await isAuth(); // Assuming isAuth returns a promise
+  //     console.log("auth", authenticated);
+  //     if (!authenticated) {
+  //       // User is not authenticated, perform necessary actions (e.g., redirect to signin page)
+  //       console.log("User is not authenticated. Redirecting to signin page...");
+  //       setAuthStatus(false);
+  //     } else {
+  //       const token = getCookie("token");
+  //       console.log("Auth UserId", authenticated._id);
+  //       setUserId(authenticated._id);
+  //       const response = await getTestData(authenticated._id, token)
+  //         .then((res) => {
+  //           console.log("response", res);
+  //           setData(res);
+  //           setInterMediateScore(res[0].correctWordIntermediate.score);
+  //           console.log("Score", res[0].correctWordIntermediate.score);
+  //           setInterMediateRank(res[0].correctWordIntermediate.rank);
+  //         })
+  //         .catch((err) => {
+  //           console.log("err", err);
+  //         }); // Replace with your API endpoint
+  //     }
+  //   };
 
-      if (!authenticated) {
-        // User is not authenticated, perform necessary actions (e.g., redirect to signin page)
-        console.log("User is not authenticated. Redirecting to signin page...");
-        setAuthStatus(false);
-      } else {
-        const token = getCookie("token");
-        console.log("Auth UserId", authenticated._id);
-        setUserId(authenticated._id);
-        const response = await getTestData(authenticated._id, token)
-          .then((res) => {
-            console.log("response", res);
-            setData(res);
-            setInterMediateScore(res[0].correctWordIntermediate.score);
-            console.log("Score", res[0].correctWordIntermediate.score);
-            setInterMediateRank(res[0].correctWordIntermediate.rank);
-          })
-          .catch((err) => {
-            console.log("err", err);
-          }); // Replace with your API endpoint
-      }
-    };
-
-    checkAuthStatus(); // Call the function to check user authentication status
-  }, []);
+  //   checkAuthStatus(); // Call the function to check user authentication status
+  // }, []);
   // const mapTestData = data.correctWordIntermediate.map((obj) => {
   //   console.log("Obj", obj);
   // });

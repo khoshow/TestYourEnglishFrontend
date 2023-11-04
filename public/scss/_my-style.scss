@@ -6,6 +6,9 @@
   --color3: #f0f696;
   --color4: #f5b5fc;
   --color5: #3d5af1;
+  --colorRed: #cb3b3b;
+  --colorGreen: #0b8457;
+  --colorYellow: #eac100;
 }
 
 /* Apply a basic reset to remove default styles */
@@ -25,6 +28,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #efefef;
 }
 // Navigation
 .tabs {
@@ -51,28 +55,27 @@
 }
 
 .navigation .level-side-nav {
-  margin-top: 0.2rem ;
+  margin-top: 0.2rem;
   padding-left: 10px;
   left: 20px;
 }
-.level-side-category{
+.level-side-category {
   margin-top: 1rem;
 }
-.level-side-category a:nth-child(1) i{
- 
-  color:#cb3b3b
+.level-side-category a:nth-child(1) i {
+  color: #cb3b3b;
 }
-.level-side-category a:nth-child(2) i{
-  margin-top: 0.2rem ;
+.level-side-category a:nth-child(2) i {
+  margin-top: 0.2rem;
   padding-left: 10px;
   left: 20px;
-  color:#0b8457
+  color: #0b8457;
 }
-.level-side-category a:nth-child(3) i{
-  margin-top: 0.2rem ;
+.level-side-category a:nth-child(3) i {
+  margin-top: 0.2rem;
   padding-left: 10px;
   left: 20px;
-  color:#eac100
+  color: #eac100;
 }
 /* Style the form container */
 .quizContainer {
@@ -227,5 +230,221 @@
 }
 
 .quote-content {
-  height: 20vh;
+  height: 130px;
+}
+
+.aboveRoundedFrame {
+}
+
+.roundedScoreFrame {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 0;
+  background-color: var(--c-gray-600);
+  border: 1px solid var(--colorYellow);
+  color: white;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  cursor: progress;
+  transition: 0.25s ease;
+  flex-shrink: 0;
+  &.large {
+    width: 42px;
+    height: 42px;
+    font-size: 1.25em;
+  }
+
+  i {
+    transition: 0.25s ease;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0 4px var(--c-gray-800), 0 0 0 1px var(--colorYellow);
+  }
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.userProfileRightNav {
+  display: flex;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--c-text-tertiary);
+  // transition: 0.25s ease;
+
+  // &:hover,
+  // &:focus {
+  //   color: var(--c-text-primary);
+  //   span:first-child {
+  //     box-shadow: 0 0 0 4px var(--c-gray-800), 0 0 0 5px var(--c-text-tertiary);
+  //   }
+  // }
+
+  span:nth-child(1) {
+    display: flex;
+    font-size: 1.125rem;
+
+    font-weight: 300;
+  }
+  span:last-child {
+    display: flex;
+    font-size: 1.125rem;
+    padding-left: 1rem;
+
+    font-weight: 300;
+  }
+
+  span:nth-child(2) {
+    transition: 0.25s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 1.5rem;
+    flex-shrink: 0;
+  }
+}
+
+
+
+.profileCard {
+
+  background-color: #efefef;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.profileImage img {
+  transition: all 0.5s
+}
+
+.profileCard:hover .image img {
+  transform: scale(1.5)
+}
+
+
+
+.name {
+  font-size: 22px;
+  font-weight: bold
+}
+
+.idd {
+  font-size: 14px;
+  font-weight: 600
+}
+
+.idd1 {
+  font-size: 12px
+}
+
+.number {
+  font-size: 22px;
+  font-weight: bold
+}
+
+.follow {
+  font-size: 12px;
+  font-weight: 500;
+  color: #444444
+}
+
+.btn1 {
+  height: 40px;
+  width: 150px;
+  border: none;
+  background-color: #000;
+  color: #aeaeae;
+  font-size: 15px
+}
+
+.text span {
+  font-size: 13px;
+  color: #545454;
+  font-weight: 500
+}
+
+.icons i {
+  font-size: 19px
+}
+
+hr .new1 {
+  border: 1px solid
+}
+
+.join {
+  font-size: 14px;
+  color: #a0a0a0;
+  font-weight: bold
+}
+
+.date {
+  background-color: #ccc
+}
+
+
+.app-body {
+	height: 100%;
+	display: grid;
+	grid-template-columns: minmax(min-content, 175px) minmax(max-content, 1fr) minmax(
+			min-content,
+			400px
+		);
+
+	column-gap: 4rem;
+	padding-top: 2.5rem;
+
+	@media (max-width: 1200px) {
+		grid-template-columns: 1fr;
+		& > * {
+			margin-bottom: 3.5rem;
+		}
+	}
+}
+
+.app-body-navigation {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	@media (max-width: 1200px) {
+		display: none;
+	}
+}
+
+
+.bodyNoRightNav {
+	height: 100%;
+	display: grid;
+	grid-template-columns: minmax(min-content, 175px) minmax(max-content, 1fr);
+
+	column-gap: 4rem;
+	padding-top: 2.5rem;
+
+	@media (max-width: 1200px) {
+		grid-template-columns: 1fr;
+		& > * {
+			margin-bottom: 3.5rem;
+		}
+	}
+}
+
+.app-body-navigation {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	@media (max-width: 1200px) {
+		display: none;
+	}
 }

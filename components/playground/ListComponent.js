@@ -56,8 +56,7 @@ const ListComponent = ({ items }) => {
             <div className="quote-content">
               {" "}
               <p className="font-light">
-                "yay, everything is working. But is there anytnbing more we can
-                do"
+              yay, everything is working. But is there anytnbing more we can do" But also what is important we have
               </p>
             </div>
 

@@ -39,7 +39,7 @@ const DefaultHeader = () => {
 
   return (
     <header
-      className={`theme-main-menu sticky-menu theme-menu-eight  ${
+      className={`theme-main-menu sticky-menu  ${
         navbar ? "fixed" : ""
       }`}
     >
@@ -48,32 +48,34 @@ const DefaultHeader = () => {
           <div className="logo order-lg-0">
             <Link href="/" className="d-block">
               <Image
-                src="/images/logo/logo_01.png"
+                src="/images/logo/logo2.jpg"
                 alt="logo"
-                width={95}
-                height={30}
+                width="250"
+                height="60"
               />
             </Link>
           </div>
+          <MainMenu />
           {firstName && (
             <div className="right-widget ms-auto d-flex align-items-center ">
-              <Link
+              <Link href={`/profile/${firstName}`} className="user-profile">
+                <span>{firstName}</span>
+                <span>
+                  <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
+                </span>
+              </Link>
+              {/* <Link
                 href={`/profile/${firstName}`}
                 className="login-btn-three rounded-circle d-flex"
               >
                 <p>{firstName}</p> <i className="bi bi-person" />
-              </Link>
-              <Link
-                href="/contact"
-                className="btn-twentyOne fw-500 tran3s d-none d-lg-block"
-              >
-                Contact us
-              </Link>
+              </Link> */}
+             
             </div>
           )}
 
           {/* /.right-widget */}
-          <MainMenu />
+        
         </div>
       </div>
       {/* /.inner-content */}

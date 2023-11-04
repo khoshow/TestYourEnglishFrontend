@@ -35,11 +35,8 @@ function Second2(pageData, next) {
   const token = getCookie("token");
   const userId = isAuth()._id
 
-  console.log("userId", userId);
   const updateUserScore = () => {
-    console.log("RightlyAnswered 1", rightlyAnswered);
-    console.log("wrongly Answered 1", wronglyAnswered);
-    console.log("User", isAuth().username);
+   
     const dataToSend = {
       userId:userId,
       testId:pageData.data.testId,
@@ -47,8 +44,7 @@ function Second2(pageData, next) {
       rightlyAnswered: rightlyAnswered,
       wronglyAnswered: wronglyAnswered,
     };
-    console.log("Wha token", token);
-    console.log("data to send", dataToSend);
+  
     postScore(dataToSend, token, "hello")
       .then((res) => {
         console.log("res", res);
@@ -129,8 +125,7 @@ function Second2(pageData, next) {
       if (isAuth()) {
         updateUserScore();
       }
-      console.log("Rightly Answered", rightlyAnswered);
-      console.log("Wrongly Answered", wronglyAnswered);
+  
     }
   };
   const handleNextTest = (e) => {
@@ -181,7 +176,7 @@ function Second2(pageData, next) {
             </div>
           </div>
           <div className="optionSection">
-            {console.log("Curr", quizInfo[currentQuestion])}
+          
             {quizInfo[currentQuestion].options.map((option, index) => (
               <button
                 key={index}

@@ -17,15 +17,15 @@ import { signout, isAuth } from "../../actions/auth";
 
 import { useRouter } from "next/router";
 
-
 const MainMenu = () => {
   const router = useRouter();
   const [userAuth, setUserAuth] = useState(false);
 
-  const clicksignout = () => {
-    const response = signout();
-    console.log("response", response);
-    router.push("/signin");
+  const clicksignout = async () => {
+    const response = await signout();
+    response;
+
+    // router.push("/signin");
   };
 
   useEffect(() => {
@@ -87,6 +87,11 @@ const MainMenu = () => {
               Sign Up
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" href="/my-profile/khos" role="button">
+             My Pofile
+            </Link>
+          </li>
           {userAuth && (
             <NavItem>
               <a
@@ -96,9 +101,11 @@ const MainMenu = () => {
                 onClick={() => clicksignout()}
               >
                 <i
-                  class="fas fa-lightbulb fa-lightbulb-hover"
+                  className="fas fa-lightbulb fa-lightbulb-hover"
                   title="Sign Out"
-                >Signout</i>
+                >
+                  Signout
+                </i>
               </a>
             </NavItem>
           )}
@@ -123,11 +130,7 @@ const MainMenu = () => {
               Contact
             </Link>
           </li>
-          {/* End li (contact) */}
         </ul>
-        {/* End ul */}
-
-        {/* Mobile Content */}
         <div className="mobile-content d-block d-lg-none">
           <div className="d-flex flex-column align-items-center justify-content-center mt-70">
             <Link href="/contact" className="btn-twentyOne fw-500 tran3s">
@@ -135,7 +138,6 @@ const MainMenu = () => {
             </Link>
           </div>
         </div>
-        {/* /.mobile-content */}
       </div>
     </nav>
   );

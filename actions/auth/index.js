@@ -16,7 +16,7 @@ export const handleResponse = (response) => {
   }
 };
 
-export const checkUsername = username => {
+export const checkUsername = (username) => {
   console.log("USer2", username);
   return fetch(`${API}/username-availability/${username}`, {
     method: "GET",
@@ -29,7 +29,7 @@ export const checkUsername = username => {
 };
 
 export const preSignup = (user) => {
-  console.log("Uaiu: "+user);
+  console.log("Uaiu: " + user);
   console.log("API: " + `${API}/api/pre-signup`);
   return fetch(`${API}/api/pre-signup`, {
     method: "POST",
@@ -134,13 +134,21 @@ export const isAuth = () => {
   if (process.browser) {
     const cookieChecked = getCookie("token");
     if (cookieChecked) {
-      if (localStorage.getItem("user")) {
-        return JSON.parse(localStorage.getItem("user"));
+      const storedUserData = localStorage.getItem("user");
+      if (storedUserData) {
+        try {
+          const userData = JSON.parse(storedUserData);
+          return userData;
+        } catch (error) {
+          console.error("Error parsing user data:", error);
+          return false;
+        }
       } else {
         return false;
       }
     }
   }
+  return false;
 };
 
 export const updateUser = (user, next) => {

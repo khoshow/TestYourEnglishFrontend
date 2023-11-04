@@ -56,13 +56,13 @@ const CorrectWordsMedium = (data, next) => {
 
     const fetchData = async () => {
       const incomingData = data.data.questionNo;
-      console.log("In Data", incomingData);
+    
       try {
         const response = await shuffle(incomingData);
         if (response.error) {
           throw new Error("Failed to fetch data from the API.");
         }
-        console.log("Response", response);
+       
         setDataToSend({ questions: response, testId: data.data._id });
       } catch (error) {
         setError(error.message); // Set error message in case of an error
@@ -123,7 +123,7 @@ const CorrectWordsMedium = (data, next) => {
 
   return (
     <>
-      {console.log("Data to send", dataToSend)}
+
       <Second2 data={dataToSend} />
     </>
   );
