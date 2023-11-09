@@ -39,9 +39,10 @@ const DefaultHeader = () => {
 
   return (
     <header
-      className={`theme-main-menu sticky-menu  ${
-        navbar ? "fixed" : ""
-      }`}
+      // className={`theme-main-menu sticky-menu  ${
+      //   navbar ? "fixed" : ""
+      // }`}
+      className="theme-main-menu sticky-menu sticky-top"
     >
       <div className="inner-content position-relative">
         <div className="d-flex align-items-center justify-content-between">
@@ -70,12 +71,10 @@ const DefaultHeader = () => {
               >
                 <p>{firstName}</p> <i className="bi bi-person" />
               </Link> */}
-             
             </div>
           )}
 
           {/* /.right-widget */}
-        
         </div>
       </div>
       {/* /.inner-content */}

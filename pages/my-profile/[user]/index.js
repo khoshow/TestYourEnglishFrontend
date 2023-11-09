@@ -3,10 +3,15 @@ import Layout from "../../../components/Layout";
 import { isAuth } from "../../../actions/auth";
 import { useRouter } from "next/router";
 import SigninForm from "../../../components/auth/SignInComponent";
+import { getPrivateProfile } from "../../../actions/profile/privateProfile";
 
 const ProfilePage = () => {
   const [userName, setUserName] = useState("User");
   const [authStatus, setAuthStatus] = useState();
+  const [loading, setLoading] = useState();
+  const [error, setError] = useState();
+  const [data, setData] = useState();
+  const [imageBufferData, setImageBufferData] = useState();
   const router = useRouter();
   useEffect(() => {
     const checkIsAuth = isAuth();
@@ -16,10 +21,28 @@ const ProfilePage = () => {
       setAuthStatus(true);
       const user = isAuth().username;
       setUserName(user);
+      loadUserProfile(checkIsAuth._id);
     } else {
       router.push(`/signin`);
     }
   }, []);
+
+  const loadUserProfile = async (user) => {
+    setLoading(true);
+    try {
+      const res = await getPrivateProfile(user);
+      console.log("resdsgf", res);
+      setData(res);
+      const bufferData = Buffer.from(res.photo.data.data); // Your buffer data here
+      const base64String = bufferData.toString('base64')
+      setImageBufferData(base64String);
+    } catch (err) {
+      console.log("err", err);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -68,33 +91,42 @@ const ProfilePage = () => {
                 <h2>Service</h2>
 
                 <div>
-                  <div class=" mt-4 mb-4 p-3 d-flex justify-content-center">
-                    <div class="profileCard p-4">
-                      <div class=" profileImage d-flex flex-column justify-content-center align-items-center">
-                        <button class="btn btn-secondary">
-                          <img
-                            src="https://i.imgur.com/wvxPV9S.png"
-                            height="100"
-                            width="100"
-                          />
+                  <div className=" mt-4 mb-4 p-3 d-flex justify-content-center">
+                    <div className="profileCard p-4">
+                      <div className=" profileImage d-flex flex-column justify-content-center align-items-center">
+                        <button className="btn btn-secondary">
+                          {data ? (
+                            <img
+                              src={`data:${data.photo.data.type};base64,${imageBufferData}`}
+                              height="100"
+                              width="100"
+                            />
+                          ) : (
+                            ""
+                          )}
                         </button>
-                        <span class="name mt-3">Eleanor Pena</span>{" "}
-                        <span class="idd">@eleanorpena</span>{" "}
-                        <div class="d-flex flex-row justify-content-center align-items-center gap-2">
-                          <span class="idd1">Oxc4c16a645_b21a</span>{" "}
+                        <span className="name mt-3">Eleanor Pena</span>{" "}
+                        <span className="idd">@eleanorpena</span>{" "}
+                        <div className="d-flex flex-row justify-content-center align-items-center gap-2">
+                          <span className="idd1">Oxc4c16a645_b21a</span>{" "}
                           <span>
-                            <i class="fa fa-copy"></i>
+                            <i className="fa fa-copy"></i>
                           </span>
                         </div>
-                        <div class="d-flex flex-row justify-content-center align-items-center mt-3">
-                          <span class="number">
-                            1069 <span class="follow">Followers</span>
+                        <div className="d-flex flex-row justify-content-center align-items-center mt-3">
+                          <span className="number">
+                            1069 <span className="follow">Followers</span>
                           </span>
                         </div>
-                        <div class=" d-flex mt-2">
-                          <button class="btn1 btn-dark">Edit Profile</button>
+                        <div className=" d-flex mt-2">
+                          <a
+                            href={`/my-profile/${userName}/edit`}
+                            className="btn btn-dark"
+                          >
+                            Edit Profile
+                          </a>
                         </div>
-                        <div class="text mt-3">
+                        <div className="text mt-3">
                           <span>
                             Eleanor Pena is a creator of minimalistic x bold
                             graphics and digital artwork.
@@ -103,22 +135,22 @@ const ProfilePage = () => {
                             minting@ with FND night.{" "}
                           </span>
                         </div>
-                        <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
+                        <div className="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
                           <span>
-                            <i class="fa fa-twitter"></i>
+                            <i className="fa fa-twitter"></i>
                           </span>
                           <span>
-                            <i class="fa fa-facebook-f"></i>
+                            <i className="fa fa-facebook-f"></i>
                           </span>
                           <span>
-                            <i class="fa fa-instagram"></i>
+                            <i className="fa fa-instagram"></i>
                           </span>
                           <span>
-                            <i class="fa fa-linkedin"></i>
+                            <i className="fa fa-linkedin"></i>
                           </span>
                         </div>
-                        <div class=" px-2 rounded mt-4 date ">
-                          <span class="join">Joined May,2021</span>
+                        <div className=" px-2 rounded mt-4 date ">
+                          <span className="join">Joined May,2021</span>
                         </div>
                       </div>
                     </div>
