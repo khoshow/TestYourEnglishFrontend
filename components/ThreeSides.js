@@ -9,7 +9,7 @@ import RankingList from "./sideBars/RankingRightNav";
 
 const ThreeSides = ({ children }) => {
   const router = useRouter();
-  const [currentUrl, setCurrentUrl] = useState(null);
+  const [currentUrl, setCurrentUrl] = useState();
   const [authStatus, setAuthStatus] = useState(false);
   const [scoreData, setScoreData] = useState();
   const [userId, setUserId] = useState();
@@ -67,16 +67,17 @@ const ThreeSides = ({ children }) => {
     // };
     // // Call the fetchData function
 
-    fetchRankingData();
+    fetchRankingData(router.asPath);
   }, [loading, router.query, router.asPath, currentUrl, rankLoading]);
 
-  const fetchRankingData = async () => {
-    if (!router.asPath) {
-      return; //If slug value is undefined/null returns before getting updated value. use the dependency array for the updated value
-    }
+  const fetchRankingData = async (thisUrl) => {
+    // if (!router.asPath) {
+    //   return; //If slug value is undefined/null returns before getting updated value. use the dependency array for the updated value
+    // }
+    // let toSendSlug;
+    // const slug = router.asPath;
     let toSendSlug;
-    const slug = router.asPath;
-    const requiredSlug = slug.split("/");
+    let requiredSlug = thisUrl.split("/");
     const neededSlug = requiredSlug.slice(0, 4).join("/");
     switch (neededSlug) {
       case "/vocabulary/correct-word/intermediate":
@@ -90,7 +91,7 @@ const ThreeSides = ({ children }) => {
     }
     const response = await getRanking(toSendSlug)
       .then((res) => {
-        console.log("resp", res);
+      
         setRankingData(res);
         setRankLoading(false);
       })
@@ -103,9 +104,10 @@ const ThreeSides = ({ children }) => {
   const loadUserInfo = async (authenticatedId) => {
     const token = getCookie("token");
 
-    setUserId(authenticatedId);
+    // setUserId(authenticatedId);
     const response = await getUserScores(authenticatedId, token)
       .then((res) => {
+       
         setScoreData(res);
         setLoading(false);
         // setInterMediateScore(res[0].correctWordIntermediate.score);

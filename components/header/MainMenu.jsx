@@ -20,6 +20,7 @@ import { useRouter } from "next/router";
 const MainMenu = () => {
   const router = useRouter();
   const [userAuth, setUserAuth] = useState(false);
+  const [username, setUsername] = useState();
 
   const clicksignout = async () => {
     const response = await signout();
@@ -31,6 +32,7 @@ const MainMenu = () => {
   useEffect(() => {
     if (isAuth()) {
       setUserAuth(true);
+      setUsername(isAuth().username);
     }
   }, []);
 
@@ -59,15 +61,8 @@ const MainMenu = () => {
             </div>
           </li>
           {/* End li */}
-          <li className="nav-item dropdown mega-dropdown-md active">
-            <a
-              className="nav-link dropdown-toggle"
-              href="/"
-              role="button"
-              data-bs-toggle="dropdown"
-              data-bs-auto-close="outside"
-              aria-expanded="false"
-            >
+          <li className="nav-item active">
+            <a className="nav-link" href="/" role="button">
               Home
             </a>
           </li>
@@ -88,8 +83,12 @@ const MainMenu = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" href="/my-profile/khos" role="button">
-             My Pofile
+            <Link
+              className="nav-link"
+              href={`/my-profile/${username}`}
+              role="button"
+            >
+              My Pofile
             </Link>
           </li>
           {userAuth && (

@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const RankingList = ({ rankTop10, loading }) => {
-  console.log("data here", rankTop10);
-  console.log("data loading here", loading);
   const [rankingData, setRankingData] = useState();
 
   useEffect(() => {
@@ -14,7 +12,6 @@ const RankingList = ({ rankTop10, loading }) => {
     }
   }, [loading]);
 
-  console.log("Da", rankingData);
   if (!rankingData) {
     return (
       <div className="">
@@ -35,7 +32,7 @@ const RankingList = ({ rankTop10, loading }) => {
 
   return (
     <div className="">
-      <div className="">
+      <div className="mt-4">
         <h3 className="textCenter">Top 10</h3>
       </div>
 
@@ -46,13 +43,16 @@ const RankingList = ({ rankTop10, loading }) => {
               <a href="#" className=""></a>
 
               <div className="right-widget ms-auto d-flex align-items-center ">
-                <Link href="#" className="userProfileRightNav">
+                <Link
+                  href={`/profile/${item.username}`}
+                  className="userProfileRightNav"
+                >
                   <span>{index + 1}</span>
                   <span>
-                    <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
+                    <img src={item.photoUrl} />
                   </span>
                   <span>
-                    {item.userName} ({item.score})
+                    {item.name} ({item.score})
                   </span>
                 </Link>
                 {/* <Link

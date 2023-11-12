@@ -1,41 +1,53 @@
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Layout from "../../../components/Layout";
-import { isAuth } from "../../../actions/auth";
+import PrivateProfileLeftNavBar from "../../../components/sideBars/PrivateProfileLeftBar";
+import { isAuth, getCookie } from "../../../actions/auth";
 import { useRouter } from "next/router";
 import SigninForm from "../../../components/auth/SignInComponent";
 import { getPrivateProfile } from "../../../actions/profile/privateProfile";
+import { getUserScores } from "../../../actions/userInfo";
+import { updateStatus } from "../../../actions/profile/profile-update";
 
 const ProfilePage = () => {
-  const [userName, setUserName] = useState("User");
+  const router = useRouter();
+  const [username, setUsername] = useState("User");
   const [authStatus, setAuthStatus] = useState();
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
   const [data, setData] = useState();
   const [imageBufferData, setImageBufferData] = useState();
-  const router = useRouter();
+  const [statusLoading, setStatusLoading] = useState("");
+  const [profileLoading, setProfileLoading] = useState();
+  const [scoresLoading, setScoresLoading] = useState();
+  const [userScores, setUserScores] = useState();
+
+  const [formData, setFormData] = useState({
+    status: "",
+  });
+
   useEffect(() => {
     const checkIsAuth = isAuth();
     console.log("IsAu", checkIsAuth);
     if (checkIsAuth) {
+      const token = getCookie("token");
       console.log("Is Auth", isAuth());
       setAuthStatus(true);
       const user = isAuth().username;
-      setUserName(user);
+      setUsername(user);
       loadUserProfile(checkIsAuth._id);
+      loadUserScores(checkIsAuth._id, token);
     } else {
       router.push(`/signin`);
     }
   }, []);
 
   const loadUserProfile = async (user) => {
-    setLoading(true);
+    setProfileLoading(true);
     try {
       const res = await getPrivateProfile(user);
       console.log("resdsgf", res);
       setData(res);
-      const bufferData = Buffer.from(res.photo.data.data); // Your buffer data here
-      const base64String = bufferData.toString('base64')
-      setImageBufferData(base64String);
     } catch (err) {
       console.log("err", err);
       setError(true);
@@ -44,250 +56,314 @@ const ProfilePage = () => {
     }
   };
 
+  const loadUserScores = async (user, token) => {
+    setScoresLoading(true);
+    try {
+      const res = await getUserScores(user, token);
+      console.log("Scores", res);
+      setUserScores(res);
+    } catch (error) {
+      console.log("An error occured", error);
+      setError(true);
+      setUserScores(null);
+    } finally {
+      setScoresLoading(false);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmitStatus = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatusLoading("loading");
+    console.log("Status", formData.status);
+    let toChange = { newStatus: formData.status };
+    try {
+      const res = await updateStatus(toChange, token);
+      console.log("res", res);
+      setData(res);
+    } catch (err) {
+      console.log("err", err);
+    } finally {
+      setLoading(false);
+      setStatusLoading("loaded");
+    }
+  };
+
+  const buttonLoadStatus = () => {
+    if (statusLoading == "loading") {
+      return (
+        <div className="btn btn-secondary p-2 mt-3">
+          <i className="clock-loader bg-warning"></i> Updating...
+        </div>
+      );
+    } else if (statusLoading == "loaded") {
+      return (
+        <div className="btn btn-warning p-2 mt-3">
+          <i className="bi bi-check-circle-fill bg-warning"></i> Updated!
+        </div>
+      );
+    } else {
+      return (
+        <button className="btn btn-primary p-2  mt-3">
+          <i className="bi bi-check2-circle bg-primary text-white"></i> Update
+        </button>
+      );
+    }
+  };
+
+  if (!data) {
+    return <div className="text-center">Loading...</div>;
+  }
+
+  const displayScores = () => {
+    if (!userScores) {
+      return (
+        <div className="container col-xl-10 col-xxl-8 px-4 py-5 bg-warning">
+          <div className="row align-items-center g-lg-5 ">
+            <div className="col-lg-7 text-center text-lg-start">
+              <h2 className="fw-bold lh-1 text-body-emphasis mb-3 text-dark">
+                Get your English test scores out there!
+              </h2>
+              <p className="col-lg-10">
+                Test your English vocabulary, grammar and more! And see how you
+                perform.
+              </p>
+            </div>
+            <div className="col-md-10 mx-auto col-lg-5">
+              <Link
+                className="w-100 btn btn-lg btn-primary"
+                href="/vocabulary/correct-word/intermediate"
+              >
+                {" "}
+                Take a Test
+              </Link>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+      console.log("USer score", userScores);
+      return (
+        <div className="tiles">
+          <article className="tile">
+            <div className="">
+              <h3>Correct Word</h3>
+            </div>
+            <div>
+              <span>Intermediate</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
+
+                <span className="ms-1"> Score:</span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1"> Rank:</span>
+              </div>
+            </div>
+            <div className="mt-2">
+              <span>Advanced</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
+
+                <span className="ms-1"> Score:</span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1"> Rank:</span>
+              </div>
+            </div>
+            <div className="text-center mt-4">
+              <Link
+                className="btn btn-dark"
+                href="/vocabulary/correct-word/intermediate"
+              >
+                Take a Test
+              </Link>
+            </div>
+          </article>
+          <article className="tile">
+            <div className="">
+              <h3>What it Means</h3>
+            </div>
+            <div>
+              <span>Intermediate</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
+
+                <span className="ms-1"> Score:</span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1"> Rank:</span>
+              </div>
+            </div>
+            <div className="mt-2">
+              <span>Advanced</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
+
+                <span className="ms-1"> Score:</span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1"> Rank:</span>
+              </div>
+            </div>
+            <div className="text-center mt-4">
+              <Link
+                className="btn btn-dark"
+                href="/vocabulary/correct-word/intermediate"
+              >
+                Take a Test
+              </Link>
+            </div>
+          </article>
+          <article className="tile">
+            <div className="">
+              <h3>Synonym</h3>
+            </div>
+            <div>
+              <span>Intermediate</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
+
+                <span className="ms-1"> Score:</span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1"> Rank:</span>
+              </div>
+            </div>
+            <div className="mt-2">
+              <span>Advanced</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
+
+                <span className="ms-1"> Score:</span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1"> Rank:</span>
+              </div>
+            </div>
+            <div className="text-center mt-4">
+              <Link
+                className="btn btn-dark"
+                href="/vocabulary/correct-word/intermediate"
+              >
+                Take a Test
+              </Link>
+            </div>
+          </article>
+        </div>
+      );
+    }
+  };
+
   return (
     <>
       <Layout>
-        <div>
-          <div className="bodyNoRightNav">
-            <div className="app-body-navigation">
-              <nav className="navigation">
-                <a href="#">
-                  <i className="ph-browsers"></i>
-                  <span>Dashboard</span>
-                </a>
-                <a href="#">
-                  <i className="ph-check-square"></i>
-                  <span>Scheduled</span>
-                </a>
-                <a href="#">
-                  <i className="ph-swap"></i>
-                  <span>Transfers</span>
-                </a>
-                <a href="#">
-                  <i className="ph-file-text"></i>
-                  <span>Templates</span>
-                </a>
-                <a href="#">
-                  <i className="ph-globe"></i>
-                  <span>SWIFT</span>
-                </a>
-                <a href="#">
-                  <i className="ph-clipboard-text"></i>
-                  <span>Exchange</span>
-                </a>
-              </nav>
-              <footer className="footer">
-                <h1>
-                  Almeria<small>©</small>
-                </h1>
-                <div>
-                  Almeria ©<br />
-                  All Rights Reserved 2021
-                </div>
-              </footer>
-            </div>
-            <div className="">
-              <section className="service-section">
-                <h2>Service</h2>
+        <div className="row">
+          <div className="col-3 app-body-navigation">
+          <PrivateProfileLeftNavBar username={username} authStatus={authStatus}/>
+          </div>
+          <div className=" col-9">
+            <section className="service-section">
+              <div>
+                <div className=" mt-4 mb-4 p-3 ">
+                  <div className="">
+                    <div className="text-center d-flex row">
+                      <div className="text-center profileBox1 col-md-4">
+                        <img src={data.photoUrl} height="100" width="100" />
+                        <h4 className="">{data.name}</h4>
+                        <p className="">@{data.username}</p>
+                      </div>
+                      <div className="col-md-8">
+                        <div className="position-relative p-5  mt-4 border border-dashed rounded-5">
+                          <h3 className="text-body-emphasis position-absolute top-0 start-0">
+                            Status
+                          </h3>
+                          <p className="">{data.status}</p>
+                        </div>
 
-                <div>
-                  <div className=" mt-4 mb-4 p-3 d-flex justify-content-center">
-                    <div className="profileCard p-4">
-                      <div className=" profileImage d-flex flex-column justify-content-center align-items-center">
-                        <button className="btn btn-secondary">
-                          {data ? (
-                            <img
-                              src={`data:${data.photo.data.type};base64,${imageBufferData}`}
-                              height="100"
-                              width="100"
-                            />
-                          ) : (
-                            ""
-                          )}
+                        <button
+                          type="button"
+                          className="btn btn-primary mt-4"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
+                        >
+                          Update Status
                         </button>
-                        <span className="name mt-3">Eleanor Pena</span>{" "}
-                        <span className="idd">@eleanorpena</span>{" "}
-                        <div className="d-flex flex-row justify-content-center align-items-center gap-2">
-                          <span className="idd1">Oxc4c16a645_b21a</span>{" "}
-                          <span>
-                            <i className="fa fa-copy"></i>
-                          </span>
-                        </div>
-                        <div className="d-flex flex-row justify-content-center align-items-center mt-3">
-                          <span className="number">
-                            1069 <span className="follow">Followers</span>
-                          </span>
-                        </div>
-                        <div className=" d-flex mt-2">
-                          <a
-                            href={`/my-profile/${userName}/edit`}
-                            className="btn btn-dark"
-                          >
-                            Edit Profile
-                          </a>
-                        </div>
-                        <div className="text mt-3">
-                          <span>
-                            Eleanor Pena is a creator of minimalistic x bold
-                            graphics and digital artwork.
-                            <br />
-                            <br /> Artist/ Creative Director by Day #NFT
-                            minting@ with FND night.{" "}
-                          </span>
-                        </div>
-                        <div className="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
-                          <span>
-                            <i className="fa fa-twitter"></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-facebook-f"></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-instagram"></i>
-                          </span>
-                          <span>
-                            <i className="fa fa-linkedin"></i>
-                          </span>
-                        </div>
-                        <div className=" px-2 rounded mt-4 date ">
-                          <span className="join">Joined May,2021</span>
+                        <div
+                          className="modal fade"
+                          id="exampleModal"
+                          tabindex="-1"
+                          aria-labelledby="exampleModalLabel"
+                          aria-hidden="true"
+                        >
+                          <div className="modal-dialog modal-dialog-centered">
+                            <div className="modal-content">
+                              <div className="modal-header">
+                                {/* <h1
+                                className="modal-title fs-5"
+                                id="exampleModalLabel"
+                              >
+                                It's good to say your feeling! Update your
+                                status.
+                              </h1> */}
+                                <button
+                                  type="button"
+                                  className="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                ></button>
+                              </div>
+                              <form onSubmit={handleSubmitStatus}>
+                                <div className=" p-3">
+                                  <textarea
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="How you feeling today!"
+                                    name="status"
+                                    value={formData.status}
+                                    onChange={handleInputChange}
+                                  />
+
+                                  {buttonLoadStatus()}
+                                </div>
+                              </form>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  ;
                 </div>
-                <div className="tiles">
-                  <article className="tile">
-                    <div className="tile-header">
-                      <i className="ph-lightning-light"></i>
-                      <h3>
-                        <span>Electricity</span>
-                        <span>UrkEnergo LTD.</span>
-                      </h3>
-                    </div>
-                    <a href="#">
-                      <span>Go to service</span>
-                      <span className="icon-button">
-                        <i className="ph-caret-right-bold"></i>
-                      </span>
-                    </a>
-                  </article>
-                  <article className="tile">
-                    <div className="tile-header">
-                      <i className="ph-fire-simple-light"></i>
-                      <h3>
-                        <span>Heating Gas</span>
-                        <span>Gazprom UA</span>
-                      </h3>
-                    </div>
-                    <a href="#">
-                      <span>Go to service</span>
-                      <span className="icon-button">
-                        <i className="ph-caret-right-bold"></i>
-                      </span>
-                    </a>
-                  </article>
-                  <article className="tile">
-                    <div className="tile-header">
-                      <i className="ph-file-light"></i>
-                      <h3>
-                        <span>Tax online</span>
-                        <span>Kharkov 62 str.</span>
-                      </h3>
-                    </div>
-                    <a href="#">
-                      <span>Go to service</span>
-                      <span className="icon-button">
-                        <i className="ph-caret-right-bold"></i>
-                      </span>
-                    </a>
-                  </article>
-                </div>
-                <div className="service-section-footer">
-                  <p>
-                    Services are paid according to the current state of the
-                    currency and tariff.
-                  </p>
-                </div>
-              </section>
-              <section className="transfer-section">
-                <div className="transfer-section-header">
-                  <h2>Latest transfers</h2>
-                  <div className="filter-options">
-                    <p>Filter selected: more than 100 $</p>
-                    <button className="icon-button">
-                      <i className="ph-funnel"></i>
-                    </button>
-                    <button className="icon-button">
-                      <i className="ph-plus"></i>
-                    </button>
-                  </div>
-                </div>
-                <div className="transfers">
-                  <div className="transfer">
-                    <div className="transfer-logo">
-                      <img src="https://assets.codepen.io/285131/apple.svg" />
-                    </div>
-                    <dl className="transfer-details">
-                      <div>
-                        <dt>Apple Inc.</dt>
-                        <dd>Apple ID Payment</dd>
-                      </div>
-                      <div>
-                        <dt>4012</dt>
-                        <dd>Last four digits</dd>
-                      </div>
-                      <div>
-                        <dt>28 Oct. 21</dt>
-                        <dd>Date payment</dd>
-                      </div>
-                    </dl>
-                    <div className="transfer-number">- $ 550</div>
-                  </div>
-                  <div className="transfer">
-                    <div className="transfer-logo">
-                      <img src="https://assets.codepen.io/285131/pinterest.svg" />
-                    </div>
-                    <dl className="transfer-details">
-                      <div>
-                        <dt>Pinterest</dt>
-                        <dd>2 year subscription</dd>
-                      </div>
-                      <div>
-                        <dt>5214</dt>
-                        <dd>Last four digits</dd>
-                      </div>
-                      <div>
-                        <dt>26 Oct. 21</dt>
-                        <dd>Date payment</dd>
-                      </div>
-                    </dl>
-                    <div className="transfer-number">- $ 120</div>
-                  </div>
-                  <div className="transfer">
-                    <div className="transfer-logo">
-                      <img src="https://assets.codepen.io/285131/warner-bros.svg" />
-                    </div>
-                    <dl className="transfer-details">
-                      <div>
-                        <dt>Warner Bros.</dt>
-                        <dd>Cinema</dd>
-                      </div>
-                      <div>
-                        <dt>2228</dt>
-                        <dd>Last four digits</dd>
-                      </div>
-                      <div>
-                        <dt>22 Oct. 21</dt>
-                        <dd>Date payment</dd>
-                      </div>
-                    </dl>
-                    <div className="transfer-number">- $ 70</div>
-                  </div>
-                </div>
-              </section>
-            </div>
+                ;
+              </div>
+              {displayScores()}
+            </section>
           </div>
         </div>
       </Layout>

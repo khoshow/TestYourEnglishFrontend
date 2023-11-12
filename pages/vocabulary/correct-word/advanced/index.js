@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import DefaultHeader from "../../../../components/header/DefaultHeader";
+import DefaultHeader from "../../../components/header/DefaultHeader";
 import Link from "next/link";
-import { getCorrectWordsMedium } from "../../../../actions/correct-word/medium";
-import Words from "../../../../components/words";
+import { getCorrectWordsMedium } from "../../../actions/correct-word/medium";
+import Words from "../../../components/words";
 
 const CorrectWordsMedium = ({ incomingData }) => {
   const router = useRouter();

@@ -7,13 +7,15 @@ import { isAuth } from "../../actions/auth";
 const DefaultHeader = () => {
   const [navbar, setNavbar] = useState(false);
   const [firstName, setFirstName] = useState();
+  const [profilePhoto, setProfilePhoto] = useState();
 
   const getFirstName = () => {
     if (isAuth()) {
       let fullName = isAuth().name;
       let displayName = fullName.split(" ")[0];
-      console.log("DName", displayName);
+      
       setFirstName(displayName);
+     
     } else return;
   };
   const changeBackground = () => {
@@ -28,8 +30,9 @@ const DefaultHeader = () => {
     if (isAuth()) {
       let fullName = isAuth().name;
       let displayName = fullName.split(" ")[0];
-      console.log("DName", displayName);
+      console.log("IsAuth", isAuth());
       setFirstName(displayName);
+      setProfilePhoto(isAuth().photoUrl)
     }
     window.addEventListener("scroll", changeBackground);
     return () => {
@@ -60,9 +63,9 @@ const DefaultHeader = () => {
           {firstName && (
             <div className="right-widget ms-auto d-flex align-items-center ">
               <Link href={`/profile/${firstName}`} className="user-profile">
-                <span>{firstName}</span>
+                <span className="nav-link">{firstName}</span>
                 <span>
-                  <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
+                  <img src={profilePhoto} />
                 </span>
               </Link>
               {/* <Link

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import AvatarEditor from "react-avatar-editor";
 import Layout from "../../../components/Layout";
+import PrivateProfileLeftNavBar from "../../../components/sideBars/PrivateProfileLeftBar";
+
 import {
   updateStatus,
   updateMessage,
@@ -22,7 +24,7 @@ const profileEdit = () => {
   const editor = useRef(null);
   const [loading, setLoading] = useState(false);
   const [authStatus, setAuthStatus] = useState();
-  const [userName, setUserName] = useState();
+  const [username, setUsername] = useState();
   const [userEmail, setUserEmail] = useState();
   const [statusLoading, setStatusLoading] = useState("");
   const [messageLoading, setMessageLoading] = useState("");
@@ -57,7 +59,7 @@ const profileEdit = () => {
       setAuthStatus(true);
 
       const user = isAuth().username;
-      setUserName(user);
+      setUsername(user);
       setUserEmail(isAuth().email);
     } else {
       router.push(`/signin`);
@@ -198,7 +200,7 @@ const profileEdit = () => {
                     </div>
                   )}
                 </div>
-                <span className="font-weight-bold">{userName}</span>
+                <span className="font-weight-bold">{username}</span>
                 <span className="text-black-50">{userEmail}</span>
                 <span> </span>
               </div>

@@ -1,18 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
 
+
+
 :root {
-  --color1: #48494e;
-  --color2: #f0f696;
-  --color3: #f0f696;
-  --color4: #f5b5fc;
-  --color5: #3d5af1;
-  --colorRed: #cb3b3b;
-  --colorGreen: #0b8457;
-  --colorYellow: #eac100;
+  --color1: #00a78e;
+  --color2: #f47721;
+  --color3: #7ac143;
+  --color4: #d20962;
+  --color5: #00bce4;
+  --color6: #7d3f98;
+
 }
 
 /* Apply a basic reset to remove default styles */
-
+.theme-main-menu{
+  background-color: var(--color1)
+}
 @media only screen and (max-width: 576px) {
   .quote-content {
     height: auto !important;
@@ -28,7 +31,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #efefef;
 }
 // Navigation
 .tabs {
@@ -54,6 +56,9 @@
   }
 }
 
+p {
+  margin-bottom: 0;
+}
 .navigation .level-side-nav {
   margin-top: 0.2rem;
   padding-left: 10px;
@@ -417,21 +422,21 @@ hr .new1 {
   }
 }
 
-.bodyNoRightNav {
-  height: 100%;
-  display: grid;
-  grid-template-columns: minmax(min-content, 175px) minmax(max-content, 1fr);
+// .bodyNoRightNav {
+//   height: 100%;
+//   display: grid;
+//   grid-template-columns: minmax(min-content, 175px) minmax(max-content, 1fr);
 
-  column-gap: 4rem;
-  padding-top: 2.5rem;
+//   column-gap: 4rem;
+//   padding-top: 2.5rem;
 
-  @media (max-width: 1200px) {
-    grid-template-columns: 1fr;
-    & > * {
-      margin-bottom: 3.5rem;
-    }
-  }
-}
+//   @media (max-width: 1200px) {
+//     grid-template-columns: 1fr;
+//     & > * {
+//       margin-bottom: 3.5rem;
+//     }
+//   }
+// }
 
 .app-body-navigation {
   display: flex;
@@ -492,4 +497,50 @@ hr .new1 {
   to {
     transform: rotate(1turn);
   }
+}
+
+.profileBox1 img {
+  margin: auto auto;
+  border-radius: 10%;
+  border: 2px solid black;
+}
+
+.profileBox1 p {
+  margin: 0;
+  line-height: normal;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1rem;
+  row-gap: 1rem;
+  margin-top: 1.25rem;
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.tile {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--c-olive-500);
+  color: var(--c-gray-900);
+  &:nth-child(2) {
+    background-color: var(--c-green-500);
+    &:focus-within {
+      box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-green-500);
+    }
+  }
+  &:nth-child(3) {
+    background-color: var(--c-gray-300);
+    &:focus-within {
+      box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-gray-300);
+    }
+  }
+}
+
+.tile btn {
+  text-align: center;
+  margin: 0 auto;
 }

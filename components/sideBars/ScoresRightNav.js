@@ -22,7 +22,7 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
         {authStatus ? (
           <div className="">
             <div className="">
-              <h3 className="textCenter">Sectional Score</h3>
+              <h3 className="textCenter" >Sectional Score</h3>
             </div>
             <div className="aboveRoundedFrame">
               <div className="roundedScoreFrame">{score ? score : ""}</div>
