@@ -32,20 +32,23 @@ function Second2(pageData, next) {
     // Returns null on first render, so the client and server match
     return null;
   }
+  console.log("Anot Pae", pageData);
   const token = getCookie("token");
   const userId = isAuth()._id
+  const username = isAuth().username
 
   const updateUserScore = () => {
    
     const dataToSend = {
       userId:userId,
+      username:username,
       testId:pageData.data.testId,
       testNo: testNo,
       rightlyAnswered: rightlyAnswered,
       wronglyAnswered: wronglyAnswered,
     };
   
-    postScore(dataToSend, token, "hello")
+    postScore(dataToSend, token)
       .then((res) => {
         console.log("res", res);
       })

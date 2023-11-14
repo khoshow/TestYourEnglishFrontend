@@ -2,6 +2,7 @@ import fetch from "isomorphic-fetch";
 import cookie from "js-cookie";
 import { API } from "../../config";
 import Router from "next/router";
+import { useRouter } from "next/router";
 
 export const handleResponse = (response) => {
   if (response.status === 401) {
@@ -75,19 +76,45 @@ export const signin = (user) => {
     .catch((err) => console.log(err));
 };
 
-export const signout = (next) => {
+// export const signout = async (req, res) => {
+//   removeCookie("token");
+//   removeLocalStorage("user");
+
+//   return await fetch(`${API}/api/signout`, {
+//     method: "GET",
+//     Accept: "application/json",
+   
+//   })
+//     .then((response) => {
+//       console.log("sig", response);
+//       return response.json();
+//     })
+//     .catch((err) => console.log(err));
+// };
+
+export const signout = async (req, res) => {
   removeCookie("token");
   removeLocalStorage("user");
-  // next();
 
-  return fetch(`${API}/api/signout`, {
-    method: "GET",
-  })
-    .then((response) => {
-      console.log("signout success");
-    })
-    .catch((err) => console.log(err));
+  try {
+    const response = await fetch(`${API}/api/signout`, {
+      method: "GET",
+      Accept: "application/json",
+    });
+
+    if (!response.ok) {
+      throw new Error(`Signout failed with status ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("sig", data); // Log the parsed JSON data
+    return data;
+  } catch (err) {
+    console.error("Error during signout:", err);
+    throw err; // Rethrow the error to be handled in the calling code
+  }
 };
+
 
 // set cookie
 export const setCookie = (key, value) => {

@@ -52,7 +52,7 @@ const DefaultHeader = () => {
           <div className="logo order-lg-0">
             <Link href="/" className="d-block">
               <Image
-                src="/images/logo/logo2.jpg"
+                src="/images/logo/logo7.png"
                 alt="logo"
                 width="250"
                 height="60"

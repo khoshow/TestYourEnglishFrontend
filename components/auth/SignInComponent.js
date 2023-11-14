@@ -41,7 +41,7 @@ const SigninForm = () => {
           if (isAuth() && isAuth().role === 1) {
             Router.push(`/admin/${data.user.username}`);
           } else {
-            Router.push(`/profile/${data.user.username}`);
+            Router.push(`/my-profile/${data.user.username}`);
           }
         });
       }

@@ -76,7 +76,7 @@ const CorrectWordsMedium = () => {
     <>
       <Layout>
         <ThreeSides>
-          <div className="fancy-feature-twentyOne position-relative mt-50 lg-pb-60">
+          {/* <div className="fancy-feature-twentyOne position-relative mt-50 lg-pb-60"> */}
             <div className="container">
               <div className="row">
                 <div className="col-lg-9 m-auto text-center">
@@ -97,7 +97,7 @@ const CorrectWordsMedium = () => {
               </div>
               {/* End .row */}
             </div>
-          </div>
+          {/* </div> */}
         </ThreeSides>
       </Layout>
     </>

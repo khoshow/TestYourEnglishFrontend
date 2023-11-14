@@ -23,10 +23,18 @@ const MainMenu = () => {
   const [username, setUsername] = useState();
 
   const clicksignout = async () => {
-    const response = await signout();
-    response;
+    try {
 
-    // router.push("/signin");
+      const res = await signout();
+     
+  
+     
+        router.push("/signin");
+      
+    } catch (error) {
+      console.error("Error during signout:", error);
+      // Handle errors if needed
+    }
   };
 
   useEffect(() => {
@@ -139,6 +147,7 @@ const MainMenu = () => {
         </div>
       </div>
     </nav>
+ 
   );
 };
 

@@ -164,11 +164,13 @@ const ProfilePage = () => {
                   <i className="bi bi-award "></i>
                 </span>
 
-                <span className="ms-1"> Score:</span>
+                <span className="ms-1">
+                  Score: {userScores.correctWordIntermediate.scores}
+                </span>
                 <span className="icon-button bg-primary ms-4">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
-                <span className="ms-1"> Rank:</span>
+                <span className="ms-1"> Rank: {userScores.correctWordIntermediate.rank}</span>
               </div>
             </div>
             <div className="mt-2">
@@ -178,7 +180,7 @@ const ProfilePage = () => {
                   <i className="bi bi-award "></i>
                 </span>
 
-                <span className="ms-1"> Score:</span>
+                <span className="ms-1"> Score: {userScores.correctWordAdvanced.scores ? userScores.correctWordAdvanced.scores :""}</span>
                 <span className="icon-button bg-primary ms-4">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
@@ -286,7 +288,10 @@ const ProfilePage = () => {
       <Layout>
         <div className="row">
           <div className="col-3 app-body-navigation">
-          <PrivateProfileLeftNavBar username={username} authStatus={authStatus}/>
+            <PrivateProfileLeftNavBar
+              username={username}
+              authStatus={authStatus}
+            />
           </div>
           <div className=" col-9">
             <section className="service-section">

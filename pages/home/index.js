@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getTestTypes } from "../../actions/test";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
+import ThreeSides from "../../components/TwoSides2";
 
 const Test = () => {
   const router = useRouter();
@@ -42,8 +43,9 @@ const Test = () => {
     <>
       <Layout>
         {/* <DefaultHeader /> */}
+      
 
-        <div className="fancy-feature-twentyOne position-relative mt-50 pt-80 pb-150 lg-mt-130 lg-pt-60 lg-pb-60">
+        {/* <div className="fancy-feature-twentyOne position-relative mt-50 pt-80 pb-150 lg-mt-130 lg-pt-60 lg-pb-60"> */}
           <div className="container">
             <div className="row">
               <div className="col-lg-9 m-auto text-center">
@@ -64,7 +66,7 @@ const Test = () => {
               >
                 {/* <Link href="/vocabulary/correct-word" className="read-btn mt-auto "> */}
                 <div
-                  className="card-style-ten d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
+                  className=" d-flex flex-column bg-white pe-3 ps-3 pe-xl-5 ps-xl-5 pt-60 pb-45 lg-pt-40 lg-pb-30 p-50"
                   style={{ minWidth: "300px" }}
                 >
                   <Link
@@ -80,7 +82,7 @@ const Test = () => {
                         />
                       </div>
                       <h4 className="fw-300 mt-20 mb-50">The Correct Word</h4>
-                      <p className="btn-eleven fs-15 fw-500  text-center">
+                      <p className="btn btn-primary fs-15 fw-500  text-center">
                         Start
                       </p>
                     </div>
@@ -268,7 +270,7 @@ const Test = () => {
            
           </div>
         
-        </div>
+        {/* </div> */}
       </Layout>
     </>
   );

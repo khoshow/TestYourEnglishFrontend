@@ -43,7 +43,7 @@ const LogIn = () => {
         </div>
         {/* End form-wrapper */}
 
-        <p className="mt-auto pt-50">Copyright @{currentYear} jano inc.</p>
+        <p className="mt-auto pt-50">Copyright @{currentYear} Test My English Online</p>
         <img
           src="/images/assets/ils_11.png"
           alt="illustration"

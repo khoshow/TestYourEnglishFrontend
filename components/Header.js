@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Router from "next/router";
+import { useRouter } from "next/router";
 import NProgress from "nprogress";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -20,29 +21,29 @@ import {
   DropdownItem,
 } from "reactstrap";
 import ".././node_modules/nprogress/nprogress.css";
-import Search from "./blog/Search";
-import Modal from "./blog/Modal";
+
 
 Router.onRouteChangeStart = (url) => NProgress.start();
 Router.onRouteChangeComplete = (url) => NProgress.done();
 Router.onRouteChangeError = (url) => NProgress.done();
 
+
+
 const Header = () => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenLogin, setIsOpenLogin] = useState(false);
   const [firstName, setFirstName] = useState("user");
   const [mounted, setMounted] = useState(false);
 
-  const getFirstName =()=>{
+  const getFirstName = () => {
     if (isAuth()) {
       let fullName = isAuth().name;
       let displayName = fullName.split(" ")[0];
       setFirstName(displayName);
-    }
-    else return
-  
-  }
- 
+    } else return;
+  };
+
   useEffect(() => {
     setMounted(true);
     // getFirstName()
@@ -51,6 +52,36 @@ const Header = () => {
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+
+  // const loadSignout = async () => {
+  //   try {
+  //     const res = await signout();
+  //     console.log("Hee", res);
+  //     router.push("/login");
+  //   } catch (error) {
+  //     console.error("Error during signout:", error);
+  //     // Handle errors if needed
+  //   }
+  // };
+
+  const loadSignout = async () => {
+    try {
+      console.log('Before signout call'); // Add this line for debugging
+      const res = await signout();
+      console.log('After signout call'); // Add this line for debugging
+      if (res) {
+        console.log('Hee', res);
+        router.push('/login');
+      } else {
+        console.log('No response from signout');
+      }
+     
+    } catch (error) {
+      console.error('Error during signout:', error);
+      // Handle errors if needed
+    }
+  };
+  
 
   return (
     mounted && (
@@ -85,7 +116,7 @@ const Header = () => {
                             Write
                           </a>
                         </NavItem>
-                        <Modal
+                        {/* <Modal
                           open={isOpenLogin}
                           onClose={() => setIsOpenLogin(false)}
                         >
@@ -95,7 +126,7 @@ const Header = () => {
                               <a className=" btn btn-primary">Sign In</a>
                             </Link>
                           </div>
-                        </Modal>
+                        </Modal> */}
                       </div>
                       <div className="OTHER_CONTENT_STYLES"></div>
                     </div>
@@ -150,15 +181,17 @@ const Header = () => {
                   {isAuth() && (
                     <NavItem>
                       <a
-                        className="nav-link"
+                        className="nav-link thisone"
                         style={{ cursor: "pointer" }}
-                        onClick={() => signout(() => Router.replace(`/signin`))}
+                        onClick={loadSignout}
                       >
-                       <i class="fas fa-lightbulb fa-lightbulb-hover" title="Sign Out"></i>
+                        <i
+                          class="fas fa-lightbulb fa-lightbulb-hover"
+                          title="Sign Out"
+                        ></i>
                       </a>
                     </NavItem>
                   )}
-
                 </Nav>
               </Collapse>
             </div>

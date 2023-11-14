@@ -1,20 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
 
-
-
 :root {
-  --color1: #00a78e;
+  --color1: #008374;
   --color2: #f47721;
   --color3: #7ac143;
   --color4: #d20962;
   --color5: #00bce4;
   --color6: #7d3f98;
-
+  --color7: #051e34;
+  --color8: #48494e;
+  --color9: #1769aa;
 }
 
 /* Apply a basic reset to remove default styles */
-.theme-main-menu{
-  background-color: var(--color1)
+.theme-main-menu {
+  background-color: var(--color1);
 }
 @media only screen and (max-width: 576px) {
   .quote-content {
@@ -58,6 +58,31 @@
 
 p {
   margin-bottom: 0;
+}
+h5 {
+  color: white;
+}
+
+.btn {
+  background-color: #b28900;
+  color:white
+}
+.btn:hover {
+  background-color: #008374;
+  color:white
+}
+
+.plainLink {
+  color: #ffffffcc;
+}
+.plainLink:hover {
+  color: #ffd8d8cc;
+}
+.plainLinkLightbackground{
+  color: #00000099;
+}
+.plainLinkLightbackground :hover{
+  color: #2b2b2b;
 }
 .navigation .level-side-nav {
   margin-top: 0.2rem;
@@ -173,7 +198,9 @@ p {
   border-radius: 20px;
   box-shadow: 5px 5px 20px rgba(203, 205, 211, 0.1);
 }
-
+.card{
+  margin:"10px 5px";
+}
 .card-title {
   padding-top: 15%;
   color: #556b2f;

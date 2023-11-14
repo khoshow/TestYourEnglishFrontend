@@ -6,7 +6,7 @@ import { isAuth, getCookie } from "../../actions/auth";
 import { useRouter } from "next/router";
 import SigninForm from "../../components/auth/SignInComponent";
 import { getPrivateProfile } from "../../actions/profile/privateProfile";
-import { getUserScores } from "../../actions/userInfo";
+import { getPublicDisplayUserScores } from "../../actions/publicInfo/scoresRank";
 import { updateStatus } from "../../actions/profile/profile-update";
 
 const ProfilePage = () => {
@@ -20,14 +20,41 @@ const ProfilePage = () => {
   const [userScores, setUserScores] = useState();
 
   useEffect(() => {
-    setCurrentUrl(router.query.slug);
+    setCurrentUrl(router.query.username);
 
-    if (!router.query.slug) {
-      return; //If slug value is undefined/null returns before getting updated value. use the dependency array for the updated value
-    } else {
-      loadUserScores(router.query.slug);
+    const loadUserScores = async (username) => {
+      try {
+        const res = await getPublicDisplayUserScores(username);
+        setUserScores(res);
+        setCurrentUrl(router.query.username);
+
+        // Perform the necessary logic to load user scores
+        // For example: const userScores = await fetchUserScores(slug);
+        // Handle the data as needed
+      } catch (error) {
+        // Handle errors if any
+        console.error("Error loading user scores:", error);
+      }
+    };
+    if (router.query.username) {
+      loadUserScores(router.query.username);
     }
-  }, []);
+    const handleRouteChange = () => {
+      // Check if slug is present
+      if (router.query.username) {
+        // If slug is present, load user scores
+        loadUserScores(router.query.username);
+      }
+    };
+    loadUserScores(router.query.username);
+    // Attach the listener
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // Clean up the listener when the component unmounts
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.query.username, router.asPath, currentUrl]);
 
   const loadUserScores = async (user) => {
     setScoresLoading(true);
@@ -44,146 +71,183 @@ const ProfilePage = () => {
     }
   };
 
- 
-
   const displayScores = () => {
-    return (
-      <div className="tiles">
-        <article className="tile">
-          <div className="">
-            <h3>Correct Word</h3>
-          </div>
-          <div>
-            <span>Intermediate</span>
-            <div className="d-flex">
-              <span className="icon-button bg-primary">
-                <i className="bi bi-award "></i>
-              </span>
-
-              <span className="ms-1"> Score:</span>
-              <span className="icon-button bg-primary ms-4">
-                <i className="bi bi-bar-chart-line "></i>
-              </span>
-              <span className="ms-1"> Rank:</span>
+    if (!userScores) {
+      return (
+        <div className="container col-xl-10 col-xxl-8 px-4 py-5 bg-warning">
+          <div className="row align-items-center g-lg-5 ">
+            <div className="col-lg-7 text-center text-lg-start">
+              <h2 className="fw-bold lh-1 text-body-emphasis mb-3 text-dark">
+                Get your English test scores out there!
+              </h2>
+              <p className="col-lg-10">
+                Test your English vocabulary, grammar and more! And see how you
+                perform.
+              </p>
+            </div>
+            <div className="col-md-10 mx-auto col-lg-5">
+              <Link
+                className="w-100 btn btn-lg btn-primary"
+                href="/vocabulary/correct-word/intermediate"
+              >
+                {" "}
+                Take a Test
+              </Link>
             </div>
           </div>
-          <div className="mt-2">
-            <span>Advanced</span>
-            <div className="d-flex">
-              <span className="icon-button bg-primary">
-                <i className="bi bi-award "></i>
-              </span>
-
-              <span className="ms-1"> Score:</span>
-              <span className="icon-button bg-primary ms-4">
-                <i className="bi bi-bar-chart-line "></i>
-              </span>
-              <span className="ms-1"> Rank:</span>
+        </div>
+      );
+    } else {
+      console.log("USer score", userScores);
+      return (
+        <div className="tiles">
+          <article className="tile">
+            <div className="">
+              <h3>Correct Word</h3>
             </div>
-          </div>
-          <div className="text-center mt-4">
-            <Link
-              className="btn btn-dark"
-              href="/vocabulary/correct-word/intermediate"
-            >
-              Take a Test
-            </Link>
-          </div>
-        </article>
-        <article className="tile">
-          <div className="">
-            <h3>What it Means</h3>
-          </div>
-          <div>
-            <span>Intermediate</span>
-            <div className="d-flex">
-              <span className="icon-button bg-primary">
-                <i className="bi bi-award "></i>
-              </span>
+            <div>
+              <span>Intermediate</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
 
-              <span className="ms-1"> Score:</span>
-              <span className="icon-button bg-primary ms-4">
-                <i className="bi bi-bar-chart-line "></i>
-              </span>
-              <span className="ms-1"> Rank:</span>
+                <span className="ms-1">
+                  Score: {userScores.correctWordIntermediate.score}
+                </span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1">
+                  {" "}
+                  Rank: {userScores.correctWordIntermediate.rank}
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="mt-2">
-            <span>Advanced</span>
-            <div className="d-flex">
-              <span className="icon-button bg-primary">
-                <i className="bi bi-award "></i>
-              </span>
+            <div className="mt-2">
+              <span>Advanced</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
 
-              <span className="ms-1"> Score:</span>
-              <span className="icon-button bg-primary ms-4">
-                <i className="bi bi-bar-chart-line "></i>
-              </span>
-              <span className="ms-1"> Rank:</span>
+                <span className="ms-1">
+                  {" "}
+                  Score:{" "}
+                  {userScores.correctWordAdvanced.score
+                    ? userScores.correctWordAdvanced.score
+                    : ""}
+                </span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1"> Rank:</span>
+              </div>
             </div>
-          </div>
-          <div className="text-center mt-4">
-            <Link
-              className="btn btn-dark"
-              href="/vocabulary/correct-word/intermediate"
-            >
-              Take a Test
-            </Link>
-          </div>
-        </article>
-        <article className="tile">
-          <div className="">
-            <h3>Synonym</h3>
-          </div>
-          <div>
-            <span>Intermediate</span>
-            <div className="d-flex">
-              <span className="icon-button bg-primary">
-                <i className="bi bi-award "></i>
-              </span>
+            <div className="text-center mt-4">
+              <Link
+                className="btn btn-dark"
+                href="/vocabulary/correct-word/intermediate"
+              >
+                Take a Test
+              </Link>
+            </div>
+          </article>
+          <article className="tile">
+            <div className="">
+              <h3>What it Means</h3>
+            </div>
+            <div>
+              <span>Intermediate</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
 
-              <span className="ms-1"> Score:</span>
-              <span className="icon-button bg-primary ms-4">
-                <i className="bi bi-bar-chart-line "></i>
-              </span>
-              <span className="ms-1"> Rank:</span>
+                <span className="ms-1"> Score:</span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1"> Rank:</span>
+              </div>
             </div>
-          </div>
-          <div className="mt-2">
-            <span>Advanced</span>
-            <div className="d-flex">
-              <span className="icon-button bg-primary">
-                <i className="bi bi-award "></i>
-              </span>
+            <div className="mt-2">
+              <span>Advanced</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
 
-              <span className="ms-1"> Score:</span>
-              <span className="icon-button bg-primary ms-4">
-                <i className="bi bi-bar-chart-line "></i>
-              </span>
-              <span className="ms-1"> Rank:</span>
+                <span className="ms-1"> Score:</span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1"> Rank:</span>
+              </div>
             </div>
-          </div>
-          <div className="text-center mt-4">
-            <Link
-              className="btn btn-dark"
-              href="/vocabulary/correct-word/intermediate"
-            >
-              Take a Test
-            </Link>
-          </div>
-        </article>
-      </div>
-    );
+            <div className="text-center mt-4">
+              <Link
+                className="btn btn-dark"
+                href="/vocabulary/correct-word/intermediate"
+              >
+                Take a Test
+              </Link>
+            </div>
+          </article>
+          <article className="tile">
+            <div className="">
+              <h3>Synonym</h3>
+            </div>
+            <div>
+              <span>Intermediate</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
+
+                <span className="ms-1"> Score:</span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1"> Rank:</span>
+              </div>
+            </div>
+            <div className="mt-2">
+              <span>Advanced</span>
+              <div className="d-flex">
+                <span className="icon-button bg-primary">
+                  <i className="bi bi-award "></i>
+                </span>
+
+                <span className="ms-1"> Score:</span>
+                <span className="icon-button bg-primary ms-4">
+                  <i className="bi bi-bar-chart-line "></i>
+                </span>
+                <span className="ms-1"> Rank:</span>
+              </div>
+            </div>
+            <div className="text-center mt-4">
+              <Link
+                className="btn btn-dark"
+                href="/vocabulary/correct-word/intermediate"
+              >
+                Take a Test
+              </Link>
+            </div>
+          </article>
+        </div>
+      );
+    }
   };
 
   return (
     <>
       <Layout>
         <div className="row">
-          <div className="col-3 app-body-navigation">
+          {/* <div className="col-3 app-body-navigation">
             <PublicProfileLeftNavBar />
           </div>
-          <div className=" col-9">
+          <div className=" col-9"> */}
             <section className="service-section">
               {/* <div>
                 <div className=" mt-4 mb-4 p-3 ">
@@ -209,7 +273,7 @@ const ProfilePage = () => {
               </div> */}
               {displayScores()}
             </section>
-          </div>
+          {/* </div> */}
         </div>
       </Layout>
     </>

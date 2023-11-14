@@ -88,10 +88,10 @@ export const update = (correctWordMedium, slug, token) => {
     .catch((err) => console.log(err));
 };
 
-export const postScore = (data, token, slug) => {
+export const postScore = (data, token) => {
   console.log("da", data);
   console.log("token here", token);
-  return fetch(`${API}/api/correct-words-intermediate/score-update/${slug}`, {
+  return fetch(`${API}/api/correct-words-intermediate/score-update`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
