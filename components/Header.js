@@ -97,8 +97,8 @@ const Header = () => {
                 <Nav className="ml-auto" navbar>
                   {isAuth() ? (
                     <NavItem>
-                      <Link href="/user/crud/blog">
-                        <a className="btn btn-info">Write</a>
+                      <Link href="/user/crud/blog" className="btn btn-info">
+                        Write
                       </Link>
                     </NavItem>
                   ) : (

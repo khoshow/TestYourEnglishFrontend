@@ -5,17 +5,35 @@ import MyHeader from "../components/header/MyHeader";
 import React from "react";
 import ReactDOM from "react-dom";
 import TwoSides2 from "./TwoSides2";
+import { ClassNames } from "@emotion/react";
+import SideNav from "./SideNav";
+import { Hidden, Drawer } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import IconButton from "@mui/material/IconButton";
 
 const Layout = ({ children }) => {
   return (
     <React.Fragment>
       {/* {/* <Header /> */}
-      <MyHeader />
-      <TwoSides2>
-        {/* <div className="fancy-feature-twentyOne position-relative mt-50 pt-80 pb-150 lg-mt-130 lg-pt-60 lg-pb-60"></div> */}
+      <div className=" d-flex" style={{}}>
+        <div className="makeItFixed " style={{ zIndex: "1000" }}>
+          <SideNav />
+        </div>
+        <div className="" style={{ flex: "1", zIndex: "900" }}>
+          <MyHeader />
+          {children}
+        </div>
+      </div>
 
-        <div className="container">{children}</div>
-      </TwoSides2>
+      {/* <div className="d-flex " style={{ height: "100vh" }}>
+        <div style={{ width: "300px" }}>First</div>
+
+        <div className="SecondDiv" style={{ flex: "1" }}>
+          <div>Hello</div>
+        </div>
+      </div> */}
+
+      {/* <TwoSides2>{children}</TwoSides2> */}
     </React.Fragment>
   );
 };

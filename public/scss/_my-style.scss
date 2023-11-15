@@ -31,6 +31,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  // overflow-x: hidden;
+  // max-width: 100%;
 }
 // Navigation
 .tabs {
@@ -65,11 +67,11 @@ h5 {
 
 .btn {
   background-color: #b28900;
-  color:white
+  color: white;
 }
 .btn:hover {
   background-color: #008374;
-  color:white
+  color: white;
 }
 
 .plainLink {
@@ -78,10 +80,28 @@ h5 {
 .plainLink:hover {
   color: #ffd8d8cc;
 }
-.plainLinkLightbackground{
+.plainLinkLightbackground {
   color: #00000099;
 }
-.plainLinkLightbackground :hover{
+@media only screen and (max-width: 901px) {
+  .leftSideNav {
+    display: none;
+  }
+  .leftSideNavMenu {
+   display: block !important;
+   
+  }
+}
+@media only screen and (min-width: 902px) {
+  .leftSideNavMenu {
+    display: none;
+   
+  }
+}
+.parentop{
+  z-index: -4;
+}
+.plainLinkLightbackground :hover {
   color: #2b2b2b;
 }
 .navigation .level-side-nav {
@@ -198,8 +218,8 @@ h5 {
   border-radius: 20px;
   box-shadow: 5px 5px 20px rgba(203, 205, 211, 0.1);
 }
-.card{
-  margin:"10px 5px";
+.card {
+  margin: "10px 5px";
 }
 .card-title {
   padding-top: 15%;

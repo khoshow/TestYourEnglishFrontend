@@ -36,11 +36,12 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar className="sticky-top" position="static" style={{padding:"10px", backgroundColor:"#6c757d"}}>
-      <Container maxWidth="x">
-        <Toolbar disableGutters>
+    
+    <AppBar className="sticky-top"   style={{padding:"10px", backgroundColor:"#6c757d", }}>
+      
+        <Toolbar disableGutters className="d-flex " >
          
-          <Typography
+          {/* <Typography
             variant="h6"
             noWrap
             component="a"
@@ -56,7 +57,7 @@ function ResponsiveAppBar() {
             }}
           >
             <img src="/images/logo/logo5.png" alt="" width={250} />
-          </Typography>
+          </Typography> */}
 
           {/* <Box sx={{ marginLeft:"auto",flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -113,7 +114,7 @@ function ResponsiveAppBar() {
           >
              <img src="/images/logo/logo5.png" alt="" width={250} />
           </Typography>
-          <Box sx={{margin:"auto auto", display: { xs: "none", md: "flex" } }}>
+          <Box sx={{marginRight:"auto", display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -155,8 +156,9 @@ function ResponsiveAppBar() {
             </Menu>
           </Box>
         </Toolbar>
-      </Container>
+      
     </AppBar>
+
   );
 }
 export default ResponsiveAppBar;
