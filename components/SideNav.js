@@ -548,12 +548,13 @@ const sideNav = ({ children }) => {
               sx={{ width: 265, left: 0, height: "100vh" }}
             >
               <FireNav component="nav" disablePadding className="" style={{}}>
-                <ListItemButton component="a" href="#customized-list">
-                  <ListItemIcon sx={{ fontSize: 20, paddingTop: "10px" }}>
-                    {" "}
-                    <img src="/images/logo/logo5.png" alt="" width={220} />
-                  </ListItemIcon>
-                </ListItemButton>
+                <Link href="/">
+                  <ListItemButton component="a" href="#customized-list">
+                    <ListItemIcon sx={{ fontSize: 20, paddingTop: "10px" }}>
+                      <img src="/images/logo/logo5.png" alt="" width={220} />
+                    </ListItemIcon>
+                  </ListItemButton>
+                </Link>
                 <br></br>
                 {/* <Divider />
                 <ListItem component="div" disablePadding>

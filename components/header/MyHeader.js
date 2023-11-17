@@ -12,13 +12,77 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
+import AvatarEditor from "react-avatar-editor";
+import { getPrivateProfile } from "../../actions/profile/privateProfile";
+import { isAuth, getCookie, signout } from "../../actions/auth";
+import { useRouter } from "next/router";
 
-const pages = ["Products", "Pricing", "Blog"];
+
+const pages = [
+  { title: "Home", url: "/" },
+  { title: "Contact", url: "/contact" },
+];
+const profile = [{ title: "Profile", url: "/profile" }];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState();
+  const [authStatus, setAuthStatus] = useState();
+  const [username, setUsername] = useState();
+  const [userEmail, setUserEmail] = useState();
+  const [statusLoading, setStatusLoading] = useState("");
+  const [messageLoading, setMessageLoading] = useState("");
+  const [nameLoading, setNameLoading] = useState("");
+  const [usernameLoading, setUsernameLoading] = useState("");
+  const [sexLoading, setSexLoading] = useState("");
+  const [countryLoading, setCountryLoading] = useState("");
+  const [stateLoading, setStateLoading] = useState("");
+  const [aboutLoading, setAboutLoading] = useState("");
+  const [dobLoading, setDobLoading] = useState("");
+  const [photoLoading, setPhotoLoading] = useState("");
+  const [errorMessage, setErrorMessage] = useState();
+  const [file, setFile] = useState(null);
+  const [error, setError] = useState();
+  const [imageUrl, setImageUrl] = useState();
+  const [firstName, setFirstName] = useState();
+  const [profilePhoto, setProfilePhoto] = useState();
+  const router = useRouter();
+  const token = getCookie("token");
+  useEffect(() => {
+    const checkIsAuth = isAuth();
+    console.log("IsAu", checkIsAuth);
+    if (checkIsAuth) {
+      console.log("Is Auth", isAuth());
+      setAuthStatus(true);
+      let fullName = isAuth().name;
+      let displayName = fullName.split(" ")[0];
+      const user = isAuth().username;
+      setUsername(user);
+      setUserEmail(isAuth().email);
+      loadUserProfile(checkIsAuth._id);
+      setFirstName(displayName);
+      setProfilePhoto(isAuth().photoUrl);
+    }
+  }, []);
+  const loadUserProfile = async (user) => {
+    setLoading(true);
+    try {
+      const res = await getPrivateProfile(user);
+      console.log("resdsgf", res);
+      setData(res);
+      setImageUrl(res.photoUrl);
+    } catch (err) {
+      console.log("err", err);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -34,102 +98,59 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const clicksignout = async () => {
+    try {
+      const res = await signout();
 
+      router.push("/signin");
+    } catch (error) {
+      console.error("Error during signout:", error);
+      // Handle errors if needed
+    }
+  };
   return (
-    
-    <AppBar className="sticky-top"   style={{padding:"10px", backgroundColor:"#6c757d", }}>
-      
-        <Toolbar disableGutters className="d-flex " >
-         
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            <img src="/images/logo/logo5.png" alt="" width={250} />
-          </Typography> */}
+    <AppBar
+      className="sticky-top"
+      style={{ padding: "10px", backgroundColor: "#6c757d" }}
+    >
+      <Toolbar disableGutters className="d-flex ">
+        <Typography
+          variant="h5"
+          noWrap
+          component="a"
+          href="#app-bar-with-responsive-menu"
+          sx={{
+            display: { xs: "flex", md: "none" },
+            margin: "auto auto",
 
-          {/* <Box sx={{ marginLeft:"auto",flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box> */}
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              display: { xs: "flex", md: "none" },
-              margin:"auto auto",
-           
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-             <img src="/images/logo/logo5.png" alt="" width={250} />
-          </Typography>
-          <Box sx={{marginRight:"auto", display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            fontFamily: "monospace",
+            fontWeight: 700,
+            letterSpacing: ".3rem",
+            color: "inherit",
+            textDecoration: "none",
+          }}
+        >
+          <img src="/images/logo/logo5.png" alt="" width={250} />
+        </Typography>
+        <Box sx={{ marginRight: "auto", display: { xs: "none", md: "flex" } }}>
+          {pages.map((page) => (
+            <Link href={page.url}>
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {page.title}
               </Button>
-            ))}
-          </Box>
+            </Link>
+          ))}
+        </Box>
 
+        {authStatus ? (
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
+              <span className="noMobileDisplay">{firstName}</span>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src={profilePhoto} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -148,17 +169,93 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <Link href="/profile">
+                  <MenuItem>
+                    <Typography textAlign="center">
+                      Signed In Profile
+                    </Typography>
+                  </MenuItem>
+                </Link>
+                <Link href="/profile">
+                  <MenuItem>
+                    <Typography textAlign="center">Profile Edit</Typography>
+                  </MenuItem>
+                </Link>
+                <MenuItem>
+                  <Button onClick={() => clicksignout()}>
+                    {" "}
+                    <Typography textAlign="center"> Signout</Typography>
+                  </Button>
                 </MenuItem>
-              ))}
+                {/* <NavItem>
+                  <a
+                    className="nav-link"
+                    style={{ cursor: "pointer" }}
+                    // onClick={() => signout(() => Router.replace(`/signin`))}
+                    onClick={() => clicksignout()}
+                  >
+                    <i
+                      className="fas fa-lightbulb fa-lightbulb-hover"
+                      title="Sign Out"
+                    >
+                      Signout
+                    </i>
+                  </a>
+                </NavItem> */}
+              </div>
             </Menu>
           </Box>
-        </Toolbar>
-      
+        ) : (
+          <Box sx={{ flexGrow: 0 }}>
+            {/* <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip> */}
+             <Link href="/signup">
+                  <MenuItem>
+                    <Typography textAlign="center">Sign Up</Typography>
+                  </MenuItem>
+                </Link>
+                <Link href="/signin">
+                  <MenuItem>
+                    <Typography textAlign="center">Log In</Typography>
+                  </MenuItem>
+                </Link>
+            <Menu
+              sx={{ mt: "45px", display: "flex", flexDirection: "row" }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <Link href="/profile">
+                  <MenuItem>
+                    <Typography textAlign="center">No Profile</Typography>
+                  </MenuItem>
+                </Link>
+                <Link href="/profile">
+                  <MenuItem>
+                    <Typography textAlign="center">Profile Edit</Typography>
+                  </MenuItem>
+                </Link>
+              </div>
+            </Menu>
+          </Box>
+        )}
+      </Toolbar>
     </AppBar>
-
   );
 }
 export default ResponsiveAppBar;

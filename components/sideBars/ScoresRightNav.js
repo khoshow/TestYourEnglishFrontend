@@ -7,7 +7,6 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
     if (loading == true) {
       setScore("Loading");
     } else {
- 
       if (!data.correctIntermediate) {
         setScore("-");
       } else {
@@ -22,17 +21,51 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
         {authStatus ? (
           <div className="">
             <div className="">
-              <h3 className="textCenter" >Sectional Score</h3>
+              <h3 className="textCenter">Sectional Score</h3>
             </div>
             <div className="aboveRoundedFrame">
               <div className="roundedScoreFrame">{score ? score : ""}</div>
               <div></div>
             </div>{" "}
-           
           </div>
         ) : (
           <div>
-            <div className="card">Log In or Sign Up</div>
+            <Card
+              className=" text-center "
+              sx={{
+                // border: "1px solid black",
+                boxShadow: 3,
+                backgroundColor: "#1769aa",
+                minWidth: 300,
+                padding: "20px 20px",
+                maxWidth: 345,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                margin: "20px 10px",
+              }}
+            >
+              <i
+                className="bi bi-flag-fill cardIcon cardIconOrange"
+                style={{}}
+              ></i>
+
+              <CardContent>
+                <h5 className="cardTitle">Intermediate</h5>
+              </CardContent>
+
+              <CardActions className="">
+                <Link href="/vocabulary/correct-word/intermediate">
+                  <Button
+                    size="small"
+                    className="btn "
+                    style={{ margin: "auto auto" }}
+                  >
+                    Start
+                  </Button>
+                </Link>
+              </CardActions>
+            </Card>
           </div>
         )}
         <div></div>

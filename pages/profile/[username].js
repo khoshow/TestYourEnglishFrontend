@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Layout from "../../components/Layout";
+import Layout3 from "../../components/Layout3";
 import PublicProfileLeftNavBar from "../../components/sideBars/PublicProfileLeftBar";
 import { isAuth, getCookie } from "../../actions/auth";
 import { useRouter } from "next/router";
@@ -242,8 +242,8 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Layout>
-        <div className="row">
+      <Layout3>
+      
           {/* <div className="col-3 app-body-navigation">
             <PublicProfileLeftNavBar />
           </div>
@@ -274,8 +274,8 @@ const ProfilePage = () => {
               {displayScores()}
             </section>
           {/* </div> */}
-        </div>
-      </Layout>
+     
+      </Layout3>
     </>
   );
 };

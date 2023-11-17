@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PaginatedList from "../../../../components/playground/PaginatedComponent";
 import Link from "next/link";
-import Layout from "../../../../components/Layout";
+import Layout3 from "../../../../components/Layout3";
 import ThreeSides from "../../../../components/ThreeSides";
 import { isAuth, getCookie } from "../../../../actions/auth";
 import { getTestData } from "../../../../actions/correct-word/intermediate";
@@ -48,13 +48,11 @@ const App = () => {
   // });
 
   return (
-    <Layout>
-      <ThreeSides>
-        <div className=" row justify-content-center " style={{}}>
-          <PaginatedList itemsPerPage={itemsPerPage} data={data} />
-        </div>
-      </ThreeSides>
-    </Layout>
+    <Layout3>
+      <div className=" row justify-content-center " style={{}}>
+        <PaginatedList itemsPerPage={itemsPerPage} data={data} />
+      </div>
+    </Layout3>
   );
 };
 

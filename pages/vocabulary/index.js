@@ -6,71 +6,7 @@ import { getTestTypes } from "../../actions/test";
 import { useRouter } from "next/router";
 
 const Test = () => {
-  const router = useRouter();
-  const [currentUrl, setcurrentUrl] = useState(router.asPath);
-  const [pageInfo, setPageInfo] = useState([
-    {
-      url: currentUrl + "test/vocabulary",
-      title: "Vocabulary Test",
-      image: "/images/icon/vocabulary.png",
-    },
-    {
-      url: currentUrl + "test/idiom-phrases",
-      title: "Idioms & Phrases",
-      image: "/images/icon/idioms.png",
-    },
-  ]);
-  const pageData = () => {
-    return {
-      path: currentUrl,
-      pageInfo: pageInfo,
-    };
-  };
-  return (
-    <>
-      <DefaultHeader />
-
-      <div className="fancy-feature-twentyOne position-relative mt-50 pt-80 pb-150 lg-mt-130 lg-pt-60 lg-pb-60">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-9 m-auto text-center">
-              <div className=" me-auto  md-mt-10">
-                <div className="title-style-two">
-                  <h2 className="main-title fw-normal tx-dark m0">
-                    {/* Test your English */}
-                  </h2>
-                </div>
-                {/* /.title-style-one */}
-              </div>
-            </div>
-          </div>
-          <div className="row justify-content-center " style={{}}>
-            <TestCategory sendToChild={pageData} />
-          </div>
-          {/* End .row */}
-        </div>
-        {/* End .container */}
-        <div className="shapes shape-one rounded-circle" />
-        <div className="shapes shape-two rounded-circle" />
-        <div className="shapes shape-three rounded-circle" />
-        <img
-          src="/images/shape/shape_88.svg"
-          alt="shape"
-          className="lazy-img shapes shape-four"
-        />
-        <img
-          src="/images/shape/shape_89.svg"
-          alt="shape"
-          className="lazy-img shapes shape-five"
-        />
-        <div
-          className="col-xxl-2 col-xl-3 col-lg-3 col-sm-5 ms-auto d-flex align-items-center justify-content-center text-center text-sm-start mt-40"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        ></div>
-      </div>
-    </>
-  );
+  return (<></>)
 };
 
 // Test.getInitialProps = async function () {

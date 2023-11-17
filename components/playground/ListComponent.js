@@ -1,125 +1,133 @@
 import React from "react";
 import Link from "next/link";
+import Card from "@mui/material/Card";
 
 const ListComponent = ({ items }) => {
   console.log("Items", items);
 
   return (
     <>
-      <div
-        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
-        style={{ textAlign: "center" }}
-      >
-        <Link
-          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 8}`}
-        >
-          <div className="bg-lightgrey d-flex flex-column p-2">
-            <h3 className="card-title">Group</h3>
-            <div className="weave">{items * 9 - 8}</div>
-            <div className="quote-content">
-              {" "}
-              <p className="font-light">"yay, everything is working."</p>
-            </div>
+      <div>
+        <div className="heading alt-two">
+          <h1>
+            Select a Test to Start!
+            <span className="subHeading">
+              Best of Luck
+            </span>
+          </h1>
+        </div>
 
-            <button className="btn btn-primary">continue</button>
-          </div>
-        </Link>
-      </div>
-      <div
-        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
-        style={{ textAlign: "center" }}
-      >
-        <Link
-          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 7}`}
+        <div
+          className=" d-flex flex-wrap "
+          style={{ justifyContent: "center", marginTop: "2rem" }}
         >
-          <div className="bg-lightgrey text-group d-flex flex-column p-2">
-            <h3 className="card-title">Group</h3>
-            <div className="weave">{items * 9 - 7}</div>
-            <div className="quote-content">
-              {" "}
-              <p className="font-light">"yay, everything is working."</p>
-            </div>
-            <button className="btn btn-primary">continue</button>
-          </div>
-        </Link>
-      </div>
-      <div
-        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
-        style={{ textAlign: "center" }}
-      >
-        <Link
-          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 6}`}
-        >
-          <div className="bg-lightgrey d-flex flex-column p-2">
-            <h3 className="card-title">Group</h3>
-            <div className="weave">{items * 9 - 6}</div>
-            <div className="quote-content">
-              {" "}
-              <p className="font-light">
-              yay, everything is working. But is there anytnbing more we can do" But also what is important we have
-              </p>
-            </div>
+          <Card
+            className="myCard text-center "
+           
+          >
+            <Link
+              href={`/vocabulary/correct-word/intermediate/test-${
+                items * 6 - 5
+              }`}
+            >
+              <h3 className="cardTitle">Test No.</h3>
+              <div className="weave2">{items * 6 - 5}</div>
+              <div className="quote-content">
+                <p className="">"Yay, everything is working."</p>
+              </div>
 
-            <button className="btn btn-primary">continue</button>
-          </div>
-        </Link>
-      </div>
-      <div
-        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
-        style={{ textAlign: "center" }}
-      >
-        <Link
-          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 8}`}
-        >
-          <div className="bg-lightgrey d-flex flex-column p-2">
-            <h3 className="card-title">Group</h3>
-            <div className="weave">{items * 9 - 8}</div>
-            <div className="quote-content">
-              {" "}
-              <p className="font-light">"yay, everything is working."</p>
-            </div>
+              <button className="btn btn-primary">continue</button>
+            </Link>
+          </Card>
+          <Card
+            className="myCard text-center "
+          
+          >
+            <Link
+              href={`/vocabulary/correct-word/intermediate/test-${
+                items * 6 - 4
+              }`}
+            >
+              <h3 className="cardTitle">Test No.</h3>
+              <div className="weave2">{items * 6 - 4}</div>
+              <div className="quote-content">
+                <p className="">"Yay, everything is working."</p>
+              </div>
 
-            <button className="btn btn-primary">continue</button>
-          </div>
-        </Link>
-      </div>
-      <div
-        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
-        style={{ textAlign: "center" }}
-      >
-        <Link
-          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 8}`}
-        >
-          <div className="bg-lightgrey d-flex flex-column p-2">
-            <h3 className="card-title">Group</h3>
-            <div className="weave">{items * 9 - 8}</div>
-            <div className="quote-content">
-              {" "}
-              <p className="font-light">"yay, everything is working."</p>
-            </div>
+              <button className="btn btn-primary">continue</button>
+            </Link>
+          </Card>
+          <Card
+            className="myCard text-center "
+            
+          >
+            <Link
+              href={`/vocabulary/correct-word/intermediate/test-${
+                items * 6 - 3
+              }`}
+            >
+              <h3 className="cardTitle">Test No.</h3>
+              <div className="weave2">{items * 6 - 3}</div>
+              <div className="quote-content">
+                <p className="">"Yay, everything is working."</p>
+              </div>
 
-            <button className="btn btn-primary">continue</button>
-          </div>
-        </Link>
-      </div>
-      <div
-        className="col-xl-4 col-md-6 col-sm-6 col-12 mt-40 p-2 dynamic-height"
-        style={{ textAlign: "center" }}
-      >
-        <Link
-          href={`/vocabulary/correct-word/intermediate/test-${items * 9 - 8}`}
-        >
-          <div className="bg-lightgrey d-flex flex-column p-2">
-            <h3 className="card-title">Group</h3>
-            <div className="weave">{items * 9 - 8}</div>
-            <div className="quote-content">
-              {" "}
-              <p className="font-light">"yay, everything is working."</p>
-            </div>
+              <button className="btn btn-primary">continue</button>
+            </Link>
+          </Card>
+          <Card
+            className="myCard text-center "
+           
+          >
+            <Link
+              href={`/vocabulary/correct-word/intermediate/test-${
+                items * 6 - 2
+              }`}
+            >
+              <h3 className="cardTitle">Test No.</h3>
+              <div className="weave2">{items * 6 - 2}</div>
+              <div className="quote-content">
+                <p className="">"Yay, everything is working."</p>
+              </div>
 
-            <button className="btn btn-primary">continue</button>
-          </div>
-        </Link>
+              <button className="btn btn-primary">continue</button>
+            </Link>
+          </Card>
+          <Card
+            className="myCard text-center "
+            
+          >
+            <Link
+              href={`/vocabulary/correct-word/intermediate/test-${
+                items * 6 - 1
+              }`}
+            >
+              <h3 className="cardTitle">Test No.</h3>
+              <div className="weave2">{items * 6 - 1}</div>
+              <div className="quote-content">
+                <p className="">"Yay, everything is working."</p>
+              </div>
+
+              <button className="btn btn-primary">continue</button>
+            </Link>
+          </Card>
+          <Card
+            className="myCard text-center "
+           
+          >
+            <Link
+              href={`/vocabulary/correct-word/intermediate/test-${items * 6}`}
+            >
+              <h3 className="cardTitle">Test No.</h3>
+              <div className="weave2">{items * 6}</div>
+              <div className="quote-content">
+                <p className="">"Yay, everything is working."</p>
+              </div>
+
+              <button className="btn btn-primary">continue</button>
+            </Link>
+          </Card>
+        </div>
       </div>
     </>
   );
