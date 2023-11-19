@@ -213,14 +213,14 @@ function ResponsiveAppBar() {
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip> */}
-             <Link href="/signup">
+             <Link href="/signup" className="noMobileDisplay">
                   <MenuItem>
                     <Typography textAlign="center">Sign Up</Typography>
                   </MenuItem>
                 </Link>
-                <Link href="/signin">
+                <Link href="/signin" className="" style={{}}>
                   <MenuItem>
-                    <Typography textAlign="center">Log In</Typography>
+                    <Typography textAlign="center">Sign In</Typography>
                   </MenuItem>
                 </Link>
             <Menu

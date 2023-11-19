@@ -1,6 +1,6 @@
 import fetch from "isomorphic-fetch";
-import { API } from "../../config";
-import { isAuth, handleResponse } from "../auth";
+import { API } from "../../../../config";
+import { isAuth, handleResponse } from "../../../auth";
 
 export const create = (correctWordsIntermediate, token) => {
   console.log("Data from action", correctWordsIntermediate);
@@ -23,7 +23,7 @@ export const create = (correctWordsIntermediate, token) => {
 };
 
 export const getCorrectWordsIntermediate = () => {
-  return fetch(`${API}/api/correct-words-intermediate`, {
+  return fetch(`${API}/api/correct-word-intermediate`, {
     Accept: "json/application",
     method: "GET",
   })
@@ -34,7 +34,7 @@ export const getCorrectWordsIntermediate = () => {
 };
 
 export const getTestNo = (testNo) => {
-  return fetch(`${API}/api/correct-words-intermediate/${testNo}`, {
+  return fetch(`${API}/api/correct-word-intermediate/${testNo}`, {
     Accept: "json/application",
     method: "GET",
   })
@@ -91,7 +91,7 @@ export const update = (correctWordMedium, slug, token) => {
 export const postScore = (data, token) => {
   console.log("da", data);
   console.log("token here", token);
-  return fetch(`${API}/api/correct-words-intermediate/score-update`, {
+  return fetch(`${API}/api/correct-word-intermediate/score-update`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
@@ -110,7 +110,7 @@ export const postScore = (data, token) => {
 
 export const getTestData = (userId, token) => {
   return fetch(
-    `${API}/api/correct-words-intermediate/user-test-data/${userId}`,
+    `${API}/api/correct-word-intermediate/user-test-data/${userId}`,
     {
       method: "GET",
       headers: {

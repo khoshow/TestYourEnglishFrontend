@@ -3,7 +3,7 @@ import ListComponent from "./ListComponent";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useRouter } from "next/router";
-import { getTotalTestNo } from "../../actions/publicInfo/totalTests";
+import { getTotalTestNo } from "../../../../../actions/publicInfo/totalTests";
 
 const PaginatedList = ({ itemsPerPage, data }) => {
   const [totalTest, setTotalTest] = useState();
@@ -24,7 +24,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const handleChange = (event, value) => {
     // Update the route to the selected page
-    router.push(`/vocabulary/correct-word/intermediate/test-${value}`);
+    router.push(`/vocabulary/correct-word/advanced/test-${value}`);
   };
 
   if (!totalTest) {
@@ -36,7 +36,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
         <ListComponent items={currentPage} />
         <Stack spacing={2}>
           <Pagination
-            count={totalTest%6}
+            count={10}
             variant="outlined"
             shape="rounded"
             color="secondary"

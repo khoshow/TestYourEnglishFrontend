@@ -1,6 +1,6 @@
 import fetch from "isomorphic-fetch";
-import { API } from "../../config";
-import { isAuth, handleResponse } from "../auth";
+import { API } from "../../../../config";
+import { isAuth, handleResponse } from "../../../auth";
 
 export const create = (correctWordsIntermediate, token) => {
   console.log("Data from action", correctWordsIntermediate);

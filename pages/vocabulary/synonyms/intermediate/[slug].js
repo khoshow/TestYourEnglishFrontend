@@ -6,13 +6,13 @@ import PaginatedList from "../../../../components/playground/PaginatedComponent"
 import {
   getCorrectWordsMedium,
   getTestNo,
-} from "../../../../actions/categories/correct-word/intermediate";
-import TestPage from "../../../../components/categories/correctWord/intermediate/testPage/First";
+} from "../../../../actions/categories/synonyms/intermediate";
+import TestPage from "../../../../components/categories/synonyms/intermediate/testPage/First";
 import Fallback from "../../../../components/fallback";
 import Layout3 from "../../../../components/Layout3";
 import ThreeSides from "../../../../components/ThreeSides";
 
-const CorrectWordsIntermediate = () => {
+const SynonymsIntermediate = () => {
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(null);
   const [data, setData] = useState(null);
@@ -87,4 +87,4 @@ const CorrectWordsIntermediate = () => {
   );
 };
 
-export default CorrectWordsIntermediate;
+export default SynonymsIntermediate;

@@ -1,18 +1,18 @@
 import fetch from "isomorphic-fetch";
-import { API } from "../../config";
-import { isAuth, handleResponse } from "../auth";
+import { API } from "../../../../config";
+import { isAuth, handleResponse } from "../../../auth";
 
-export const create = (correctWordsIntermediate, token) => {
-  console.log("Data from action", correctWordsIntermediate);
+export const create = (correctWordsAdvanced, token) => {
+  console.log("Data from action", correctWordsAdvanced);
   console.log("Token", token);
-  return fetch(`${API}/api/correct-word-intermediate`, {
+  return fetch(`${API}/api/correct-word-advanced`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(correctWordsIntermediate),
+    body: JSON.stringify(correctWordsAdvanced),
   })
     .then((response) => {
       // console.log(category.name);
@@ -22,8 +22,8 @@ export const create = (correctWordsIntermediate, token) => {
     .catch((err) => console.log(err));
 };
 
-export const getCorrectWordsIntermediate = () => {
-  return fetch(`${API}/api/correct-words-intermediate`, {
+export const getcorrectWordsAdvanced = () => {
+  return fetch(`${API}/api/correct-word-advanced`, {
     Accept: "json/application",
     method: "GET",
   })
@@ -34,7 +34,7 @@ export const getCorrectWordsIntermediate = () => {
 };
 
 export const getTestNo = (testNo) => {
-  return fetch(`${API}/api/correct-words-intermediate/${testNo}`, {
+  return fetch(`${API}/api/correct-word-advanced/${testNo}`, {
     Accept: "json/application",
     method: "GET",
   })
@@ -44,8 +44,8 @@ export const getTestNo = (testNo) => {
     .catch((err) => console.log(err));
 };
 
-export const singleCorrectWordMedium = (slug) => {
-  return fetch(`${API}/correct-word-medium/${slug}`, {
+export const singleCorrectWordAdvanced = (slug) => {
+  return fetch(`${API}/correct-word-advanced/${slug}`, {
     method: "GET",
   })
     .then((response) => {
@@ -54,8 +54,8 @@ export const singleCorrectWordMedium = (slug) => {
     .catch((err) => console.log(err));
 };
 
-export const removeCorrectWordMedium = (slug, token) => {
-  return fetch(`${API}/correct-word-medium/${slug}`, {
+export const removeCorrectWordAdvanced = (slug, token) => {
+  return fetch(`${API}/correct-word-advanced/${slug}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
@@ -70,15 +70,15 @@ export const removeCorrectWordMedium = (slug, token) => {
     .catch((err) => console.log(err));
 };
 
-export const update = (correctWordMedium, slug, token) => {
+export const update = (correctWordAdvanced, slug, token) => {
   // console.log("categroy: "+ category);
-  return fetch(`${API}/correct-word-medium/update/${slug}`, {
+  return fetch(`${API}/correct-word-advanced/update/${slug}`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: correctWordMedium,
+    body: correctWordAdvanced,
   })
     .then((response) => {
       // console.log(category.name);
@@ -91,7 +91,7 @@ export const update = (correctWordMedium, slug, token) => {
 export const postScore = (data, token) => {
   console.log("da", data);
   console.log("token here", token);
-  return fetch(`${API}/api/correct-words-intermediate/score-update`, {
+  return fetch(`${API}/api/correct-word-advanced/score-update`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
@@ -110,7 +110,7 @@ export const postScore = (data, token) => {
 
 export const getTestData = (userId, token) => {
   return fetch(
-    `${API}/api/correct-words-intermediate/user-test-data/${userId}`,
+    `${API}/api/correct-word-advanced/user-test-data/${userId}`,
     {
       method: "GET",
       headers: {

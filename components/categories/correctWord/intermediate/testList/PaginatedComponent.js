@@ -3,7 +3,7 @@ import ListComponent from "./ListComponent";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { useRouter } from "next/router";
-import { getTotalTestNo } from "../../actions/publicInfo/totalTests";
+import { getTotalTestNo } from "../../../../../actions/publicInfo/totalTests";
 
 const PaginatedList = ({ itemsPerPage, data }) => {
   const [totalTest, setTotalTest] = useState();

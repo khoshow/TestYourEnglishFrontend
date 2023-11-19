@@ -13,6 +13,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
 
 const Test = () => {
   const router = useRouter();
@@ -48,13 +50,18 @@ const Test = () => {
   };
   return (
     <>
-      <Layout>
-        {/* <DefaultHeader /> */}
+      <div style={{ backgroundColor: "#dee1ec" }}>
+        <Layout>
+          <div className="heading alt-two">
+            <h1 id="h1Home">
+              Enhance your English skills
+              <span className="subHeading">
+                With our comprehensive testing platform.
+              </span>
+            </h1>
+          </div>
 
-        {/* <div className="fancy-feature-twentyOne position-relative mt-50 pt-80 pb-150 lg-mt-130 lg-pt-60 lg-pb-60"> */}
-        <>
-          {/* <div className="row justify-content-center d-flex" style={{}}> */}
-
+          <br></br>
           <div
             className=" d-flex flex-wrap "
             style={{ justifyContent: "center" }}
@@ -87,13 +94,15 @@ const Test = () => {
               </CardContent>
 
               <CardActions className="">
-                <Link href="/vocabulary/correct-word"><Button
-                  size="small"
-                  className="btn "
-                  style={{ margin: "auto auto" }}
-                >
-                  Start
-                </Button></Link>
+                <Link href="/vocabulary/correct-word">
+                  <Button
+                    size="small"
+                    className="btn "
+                    style={{ margin: "auto auto" }}
+                  >
+                    Start
+                  </Button>
+                </Link>
               </CardActions>
               <CardActions>
                 <Link
@@ -153,14 +162,14 @@ const Test = () => {
               </CardActions>
               <CardActions>
                 <Link
-                  href="/vocabulary/correct-word/intermediate"
+                  href="/vocabulary/correct-meaning/intermediate"
                   size="small"
                   className=" plainLinkLightbackground"
                 >
                   Intermediate
                 </Link>
                 <Link
-                  href="/vocabulary/correct-word/advanced"
+                  href="/vocabulary/correct-meaning/advanced"
                   size="small"
                   className="plainLinkLightbackground"
                 >
@@ -200,24 +209,26 @@ const Test = () => {
               </CardContent>
 
               <CardActions className="">
-                <Button
-                  size="small"
-                  className="btn "
-                  style={{ margin: "auto auto" }}
-                >
-                  Start
-                </Button>
+              <Link href="/vocabulary/synonyms">
+                  <Button
+                    size="small"
+                    className="btn btn-info"
+                    style={{ margin: "auto auto" }}
+                  >
+                    Start
+                  </Button>
+                </Link>
               </CardActions>
               <CardActions>
                 <Link
-                  href="/vocabulary/correct-word/intermediate"
+                  href="/vocabulary/synonyms/intermediate"
                   size="small"
                   className="btn-outline plainLink"
                 >
                   Intermediate
                 </Link>
                 <Link
-                  href="/vocabulary/correct-word/advanced"
+                  href="/vocabulary/synonyms/advanced"
                   size="small"
                   className="plainLink"
                 >
@@ -226,8 +237,18 @@ const Test = () => {
               </CardActions>
             </Card>
           </div>
-        </>
-      </Layout>
+          <div className="container">
+            <div className="mt-4">
+              <p className="">
+                Our approach is crafted to be enjoyable, complimentary, and
+                interactive, fostering an enhanced language proficiency
+                experience.
+              </p>
+            </div>
+          
+          </div>
+        </Layout>
+      </div>
     </>
   );
 };

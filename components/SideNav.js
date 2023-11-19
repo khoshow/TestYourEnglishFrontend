@@ -211,19 +211,22 @@ const sideNav = ({ children }) => {
       <IconButton
         onClick={handleDrawerToggle}
         style={{
-          display: "block",
+          // display: "block",
           position: "fixed",
-          top: "20px",
+          top: "21px",
           color: "white",
           width: "60px",
           //   border: "1px solid white",
           padding: "5px",
           zIndex: 10,
           borderRadius: 0,
+          display: "flex",
+          alignItems: "center" /* Center vertically */,
+          justifyContent: "center",
         }}
-        className="leftSideNavMenu "
+        className="leftSideNavMenu"
       >
-        <MenuIcon />
+        <MenuIcon style={{}} />
       </IconButton>
 
       {/* <div
