@@ -1,16 +1,15 @@
 import DefaultHeader from "../../../components/header/DefaultHeader";
-
+import Layout from "../../../components/Layout";
 import Link from "next/link";
 
 const UserIndex = () => {
   return (
     <>
-      <DefaultHeader />
-      <div className="fancy-feature-twentyOne position-relative mt-50 pt-80 pb-150 lg-mt-130 lg-pt-60 lg-pb-60">
+      <Layout>
         <div className="container-fluid">
           <div className="row">
             <div className="bg-primary d-block p-4">
-              <h1 className="text-center">Admin Dashboard</h1>
+              <h1 className="text-center text-light">Admin Dashboard</h1>
             </div>
 
             <div className="row">
@@ -24,7 +23,7 @@ const UserIndex = () => {
                     </li>
                     <li className="list-group-item">
                       <Link
-                        href="/admin/crud/vocabulary/correct-word/intermediate/add"
+                        href="/admin/crud/categories/correct-word/intermediate/add"
                         style={{ display: "block" }}
                       >
                         Add
@@ -232,7 +231,7 @@ const UserIndex = () => {
             <div className="col-md-8"></div>
           </div>
         </div>
-      </div>
+      </Layout>
     </>
   );
 };

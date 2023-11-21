@@ -5,7 +5,7 @@ import Layout3 from "../../../../components/Layout3";
 import ThreeSides from "../../../../components/ThreeSides";
 import { isAuth, getCookie } from "../../../../actions/auth";
 import { getTestData } from "../../../../actions/correct-word/intermediate";
- // Your data array containing 20 components
+// Your data array containing 20 components
 
 const App = () => {
   const [authStatus, setAuthStatus] = useState(false);
@@ -15,7 +15,7 @@ const App = () => {
   const [interMediateScore, setInterMediateScore] = useState();
 
   const itemsPerPage = 4; // Number of items to display per page
-  
+
   return (
     <Layout3>
       <div className=" row justify-content-center " style={{}}>

@@ -66,6 +66,7 @@ const rightSideNav = ({}) => {
     // setUserId(authenticatedId);
     const response = await getUserScores(authenticatedId, token)
       .then((res) => {
+        console.log("righ score", res);
         setScoreData(res);
         setLoading(false);
         // setInterMediateScore(res[0].correctWordIntermediate.score);

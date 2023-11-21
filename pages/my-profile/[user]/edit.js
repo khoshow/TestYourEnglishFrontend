@@ -523,14 +523,12 @@ const profileEdit = () => {
     <>
       <Layout>
         <div className="row">
-          <div className="col-md-3">
-            {username ? <PrivateProfileLeftNavBar username={username} /> : ""}
-          </div>
-          <div className="col-md-9 rounded bg-white mt-5 mb-5">
+        
+          <div className="col-md-9 rounded bg-white mt-5 mb-5 ">
             <div className="row">
-              <div className="col-md-3 border-right">
+              <div className="col-md-3 border-right ">
                 <div className="d-flex flex-column align-items-center text-center p-3 py-5">
-                  <div>
+                  <div className="p-2">
                     {imageUrl && (
                       <div>
                         <AvatarEditor

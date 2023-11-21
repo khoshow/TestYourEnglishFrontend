@@ -134,7 +134,7 @@ function Second2(pageData, next) {
   const handleNextTest = (e) => {
     // e.preventDefault();
     setShowScore(false);
-    next();
+    // next();
     // Set the new URL
 
     setSelectedOption(null);
@@ -148,7 +148,12 @@ function Second2(pageData, next) {
 
   return (
     <div>
-      <h2>Correct Meaning Intermediate</h2>
+      <div className="heading alt-two">
+          <h1>
+           Choose the Correct Word 
+            <span className="subHeading">Intermediate Level</span>
+          </h1>
+        </div>
     <div className="quizContainer">
       {showScore ? (
         <div className="scoreSection">

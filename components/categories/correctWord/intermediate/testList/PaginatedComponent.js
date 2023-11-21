@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ListComponent from "./ListComponent";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import PaginateCompo from "./paginateCompo";
 import { useRouter } from "next/router";
 import { getTotalTestNo } from "../../../../../actions/publicInfo/totalTests";
 
@@ -12,10 +13,11 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   //   const currentItems = indexOfLastItem - indexOfFirstItem;
+  useEffect(() => {}, []);
   getTotalTestNo()
     .then((res) => {
-      console.log("res", res);
-      setTotalTest(res);
+      console.log("res test", res);
+      setTotalTest(50);
     })
     .catch((err) => {
       console.log("error", err);
@@ -28,23 +30,40 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   };
 
   if (!totalTest) {
-    return;
+    return <div>Empty Test. Please wait for tests to be published.</div>;
   }
+
   return (
     <>
-      <div className="text-center">
-        <ListComponent items={currentPage} />
+      <div className="text-center" style={{}}>
+        <div className="heading alt-two">
+          <h1>
+            Correct Word Intermediate
+            <span className="subHeading">Best of Luck</span>
+          </h1>
+        </div>
         <Stack spacing={2}>
-          <Pagination
-            count={totalTest%6}
-            variant="outlined"
-            shape="rounded"
-            color="secondary"
-            onChange={handleChange}
+          <PaginateCompo
+            totalTest={totalTest}
+            itemsPerPage={itemsPerPage}
+            currentPage={currentPage}
+            paginate={paginate}
           />
         </Stack>
+        <ListComponent items={currentPage} />
+        <div style={{ margin: "auto auto" }}>
+          <Stack spacing={2}>
+            <PaginateCompo
+              totalTest={totalTest}
+              itemsPerPage={itemsPerPage}
+              currentPage={currentPage}
+              paginate={paginate}
+            />
+          </Stack>
+        </div>
+
         {/* <ul className="pagination">
-          {Array.from({ length: Math.ceil(1000 / itemsPerPage) }).map(
+          {Array.from({ length: Math.ceil(100 / itemsPerPage) }).map(
             (_, index) => (
               <li
                 key={index}
@@ -61,6 +80,26 @@ const PaginatedList = ({ itemsPerPage, data }) => {
               </li>
             )
           )}
+        </ul> */}
+        {/* <ul className="pagination">
+          {pageRange.map((pageNumber) => (
+            <li
+              key={pageNumber}
+              className={`page-item ${
+                pageNumber === currentPage ? "active" : ""
+              }`}
+            >
+              <button
+                onClick={() => paginate(pageNumber)}
+                className="page-link"
+                style={{
+                  backgroundColor: pageNumber === currentPage ? "red" : "",
+                }}
+              >
+                {pageNumber}
+              </button>
+            </li>
+          ))}
         </ul> */}
       </div>
     </>

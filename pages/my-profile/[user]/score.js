@@ -128,6 +128,7 @@ const ProfilePage = () => {
         <div className="container col-xl-10 col-xxl-8 px-4 py-5 bg-warning">
           <div className="row align-items-center g-lg-5 ">
             <div className="col-lg-7 text-center text-lg-start">
+              <h2>Oooops! You have not scored anything yet.</h2>
               <h2 className="fw-bold lh-1 text-body-emphasis mb-3 text-dark">
                 Get your English test scores out there!
               </h2>
@@ -283,10 +284,7 @@ const ProfilePage = () => {
     <>
       <Layout>
         <div className="row">
-          <div className="col-3 app-body-navigation">
-            <PrivateProfileLeftNavBar username={username}/>
-          </div>
-          <div className=" col-9">
+          <div className=" col-9" style={{ marginTop: "100px" }}>
             <section className="service-section">{displayScores()}</section>
           </div>
         </div>

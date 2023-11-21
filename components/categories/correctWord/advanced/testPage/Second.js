@@ -149,7 +149,12 @@ function Second2(pageData, next) {
   return (
     // <div></div>
     <div>
-    <h2>Correct Word Advanced</h2>
+     <div className="heading alt-two">
+          <h1>
+           Choose the Correct Word 
+            <span className="subHeading">Advanced Level</span>
+          </h1>
+        </div>
     <div className="quizContainer">
       {showScore ? (
         <div className="scoreSection">

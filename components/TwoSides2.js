@@ -6,7 +6,7 @@ import { getUserScores } from "../actions/userInfo";
 import ScoresRightNav from "./sideBars/ScoresRightNav";
 import { getRanking } from "../actions/rank";
 import RankingList from "./sideBars/RankingRightNav";
-import MyHeader from "../components/header/MyHeader";
+import MyHeader from "./header/MyHeader";
 // import { useEffect, useState } from "react";
 import Link from "next/link";
 // import { isAuth, getCookie } from "../../actions/auth";

@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { isAuth } from "../../../../../actions/auth";
 import { getCookie } from "../../../../../actions/auth";
-import { postScore } from "../../../../../actions/correct-word/intermediate";
+import { postScore } from "../../../../../actions/categories/correct-word/intermediate";
+import Card from "@mui/material/Card";
 // import { getRanking } from "../../../../../actions/correct-word";
 
 function Second2(pageData, next) {
@@ -144,19 +145,108 @@ function Second2(pageData, next) {
     window.location.href = newUrl;
   };
 
-  return (
-    <div>
-      <h2>Correct Word Intermediate</h2>
-      <div className="quizContainer">
-        {showScore ? (
-          <div className="scoreSection">
-            <p>
-              You scored {score} out of {quizInfo.length} questions.
-            </p>
+  const displayScore = () => {
+    if (!isAuth()) {
+      return (
+        <div>
+          {" "}
+          <Card className="myCard text-center ">
+            <h3 className="cardTitle">Score Card</h3>
 
-            {/* <Link className="btn btn-primary" onClick={handlePreviousTest}>
-            Previous Test
-          </b> */}
+            <div className="weave2">{score}</div>
+            <div className="p-4">
+              <p className="scoreDescription">
+                Out of {quizInfo.length} questions.
+              </p>
+            </div>
+            <div className="d-flex">
+              <Link
+                href={`/vocabulary/correct-word/intermediate/test-${
+                  testNo - 1
+                }`}
+                onClick={(e) => {
+                  handleNextTest(e);
+                }}
+                className={`btn btn-primary test${testNo - 1}`}
+              >
+                Prev Test
+              </Link>
+              <Link
+                href={`/vocabulary/correct-word/intermediate/test-${
+                  testNo + 1
+                }`}
+                onClick={(e) => {
+                  handleNextTest(e);
+                }}
+                className="btn btn-primary"
+              >
+                Next Test
+              </Link>
+            </div>
+
+            <div className="quote-content pt-4">
+              <p>
+                Sign in to track your score and continue learning.<br></br>
+                <span>
+                  <Link className=" btn-outline tx-danger" href="/signin">
+                    Sign In
+                  </Link>
+                </span>
+              </p>
+            </div>
+          </Card>
+        </div>
+        // <div className="scoreSection text-center">
+        //   <div>
+        //     {" "}
+        //     <p>
+        //       You scored <span className="scoreBox">{score}</span> out of{" "}
+        //       {quizInfo.length} questions.
+        //     </p>
+        //   </div>
+        //   <div className="requestSignIn">
+        // <p>
+        //   Sign in to track your score and continue learning.{" "}
+        //   <span>
+        //     <Link className="btn-primary" href="/signin">
+        //       Sign In
+        //     </Link>
+        //   </span>{" "}
+        // </p>
+        //   </div>
+        //   <div className="">
+        // <Link
+        //   href={`/vocabulary/correct-word/intermediate/test-${testNo + 1}`}
+        //   onClick={(e) => {
+        //     handleNextTest(e);
+        //   }}
+        //   className="btn btn-primary"
+        // >
+        //   Next Test
+        // </Link>
+        //   </div>
+        // </div>
+      );
+    } else if (isAuth()) {
+      return (
+        <Card className="myCard text-center ">
+          <h3 className="cardTitle">Score Card</h3>
+          <div className="weave2">{score}</div>
+          <div className="p-4">
+            <p className="scoreDescription">
+              Out of {quizInfo.length} questions.
+            </p>
+          </div>
+          <div className="d-flex">
+            <Link
+              href={`/vocabulary/correct-word/intermediate/test-${testNo - 1}`}
+              onClick={(e) => {
+                handleNextTest(e);
+              }}
+              className={`btn btn-primary test${testNo - 1}`}
+            >
+              Prev Test
+            </Link>
             <Link
               href={`/vocabulary/correct-word/intermediate/test-${testNo + 1}`}
               onClick={(e) => {
@@ -167,11 +257,51 @@ function Second2(pageData, next) {
               Next Test
             </Link>
           </div>
+        </Card>
+      );
+    }
+  };
+
+  return (
+    <div>
+      <div className="heading alt-two">
+        <h1>
+          Choose the Correct Word
+          <span className="subHeading">Intermediate Level</span>
+        </h1>
+      </div>
+      <div className="quizContainer">
+        {showScore ? (
+          <div> {displayScore()}</div>
         ) : (
+          // <div className="scoreSection">
+          //   <p>
+          //     You scored {score} out of {quizInfo.length} questions.
+          //   </p>
+
+          //   {/* <Link className="btn btn-primary" onClick={handlePreviousTest}>
+          //   Previous Test
+          // </b> */}
+          //   <Link
+          //     href={`/vocabulary/correct-word/intermediate/test-${testNo + 1}`}
+          //     onClick={(e) => {
+          //       handleNextTest(e);
+          //     }}
+          //     className="btn btn-primary"
+          //   >
+          //     Next Test
+          //   </Link>
+          // </div>
           <>
             <div className="questionSection">
               <div className="questionCount">
-                <span>Question {currentQuestion + 1}</span>/{quizInfo.length}
+                <div>
+                  Test &nbsp; <span className="questionNo">{testNo}</span>
+                  &nbsp; Question &nbsp;
+                  <span className="questionNo">
+                    {currentQuestion + 1}/{quizInfo.length}
+                  </span>
+                </div>
               </div>
               <div className="questionText">
                 {quizInfo[currentQuestion].question}

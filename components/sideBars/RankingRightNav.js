@@ -16,12 +16,12 @@ const RankingList = ({ rankTop10, loading }) => {
     return (
       <div className="">
         <div className="">
-          <h3 className="textCenter">Top 10</h3>
+          
         </div>
 
         <nav className="navigation">
           <div className="level-side-category">
-            <a href="#" className="level-side-category"></a>
+            
             <p>Loading</p>
           </div>
           ;
@@ -33,7 +33,7 @@ const RankingList = ({ rankTop10, loading }) => {
   return (
     <div className="">
       <div className="mt-4">
-        <h3 className="textCenter">Top 10</h3>
+        <h3 className="px-3">Top Scorers</h3>
       </div>
 
       <nav className="navigation">

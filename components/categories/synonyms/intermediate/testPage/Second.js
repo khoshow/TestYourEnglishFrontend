@@ -34,20 +34,19 @@ function Second2(pageData, next) {
   }
   console.log("Anot Pae", pageData);
   const token = getCookie("token");
-  const userId = isAuth()._id
-  const username = isAuth().username
+  const userId = isAuth()._id;
+  const username = isAuth().username;
 
   const updateUserScore = () => {
-   
     const dataToSend = {
-      userId:userId,
-      username:username,
-      testId:pageData.data.testId,
+      userId: userId,
+      username: username,
+      testId: pageData.data.testId,
       testNo: testNo,
       rightlyAnswered: rightlyAnswered,
       wronglyAnswered: wronglyAnswered,
     };
-  
+
     postScore(dataToSend, token)
       .then((res) => {
         console.log("res", res);
@@ -71,7 +70,7 @@ function Second2(pageData, next) {
         ...rightlyAnswered,
         {
           question: quizInfo[currentQuestion].question,
-          answer:quizInfo[currentQuestion].correctAnswer,
+          answer: quizInfo[currentQuestion].correctAnswer,
           id: quizInfo[currentQuestion].id,
         },
       ]);
@@ -81,7 +80,7 @@ function Second2(pageData, next) {
         ...wronglyAnswered,
         {
           question: quizInfo[currentQuestion].question,
-          answer:quizInfo[currentQuestion].correctAnswer,
+          answer: quizInfo[currentQuestion].correctAnswer,
           id: quizInfo[currentQuestion].id,
         },
       ]);
@@ -128,7 +127,6 @@ function Second2(pageData, next) {
       if (isAuth()) {
         updateUserScore();
       }
-  
     }
   };
   const handleNextTest = (e) => {
@@ -149,57 +147,61 @@ function Second2(pageData, next) {
   return (
     // <div></div>
     <div>
-    <h2>Synonyms Intermediate</h2>
-    <div className="quizContainer">
-      {showScore ? (
-        <div className="scoreSection">
-          <p>
-            You scored {score} out of {quizInfo.length} questions.
-          </p>
+      <div className="heading alt-two">
+        <h1>
+          Select the correct Synonym
+          <span className="subHeading">Intermediate Level</span>
+        </h1>
+      </div>
+      <div className="quizContainer">
+        {showScore ? (
+          <div className="scoreSection">
+            <p>
+              You scored {score} out of {quizInfo.length} questions.
+            </p>
 
-          {/* <Link className="btn btn-primary" onClick={handlePreviousTest}>
+            {/* <Link className="btn btn-primary" onClick={handlePreviousTest}>
             Previous Test
           </b> */}
-          <Link
-            href={`/vocabulary/correct-word/intermediate/test-${testNo + 1}`}
-            onClick={(e) => {
-              handleNextTest(e);
-            }}
-            className="btn btn-primary"
-          >
-            Next Test
-          </Link>
-        </div>
-      ) : (
-        <>
-          <div className="questionSection">
-            <div className="questionCount">
-              <span>Question {currentQuestion + 1}</span>/{quizInfo.length}
-            </div>
-            <div className="questionText">
-              {quizInfo[currentQuestion].question}
-            </div>
+            <Link
+              href={`/vocabulary/correct-word/intermediate/test-${testNo + 1}`}
+              onClick={(e) => {
+                handleNextTest(e);
+              }}
+              className="btn btn-primary"
+            >
+              Next Test
+            </Link>
           </div>
-          <div className="optionSection">
-          
-            {quizInfo[currentQuestion].options.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleOptionClick(option)}
-                className={`optionButton  ${
-                  disableAfterSelect === true ? "buttonUnClickable" : ""
-                }  ${selectedOption === option ? wrongOrRight(option) : ""}`}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-          <button onClick={handleNextQuestion} className="nextButton">
-            Next
-          </button>
-        </>
-      )}
-    </div>
+        ) : (
+          <>
+            <div className="questionSection">
+              <div className="questionCount">
+                <span>Question {currentQuestion + 1}/{quizInfo.length}</span>
+              </div>
+              <div className="questionText">
+                {quizInfo[currentQuestion].question}
+              </div>
+            </div>
+            <div className="optionSection">
+              {quizInfo[currentQuestion].options.map((option, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleOptionClick(option)}
+                  className={`optionButton  ${
+                    disableAfterSelect === true ? "buttonUnClickable" : ""
+                  }  ${selectedOption === option ? wrongOrRight(option) : ""}`}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+            <button onClick={handleNextQuestion} className="nextButton">
+              Next
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

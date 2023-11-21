@@ -50,8 +50,6 @@ const contact = () => {
             </div>
           </div>
         </div>
-
-        <DefaultFooter />
       </Layout>
     </>
   );

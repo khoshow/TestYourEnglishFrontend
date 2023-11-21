@@ -19,7 +19,6 @@ import { getPrivateProfile } from "../../actions/profile/privateProfile";
 import { isAuth, getCookie, signout } from "../../actions/auth";
 import { useRouter } from "next/router";
 
-
 const pages = [
   { title: "Home", url: "/" },
   { title: "Contact", url: "/contact" },
@@ -170,14 +169,17 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <Link href="/profile">
+                <Link href={`/my-profile/${username}`}>
                   <MenuItem>
-                    <Typography textAlign="center">
-                      Signed In Profile
-                    </Typography>
+                    <Typography textAlign="center">Profile</Typography>
                   </MenuItem>
                 </Link>
-                <Link href="/profile">
+                <Link href={`/my-profile/${username}/score`}>
+                  <MenuItem>
+                    <Typography textAlign="center">My Scores</Typography>
+                  </MenuItem>
+                </Link>
+                <Link href={`/my-profile/${username}/edit`}>
                   <MenuItem>
                     <Typography textAlign="center">Profile Edit</Typography>
                   </MenuItem>
@@ -213,16 +215,16 @@ function ResponsiveAppBar() {
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip> */}
-             <Link href="/signup" className="noMobileDisplay">
-                  <MenuItem>
-                    <Typography textAlign="center">Sign Up</Typography>
-                  </MenuItem>
-                </Link>
-                <Link href="/signin" className="" style={{}}>
-                  <MenuItem>
-                    <Typography textAlign="center">Sign In</Typography>
-                  </MenuItem>
-                </Link>
+            <Link href="/signup" className="noMobileDisplay">
+              <MenuItem>
+                <Typography textAlign="center">Sign Up</Typography>
+              </MenuItem>
+            </Link>
+            <Link href="/signin" className="" style={{}}>
+              <MenuItem>
+                <Typography textAlign="center">Sign In</Typography>
+              </MenuItem>
+            </Link>
             <Menu
               sx={{ mt: "45px", display: "flex", flexDirection: "row" }}
               id="menu-appbar"

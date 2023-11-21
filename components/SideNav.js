@@ -6,7 +6,7 @@ import { getUserScores } from "../actions/userInfo";
 import ScoresRightNav from "./sideBars/ScoresRightNav";
 import { getRanking } from "../actions/rank";
 import RankingList from "./sideBars/RankingRightNav";
-import MyHeader from "../components/header/MyHeader";
+import MyHeader from "./header/MyHeader";
 // import { useEffect, useState } from "react";
 import Link from "next/link";
 // import { isAuth, getCookie } from "../../actions/auth";
@@ -834,6 +834,29 @@ const sideNav = ({ children }) => {
                     ))}
                 </Box>
               </FireNav>
+              <Box
+                style={{ position: "absolute", bottom: "0" }}
+                sx={{
+                  bgcolor: openSynonym ? "rgba(71, 98, 130, 0.2)" : null,
+                  pb: openSynonym ? 2 : 0,
+                  bottom: "0",
+                }}
+              >
+                <div className=" ">
+                  <Link href="/" className="p-2">
+                    Home
+                  </Link>
+                  <Link href="/about" className="p-2">
+                    About
+                  </Link>
+                  <Link href="/contact" className="p-2">
+                    Contact
+                  </Link>
+                  <Link href="/" className="p-2">
+                    © {new Date().getFullYear()} Test My English Online
+                  </Link>
+                </div>
+              </Box>
             </Paper>
           </ThemeProvider>
         </Box>

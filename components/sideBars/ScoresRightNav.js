@@ -7,10 +7,10 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
     if (loading == true) {
       setScore("Loading");
     } else {
-      if (!data.correctIntermediate) {
+      if (!data.correctWordIntermediate) {
         setScore("-");
       } else {
-        setScore(data.correctIntermediate.scores);
+        setScore(data.correctWordIntermediate.scores);
       }
     }
   }, [loading]);
