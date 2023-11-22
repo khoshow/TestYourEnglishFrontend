@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import { getCookie, isAuth } from "../../../../../actions/auth";
 import { testGiveOrNot } from "../../../../../actions/categories/correct-word/intermediate";
-
+import { getCardMessages } from "../../../../../actions/publicInfo/cardMessages";
 const ListComponent = ({ items }) => {
   const [attempted1, setAttempted1] = useState();
   const [attempted2, setAttempted2] = useState();
@@ -19,6 +19,7 @@ const ListComponent = ({ items }) => {
   const [scoreAttempted5, setScoreAttempted5] = useState();
   const [scoreAttempted6, setScoreAttempted6] = useState();
   const [loading, setLoading] = useState(true);
+  const [myCardMessages, setMyCardMessages] = useState();
   console.log("Items", items);
   const token = getCookie("token");
 
@@ -27,7 +28,15 @@ const ListComponent = ({ items }) => {
       console.log("I am here 4534");
 
       testCheck();
+    } else {
+      setAttempted1("notSignedInCard");
+      setAttempted2("notSignedInCard");
+      setAttempted3("notSignedInCard");
+      setAttempted4("notSignedInCard");
+      setAttempted5("notSignedInCard");
+      setAttempted6("notSignedInCard");
     }
+    cardMessages();
   }, [items]);
 
   const testCheck = () => {
@@ -129,6 +138,17 @@ const ListComponent = ({ items }) => {
         } else {
           setAttempted6("notAttemptedCard");
         }
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  };
+
+  const cardMessages = () => {
+    getCardMessages()
+      .then((data) => {
+        setMyCardMessages(data);
+        console.log("Card Messahes", data);
       })
       .catch((err) => {
         console.log("error", err);
@@ -242,7 +262,13 @@ const ListComponent = ({ items }) => {
               <h3 className="cardTitle">Test No.</h3>
               <div className="weave2">{items * 6 - 5}</div>
               <div className="quote-content">
-                <p className="">"Yay, everything is working."</p>
+                <p className="quote">
+                  {myCardMessages ? `"${myCardMessages[0].quote}" ` : ""}
+                </p>
+                <p className="author">
+                  {" "}
+                  {myCardMessages ? `-${myCardMessages[0].author} ` : ""}{" "}
+                </p>
               </div>
 
               <button className="btn btn-primary">continue</button>
@@ -260,7 +286,13 @@ const ListComponent = ({ items }) => {
               <h3 className="cardTitle">Test No.</h3>
               <div className="weave2">{items * 6 - 4}</div>
               <div className="quote-content">
-                <p className="">"Yay, everything is working."</p>
+                <p className="quote">
+                  {myCardMessages ? `"${myCardMessages[1].quote}" ` : ""}
+                </p>
+                <p className="author">
+                  {" "}
+                  {myCardMessages ? `-${myCardMessages[1].author} ` : ""}{" "}
+                </p>
               </div>
 
               <button className="btn btn-primary">continue</button>
@@ -278,7 +310,13 @@ const ListComponent = ({ items }) => {
               <h3 className="cardTitle">Test No.</h3>
               <div className="weave2">{items * 6 - 3}</div>
               <div className="quote-content">
-                <p className="">"Yay, everything is working."</p>
+                <p className="quote">
+                  {myCardMessages ? `"${myCardMessages[2].quote}" ` : ""}
+                </p>
+                <p className="author">
+                  {" "}
+                  {myCardMessages ? `-${myCardMessages[2].author} ` : ""}{" "}
+                </p>
               </div>
 
               <button className="btn btn-primary">continue</button>
@@ -296,7 +334,13 @@ const ListComponent = ({ items }) => {
               <h3 className="cardTitle">Test No.</h3>
               <div className="weave2">{items * 6 - 2}</div>
               <div className="quote-content">
-                <p className="message">"Yay, everything is working."</p>
+                <p className="quote">
+                  {myCardMessages ? `"${myCardMessages[3].quote}" ` : ""}
+                </p>
+                <p className="author">
+                  {" "}
+                  {myCardMessages ? `-${myCardMessages[3].author} ` : ""}{" "}
+                </p>
               </div>
 
               <button className="btn btn-primary">continue</button>
@@ -314,7 +358,13 @@ const ListComponent = ({ items }) => {
               <h3 className="cardTitle">Test No.</h3>
               <div className="weave2">{items * 6 - 1}</div>
               <div className="quote-content">
-                <p className="">"Yay, everything is working."</p>
+                <p className="quote">
+                  {myCardMessages ? `"${myCardMessages[4].quote}" ` : ""}
+                </p>
+                <p className="author">
+                  {" "}
+                  {myCardMessages ? `-${myCardMessages[4].author} ` : ""}{" "}
+                </p>
               </div>
 
               <button className="btn btn-primary">continue</button>
@@ -330,7 +380,13 @@ const ListComponent = ({ items }) => {
               <h3 className="cardTitle">Test No.</h3>
               <div className="weave2">{items * 6}</div>
               <div className="quote-content">
-                <p className="">"Yay, everything is working."</p>
+                <p className="quote">
+                  {myCardMessages ? `"${myCardMessages[5].quote}" ` : ""}
+                </p>
+                <p className="author">
+                  {" "}
+                  {myCardMessages ? `-${myCardMessages[5].author} ` : ""}{" "}
+                </p>
               </div>
 
               <button className="btn btn-primary">continue</button>

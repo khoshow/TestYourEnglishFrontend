@@ -19,6 +19,10 @@ function Second2(pageData, next) {
   const [disableAfterSelect, setDisableAfterSelect] = useState(false);
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(router.asPath);
+  const [messageWhenCorrect, setMessageWhenCorrect] = useState();
+  const [messageWhenWrong, setMessageWhenWrong] = useState();
+  const [messageToDisplay, setMessageToDisplay] = useState();
+  const [messageStatus, setMessageStatus] = useState();
 
   const slug = currentUrl.split("/").pop();
   const testNo = parseInt(slug.split("-").pop());
@@ -33,7 +37,7 @@ function Second2(pageData, next) {
     // Returns null on first render, so the client and server match
     return null;
   }
-  console.log("Anot Pae", pageData);
+
   const token = getCookie("token");
   const userId = isAuth()._id;
   const username = isAuth().username;
@@ -75,6 +79,15 @@ function Second2(pageData, next) {
           id: quizInfo[currentQuestion].id,
         },
       ]);
+      let correctMessagesArray = pageData.correctMessages;
+
+      if (correctMessagesArray && correctMessagesArray.length > 0) {
+        const randomIndex = Math.floor(
+          Math.random() * correctMessagesArray.length
+        );
+        setMessageToDisplay(correctMessagesArray[randomIndex]);
+      }
+      setMessageStatus("correctAnswer");
       setScore(score + 1);
     } else {
       setWronglyAnswered([
@@ -85,6 +98,16 @@ function Second2(pageData, next) {
           id: quizInfo[currentQuestion].id,
         },
       ]);
+
+      let wrongMessagesArray = pageData.wrongMessages;
+
+      if (wrongMessagesArray && wrongMessagesArray.length > 0) {
+        const randomIndex = Math.floor(
+          Math.random() * wrongMessagesArray.length
+        );
+        setMessageToDisplay(wrongMessagesArray[randomIndex]);
+      }
+      setMessageStatus("wrongAnswer");
       setScore(score);
     }
     // if (selectedOption === option) {
@@ -121,6 +144,8 @@ function Second2(pageData, next) {
     if (nextQuestion < quizInfo.length) {
       setCurrentQuestion(nextQuestion);
       setSelectedOption(null);
+      setMessageToDisplay(null);
+      setMessageStatus(null);
     } else {
       setShowScore(true);
       // getRanking(score);
@@ -301,6 +326,16 @@ function Second2(pageData, next) {
                   <span className="questionNo">
                     {currentQuestion + 1}/{quizInfo.length}
                   </span>
+                </div>
+                <div
+                  className={`${messageStatus}`}
+                  style={{ height: "150px", display: "flex" }}
+                >
+                  {messageToDisplay ? (
+                    <div className="messageDisplay">{messageToDisplay}</div>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
               <div className="questionText">

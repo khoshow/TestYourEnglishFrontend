@@ -10,6 +10,11 @@ import {
 import TestPage from "../../../../components/categories/correctWord/intermediate/testPage/First";
 import Fallback from "../../../../components/fallback";
 import Layout3 from "../../../../components/Layout3";
+import {
+  getWhenCorrectMessages,
+  getWhenWrongMessages,
+} from "../../../../actions/publicInfo/cardMessages";
+
 import ThreeSides from "../../../../components/ThreeSides";
 
 const CorrectWordsIntermediate = () => {
@@ -20,6 +25,8 @@ const CorrectWordsIntermediate = () => {
   const [error, setError] = useState(null);
   const [reload, setReload] = useState(false);
   const [prevUrl, setPrevUrl] = useState(null);
+  const [correctMessages, setCorrectMessages] = useState();
+  const [wrongMessages, setWrongMessages] = useState();
   const itemsPerPage = 4;
   const urlChanged = () => {
     setcurrentUrl(router.query.slug);
@@ -51,9 +58,32 @@ const CorrectWordsIntermediate = () => {
     };
     // Call the fetchData function
 
+    whenCorrectMessages();
+    whenWrongMessages();
     fetchData();
   }, [router.query.slug, router.asPath, currentUrl]);
 
+  const whenCorrectMessages = () => {
+    getWhenCorrectMessages()
+      .then((data) => {
+        setCorrectMessages(data);
+        console.log("Card Correct Messahes", data);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  };
+
+  const whenWrongMessages = () => {
+    getWhenWrongMessages()
+      .then((data) => {
+        setWrongMessages(data);
+        console.log("Card Wrong Messahes", data);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  };
   // Empty dependency array ensures that the effect runs only once, similar to componentDidMount
   if (reload) {
     setReload(false);
@@ -81,7 +111,13 @@ const CorrectWordsIntermediate = () => {
       <Layout3>
         {loading && <p>Loading...</p>}
 
-        {data && <TestPage data={data} />}
+        {data && (
+          <TestPage
+            data={data}
+            correctMessages={correctMessages}
+            wrongMessages={wrongMessages}
+          />
+        )}
       </Layout3>
     </>
   );
