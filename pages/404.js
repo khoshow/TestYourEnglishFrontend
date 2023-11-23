@@ -1,24 +1,17 @@
 import Link from "next/link";
 import Seo from "../components/common/Seo";
 import DefaulHeader from "../components/header/DefaultHeader";
+import Layout from "../components/Layout";
 
 const Pricing = () => {
   return (
     <>
       <Seo pageTitle="404" />
 
-      {/* <!-- 
-      =============================================
-      Theme Default Menu
-      ============================================== 	
-      --> */}
-      <DefaulHeader />
+    
+  <Layout>
 
-      {/* 
-			=============================================
-			Error Page
-			============================================== 
-			*/}
+     
       <div className="error-page-content d-flex align-items-center justify-content-center">
         <div className="container">
           <div className="row">
@@ -44,6 +37,7 @@ const Pricing = () => {
         />
       </div>
       {/* /.error-page-content */}
+      </Layout>
     </>
   );
 };

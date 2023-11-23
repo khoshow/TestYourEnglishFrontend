@@ -6,13 +6,18 @@ import PaginatedList from "../../../../components/playground/PaginatedComponent"
 import {
   getCorrectWordsMedium,
   getTestNo,
-} from "../../../../actions/categories/correct-meaning/intermediate";
-import TestPage from "../../../../components/categories/correctMeaning/intermediate/testPage/First";
+} from "../../../../actions/categories/correct-word/intermediate";
+import TestPage from "../../../../components/categories/correctWord/intermediate/testPage/First";
 import Fallback from "../../../../components/fallback";
 import Layout3 from "../../../../components/Layout3";
+import {
+  getWhenCorrectMessages,
+  getWhenWrongMessages,
+} from "../../../../actions/publicInfo/cardMessages";
+
 import ThreeSides from "../../../../components/ThreeSides";
 
-const CorrectMeaningIntermediate = () => {
+const CorrectWordsIntermediate = () => {
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(null);
   const [data, setData] = useState(null);
@@ -20,6 +25,8 @@ const CorrectMeaningIntermediate = () => {
   const [error, setError] = useState(null);
   const [reload, setReload] = useState(false);
   const [prevUrl, setPrevUrl] = useState(null);
+  const [correctMessages, setCorrectMessages] = useState();
+  const [wrongMessages, setWrongMessages] = useState();
   const itemsPerPage = 4;
   const urlChanged = () => {
     setcurrentUrl(router.query.slug);
@@ -51,9 +58,32 @@ const CorrectMeaningIntermediate = () => {
     };
     // Call the fetchData function
 
+    whenCorrectMessages();
+    whenWrongMessages();
     fetchData();
   }, [router.query.slug, router.asPath, currentUrl]);
 
+  const whenCorrectMessages = () => {
+    getWhenCorrectMessages()
+      .then((data) => {
+        setCorrectMessages(data);
+        console.log("Card Correct Messahes", data);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  };
+
+  const whenWrongMessages = () => {
+    getWhenWrongMessages()
+      .then((data) => {
+        setWrongMessages(data);
+        console.log("Card Wrong Messahes", data);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  };
   // Empty dependency array ensures that the effect runs only once, similar to componentDidMount
   if (reload) {
     setReload(false);
@@ -62,7 +92,16 @@ const CorrectMeaningIntermediate = () => {
   if (loading) {
     return (
       <Layout3>
-        <div>Loading...</div>
+        <div
+          style={{
+            marginTop: "100px",
+            PaddingTop: "100px",
+            textAlign: "center",
+            margin: "auto auto",
+          }}
+        >
+          Loading...
+        </div>
       </Layout3>
     );
   }
@@ -81,10 +120,16 @@ const CorrectMeaningIntermediate = () => {
       <Layout3>
         {loading && <p>Loading...</p>}
 
-        {data && <TestPage data={data} />}
+        {data && (
+          <TestPage
+            data={data}
+            correctMessages={correctMessages}
+            wrongMessages={wrongMessages}
+          />
+        )}
       </Layout3>
     </>
   );
 };
 
-export default CorrectMeaningIntermediate;
+export default CorrectWordsIntermediate;

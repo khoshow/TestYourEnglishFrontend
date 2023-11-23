@@ -89,9 +89,7 @@ export const update = (correctWordMedium, slug, token) => {
 };
 
 export const postScore = (data, token) => {
-  console.log("da", data);
-  console.log("token here", token);
-  return fetch(`${API}/api/correct-words-intermediate/score-update`, {
+  return fetch(`${API}/api/correct-meaning-advanced/score-update`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
@@ -107,7 +105,6 @@ export const postScore = (data, token) => {
     })
     .catch((err) => console.log(err));
 };
-
 export const getTestData = (userId, token) => {
   return fetch(
     `${API}/api/correct-words-intermediate/user-test-data/${userId}`,
@@ -128,3 +125,26 @@ export const getTestData = (userId, token) => {
 };
 
 
+export const testGiveOrNot = (testCategory, token) => {
+  const queryString = Object.keys(testCategory)
+    .map(
+      (key) =>
+        encodeURIComponent(key) + "=" + encodeURIComponent(testCategory[key])
+    )
+    .join("&");
+
+  console.log("test Given", testCategory);
+  return fetch(`${API}/api/test-given/${queryString}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => {
+      console.log("hello this is not working");
+      handleResponse(response);
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};

@@ -33,13 +33,13 @@ const RankingList = ({ rankTop10, loading }) => {
   return (
     <div className="">
       <div className="mt-4">
-        <h3 className="px-3">Top Scorers</h3>
+        <h3 className="px-3 subHeading">Top Scorers</h3>
       </div>
 
       <nav className="navigation">
         {rankingData.map((item, index) => {
           return (
-            <div className="level-side-category" key={index}>
+            <div className="" key={index}>
               <a href="#" className=""></a>
 
               <div className="right-widget ms-auto d-flex align-items-center ">
@@ -47,12 +47,12 @@ const RankingList = ({ rankTop10, loading }) => {
                   href={`/profile/${item.username}`}
                   className="userProfileRightNav"
                 >
-                  <span>{index + 1}</span>
+                  <span className="rankItem">{index + 1}.</span>
                   <span>
-                    <img src={item.photoUrl} />
+                    <img src={item.photoUrl} /> 
                   </span>
                   <span>
-                    {item.name} ({item.score})
+                  &nbsp; {item.name} ({item.score})
                   </span>
                 </Link>
                 {/* <Link

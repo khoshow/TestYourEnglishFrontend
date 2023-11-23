@@ -21,6 +21,7 @@ import { useRouter } from "next/router";
 
 const pages = [
   { title: "Home", url: "/" },
+  { title: "Guidelines", url: "/guidelines" },
   { title: "Contact", url: "/contact" },
 ];
 const profile = [{ title: "Profile", url: "/profile" }];
@@ -67,7 +68,7 @@ function ResponsiveAppBar() {
       setFirstName(displayName);
       setProfilePhoto(isAuth().photoUrl);
     }
-  }, []);
+  }, [router]);
   const loadUserProfile = async (user) => {
     setLoading(true);
     try {
@@ -147,7 +148,7 @@ function ResponsiveAppBar() {
         {authStatus ? (
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <span className="noMobileDisplay">{firstName}</span>
+              <span className="noMobileDisplay">{firstName} &nbsp;</span>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src={profilePhoto} />
               </IconButton>
@@ -174,7 +175,7 @@ function ResponsiveAppBar() {
                     <Typography textAlign="center">Profile</Typography>
                   </MenuItem>
                 </Link>
-                <Link href={`/my-profile/${username}/score`}>
+                <Link href={`/my-profile/${username}/scores`}>
                   <MenuItem>
                     <Typography textAlign="center">My Scores</Typography>
                   </MenuItem>

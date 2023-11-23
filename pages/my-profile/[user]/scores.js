@@ -159,26 +159,37 @@ const ProfilePage = () => {
             <div>
               <span>Intermediate</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
-                <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="ms-1">
+                  Score: {userScores.correctWordIntermediate.scores}
+                </span>
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
-                <span className="ms-1"> Rank:</span>
+                <span className="ms-1">
+                  {" "}
+                  Rank: {userScores.correctWordIntermediate.rank}
+                </span>
               </div>
             </div>
             <div className="mt-2">
               <span>Advanced</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
-                <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="ms-1">
+                  {" "}
+                  Score:{" "}
+                  {userScores.correctWordAdvanced.scores
+                    ? userScores.correctWordAdvanced.scores
+                    : ""}
+                </span>
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1"> Rank:</span>
@@ -195,17 +206,17 @@ const ProfilePage = () => {
           </article>
           <article className="tile">
             <div className="">
-              <h3>What it Means</h3>
+              <h3>Correct Meaning</h3>
             </div>
             <div>
               <span>Intermediate</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
                 <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="icon-button roundedScoreFrameSmall ms-4">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1"> Rank:</span>
@@ -214,12 +225,12 @@ const ProfilePage = () => {
             <div className="mt-2">
               <span>Advanced</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
                 <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="icon-button roundedScoreFrameSmall ms-4">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1"> Rank:</span>
@@ -241,12 +252,12 @@ const ProfilePage = () => {
             <div>
               <span>Intermediate</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
                 <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1"> Rank:</span>
@@ -255,12 +266,12 @@ const ProfilePage = () => {
             <div className="mt-2">
               <span>Advanced</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
                 <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1"> Rank:</span>
@@ -284,7 +295,11 @@ const ProfilePage = () => {
     <>
       <Layout>
         <div className="row">
-          <div className=" col-9" style={{ marginTop: "100px" }}>
+          <div
+            className=" "
+            style={{ marginTop: "50px", padding: "2rem" }}
+          >
+            <h2 className="heading">My Score Board</h2>
             <section className="service-section">{displayScores()}</section>
           </div>
         </div>

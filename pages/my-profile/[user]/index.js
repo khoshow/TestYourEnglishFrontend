@@ -160,14 +160,14 @@ const ProfilePage = () => {
             <div>
               <span>Intermediate</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
                 <span className="ms-1">
                   Score: {userScores.correctWordIntermediate.scores}
                 </span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1">
@@ -179,7 +179,7 @@ const ProfilePage = () => {
             <div className="mt-2">
               <span>Advanced</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
@@ -190,7 +190,7 @@ const ProfilePage = () => {
                     ? userScores.correctWordAdvanced.scores
                     : ""}
                 </span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1"> Rank:</span>
@@ -207,17 +207,17 @@ const ProfilePage = () => {
           </article>
           <article className="tile">
             <div className="">
-              <h3>What it Means</h3>
+              <h3>Correct Meaning</h3>
             </div>
             <div>
               <span>Intermediate</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
                 <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="icon-button roundedScoreFrameSmall ms-4">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1"> Rank:</span>
@@ -226,12 +226,12 @@ const ProfilePage = () => {
             <div className="mt-2">
               <span>Advanced</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
                 <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="icon-button roundedScoreFrameSmall ms-4">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1"> Rank:</span>
@@ -253,12 +253,12 @@ const ProfilePage = () => {
             <div>
               <span>Intermediate</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
                 <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1"> Rank:</span>
@@ -267,12 +267,12 @@ const ProfilePage = () => {
             <div className="mt-2">
               <span>Advanced</span>
               <div className="d-flex">
-                <span className="icon-button bg-primary">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
 
                 <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1"> Rank:</span>
@@ -303,80 +303,80 @@ const ProfilePage = () => {
             />
           </div>
           <div className=" col-9"> */}
-            <section className="service-section" style={{ marginTop: "100px" }}>
-              <div>
-                <div className="">
-                  <div className="text-center d-flex row">
-                    <div className="text-center profileBox1 col-md-4">
-                      <img src={data.photoUrl} height="100" width="100" />
-                      <h4 className="">{data.name}</h4>
-                      <p className="">@{data.username}</p>
+          <section className="service-section" style={{ marginTop: "100px" }}>
+            <div>
+              <div className="">
+                <div className="text-center d-flex row">
+                  <div className="text-center profileBox1 col-md-4">
+                    <img src={data.photoUrl} height="100" width="100" />
+                    <h4 className="">{data.name}</h4>
+                    <p className="">@{data.username}</p>
+                  </div>
+                  <div className="col-md-8">
+                    <div className="position-relative p-5  mt-4 border border-dashed rounded-5">
+                      <h3 className="text-body-emphasis position-absolute top-0 start-0 bg-warning">
+                        Status
+                      </h3>
+                      <p className="">{data.status}</p>
                     </div>
-                    <div className="col-md-8">
-                      <div className="position-relative p-5  mt-4 border border-dashed rounded-5">
-                        <h3 className="text-body-emphasis position-absolute top-0 start-0">
-                          Status
-                        </h3>
-                        <p className="">{data.status}</p>
-                      </div>
 
-                      <button
-                        type="button"
-                        className="btn btn-primary mt-4"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                      >
-                        Update Status
-                      </button>
-                      <div
-                        className="modal fade"
-                        id="exampleModal"
-                        tabindex="-1"
-                        aria-labelledby="exampleModalLabel"
-                        aria-hidden="true"
-                      >
-                        <div className="modal-dialog modal-dialog-centered">
-                          <div className="modal-content">
-                            <div className="modal-header">
-                              {/* <h1
+                    <button
+                      type="button"
+                      className="btn btn-primary mt-4"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      Update Status
+                    </button>
+                    <div
+                      className="modal fade"
+                      id="exampleModal"
+                      tabindex="-1"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            {/* <h1
                                 className="modal-title fs-5"
                                 id="exampleModalLabel"
                               >
                                 It's good to say your feeling! Update your
                                 status.
                               </h1> */}
-                              <button
-                                type="button"
-                                className="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                              ></button>
-                            </div>
-                            <form onSubmit={handleSubmitStatus}>
-                              <div className=" p-3">
-                                <textarea
-                                  type="text"
-                                  className="form-control"
-                                  placeholder="How you feeling today!"
-                                  name="status"
-                                  value={formData.status}
-                                  onChange={handleInputChange}
-                                />
-
-                                {buttonLoadStatus()}
-                              </div>
-                            </form>
+                            <button
+                              type="button"
+                              className="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
                           </div>
+                          <form onSubmit={handleSubmitStatus}>
+                            <div className=" p-3">
+                              <textarea
+                                type="text"
+                                className="form-control"
+                                placeholder="How you feeling today!"
+                                name="status"
+                                value={formData.status}
+                                onChange={handleInputChange}
+                              />
+
+                              {buttonLoadStatus()}
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                ;
               </div>
-              {displayScores()}
-            </section>
-          </div>
+              ;
+            </div>
+            <div className="p-2">{displayScores()}</div>
+          </section>
+        </div>
         {/* </div> */}
       </Layout>
     </>

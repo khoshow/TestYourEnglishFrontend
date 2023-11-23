@@ -92,7 +92,16 @@ const CorrectWordsIntermediate = () => {
   if (loading) {
     return (
       <Layout3>
-        <div>Loading...</div>
+        <div
+          style={{
+            marginTop: "100px",
+            PaddingTop: "100px",
+            textAlign: "center",
+            margin: "auto auto",
+          }}
+        >
+          Loading...
+        </div>
       </Layout3>
     );
   }

@@ -4,7 +4,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import PaginateCompo from "./paginateCompo";
 import { useRouter } from "next/router";
-import { getTotalTestNo } from "../../../../../actions/publicInfo/totalTests";
+import { getTotalTestNoCorrectWordIntermediate } from "../../../../../actions/publicInfo/totalTests";
 
 const PaginatedList = ({ itemsPerPage, data }) => {
   const [totalTest, setTotalTest] = useState();
@@ -14,7 +14,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   //   const currentItems = indexOfLastItem - indexOfFirstItem;
   useEffect(() => {}, []);
-  getTotalTestNo()
+  getTotalTestNoCorrectWordIntermediate()
     .then((res) => {
       console.log("res test", res);
       setTotalTest(50);

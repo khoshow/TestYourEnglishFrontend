@@ -209,7 +209,7 @@ const Test = () => {
               </CardContent>
 
               <CardActions className="">
-              <Link href="/vocabulary/synonyms">
+                <Link href="/vocabulary/synonyms">
                   <Button
                     size="small"
                     className="btn btn-info"
@@ -238,14 +238,23 @@ const Test = () => {
             </Card>
           </div>
           <div className="container">
-            <div className="mt-4">
-              <p className="">
-                Our approach is crafted to be enjoyable, complimentary, and
-                interactive, fostering an enhanced language proficiency
-                experience.
-              </p>
+            <div class="container my-5">
+              <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
+                <h1 class="text-body-emphasis">
+                  Time to enhance your English skills!
+                </h1>
+                <p class="col-lg-6 mx-auto mb-4">
+                  Our approach is crafted to be enjoyable, complimentary, and
+                  interactive, fostering an enhanced language proficiency
+                  experience.
+                </p>
+                <Link href="/vocabulary/correct-word/intermediate">
+                  <button class="btn btn-primary px-5 mb-5" type="button">
+                    Start Today
+                  </button>
+                </Link>
+              </div>
             </div>
-          
           </div>
         </Layout>
       </div>

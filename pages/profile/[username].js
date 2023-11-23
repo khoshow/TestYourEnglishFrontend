@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Layout3 from "../../components/Layout3";
+import Layout from "../../components/Layout";
 import PublicProfileLeftNavBar from "../../components/sideBars/PublicProfileLeftBar";
 import { isAuth, getCookie } from "../../actions/auth";
 import { useRouter } from "next/router";
@@ -8,6 +8,7 @@ import SigninForm from "../../components/auth/SignInComponent";
 import { getPrivateProfile } from "../../actions/profile/privateProfile";
 import { getPublicDisplayUserScores } from "../../actions/publicInfo/scoresRank";
 import { updateStatus } from "../../actions/profile/profile-update";
+import LayoutPublicProfile from "../../components/LayoutPublicProfile";
 
 const ProfilePage = () => {
   const router = useRouter();
@@ -100,141 +101,155 @@ const ProfilePage = () => {
     } else {
       console.log("USer score", userScores);
       return (
-        <div className="tiles">
-          <article className="tile">
-            <div className="">
-              <h3>Correct Word</h3>
-            </div>
-            <div>
-              <span>Intermediate</span>
-              <div className="d-flex">
-                <span className="icon-button bg-primary">
-                  <i className="bi bi-award "></i>
-                </span>
-
-                <span className="ms-1">
-                  Score: {userScores.correctWordIntermediate.score}
-                </span>
-                <span className="icon-button bg-primary ms-4">
-                  <i className="bi bi-bar-chart-line "></i>
-                </span>
-                <span className="ms-1">
-                  {" "}
-                  Rank: {userScores.correctWordIntermediate.rank}
-                </span>
+        <div>
+          <div className="heading alt-two">
+            <h2>
+              <span className="subHeading">
+                "Hi there! 👋 Excited to have you visit my profile."
+              </span>
+            </h2>
+          </div>
+          <div className="text-center profileBox1 col-md-4">
+            {/* <img src={data.photoUrl} height="100" width="100" />
+            <h4 className="">{data.name}</h4>
+            <p className="">@{data.username}</p> */}
+          </div>
+          <div className="tiles p-2">
+            <article className="tile">
+              <div className="">
+                <h3>Correct Word</h3>
               </div>
-            </div>
-            <div className="mt-2">
-              <span>Advanced</span>
-              <div className="d-flex">
-                <span className="icon-button bg-primary">
-                  <i className="bi bi-award "></i>
-                </span>
+              <div>
+                <span>Intermediate</span>
+                <div className="d-flex">
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-award "></i>
+                  </span>
 
-                <span className="ms-1">
-                  {" "}
-                  Score:{" "}
-                  {userScores.correctWordAdvanced.score
-                    ? userScores.correctWordAdvanced.score
-                    : ""}
-                </span>
-                <span className="icon-button bg-primary ms-4">
-                  <i className="bi bi-bar-chart-line "></i>
-                </span>
-                <span className="ms-1"> Rank:</span>
+                  <span className="ms-1">
+                    Score: {userScores.correctWordIntermediate.score}
+                  </span>
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-bar-chart-line "></i>
+                  </span>
+                  <span className="ms-1">
+                    {" "}
+                    Rank: {userScores.correctWordIntermediate.rank}
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className="text-center mt-4">
-              <Link
-                className="btn btn-dark"
-                href="/vocabulary/correct-word/intermediate"
-              >
-                Take a Test
-              </Link>
-            </div>
-          </article>
-          <article className="tile">
-            <div className="">
-              <h3>What it Means</h3>
-            </div>
-            <div>
-              <span>Intermediate</span>
-              <div className="d-flex">
-                <span className="icon-button bg-primary">
-                  <i className="bi bi-award "></i>
-                </span>
+              <div className="mt-2">
+                <span>Advanced</span>
+                <div className="d-flex">
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-award "></i>
+                  </span>
 
-                <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
-                  <i className="bi bi-bar-chart-line "></i>
-                </span>
-                <span className="ms-1"> Rank:</span>
+                  <span className="ms-1">
+                    {" "}
+                    Score:{" "}
+                    {userScores.correctWordAdvanced.score
+                      ? userScores.correctWordAdvanced.score
+                      : ""}
+                  </span>
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-bar-chart-line "></i>
+                  </span>
+                  <span className="ms-1"> Rank:</span>
+                </div>
               </div>
-            </div>
-            <div className="mt-2">
-              <span>Advanced</span>
-              <div className="d-flex">
-                <span className="icon-button bg-primary">
-                  <i className="bi bi-award "></i>
-                </span>
+              <div className="text-center mt-4">
+                <Link
+                  className="btn btn-dark"
+                  href="/vocabulary/correct-word/intermediate"
+                >
+                  Take a Test
+                </Link>
+              </div>
+            </article>
+            <article className="tile">
+              <div className="">
+                <h3>Correct Meaning</h3>
+              </div>
+              <div>
+                <span>Intermediate</span>
+                <div className="d-flex">
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-award "></i>
+                  </span>
 
-                <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
-                  <i className="bi bi-bar-chart-line "></i>
-                </span>
-                <span className="ms-1"> Rank:</span>
+                  <span className="ms-1"> Score:</span>
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-bar-chart-line "></i>
+                  </span>
+                  <span className="ms-1"> Rank:</span>
+                </div>
               </div>
-            </div>
-            <div className="text-center mt-4">
-              <Link
-                className="btn btn-dark"
-                href="/vocabulary/correct-word/intermediate"
-              >
-                Take a Test
-              </Link>
-            </div>
-          </article>
-          <article className="tile">
-            <div className="">
-              <h3>Synonym</h3>
-            </div>
-            <div>
-              <span>Intermediate</span>
-              <div className="d-flex">
-                <span className="icon-button bg-primary">
-                  <i className="bi bi-award "></i>
-                </span>
+              <div className="mt-2">
+                <span>Advanced</span>
+                <div className="d-flex">
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-award "></i>
+                  </span>
 
-                <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
-                  <i className="bi bi-bar-chart-line "></i>
-                </span>
-                <span className="ms-1"> Rank:</span>
+                  <span className="ms-1"> Score:</span>
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-bar-chart-line "></i>
+                  </span>
+                  <span className="ms-1"> Rank:</span>
+                </div>
               </div>
-            </div>
-            <div className="mt-2">
-              <span>Advanced</span>
-              <div className="d-flex">
-                <span className="icon-button bg-primary">
-                  <i className="bi bi-award "></i>
-                </span>
+              <div className="text-center mt-4">
+                <Link
+                  className="btn btn-dark"
+                  href="/vocabulary/correct-word/intermediate"
+                >
+                  Take a Test
+                </Link>
+              </div>
+            </article>
+            <article className="tile">
+              <div className="">
+                <h3>Synonym</h3>
+              </div>
+              <div>
+                <span>Intermediate</span>
+                <div className="d-flex">
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-award "></i>
+                  </span>
 
-                <span className="ms-1"> Score:</span>
-                <span className="icon-button bg-primary ms-4">
-                  <i className="bi bi-bar-chart-line "></i>
-                </span>
-                <span className="ms-1"> Rank:</span>
+                  <span className="ms-1"> Score:</span>
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-bar-chart-line "></i>
+                  </span>
+                  <span className="ms-1"> Rank:</span>
+                </div>
               </div>
-            </div>
-            <div className="text-center mt-4">
-              <Link
-                className="btn btn-dark"
-                href="/vocabulary/correct-word/intermediate"
-              >
-                Take a Test
-              </Link>
-            </div>
-          </article>
+              <div className="mt-2">
+                <span>Advanced</span>
+                <div className="d-flex">
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-award "></i>
+                  </span>
+
+                  <span className="ms-1"> Score:</span>
+                  <span className="icon-button roundedScoreFrameSmall">
+                    <i className="bi bi-bar-chart-line "></i>
+                  </span>
+                  <span className="ms-1"> Rank:</span>
+                </div>
+              </div>
+              <div className="text-center mt-4">
+                <Link
+                  className="btn btn-dark"
+                  href="/vocabulary/correct-word/intermediate"
+                >
+                  Take a Test
+                </Link>
+              </div>
+            </article>
+          </div>
         </div>
       );
     }
@@ -242,14 +257,13 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Layout3>
-      
-          {/* <div className="col-3 app-body-navigation">
+      <LayoutPublicProfile>
+        {/* <div className="col-3 app-body-navigation">
             <PublicProfileLeftNavBar />
           </div>
           <div className=" col-9"> */}
-            <section className="service-section">
-              {/* <div>
+        <section className="service-section">
+          {/* <div>
                 <div className=" mt-4 mb-4 p-3 ">
                   <div className="">
                     <div className="text-center d-flex row">
@@ -271,11 +285,10 @@ const ProfilePage = () => {
                 </div>
                 ;
               </div> */}
-              {displayScores()}
-            </section>
-          {/* </div> */}
-     
-      </Layout3>
+          {displayScores()}
+        </section>
+        {/* </div> */}
+      </LayoutPublicProfile>
     </>
   );
 };

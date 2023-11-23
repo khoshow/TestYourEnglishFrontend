@@ -29,7 +29,9 @@ module.exports = {
         FB_APP_ID: process.env. FB_APP_ID,
         DISQUS_SHORTNAME: process.env.DISQUS_SHORTNAME,
         GOOGLE_CLIENT_ID:process.env.GOOGLE_CLIENT_ID,
-        webpack5: true
+        SENDGRID_API_KEY:process.env.SENDGRID_API_KEY,
+        webpack5: true,
+        
     }
 }
 

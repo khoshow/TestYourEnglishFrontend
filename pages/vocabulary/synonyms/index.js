@@ -53,7 +53,7 @@ const CorrectWordsMedium = ({}) => {
                 </CardContent>
 
                 <CardActions className="">
-                  <Link href="/vocabulary/synonyms/intermediate">
+                  <Link href="/vocabulary/correct-word/intermediate">
                     <Button
                       size="small"
                       className="btn "
@@ -90,7 +90,7 @@ const CorrectWordsMedium = ({}) => {
                 </CardContent>
 
                 <CardActions className="">
-                  <Link href="/vocabulary/synonyms/advanced">
+                  <Link href="/vocabulary/correct-word/advanced">
                     <Button
                       size="small"
                       className="btn "

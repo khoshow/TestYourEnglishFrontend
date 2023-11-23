@@ -7,7 +7,7 @@ import ReactDOM from "react-dom";
 import TwoSides2 from "./TwoSides2";
 import { ClassNames } from "@emotion/react";
 import SideNav from "./SideNav";
-import RightSideNav from "./RightSideNav";
+import RightSideNavPublicProfile from "./RightSideNavPublicProfile";
 import MyFooter from "../components/footer/MyFooter";
 import { Hidden, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -23,28 +23,49 @@ const Layout = ({ children }) => {
           </div>
           <div className="" style={{ flex: "3", zIndex: "900" }}>
             <MyHeader />
-            <div className="">
-              <div style={{ zIndex: "900" }}> {children}</div>
-              <div style={{ zIndex: "900", backgroundColor:"#f1f1f1" }}>
-                <RightSideNav />
+            <div className="layoutPublicProfile d-flex">
+              <div className="contentPublicProfile" style={{ zIndex: "900" }}>
+                {" "}
+                {children}
+              </div>
+              <div
+                className="rightPublicProfile"
+                style={{ zIndex: "900", backgroundColor: "#f1f1f1" }}
+              >
+                <RightSideNavPublicProfile />
               </div>
             </div>
-          
           </div>
         </div>
         <div className="d-flex desktopLayout3" style={{}}>
           <div className="makeItFixed " style={{ zIndex: "1001" }}>
             <SideNav />
           </div>
-          <div className="" style={{ flex: "3", zIndex: "900",  paddingBottom:"50px" }}>
+          <div
+            className=""
+            style={{ flex: "3", zIndex: "900", paddingBottom: "50px" }}
+          >
             <MyHeader />
-            <div className="d-flex ">
-              <div style={{ flex: "3", zIndex: "900" }}> {children}</div>
-              <div style={{ flex: "1", zIndex: "900", backgroundColor:"#f1f1f1", paddingLeft:"10px" }} >
-                <RightSideNav />
+            <div className="layoutPublicProfile d-flex ">
+              <div
+                className=""
+                style={{ flex: "3", zIndex: "900" }}
+              >
+                {" "}
+                {children}
+              </div>
+              <div
+                className=""
+                style={{
+                  flex: "1",
+                  zIndex: "900",
+                  backgroundColor: "#f1f1f1",
+                  paddingLeft: "10px",
+                }}
+              >
+                <RightSideNavPublicProfile />
               </div>
             </div>
-           
           </div>
         </div>
       </>

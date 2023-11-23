@@ -10,6 +10,8 @@ const CorrectWordsMedium = (data, next) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
+
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1)); // Random index from 0 to i
@@ -57,13 +59,13 @@ const CorrectWordsMedium = (data, next) => {
     const fetchData = async () => {
       const incomingData = data.data.questionNo;
       console.log("Dat TO get suername", data);
-    
+
       try {
         const response = await shuffle(incomingData);
         if (response.error) {
           throw new Error("Failed to fetch data from the API.");
         }
-       
+
         setDataToSend({ questions: response, testId: data.data._id });
       } catch (error) {
         setError(error.message); // Set error message in case of an error
@@ -85,12 +87,13 @@ const CorrectWordsMedium = (data, next) => {
     return <div>Error: {error}</div>;
   }
 
-  
-
   return (
     <>
-
-      <Second2 data={dataToSend} />
+      <Second2
+        data={dataToSend}
+        correctMessages={data.correctMessages}
+        wrongMessages={data.wrongMessages}
+      />
     </>
   );
 };

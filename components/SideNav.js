@@ -64,69 +64,29 @@ const sideNav = ({ children }) => {
 
     setCurrentUrl(router.asPath);
 
-    // const fetchRankingData = async () => {
-    //   if (!router.asPath) {
-    //     return; //If slug value is undefined/null returns before getting updated value. use the dependency array for the updated value
-    //   }
-
-    //   try {
-    //     let toSendSlug;
-    //     const slug = router.asPath;
-    //     const requiredSlug = slug.split("/");
-    //     const neededSlug = requiredSlug.slice(0, 4).join("/");
-    //     switch (neededSlug) {
-    //       case "/vocabulary/correct-word/intermediate":
-    //         toSendSlug = "ranking-correct-word-intermediate";
-    //         break;
-    //       case "/vocabulary/correct-word/advanced":
-    //         toSendSlug = "ranking-correct-word-advanced";
-    //         break;
-    //       default:
-    //         toSendSlug = "ranking-correct-word-intermediate";
-    //     }
-
-    //     setCurrentUrl(slug);
-
-    //     getRanking(toSendSlug)
-    //       .then((res) => {
-    //         console.log("resp", res);
-    //         setRankingData(res);
-    //         setRankLoading(false);
-    //       })
-    //       .catch((error) => {
-    //         console.log("err");
-    //       });
-
-    //     // Set error message in case of an error
-    //   } finally {
-    //     setRankLoading(false); // Set loading to false regardless of success or failure
-    //   }
-    // };
-    // // Call the fetchData function
-
     fetchRankingData(router.asPath);
   }, [loading, router.query, router.asPath, currentUrl, rankLoading]);
 
   const data1 = [
     {
-      icon: <People />,
+      icon: <i className="bi bi-bookmark-heart-fill sideNavIcon"></i>,
       label: "Intermediate",
       url: "/vocabulary/correct-word/intermediate",
     },
     {
-      icon: <Dns />,
+      icon: <i className="bi bi-bookmark-star-fill sideNavIcon"></i>,
       label: "Advanced",
       url: "/vocabulary/correct-word/advanced",
     },
   ];
   const data2 = [
     {
-      icon: <People />,
+      icon: <i className="bi bi-bookmark-heart-fill sideNavIcon"></i>,
       label: "Intermediate",
       url: "/vocabulary/correct-meaning/intermediate",
     },
     {
-      icon: <Dns />,
+      icon: <i className="bi bi-bookmark-star-fill sideNavIcon"></i>,
       label: "Advanced",
       url: "/vocabulary/correct-meaning/advanced",
     },
@@ -134,12 +94,12 @@ const sideNav = ({ children }) => {
 
   const data3 = [
     {
-      icon: <People />,
+      icon: <i className="bi bi-bookmark-heart-fill sideNavIcon"></i>,
       label: "Intermediate",
       url: "/vocabulary/synonyms/intermediate",
     },
     {
-      icon: <Dns />,
+      icon: <i className="bi bi-bookmark-star-fill sideNavIcon"></i>,
       label: "Advanced",
       url: "/vocabulary/synonyms/advanced",
     },
@@ -192,7 +152,10 @@ const sideNav = ({ children }) => {
     const token = getCookie("token");
 
     // setUserId(authenticatedId);
-    const response = await getUserScores(authenticatedId, token)
+    const response = await getUserScores(
+      authenticatedId,
+      token
+    )
       .then((res) => {
         setScoreData(res);
         setLoading(false);

@@ -22,7 +22,7 @@ h1 {
   margin: 0;
   font-family: "Raleway", sans-serif;
   font-weight: 300;
-  font-size: 40px;
+  font-size: 30px;
   color: #080808;
   -webkit-transition: all 0.4s ease 0s;
   -o-transition: all 0.4s ease 0s;
@@ -59,6 +59,14 @@ h1 em {
   color: rgba(0, 0, 0, 0.6);
   padding-bottom: 10px;
 }
+.subHeading {
+  font-size: 18px;
+  font-weight: 500;
+  // text-transform: uppercase;
+  letter-spacing: 2px;
+
+  color: rgba(0, 0, 0);
+}
 .heading {
   margin-top: 50px;
   font-weight: bold;
@@ -73,7 +81,9 @@ h1 em {
 #h1Home {
   color: #1769aa;
 }
-
+li {
+  line-height: 1.8em;
+}
 .title-container {
   background-color: #d20962;
   max-width: 800px;
@@ -206,6 +216,15 @@ h5 {
   .noMobileDisplay {
     display: none;
   }
+  .layoutPublicProfile {
+    flex-direction: column;
+  }
+  .rightPublicProfile {
+    order: 1;
+  }
+  .contentPublicProfile {
+    order: 2;
+  }
 }
 @media only screen and (min-width: 902px) {
   .leftSideNavMenu {
@@ -244,6 +263,10 @@ h5 {
   left: 20px;
   color: #eac100;
 }
+
+.sideNavIcon {
+  color: #7ac143;
+}
 /* Style the form container */
 .quizContainer {
   max-width: 500px;
@@ -262,6 +285,7 @@ h5 {
 .questionText {
   display: block;
   font-weight: bold;
+
   margin-bottom: 5px;
 }
 
@@ -307,8 +331,50 @@ h5 {
   margin-top: 10px;
   padding: 10px 0;
 }
-.questionCount {
+.messageBar {
   text-align: center;
+  height: 120px;
+}
+
+.messageBarContent {
+  display: flex;
+  max-width: 800px; /* Adjust the maximum width as needed */
+  width: 100%;
+}
+.correctAnswerColumn1 {
+  flex: 1;
+  background-color: #1e2a78;
+  padding: 10px;
+  color: #ffd615;
+  align-items: center;
+}
+.correctAnswerColumn2 {
+  flex: 5;
+  background-color: #1e2a78;
+  padding: 20px;
+  color: white;
+}
+.wrongAnswerColumn1 {
+  flex: 1;
+  background-color: #ff1f5a;
+  padding: 10px;
+  color: #22eaaa;
+  align-items: center;
+}
+.wrongAnswerColumn2 {
+  flex: 5;
+  background-color: #ff1f5a;
+  padding: 20px;
+  color: white;
+}
+.correctAnswerColumn1 svg {
+  margin: 0 auto;
+}
+.wrongAnswerColumn1 svg {
+  margin: 0 auto;
+}
+.contentSection {
+  padding: 15px 0;
 }
 
 /* Optional: Add media queries for responsive design */
@@ -345,6 +411,14 @@ h5 {
   flex-direction: column;
   align-items: center;
   margin: 20px 10px;
+}
+
+.scoreCard {
+  background-color: #1769aa;
+}
+
+.scoreCard .weave2 {
+  color: var(--color3);
 }
 .attemptedCard {
   background-color: #87a6be;
@@ -393,20 +467,20 @@ h5 {
 .attemptedScore {
   position: absolute;
   background-color: #f47721;
-  margin: -20px 0 0 -50px;
+  margin: -20px 0 0 -24px;
   font-size: 0.8em;
   padding: 3px;
 }
 
 .correctAnswer {
   margin-top: 1rem;
-  padding: 1rem;
+
   background-color: #007bff;
   justify-content: center;
 }
 .wrongAnswer {
   margin-top: 1rem;
-  padding: 1rem;
+
   background-color: #ff4800;
   justify-content: center;
 }
@@ -549,14 +623,47 @@ h5 {
   height: 80px;
   border-radius: 50%;
   border: 0;
-  background-color: var(--c-gray-600);
+  font-size: 25px;
+  background-color: #1e2a78;
   border: 1px solid var(--colorYellow);
-  color: white;
+  color: #ffd615;
   display: flex;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
-  cursor: progress;
+
+  transition: 0.25s ease;
+  flex-shrink: 0;
+  &.large {
+    width: 42px;
+    height: 42px;
+    font-size: 1.25em;
+  }
+
+  i {
+    transition: 0.25s ease;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0 4px var(--c-gray-800), 0 0 0 1px var(--colorYellow);
+  }
+}
+
+.roundedScoreFrameSmall {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 0;
+  margin: 0 5px;
+  background-color: #1e2a78;
+  border: 1px solid var(--colorYellow);
+  color: #ffd615;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
   transition: 0.25s ease;
   flex-shrink: 0;
   &.large {
@@ -584,8 +691,11 @@ h5 {
   align-items: center;
   border: 0;
   background: transparent;
+  color: #000;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
   cursor: pointer;
-  color: var(--c-text-tertiary);
+  // color: var(--c-text-tertiary);
   // transition: 0.25s ease;
 
   // &:hover,
@@ -605,7 +715,6 @@ h5 {
   span:last-child {
     display: flex;
     font-size: 1.125rem;
-    padding-left: 1rem;
 
     font-weight: 300;
   }
@@ -619,9 +728,28 @@ h5 {
     height: 42px;
     border-radius: 50%;
     overflow: hidden;
-    margin-left: 1.5rem;
+
     flex-shrink: 0;
   }
+}
+
+.rankItem {
+  padding: 10px;
+  // border: 1px solid black;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  // background-color: var(--c-gray-600);
+  // background-color: #1e2a78;
+
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  cursor: progress;
+  transition: 0.25s ease;
+  flex-shrink: 0;
 }
 
 .profileCard {
@@ -819,6 +947,7 @@ hr .new1 {
   column-gap: 1rem;
   row-gap: 1rem;
   margin-top: 1.25rem;
+
   @media (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -827,10 +956,10 @@ hr .new1 {
 .tile {
   padding: 1rem;
   border-radius: 8px;
-  background-color: var(--c-olive-500);
+  background-color: var(--c-green-500);
   color: var(--c-gray-900);
   &:nth-child(2) {
-    background-color: var(--c-green-500);
+    background-color: #4abe88;
     &:focus-within {
       box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-green-500);
     }
@@ -886,4 +1015,48 @@ hr .new1 {
 
 .test0 {
   display: none;
+}
+
+.rightNavPublicProfile {
+  min-width: 300px;
+}
+.publicProfile {
+  text-align: center;
+}
+.imgCenter {
+  margin: 20px auto;
+  display: flex !important;
+  width: 100px;
+}
+.muiCard {
+  border-radius: 12;
+  min-width: 300;
+  text-align: "center";
+}
+.muiAvatar {
+  margin: "0 auto";
+}
+.muiHeading {
+  font-size: 18;
+  font-weight: "bold";
+  letter-spacing: "0.5px";
+  margin-top: 8;
+  margin-bottom: 0;
+}
+.muiSubHeading {
+  font-size: 14;
+
+  margin-bottom: "0.875em";
+}
+.muiStatLabel {
+  font-size: 12;
+
+  font-weight: 500;
+  margin: 0;
+}
+.muiStatValue {
+  font-size: 20;
+  font-weight: "bold";
+  margin-bottom: 4;
+  letter-spacing: "1px";
 }

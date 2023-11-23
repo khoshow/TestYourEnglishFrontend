@@ -5,12 +5,16 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
+import Avatar from "@mui/material/Avatar";
+import Divider from "@mui/material/Divider";
+import Box from "@mui/material/Box";
 import { isAuth } from "../actions/auth";
 import { getCookie } from "../actions/auth";
-import { getUserScoresCorrectWordIntermediate } from "../actions/userInfo";
+import { getUserScores } from "../actions/userInfo";
 import ScoresRightNav from "./sideBars/ScoresRightNav";
-import { getRankingCorrectWordIntermediate } from "../actions/rank";
+import { getRanking } from "../actions/rank";
 import RankingList from "./sideBars/RankingRightNav";
+import { getPublicProfile } from "../actions/publicInfo/userProfile";
 
 const rightSideNav = ({}) => {
   const router = useRouter();
@@ -22,8 +26,10 @@ const rightSideNav = ({}) => {
   const [rankingData, setRankingData] = useState();
   const [rankLoading, setRankLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [publicProfile, setPublicprofile] = useState();
 
   useEffect(() => {
+    const { slug } = router.query;
     const authenticated = isAuth();
     if (authenticated) {
       setAuthStatus(true);
@@ -33,7 +39,23 @@ const rightSideNav = ({}) => {
     setCurrentUrl(router.asPath);
 
     fetchRankingData(router.asPath);
+    loadPublicProfile(router.asPath);
   }, [loading, router.query, router.asPath, currentUrl, rankLoading]);
+
+  const loadPublicProfile = (username) => {
+    console.log("Username", username);
+    let requiredSlug = username.split("/");
+    const usernameToSend = requiredSlug[requiredSlug.length - 1];
+    getPublicProfile(usernameToSend)
+      .then((res) => {
+        console.log("User", res);
+        setPublicprofile(res);
+      })
+      .catch((error) => {
+        console.log("err");
+        return;
+      });
+  };
 
   const fetchRankingData = async (thisUrl) => {
     let toSendSlug;
@@ -49,7 +71,7 @@ const rightSideNav = ({}) => {
       default:
         toSendSlug = "ranking-correct-word-intermediate";
     }
-    const response = await getRankingCorrectWordIntermediate(toSendSlug)
+    const response = await getRanking(toSendSlug)
       .then((res) => {
         setRankingData(res);
         setRankLoading(false);
@@ -64,7 +86,7 @@ const rightSideNav = ({}) => {
     const token = getCookie("token");
 
     // setUserId(authenticatedId);
-    const response = await getUserScoresCorrectWordIntermediate(authenticatedId, token)
+    const response = await getUserScores(authenticatedId, token)
       .then((res) => {
         console.log("righ score", res);
         setScoreData(res);
@@ -78,56 +100,54 @@ const rightSideNav = ({}) => {
         return;
       });
   };
+  const displayPublicProfile = () => {
+    if (publicProfile) {
+      return (
+        <>
+          <div className="publicProfile">
+            <img src={publicProfile.photo} className="imgCenter"></img>
+            <h3 className="subHeading">{publicProfile.name}</h3>
+            {publicProfile.profile ? (
+              <div>
+                <a style={{ color: "#1769aa" }} href={publicProfile.profile}>
+                  @{publicProfile.username}
+                </a>
+              </div>
+            ) : (
+              ""
+            )}{" "}
+            {publicProfile.country ? (
+              <div>
+                <i class="bi bi-geo-alt-fill "> {publicProfile.country}</i>
+              </div>
+            ) : (
+              ""
+            )}
+            {publicProfile.status ? (
+              <div className="position-relative p-5  border border-dashed rounded-5">
+                <p className="text-body-emphasis position-absolute top-0 start-0 bg-warning">
+                  Status
+                </p>
+                <p className="">{publicProfile.status}</p>
+              </div>
+            ) : (
+              ""
+            )}
+            {publicProfile.about ? publicProfile.about : ""}
+          </div>
+        </>
+      );
+    } else {
+      return "";
+    }
+  };
   return (
     <>
       <div className="">
-        {authStatus ? (
-          <ScoresRightNav
-            data={scoreData}
-            user={userId}
-            authStatus={authStatus}
-            loading={loading}
-          />
-        ) : (
-          <Card className="signUpLoginCard text-center ">
-            <i className="bi bi-door-open cardIcon " style={{}}></i>
-
-            <CardContent>
-              <p>There is so much more you can do here.</p>
-            </CardContent>
-
-            <CardActions className="">
-              <Link href="/signin">
-                <Button
-                  size="small"
-                  className="btn "
-                  style={{ margin: "auto auto" }}
-                >
-                  Sign In
-                </Button>
-              </Link>
-            </CardActions>
-            <CardContent>
-              <span style={{ fontSize: "0.8em" }}>
-                Don't have an account? Create one.
-              </span>
-              <Link href="/signup">
-                <Button
-                  size="small"
-                  className=" btn-primary"
-                  style={{ margin: "auto auto" }}
-                >
-                  Sign Up
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
-        )}
-        {!rankLoading ? (
-          <RankingList rankTop10={rankingData} loading={rankLoading} />
-        ) : (
-          ""
-        )}
+        <div className="rightNavPublicProfile">
+          {/* <img src={publicProfile.photo}></img> */}
+          {publicProfile ? displayPublicProfile() : ""}
+        </div>
       </div>
     </>
   );

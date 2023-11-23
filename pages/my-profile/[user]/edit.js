@@ -523,7 +523,6 @@ const profileEdit = () => {
     <>
       <Layout>
         <div className="row">
-        
           <div className="col-md-9 rounded bg-white mt-5 mb-5 ">
             <div className="row">
               <div className="col-md-3 border-right ">
@@ -700,175 +699,196 @@ const profileEdit = () => {
                               <option value="Algeria" label="Algeria">
                                 Algeria
                               </option>
-                              <option value="AO" label="Angola">
+                              <option value="Angola" label="Angola">
                                 Angola
                               </option>
-                              <option value="BJ" label="Benin">
+                              <option value="Benin" label="Benin">
                                 Benin
                               </option>
-                              <option value="BW" label="Botswana">
+                              <option value="Botswana" label="Botswana">
                                 Botswana
                               </option>
-                              <option value="BF" label="Burkina Faso">
+                              <option value="Burkina Faso" label="Burkina Faso">
                                 Burkina Faso
                               </option>
-                              <option value="BI" label="Burundi">
+                              <option value="Burundi" label="Burundi">
                                 Burundi
                               </option>
-                              <option value="CM" label="Cameroon">
+                              <option value="Cameroon" label="Cameroon">
                                 Cameroon
                               </option>
-                              <option value="CV" label="Cape Verde">
+                              <option value="Cape Verde" label="Cape Verde">
                                 Cape Verde
                               </option>
                               <option
-                                value="CF"
+                                value="Central African Republic"
                                 label="Central African Republic"
                               >
                                 Central African Republic
                               </option>
-                              <option value="TD" label="Chad">
+                              <option value="Chad" label="Chad">
                                 Chad
                               </option>
-                              <option value="KM" label="Comoros">
+                              <option value="Comoros" label="Comoros">
                                 Comoros
                               </option>
-                              <option value="CG" label="Congo - Brazzaville">
+                              <option
+                                value="Congo - Brazzaville"
+                                label="Congo - Brazzaville"
+                              >
                                 Congo - Brazzaville
                               </option>
-                              <option value="CD" label="Congo - Kinshasa">
+                              <option
+                                value="Congo - Kinshasa"
+                                label="Congo - Kinshasa"
+                              >
                                 Congo - Kinshasa
                               </option>
-                              <option value="CI" label="Côte d’Ivoire">
+                              <option
+                                value="Côte d’Ivoire"
+                                label="Côte d’Ivoire"
+                              >
                                 Côte d’Ivoire
                               </option>
-                              <option value="DJ" label="Djibouti">
+                              <option value="Djibouti" label="Djibouti">
                                 Djibouti
                               </option>
-                              <option value="EG" label="Egypt">
+                              <option value="Egypt" label="Egypt">
                                 Egypt
                               </option>
-                              <option value="GQ" label="Equatorial Guinea">
+                              <option
+                                value="Equatorial Guinea"
+                                label="Equatorial Guinea"
+                              >
                                 Equatorial Guinea
                               </option>
-                              <option value="ER" label="Eritrea">
+                              <option value="Eritrea" label="Eritrea">
                                 Eritrea
                               </option>
-                              <option value="ET" label="Ethiopia">
+                              <option value="Ethiopia" label="Ethiopia">
                                 Ethiopia
                               </option>
-                              <option value="GA" label="Gabon">
+                              <option value="Gabon" label="Gabon">
                                 Gabon
                               </option>
-                              <option value="GM" label="Gambia">
+                              <option value="Gambia" label="Gambia">
                                 Gambia
                               </option>
-                              <option value="GH" label="Ghana">
+                              <option value="Ghana" label="Ghana">
                                 Ghana
                               </option>
-                              <option value="GN" label="Guinea">
+                              <option value="Guinea" label="Guinea">
                                 Guinea
                               </option>
-                              <option value="GW" label="Guinea-Bissau">
+                              <option
+                                value="Guinea-Bissau"
+                                label="Guinea-Bissau"
+                              >
                                 Guinea-Bissau
                               </option>
-                              <option value="KE" label="Kenya">
+                              <option value="Kenya" label="Kenya">
                                 Kenya
                               </option>
-                              <option value="LS" label="Lesotho">
+                              <option value="Lesotho" label="Lesotho">
                                 Lesotho
                               </option>
-                              <option value="LR" label="Liberia">
+                              <option value="Liberia" label="Liberia">
                                 Liberia
                               </option>
-                              <option value="LY" label="Libya">
+                              <option value="Libya" label="Libya">
                                 Libya
                               </option>
-                              <option value="MG" label="Madagascar">
+                              <option value="Madagascar" label="Madagascar">
                                 Madagascar
                               </option>
-                              <option value="MW" label="Malawi">
+                              <option value="Malawi" label="Malawi">
                                 Malawi
                               </option>
-                              <option value="ML" label="Mali">
+                              <option value="Mali" label="Mali">
                                 Mali
                               </option>
-                              <option value="MR" label="Mauritania">
+                              <option value="Mauritania" label="Mauritania">
                                 Mauritania
                               </option>
-                              <option value="MU" label="Mauritius">
+                              <option value="Mauritius" label="Mauritius">
                                 Mauritius
                               </option>
-                              <option value="YT" label="Mayotte">
+                              <option value="Mayotte" label="Mayotte">
                                 Mayotte
                               </option>
-                              <option value="MA" label="Morocco">
+                              <option value="Morocco" label="Morocco">
                                 Morocco
                               </option>
-                              <option value="MZ" label="Mozambique">
+                              <option value="Mozambique" label="Mozambique">
                                 Mozambique
                               </option>
-                              <option value="NA" label="Namibia">
+                              <option value="Namibia" label="Namibia">
                                 Namibia
                               </option>
-                              <option value="NE" label="Niger">
+                              <option value="Niger" label="Niger">
                                 Niger
                               </option>
-                              <option value="NG" label="Nigeria">
+                              <option value="Nigeria" label="Nigeria">
                                 Nigeria
                               </option>
-                              <option value="RW" label="Rwanda">
+                              <option value="Rwanda" label="Rwanda">
                                 Rwanda
                               </option>
-                              <option value="RE" label="Réunion">
+                              <option value="Réunion" label="Réunion">
                                 Réunion
                               </option>
-                              <option value="SH" label="Saint Helena">
+                              <option value="Saint Helena" label="Saint Helena">
                                 Saint Helena
                               </option>
-                              <option value="SN" label="Senegal">
+                              <option value="Senegal" label="Senegal">
                                 Senegal
                               </option>
-                              <option value="SC" label="Seychelles">
+                              <option value="Seychelles" label="Seychelles">
                                 Seychelles
                               </option>
-                              <option value="SL" label="Sierra Leone">
+                              <option value="Sierra Leone" label="Sierra Leone">
                                 Sierra Leone
                               </option>
-                              <option value="SO" label="Somalia">
+                              <option value="Somalia" label="Somalia">
                                 Somalia
                               </option>
-                              <option value="ZA" label="South Africa">
+                              <option value="South Africa" label="South Africa">
                                 South Africa
                               </option>
-                              <option value="SD" label="Sudan">
+                              <option value="Sudan" label="Sudan">
                                 Sudan
                               </option>
-                              <option value="SZ" label="Swaziland">
+                              <option value="Swaziland" label="Swaziland">
                                 Swaziland
                               </option>
-                              <option value="ST" label="São Tomé and Príncipe">
+                              <option
+                                value="São Tomé and Príncipe"
+                                label="São Tomé and Príncipe"
+                              >
                                 São Tomé and Príncipe
                               </option>
-                              <option value="TZ" label="Tanzania">
+                              <option value="Tanzania" label="Tanzania">
                                 Tanzania
                               </option>
-                              <option value="TG" label="Togo">
+                              <option value="Togo" label="Togo">
                                 Togo
                               </option>
-                              <option value="TN" label="Tunisia">
+                              <option value="Tunisia" label="Tunisia">
                                 Tunisia
                               </option>
-                              <option value="UG" label="Uganda">
+                              <option value="Uganda" label="Uganda">
                                 Uganda
                               </option>
-                              <option value="EH" label="Western Sahara">
+                              <option
+                                value="Western Sahara"
+                                label="Western Sahara"
+                              >
                                 Western Sahara
                               </option>
-                              <option value="ZM" label="Zambia">
+                              <option value="Zambia" label="Zambia">
                                 Zambia
                               </option>
-                              <option value="ZW" label="Zimbabwe">
+                              <option value="Zimbabwe" label="Zimbabwe">
                                 Zimbabwe
                               </option>
                             </optgroup>
@@ -876,512 +896,589 @@ const profileEdit = () => {
                               id="country-optgroup-Americas"
                               label="Americas"
                             >
-                              <option value="AI" label="Anguilla">
+                              <option value="Anguilla" label="Anguilla">
                                 Anguilla
                               </option>
-                              <option value="AG" label="Antigua and Barbuda">
+                              <option
+                                value="Antigua and Barbuda"
+                                label="Antigua and Barbuda"
+                              >
                                 Antigua and Barbuda
                               </option>
-                              <option value="AR" label="Argentina">
+                              <option value="Argentina" label="Argentina">
                                 Argentina
                               </option>
-                              <option value="AW" label="Aruba">
+                              <option value="Aruba" label="Aruba">
                                 Aruba
                               </option>
-                              <option value="BS" label="Bahamas">
+                              <option value="Bahamas" label="Bahamas">
                                 Bahamas
                               </option>
-                              <option value="BB" label="Barbados">
+                              <option value="Barbados" label="Barbados">
                                 Barbados
                               </option>
-                              <option value="BZ" label="Belize">
+                              <option value="Belize" label="Belize">
                                 Belize
                               </option>
-                              <option value="BM" label="Bermuda">
+                              <option value="Bermuda" label="Bermuda">
                                 Bermuda
                               </option>
-                              <option value="BO" label="Bolivia">
+                              <option value="Bolivia" label="Bolivia">
                                 Bolivia
                               </option>
-                              <option value="BR" label="Brazil">
+                              <option value="Brazil" label="Brazil">
                                 Brazil
                               </option>
-                              <option value="VG" label="British Virgin Islands">
+                              <option
+                                value="British Virgin Islands"
+                                label="British Virgin Islands"
+                              >
                                 British Virgin Islands
                               </option>
-                              <option value="CA" label="Canada">
+                              <option value="Canada" label="Canada">
                                 Canada
                               </option>
-                              <option value="KY" label="Cayman Islands">
+                              <option
+                                value="Cayman Islands"
+                                label="Cayman Islands"
+                              >
                                 Cayman Islands
                               </option>
-                              <option value="CL" label="Chile">
+                              <option value="Chile" label="Chile">
                                 Chile
                               </option>
-                              <option value="CO" label="Colombia">
+                              <option value="Colombia" label="Colombia">
                                 Colombia
                               </option>
-                              <option value="CR" label="Costa Rica">
+                              <option value="Costa Rica" label="Costa Rica">
                                 Costa Rica
                               </option>
-                              <option value="CU" label="Cuba">
+                              <option value="Cuba" label="Cuba">
                                 Cuba
                               </option>
-                              <option value="DM" label="Dominica">
+                              <option value="Dominica" label="Dominica">
                                 Dominica
                               </option>
-                              <option value="DO" label="Dominican Republic">
+                              <option
+                                value="Dominican Republic"
+                                label="Dominican Republic"
+                              >
                                 Dominican Republic
                               </option>
-                              <option value="EC" label="Ecuador">
+                              <option value="Ecuador" label="Ecuador">
                                 Ecuador
                               </option>
-                              <option value="SV" label="El Salvador">
+                              <option value="El Salvador" label="El Salvador">
                                 El Salvador
                               </option>
-                              <option value="FK" label="Falkland Islands">
+                              <option
+                                value="Falkland Islands"
+                                label="Falkland Islands"
+                              >
                                 Falkland Islands
                               </option>
-                              <option value="GF" label="French Guiana">
+                              <option
+                                value="French Guiana"
+                                label="French Guiana"
+                              >
                                 French Guiana
                               </option>
-                              <option value="GL" label="Greenland">
+                              <option value="Greenland" label="Greenland">
                                 Greenland
                               </option>
-                              <option value="GD" label="Grenada">
+                              <option value="Grenada" label="Grenada">
                                 Grenada
                               </option>
-                              <option value="GP" label="Guadeloupe">
+                              <option value="Guadeloupe" label="Guadeloupe">
                                 Guadeloupe
                               </option>
-                              <option value="GT" label="Guatemala">
+                              <option value="Guatemala" label="Guatemala">
                                 Guatemala
                               </option>
-                              <option value="GY" label="Guyana">
+                              <option value="Guyana" label="Guyana">
                                 Guyana
                               </option>
-                              <option value="HT" label="Haiti">
+                              <option value="Haiti" label="Haiti">
                                 Haiti
                               </option>
-                              <option value="HN" label="Honduras">
+                              <option value="Honduras" label="Honduras">
                                 Honduras
                               </option>
-                              <option value="JM" label="Jamaica">
+                              <option value="Jamaica" label="Jamaica">
                                 Jamaica
                               </option>
-                              <option value="MQ" label="Martinique">
+                              <option value="Martinique" label="Martinique">
                                 Martinique
                               </option>
-                              <option value="MX" label="Mexico">
+                              <option value="Mexico" label="Mexico">
                                 Mexico
                               </option>
-                              <option value="MS" label="Montserrat">
+                              <option value="Montserrat" label="Montserrat">
                                 Montserrat
                               </option>
-                              <option value="AN" label="Netherlands Antilles">
+                              <option
+                                value="Netherlands Antilles"
+                                label="Netherlands Antilles"
+                              >
                                 Netherlands Antilles
                               </option>
-                              <option value="NI" label="Nicaragua">
+                              <option value="Nicaragua" label="Nicaragua">
                                 Nicaragua
                               </option>
-                              <option value="PA" label="Panama">
+                              <option value="Panama" label="Panama">
                                 Panama
                               </option>
-                              <option value="PY" label="Paraguay">
+                              <option value="Paraguay" label="Paraguay">
                                 Paraguay
                               </option>
-                              <option value="PE" label="Peru">
+                              <option value="Peru" label="Peru">
                                 Peru
                               </option>
-                              <option value="PR" label="Puerto Rico">
+                              <option value="Puerto Rico" label="Puerto Rico">
                                 Puerto Rico
                               </option>
-                              <option value="BL" label="Saint Barthélemy">
+                              <option
+                                value="Saint Barthélemy"
+                                label="Saint Barthélemy"
+                              >
                                 Saint Barthélemy
                               </option>
-                              <option value="KN" label="Saint Kitts and Nevis">
+                              <option
+                                value="Saint Kitts and Nevis"
+                                label="Saint Kitts and Nevis"
+                              >
                                 Saint Kitts and Nevis
                               </option>
-                              <option value="LC" label="Saint Lucia">
+                              <option value="Saint Lucia" label="Saint Lucia">
                                 Saint Lucia
                               </option>
-                              <option value="MF" label="Saint Martin">
+                              <option value="Saint Martin" label="Saint Martin">
                                 Saint Martin
                               </option>
                               <option
-                                value="PM"
+                                value="Saint Pierre and Miquelon"
                                 label="Saint Pierre and Miquelon"
                               >
                                 Saint Pierre and Miquelon
                               </option>
                               <option
-                                value="VC"
+                                value="Saint Vincent and the Grenadines"
                                 label="Saint Vincent and the Grenadines"
                               >
                                 Saint Vincent and the Grenadines
                               </option>
-                              <option value="SR" label="Suriname">
+                              <option value="Suriname" label="Suriname">
                                 Suriname
                               </option>
-                              <option value="TT" label="Trinidad and Tobago">
+                              <option
+                                value="Trinidad and Tobago"
+                                label="Trinidad and Tobago"
+                              >
                                 Trinidad and Tobago
                               </option>
                               <option
-                                value="TC"
+                                value="Turks and Caicos Islands"
                                 label="Turks and Caicos Islands"
                               >
                                 Turks and Caicos Islands
                               </option>
-                              <option value="VI" label="U.S. Virgin Islands">
+                              <option
+                                value="U.S. Virgin Islands"
+                                label="U.S. Virgin Islands"
+                              >
                                 U.S. Virgin Islands
                               </option>
-                              <option value="US" label="United States">
+                              <option
+                                value="United States"
+                                label="United States"
+                              >
                                 United States
                               </option>
-                              <option value="UY" label="Uruguay">
+                              <option value="Uruguay" label="Uruguay">
                                 Uruguay
                               </option>
-                              <option value="VE" label="Venezuela">
+                              <option value="Venezuela" label="Venezuela">
                                 Venezuela
                               </option>
                             </optgroup>
+
                             <optgroup id="country-optgroup-Asia" label="Asia">
-                              <option value="AF" label="Afghanistan">
+                              <option value="Afghanistan" label="Afghanistan">
                                 Afghanistan
                               </option>
-                              <option value="AM" label="Armenia">
+                              <option value="Armenia" label="Armenia">
                                 Armenia
                               </option>
-                              <option value="AZ" label="Azerbaijan">
+                              <option value="Azerbaijan" label="Azerbaijan">
                                 Azerbaijan
                               </option>
-                              <option value="BH" label="Bahrain">
+                              <option value="Bahrain" label="Bahrain">
                                 Bahrain
                               </option>
-                              <option value="BD" label="Bangladesh">
+                              <option value="Bangladesh" label="Bangladesh">
                                 Bangladesh
                               </option>
-                              <option value="BT" label="Bhutan">
+                              <option value="Bhutan" label="Bhutan">
                                 Bhutan
                               </option>
-                              <option value="BN" label="Brunei">
+                              <option value="Brunei" label="Brunei">
                                 Brunei
                               </option>
-                              <option value="KH" label="Cambodia">
+                              <option value="Cambodia" label="Cambodia">
                                 Cambodia
                               </option>
-                              <option value="CN" label="China">
+                              <option value="China" label="China">
                                 China
                               </option>
-                              <option value="GE" label="Georgia">
+                              <option value="Georgia" label="Georgia">
                                 Georgia
                               </option>
-                              <option value="HK" label="Hong Kong SAR China">
+                              <option
+                                value="Hong Kong SAR China"
+                                label="Hong Kong SAR China"
+                              >
                                 Hong Kong SAR China
                               </option>
-                              <option value="IN" label="India">
+                              <option value="India" label="India">
                                 India
                               </option>
-                              <option value="ID" label="Indonesia">
+                              <option value="Indonesia" label="Indonesia">
                                 Indonesia
                               </option>
-                              <option value="IR" label="Iran">
+                              <option value="Iran" label="Iran">
                                 Iran
                               </option>
-                              <option value="IQ" label="Iraq">
+                              <option value="Iraq" label="Iraq">
                                 Iraq
                               </option>
-                              <option value="IL" label="Israel">
+                              <option value="Israel" label="Israel">
                                 Israel
                               </option>
-                              <option value="JP" label="Japan">
+                              <option value="Japan" label="Japan">
                                 Japan
                               </option>
-                              <option value="JO" label="Jordan">
+                              <option value="Jordan" label="Jordan">
                                 Jordan
                               </option>
-                              <option value="KZ" label="Kazakhstan">
+                              <option value="Kazakhstan" label="Kazakhstan">
                                 Kazakhstan
                               </option>
-                              <option value="KW" label="Kuwait">
+                              <option value="Kuwait" label="Kuwait">
                                 Kuwait
                               </option>
-                              <option value="KG" label="Kyrgyzstan">
+                              <option value="Kyrgyzstan" label="Kyrgyzstan">
                                 Kyrgyzstan
                               </option>
-                              <option value="LA" label="Laos">
+                              <option value="Laos" label="Laos">
                                 Laos
                               </option>
-                              <option value="LB" label="Lebanon">
+                              <option value="Lebanon" label="Lebanon">
                                 Lebanon
                               </option>
-                              <option value="MO" label="Macau SAR China">
+                              <option
+                                value="Macau SAR China"
+                                label="Macau SAR China"
+                              >
                                 Macau SAR China
                               </option>
-                              <option value="MY" label="Malaysia">
+                              <option value="Malaysia" label="Malaysia">
                                 Malaysia
                               </option>
-                              <option value="MV" label="Maldives">
+                              <option value="Maldives" label="Maldives">
                                 Maldives
                               </option>
-                              <option value="MN" label="Mongolia">
+                              <option value="Mongolia" label="Mongolia">
                                 Mongolia
                               </option>
-                              <option value="MM" label="Myanmar [Burma]">
+                              <option
+                                value="Myanmar [Burma]"
+                                label="Myanmar [Burma]"
+                              >
                                 Myanmar [Burma]
                               </option>
-                              <option value="NP" label="Nepal">
+                              <option value="Nepal" label="Nepal">
                                 Nepal
                               </option>
-                              <option value="NT" label="Neutral Zone">
+                              <option value="Neutral Zone" label="Neutral Zone">
                                 Neutral Zone
                               </option>
-                              <option value="KP" label="North Korea">
+                              <option value="North Korea" label="North Korea">
                                 North Korea
                               </option>
-                              <option value="OM" label="Oman">
+                              <option value="Oman" label="Oman">
                                 Oman
                               </option>
-                              <option value="PK" label="Pakistan">
+                              <option value="Pakistan" label="Pakistan">
                                 Pakistan
                               </option>
                               <option
-                                value="PS"
+                                value="Palestinian Territories"
                                 label="Palestinian Territories"
                               >
                                 Palestinian Territories
                               </option>
                               <option
-                                value="YD"
+                                value="People's Democratic Republic of Yemen"
                                 label="People's Democratic Republic of Yemen"
                               >
                                 People's Democratic Republic of Yemen
                               </option>
-                              <option value="PH" label="Philippines">
+                              <option value="Philippines" label="Philippines">
                                 Philippines
                               </option>
-                              <option value="QA" label="Qatar">
+                              <option value="Qatar" label="Qatar">
                                 Qatar
                               </option>
-                              <option value="SA" label="Saudi Arabia">
+                              <option value="Saudi Arabia" label="Saudi Arabia">
                                 Saudi Arabia
                               </option>
-                              <option value="SG" label="Singapore">
+                              <option value="Singapore" label="Singapore">
                                 Singapore
                               </option>
-                              <option value="KR" label="South Korea">
+                              <option value="South Korea" label="South Korea">
                                 South Korea
                               </option>
-                              <option value="LK" label="Sri Lanka">
+                              <option value="Sri Lanka" label="Sri Lanka">
                                 Sri Lanka
                               </option>
-                              <option value="SY" label="Syria">
+                              <option value="Syria" label="Syria">
                                 Syria
                               </option>
-                              <option value="TW" label="Taiwan">
+                              <option value="Taiwan" label="Taiwan">
                                 Taiwan
                               </option>
-                              <option value="TJ" label="Tajikistan">
+                              <option value="Tajikistan" label="Tajikistan">
                                 Tajikistan
                               </option>
-                              <option value="TH" label="Thailand">
+                              <option value="Thailand" label="Thailand">
                                 Thailand
                               </option>
-                              <option value="TL" label="Timor-Leste">
+                              <option value="Timor-Leste" label="Timor-Leste">
                                 Timor-Leste
                               </option>
-                              <option value="TR" label="Turkey">
+                              <option value="Turkey" label="Turkey">
                                 Turkey
                               </option>
-                              <option value="TM" label="Turkmenistan">
+                              <option value="Turkmenistan" label="Turkmenistan">
                                 Turkmenistan
                               </option>
-                              <option value="AE" label="United Arab Emirates">
+                              <option
+                                value="United Arab Emirates"
+                                label="United Arab Emirates"
+                              >
                                 United Arab Emirates
                               </option>
-                              <option value="UZ" label="Uzbekistan">
+                              <option value="Uzbekistan" label="Uzbekistan">
                                 Uzbekistan
                               </option>
-                              <option value="VN" label="Vietnam">
+                              <option value="Vietnam" label="Vietnam">
                                 Vietnam
                               </option>
-                              <option value="YE" label="Yemen">
+                              <option value="Yemen" label="Yemen">
                                 Yemen
                               </option>
                             </optgroup>
+
                             <optgroup
                               id="country-optgroup-Europe"
                               label="Europe"
                             >
-                              <option value="AL" label="Albania">
+                              <option value="Albania" label="Albania">
                                 Albania
                               </option>
-                              <option value="AD" label="Andorra">
+                              <option value="Andorra" label="Andorra">
                                 Andorra
                               </option>
-                              <option value="AT" label="Austria">
+                              <option value="Austria" label="Austria">
                                 Austria
                               </option>
-                              <option value="BY" label="Belarus">
+                              <option value="Belarus" label="Belarus">
                                 Belarus
                               </option>
-                              <option value="BE" label="Belgium">
+                              <option value="Belgium" label="Belgium">
                                 Belgium
                               </option>
-                              <option value="BA" label="Bosnia and Herzegovina">
+                              <option
+                                value="Bosnia and Herzegovina"
+                                label="Bosnia and Herzegovina"
+                              >
                                 Bosnia and Herzegovina
                               </option>
-                              <option value="BG" label="Bulgaria">
+                              <option value="Bulgaria" label="Bulgaria">
                                 Bulgaria
                               </option>
-                              <option value="HR" label="Croatia">
+                              <option value="Croatia" label="Croatia">
                                 Croatia
                               </option>
-                              <option value="CY" label="Cyprus">
+                              <option value="Cyprus" label="Cyprus">
                                 Cyprus
                               </option>
-                              <option value="CZ" label="Czech Republic">
+                              <option
+                                value="Czech Republic"
+                                label="Czech Republic"
+                              >
                                 Czech Republic
                               </option>
-                              <option value="DK" label="Denmark">
+                              <option value="Denmark" label="Denmark">
                                 Denmark
                               </option>
-                              <option value="DD" label="East Germany">
+                              <option value="East Germany" label="East Germany">
                                 East Germany
                               </option>
-                              <option value="EE" label="Estonia">
+                              <option value="Estonia" label="Estonia">
                                 Estonia
                               </option>
-                              <option value="FO" label="Faroe Islands">
+                              <option
+                                value="Faroe Islands"
+                                label="Faroe Islands"
+                              >
                                 Faroe Islands
                               </option>
-                              <option value="FI" label="Finland">
+                              <option value="Finland" label="Finland">
                                 Finland
                               </option>
-                              <option value="FR" label="France">
+                              <option value="France" label="France">
                                 France
                               </option>
-                              <option value="DE" label="Germany">
+                              <option value="Germany" label="Germany">
                                 Germany
                               </option>
-                              <option value="GI" label="Gibraltar">
+                              <option value="Gibraltar" label="Gibraltar">
                                 Gibraltar
                               </option>
-                              <option value="GR" label="Greece">
+                              <option value="Greece" label="Greece">
                                 Greece
                               </option>
-                              <option value="GG" label="Guernsey">
+                              <option value="Guernsey" label="Guernsey">
                                 Guernsey
                               </option>
-                              <option value="HU" label="Hungary">
+                              <option value="Hungary" label="Hungary">
                                 Hungary
                               </option>
-                              <option value="IS" label="Iceland">
+                              <option value="Iceland" label="Iceland">
                                 Iceland
                               </option>
-                              <option value="IE" label="Ireland">
+                              <option value="Ireland" label="Ireland">
                                 Ireland
                               </option>
-                              <option value="IM" label="Isle of Man">
+                              <option value="Isle of Man" label="Isle of Man">
                                 Isle of Man
                               </option>
-                              <option value="IT" label="Italy">
+                              <option value="Italy" label="Italy">
                                 Italy
                               </option>
-                              <option value="JE" label="Jersey">
+                              <option value="Jersey" label="Jersey">
                                 Jersey
                               </option>
-                              <option value="LV" label="Latvia">
+                              <option value="Latvia" label="Latvia">
                                 Latvia
                               </option>
-                              <option value="LI" label="Liechtenstein">
+                              <option
+                                value="Liechtenstein"
+                                label="Liechtenstein"
+                              >
                                 Liechtenstein
                               </option>
-                              <option value="LT" label="Lithuania">
+                              <option value="Lithuania" label="Lithuania">
                                 Lithuania
                               </option>
-                              <option value="LU" label="Luxembourg">
+                              <option value="Luxembourg" label="Luxembourg">
                                 Luxembourg
                               </option>
-                              <option value="MK" label="Macedonia">
+                              <option value="Macedonia" label="Macedonia">
                                 Macedonia
                               </option>
-                              <option value="MT" label="Malta">
+                              <option value="Malta" label="Malta">
                                 Malta
                               </option>
-                              <option value="FX" label="Metropolitan France">
+                              <option
+                                value="Metropolitan France"
+                                label="Metropolitan France"
+                              >
                                 Metropolitan France
                               </option>
-                              <option value="MD" label="Moldova">
+                              <option value="Moldova" label="Moldova">
                                 Moldova
                               </option>
-                              <option value="MC" label="Monaco">
+                              <option value="Monaco" label="Monaco">
                                 Monaco
                               </option>
-                              <option value="ME" label="Montenegro">
+                              <option value="Montenegro" label="Montenegro">
                                 Montenegro
                               </option>
-                              <option value="NL" label="Netherlands">
+                              <option value="Netherlands" label="Netherlands">
                                 Netherlands
                               </option>
-                              <option value="NO" label="Norway">
+                              <option value="Norway" label="Norway">
                                 Norway
                               </option>
-                              <option value="PL" label="Poland">
+                              <option value="Poland" label="Poland">
                                 Poland
                               </option>
-                              <option value="PT" label="Portugal">
+                              <option value="Portugal" label="Portugal">
                                 Portugal
                               </option>
-                              <option value="RO" label="Romania">
+                              <option value="Romania" label="Romania">
                                 Romania
                               </option>
-                              <option value="RU" label="Russia">
+                              <option value="Russia" label="Russia">
                                 Russia
                               </option>
-                              <option value="SM" label="San Marino">
+                              <option value="San Marino" label="San Marino">
                                 San Marino
                               </option>
-                              <option value="RS" label="Serbia">
+                              <option value="Serbia" label="Serbia">
                                 Serbia
                               </option>
-                              <option value="CS" label="Serbia and Montenegro">
+                              <option
+                                value="Serbia and Montenegro"
+                                label="Serbia and Montenegro"
+                              >
                                 Serbia and Montenegro
                               </option>
-                              <option value="SK" label="Slovakia">
+                              <option value="Slovakia" label="Slovakia">
                                 Slovakia
                               </option>
-                              <option value="SI" label="Slovenia">
+                              <option value="Slovenia" label="Slovenia">
                                 Slovenia
                               </option>
-                              <option value="ES" label="Spain">
+                              <option value="Spain" label="Spain">
                                 Spain
                               </option>
-                              <option value="SJ" label="Svalbard and Jan Mayen">
+                              <option
+                                value="Svalbard and Jan Mayen"
+                                label="Svalbard and Jan Mayen"
+                              >
                                 Svalbard and Jan Mayen
                               </option>
-                              <option value="SE" label="Sweden">
+                              <option value="Sweden" label="Sweden">
                                 Sweden
                               </option>
-                              <option value="CH" label="Switzerland">
+                              <option value="Switzerland" label="Switzerland">
                                 Switzerland
                               </option>
-                              <option value="UA" label="Ukraine">
+                              <option value="Ukraine" label="Ukraine">
                                 Ukraine
                               </option>
                               <option
-                                value="SU"
+                                value="Union of Soviet Socialist Republics"
                                 label="Union of Soviet Socialist Republics"
                               >
                                 Union of Soviet Socialist Republics
                               </option>
-                              <option value="GB" label="United Kingdom">
+                              <option
+                                value="United Kingdom"
+                                label="United Kingdom"
+                              >
                                 United Kingdom
                               </option>
-                              <option value="VA" label="Vatican City">
+                              <option value="Vatican City" label="Vatican City">
                                 Vatican City
                               </option>
-                              <option value="AX" label="Åland Islands">
+                              <option
+                                value="Åland Islands"
+                                label="Åland Islands"
+                              >
                                 Åland Islands
                               </option>
                             </optgroup>
@@ -1389,127 +1486,160 @@ const profileEdit = () => {
                               id="country-optgroup-Oceania"
                               label="Oceania"
                             >
-                              <option value="AS" label="American Samoa">
+                              <option
+                                value="American Samoa"
+                                label="American Samoa"
+                              >
                                 American Samoa
                               </option>
-                              <option value="AQ" label="Antarctica">
+                              <option value="Antarctica" label="Antarctica">
                                 Antarctica
                               </option>
-                              <option value="AU" label="Australia">
+                              <option value="Australia" label="Australia">
                                 Australia
                               </option>
-                              <option value="BV" label="Bouvet Island">
+                              <option
+                                value="Bouvet Island"
+                                label="Bouvet Island"
+                              >
                                 Bouvet Island
                               </option>
                               <option
-                                value="IO"
+                                value="British Indian Ocean Territory"
                                 label="British Indian Ocean Territory"
                               >
                                 British Indian Ocean Territory
                               </option>
-                              <option value="CX" label="Christmas Island">
+                              <option
+                                value="Christmas Island"
+                                label="Christmas Island"
+                              >
                                 Christmas Island
                               </option>
                               <option
-                                value="CC"
+                                value="Cocos [Keeling] Islands"
                                 label="Cocos [Keeling] Islands"
                               >
                                 Cocos [Keeling] Islands
                               </option>
-                              <option value="CK" label="Cook Islands">
+                              <option value="Cook Islands" label="Cook Islands">
                                 Cook Islands
                               </option>
-                              <option value="FJ" label="Fiji">
+                              <option value="Fiji" label="Fiji">
                                 Fiji
                               </option>
-                              <option value="PF" label="French Polynesia">
+                              <option
+                                value="French Polynesia"
+                                label="French Polynesia"
+                              >
                                 French Polynesia
                               </option>
                               <option
-                                value="TF"
+                                value="French Southern Territories"
                                 label="French Southern Territories"
                               >
                                 French Southern Territories
                               </option>
-                              <option value="GU" label="Guam">
+                              <option value="Guam" label="Guam">
                                 Guam
                               </option>
                               <option
-                                value="HM"
+                                value="Heard Island and McDonald Islands"
                                 label="Heard Island and McDonald Islands"
                               >
                                 Heard Island and McDonald Islands
                               </option>
-                              <option value="KI" label="Kiribati">
+                              <option value="Kiribati" label="Kiribati">
                                 Kiribati
                               </option>
-                              <option value="MH" label="Marshall Islands">
+                              <option
+                                value="Marshall Islands"
+                                label="Marshall Islands"
+                              >
                                 Marshall Islands
                               </option>
-                              <option value="FM" label="Micronesia">
+                              <option value="Micronesia" label="Micronesia">
                                 Micronesia
                               </option>
-                              <option value="NR" label="Nauru">
+                              <option value="Nauru" label="Nauru">
                                 Nauru
                               </option>
-                              <option value="NC" label="New Caledonia">
+                              <option
+                                value="New Caledonia"
+                                label="New Caledonia"
+                              >
                                 New Caledonia
                               </option>
-                              <option value="NZ" label="New Zealand">
+                              <option value="New Zealand" label="New Zealand">
                                 New Zealand
                               </option>
-                              <option value="NU" label="Niue">
+                              <option value="Niue" label="Niue">
                                 Niue
                               </option>
-                              <option value="NF" label="Norfolk Island">
+                              <option
+                                value="Norfolk Island"
+                                label="Norfolk Island"
+                              >
                                 Norfolk Island
                               </option>
                               <option
-                                value="MP"
+                                value="Northern Mariana Islands"
                                 label="Northern Mariana Islands"
                               >
                                 Northern Mariana Islands
                               </option>
-                              <option value="PW" label="Palau">
+                              <option value="Palau" label="Palau">
                                 Palau
                               </option>
-                              <option value="PG" label="Papua New Guinea">
+                              <option
+                                value="Papua New Guinea"
+                                label="Papua New Guinea"
+                              >
                                 Papua New Guinea
                               </option>
-                              <option value="PN" label="Pitcairn Islands">
+                              <option
+                                value="Pitcairn Islands"
+                                label="Pitcairn Islands"
+                              >
                                 Pitcairn Islands
                               </option>
-                              <option value="WS" label="Samoa">
+                              <option value="Samoa" label="Samoa">
                                 Samoa
                               </option>
-                              <option value="SB" label="Solomon Islands">
+                              <option
+                                value="Solomon Islands"
+                                label="Solomon Islands"
+                              >
                                 Solomon Islands
                               </option>
                               <option
-                                value="GS"
+                                value="South Georgia and the South Sandwich Islands"
                                 label="South Georgia and the South Sandwich Islands"
                               >
                                 South Georgia and the South Sandwich Islands
                               </option>
-                              <option value="TK" label="Tokelau">
+                              <option value="Tokelau" label="Tokelau">
                                 Tokelau
                               </option>
-                              <option value="TO" label="Tonga">
+                              <option value="Tonga" label="Tonga">
                                 Tonga
                               </option>
-                              <option value="TV" label="Tuvalu">
+                              <option value="Tuvalu" label="Tuvalu">
                                 Tuvalu
                               </option>
                               <option
-                                value="UM"
+                                value="U.S. Minor Outlying Islands"
                                 label="U.S. Minor Outlying Islands"
                               >
                                 U.S. Minor Outlying Islands
                               </option>
-                              <option value="VU" label="Vanuatu">
+                              <option value="Vanuatu" label="Vanuatu">
                                 Vanuatu
                               </option>
-                              <option value="WF" label="Wallis and Futuna">
+                              <option
+                                value="Wallis and Futuna"
+                                label="Wallis and Futuna"
+                              >
                                 Wallis and Futuna
                               </option>
                             </optgroup>
