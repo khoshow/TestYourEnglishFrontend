@@ -47,6 +47,7 @@ export default function About() {
                         contact form.
                       </Link>
                     </li>
+                    <li>Best of Luck</li>
                   </ol>
                   <Link
                     href="/vocabulary/correct-word/intermediate"
