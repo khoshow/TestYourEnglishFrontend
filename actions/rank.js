@@ -3,7 +3,7 @@ import { API } from "../config";
 
 export const getRanking = async (toSendSlug) => {
   return fetch(
-    `${API}/api/get-ranking-correct-word-intermediate/${toSendSlug}`,
+    `${API}/api/get-ranking/${toSendSlug}`,
     {
       method: "GET",
       headers: {

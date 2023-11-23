@@ -2,7 +2,7 @@ import fetch from "isomorphic-fetch";
 import { API } from "../config";
 
 export const getUserScores = (user, token) => {
-  return fetch(`${API}/api/get-user-scores-correct-word-intemediate/${user}`, {
+  return fetch(`${API}/api/get-user-scores/${user}`, {
     method: "GET",
     headers: {
       Accept: "application/json",

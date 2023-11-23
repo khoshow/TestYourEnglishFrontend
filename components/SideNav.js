@@ -59,12 +59,12 @@ const sideNav = ({ children }) => {
     const authenticated = isAuth();
     if (authenticated) {
       setAuthStatus(true);
-      loadUserInfo(authenticated._id);
+      // loadUserInfo(authenticated._id);
     }
 
     setCurrentUrl(router.asPath);
 
-    fetchRankingData(router.asPath);
+    // fetchRankingData(router.asPath);
   }, [loading, router.query, router.asPath, currentUrl, rankLoading]);
 
   const data1 = [
@@ -118,56 +118,56 @@ const sideNav = ({ children }) => {
       fontSize: 20,
     },
   });
-  const fetchRankingData = async (thisUrl) => {
-    // if (!router.asPath) {
-    //   return; //If slug value is undefined/null returns before getting updated value. use the dependency array for the updated value
-    // }
-    // let toSendSlug;
-    // const slug = router.asPath;
-    let toSendSlug;
-    let requiredSlug = thisUrl.split("/");
-    const neededSlug = requiredSlug.slice(0, 4).join("/");
-    switch (neededSlug) {
-      case "/vocabulary/correct-word/intermediate":
-        toSendSlug = "ranking-correct-word-intermediate";
-        break;
-      case "/vocabulary/correct-word/advanced":
-        toSendSlug = "ranking-correct-word-advanced";
-        break;
-      default:
-        toSendSlug = "ranking-correct-word-intermediate";
-    }
-    const response = await getRanking(toSendSlug)
-      .then((res) => {
-        setRankingData(res);
-        setRankLoading(false);
-      })
-      .catch((error) => {
-        console.log("err");
-        return;
-      });
-  };
+  // const fetchRankingData = async (thisUrl) => {
+  //   // if (!router.asPath) {
+  //   //   return; //If slug value is undefined/null returns before getting updated value. use the dependency array for the updated value
+  //   // }
+  //   // let toSendSlug;
+  //   // const slug = router.asPath;
+  //   let toSendSlug;
+  //   let requiredSlug = thisUrl.split("/");
+  //   const neededSlug = requiredSlug.slice(0, 4).join("/");
+  //   switch (neededSlug) {
+  //     case "/vocabulary/correct-word/intermediate":
+  //       toSendSlug = "ranking-correct-word-intermediate";
+  //       break;
+  //     case "/vocabulary/correct-word/advanced":
+  //       toSendSlug = "ranking-correct-word-advanced";
+  //       break;
+  //     default:
+  //       toSendSlug = "ranking-correct-word-intermediate";
+  //   }
+  //   const response = await getRanking(toSendSlug)
+  //     .then((res) => {
+  //       setRankingData(res);
+  //       setRankLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.log("err");
+  //       return;
+  //     });
+  // };
 
-  const loadUserInfo = async (authenticatedId) => {
-    const token = getCookie("token");
+  // const loadUserInfo = async (authenticatedId) => {
+  //   const token = getCookie("token");
 
-    // setUserId(authenticatedId);
-    const response = await getUserScores(
-      authenticatedId,
-      token
-    )
-      .then((res) => {
-        setScoreData(res);
-        setLoading(false);
-        // setInterMediateScore(res[0].correctWordIntermediate.score);
-        // console.log("Score", res[0].correctWordIntermediate.score);
-        // setInterMediateRank(res[0].correctWordIntermediate.rank);
-      })
-      .catch((err) => {
-        console.log("err", err);
-        return;
-      });
-  };
+  //   // setUserId(authenticatedId);
+  //   const response = await getUserScores(
+  //     authenticatedId,
+  //     token
+  //   )
+  //     .then((res) => {
+  //       setScoreData(res);
+  //       setLoading(false);
+  //       // setInterMediateScore(res[0].correctWordIntermediate.score);
+  //       // console.log("Score", res[0].correctWordIntermediate.score);
+  //       // setInterMediateRank(res[0].correctWordIntermediate.rank);
+  //     })
+  //     .catch((err) => {
+  //       console.log("err", err);
+  //       return;
+  //     });
+  // };
 
   return (
     <div className="sticky-top parentop">

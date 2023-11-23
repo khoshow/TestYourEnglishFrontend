@@ -7,9 +7,9 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { isAuth } from "../actions/auth";
 import { getCookie } from "../actions/auth";
-import { getUserScoresCorrectWordIntermediate } from "../actions/userInfo";
+import { getUserScores } from "../actions/userInfo";
 import ScoresRightNav from "./sideBars/ScoresRightNav";
-import { getRankingCorrectWordIntermediate } from "../actions/rank";
+import { getRanking } from "../actions/rank";
 import RankingList from "./sideBars/RankingRightNav";
 
 const rightSideNav = ({}) => {
@@ -46,10 +46,22 @@ const rightSideNav = ({}) => {
       case "/vocabulary/correct-word/advanced":
         toSendSlug = "ranking-correct-word-advanced";
         break;
+      case "/vocabulary/correct-meaning/intermediate":
+        toSendSlug = "ranking-correct-meaning-intermediate";
+        break;
+      case "/vocabulary/correct-meaning/advanced":
+        toSendSlug = "ranking-correct-meaning-advanced";
+        break;
+      case "/vocabulary/synonyms/intermediate":
+        toSendSlug = "ranking-correct-synonyms-intermediate";
+        break;
+      case "/vocabulary/synonyms/advanced":
+        toSendSlug = "ranking-correct-synonyms-advanced";
+        break;
       default:
         toSendSlug = "ranking-correct-word-intermediate";
     }
-    const response = await getRankingCorrectWordIntermediate(toSendSlug)
+    const response = await getRanking(toSendSlug)
       .then((res) => {
         setRankingData(res);
         setRankLoading(false);
@@ -64,9 +76,9 @@ const rightSideNav = ({}) => {
     const token = getCookie("token");
 
     // setUserId(authenticatedId);
-    const response = await getUserScoresCorrectWordIntermediate(authenticatedId, token)
+    const response = await getUserScores(authenticatedId, token)
       .then((res) => {
-        console.log("righ score", res);
+        console.log("UserScores", res);
         setScoreData(res);
         setLoading(false);
         // setInterMediateScore(res[0].correctWordIntermediate.score);
