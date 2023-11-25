@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { signin, authenticate, isAuth } from "../../actions/auth";
 import Link from "next/link";
+import Button from "@mui/material/Button";
 import Router from "next/router";
 // import LoginGoogle from './LoginGoogle'
 
@@ -112,18 +113,16 @@ const SigninForm = () => {
             <div className="agreement-checkbox d-flex justify-content-between align-items-center">
               <div>
                 <input type="checkbox" id="remember" />
-                <label htmlFor="remember">Keep me logged in</label>
+                {/* <label htmlFor="remember">Keep me logged in</label> */}
               </div>
-              <a href="#">Forget Password?</a>
+              {/* <a href="#">Forget Password?</a> */}
             </div>
             {/* /.agreement-checkbox */}
           </div>
           {/* End .col-12 */}
 
-          <div className="col-12">
-            <button className="btn-twentyTwo w-100 fw-500 tran3s text-uppercase mt-30">
-              Login
-            </button>
+          <div className="text-center">
+            <button className="btn btn-success mt-30">Login</button>
           </div>
           {/* End .col-12 */}
         </div>
@@ -140,14 +139,22 @@ const SigninForm = () => {
       {showForm && signinForm()}
       <div className="text-center">
         <br />
-        <p>New Here? Sign Up</p>
-        <Link href="/signup" className="btn btn-outline-primary">
-          Sign Up
-        </Link>
+        <p>
+          New Here?{" "}
+          <Link href="/signup">
+            <Button
+              size="small"
+              className=" btn-primary"
+              style={{ margin: "auto auto" }}
+            >
+              Sign Up
+            </Button>
+          </Link>
+        </p>
       </div>
       <div className="text-center">
         <br />
-        <Link href="/auth/password/forgot">Forgot password?</Link>
+        {/* <Link href="/auth/password/forgot">Forgot password?</Link> */}
       </div>
     </>
   );

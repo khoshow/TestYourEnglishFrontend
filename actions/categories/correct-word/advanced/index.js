@@ -2,7 +2,7 @@ import fetch from "isomorphic-fetch";
 import { API } from "../../../../config";
 import { isAuth, handleResponse } from "../../../auth";
 
-export const create = (correctWordsAdvanced, token) => {
+export const createCorrectWordAdvanced = (correctWordsAdvanced, token) => {
   console.log("Data from action", correctWordsAdvanced);
   console.log("Token", token);
   return fetch(`${API}/api/correct-word-advanced`, {

@@ -248,8 +248,8 @@ const SignupForm = () => {
        
         </div> */}
 
-          <div className="col-12">
-            <button className="btn-twentyTwo w-100 fw-500 tran3s text-uppercase mt-30">
+          <div className=" text-center">
+            <button className="btn btn-outline-primary mt-30">
               Sign Up
             </button>
           </div>

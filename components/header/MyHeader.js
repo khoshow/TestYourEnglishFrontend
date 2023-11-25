@@ -51,6 +51,7 @@ function ResponsiveAppBar() {
   const [imageUrl, setImageUrl] = useState();
   const [firstName, setFirstName] = useState();
   const [profilePhoto, setProfilePhoto] = useState();
+  const [adminStatus, setAdminStatus] = useState(false);
   const router = useRouter();
   const token = getCookie("token");
   useEffect(() => {
@@ -62,6 +63,9 @@ function ResponsiveAppBar() {
       let fullName = isAuth().name;
       let displayName = fullName.split(" ")[0];
       const user = isAuth().username;
+      if (isAuth().role == 1) {
+        setAdminStatus(true);
+      }
       setUsername(user);
       setUserEmail(isAuth().email);
       loadUserProfile(checkIsAuth._id);
@@ -143,6 +147,15 @@ function ResponsiveAppBar() {
               </Button>
             </Link>
           ))}
+          {adminStatus ? (
+            <Link href={`/admin/${username}`}>
+              <Button sx={{ my: 2, color: "white", display: "block" }}>
+                Admin
+              </Button>
+            </Link>
+          ) : (
+            ""
+          )}
         </Box>
 
         {authStatus ? (

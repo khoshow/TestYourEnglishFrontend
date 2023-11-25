@@ -26,7 +26,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const handleChange = (event, value) => {
     // Update the route to the selected page
-    router.push(`/vocabulary/correct-word/intermediate/test-${value}`);
+    router.push(`/category/correct-word/intermediate/test-${value}`);
   };
 
   if (!totalTest) {

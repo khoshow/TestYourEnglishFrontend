@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { isAuth } from "../actions/auth";
-import { getCookie } from "../actions/auth";
-import { getUserScores } from "../actions/userInfo";
-import ScoresRightNav from "./sideBars/ScoresRightNav";
-import { getRanking } from "../actions/rank";
-import RankingList from "./sideBars/RankingRightNav";
-import MyHeader from "./header/MyHeader";
+
 // import { useEffect, useState } from "react";
 import Link from "next/link";
 // import { isAuth, getCookie } from "../../actions/auth";
@@ -71,24 +66,24 @@ const sideNav = ({ children }) => {
     {
       icon: <i className="bi bi-bookmark-heart-fill sideNavIcon"></i>,
       label: "Intermediate",
-      url: "/vocabulary/correct-word/intermediate",
+      url: "/category/correct-word/intermediate",
     },
     {
       icon: <i className="bi bi-bookmark-star-fill sideNavIcon"></i>,
       label: "Advanced",
-      url: "/vocabulary/correct-word/advanced",
+      url: "/category/correct-word/advanced",
     },
   ];
   const data2 = [
     {
       icon: <i className="bi bi-bookmark-heart-fill sideNavIcon"></i>,
       label: "Intermediate",
-      url: "/vocabulary/correct-meaning/intermediate",
+      url: "/category/correct-meaning/intermediate",
     },
     {
       icon: <i className="bi bi-bookmark-star-fill sideNavIcon"></i>,
       label: "Advanced",
-      url: "/vocabulary/correct-meaning/advanced",
+      url: "/category/correct-meaning/advanced",
     },
   ];
 
@@ -96,12 +91,12 @@ const sideNav = ({ children }) => {
     {
       icon: <i className="bi bi-bookmark-heart-fill sideNavIcon"></i>,
       label: "Intermediate",
-      url: "/vocabulary/synonyms/intermediate",
+      url: "/category/synonyms/intermediate",
     },
     {
       icon: <i className="bi bi-bookmark-star-fill sideNavIcon"></i>,
       label: "Advanced",
-      url: "/vocabulary/synonyms/advanced",
+      url: "/category/synonyms/advanced",
     },
   ];
 
@@ -128,10 +123,10 @@ const sideNav = ({ children }) => {
   //   let requiredSlug = thisUrl.split("/");
   //   const neededSlug = requiredSlug.slice(0, 4).join("/");
   //   switch (neededSlug) {
-  //     case "/vocabulary/correct-word/intermediate":
+  //     case "/category/correct-word/intermediate":
   //       toSendSlug = "ranking-correct-word-intermediate";
   //       break;
-  //     case "/vocabulary/correct-word/advanced":
+  //     case "/category/correct-word/advanced":
   //       toSendSlug = "ranking-correct-word-advanced";
   //       break;
   //     default:

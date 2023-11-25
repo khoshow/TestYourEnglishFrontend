@@ -7,7 +7,7 @@ import { postScore } from "../../../../../actions/categories/correct-word/interm
 import Card from "@mui/material/Card";
 import { testGiveOrNot } from "../../../../../actions/categories/correct-word/intermediate";
 import Layout3 from "../../../../Layout3";
-// import { getRanking } from "../../../../../actions/correct-word";
+
 
 function Second2(pageData, next) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -21,8 +21,7 @@ function Second2(pageData, next) {
   const [disableAfterSelect, setDisableAfterSelect] = useState(false);
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(router.asPath);
-  const [messageWhenCorrect, setMessageWhenCorrect] = useState();
-  const [messageWhenWrong, setMessageWhenWrong] = useState();
+
   const [messageToDisplay, setMessageToDisplay] = useState();
   const [messageStatus, setMessageStatus] = useState();
   const [correctAnswer, setCorrectAnswer] = useState();
@@ -31,8 +30,7 @@ function Second2(pageData, next) {
   const testNo = parseInt(slug.split("-").pop());
 
   const finalSlug = "test-" + testNo;
-  console.log("Page Data2", pageData);
-  console.log("Final Slug Tes no", testNo);
+
   const [hydrated, setHydrated] = React.useState(false);
 
   React.useEffect(() => {
@@ -48,14 +46,14 @@ function Second2(pageData, next) {
   const username = isAuth().username;
 
   if (isAuth()) {
-    console.log("testCheck called");
+
     testGiveOrNot(
       { testCategory: "correct-word-intermediate", testNo: testNo },
 
       token
     )
       .then((res) => {
-        console.log("test given or not 1", res);
+     
         if (res.attempt == true) {
           setAttempted(true);
         } else {
@@ -67,15 +65,6 @@ function Second2(pageData, next) {
       });
   }
 
-  // if (!pageData) {
-  //   return (
-  //     <div>
-  //       <Layout3>
-  //         <div style={{ marginTop: "100px" }}>Loading...</div>
-  //       </Layout3>
-  //     </div>
-  //   );
-  // }
   const updateUserScore = () => {
     const dataToSend = {
       userId: userId,
@@ -187,7 +176,7 @@ function Second2(pageData, next) {
   };
   const handlePreviousTest = () => {
     // Set the new URL
-    const newUrl = `/vocabulary/correct-word/intermediate/test-${testNo - 1}`; // Replace this with your desired URL
+    const newUrl = `/category/correct-word/intermediate/test-${testNo - 1}`; // Replace this with your desired URL
     // Change the window location to the new URL, which will reload the page
     window.location.href = newUrl;
   };
@@ -208,7 +197,7 @@ function Second2(pageData, next) {
             </div>
             <div className="d-flex">
               <Link
-                href={`/vocabulary/correct-word/intermediate/test-${
+                href={`/category/correct-word/intermediate/test-${
                   testNo - 1
                 }`}
                 onClick={(e) => {
@@ -219,7 +208,7 @@ function Second2(pageData, next) {
                 Prev Test
               </Link>
               <Link
-                href={`/vocabulary/correct-word/intermediate/test-${
+                href={`/category/correct-word/intermediate/test-${
                   testNo + 1
                 }`}
                 onClick={(e) => {
@@ -256,7 +245,7 @@ function Second2(pageData, next) {
           </div>
           <div className="d-flex">
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${testNo - 1}`}
+              href={`/category/correct-word/intermediate/test-${testNo - 1}`}
               onClick={(e) => {
                 handleNextTest(e);
               }}
@@ -265,7 +254,7 @@ function Second2(pageData, next) {
               Prev Test
             </Link>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${testNo + 1}`}
+              href={`/category/correct-word/intermediate/test-${testNo + 1}`}
               onClick={(e) => {
                 handleNextTest(e);
               }}

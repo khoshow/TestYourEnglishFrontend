@@ -2,6 +2,7 @@ import { useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 import { useRouter } from "next/router";
+import { sendQuery } from "../../actions/sendQuery";
 
 const ContactForm = () => {
   const router = useRouter();
@@ -39,24 +40,12 @@ const ContactForm = () => {
       if (!field.name) return;
       formData[field.name] = field.value;
     });
-
-    // console.log("hellpo : "+formData.robot);
     if (formData.robot == 5) {
-      fetch("/api/contact-form", {
-        method: "post",
-        body: JSON.stringify(formData),
-      }).then((response) => {
-        if (response.error) {
-          console.log("Hello wrin");
-          console.log(response.error);
-          console.log("Hello wrin");
+      sendQuery(formData).then((data) => {
+        if (data.error) {
+          console.log(data.error);
         } else {
-          setMessage(
-            "Your message has been sent successfully. Will contact you shortly. Thank you."
-          );
-
           router.push("/message-sent");
-          // showSuccessMessage();
         }
       });
     } else {
@@ -64,6 +53,29 @@ const ContactForm = () => {
       showSuccessMessage();
     }
   }
+  // console.log("hellpo : "+formData.robot);
+  // if (formData.robot == 5) {
+  //   fetch("/api/contact-form", {
+  //     method: "post",
+  //     body: JSON.stringify(formData),
+  //   }).then((response) => {
+  //     if (response.error) {
+  //       console.log("Hello wrin");
+  //       console.log(response.error);
+  //       console.log("Hello wrin");
+  //     } else {
+  //       setMessage(
+  //         "Your message has been sent successfully. Will contact you shortly. Thank you."
+  //       );
+
+  //       router.push("/message-sent");
+  //       // showSuccessMessage();
+  //     }
+  //   });
+  // } else {
+  //   setMessage("You seems to be a robot. Or solve the sum to send.");
+  //   showSuccessMessage();
+  // }
 
   return (
     <div className="container" style={{ width: "400px " }}>

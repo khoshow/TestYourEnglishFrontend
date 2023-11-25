@@ -1,9 +1,9 @@
 import fetch from "isomorphic-fetch";
 import { API } from "../../config";
 
-export const getTotalTestNoCorrectWordIntermediate = () => {
+export const getTotalTestsNoCorrectWordIntermediate = () => {
   console.log("I am here");
-  return fetch(`${API}/api/total-test/correct-word-intermediate`, {
+  return fetch(`${API}/api/total-tests/correct-word-intermediate`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -16,9 +16,9 @@ export const getTotalTestNoCorrectWordIntermediate = () => {
     .catch((err) => console.log(err));
 };
 
-export const getTotalTestNoCorrectWordAdvanced = () => {
+export const getTotalTestsNoCorrectWordAdvanced = () => {
   console.log("I am here");
-  return fetch(`${API}/api/total-test/correct-word-advanced`, {
+  return fetch(`${API}/api/total-tests/correct-word-advanced`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -33,7 +33,7 @@ export const getTotalTestNoCorrectWordAdvanced = () => {
 
 export const getTotalTestNoCorrectMeaningIntermediate = () => {
   console.log("I am here");
-  return fetch(`${API}/api/total-test/correct-meaning-intermediate`, {
+  return fetch(`${API}/api/total-tests/correct-meaning-intermediate`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -47,7 +47,7 @@ export const getTotalTestNoCorrectMeaningIntermediate = () => {
 };
 
 export const getTotalTestNoCorrectMeaningAdvanced = () => {
-  return fetch(`${API}/api/total-test/correct-meaning-advanced`, {
+  return fetch(`${API}/api/total-tests/correct-meaning-advanced`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -62,7 +62,7 @@ export const getTotalTestNoCorrectMeaningAdvanced = () => {
 
 export const getTotalTestNoSynonymsIntermediate = () => {
   console.log("I am here");
-  return fetch(`${API}/api/total-test/synonyms-intermediate`, {
+  return fetch(`${API}/api/total-tests/synonyms-intermediate`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -77,7 +77,7 @@ export const getTotalTestNoSynonymsIntermediate = () => {
 
 export const getTotalTestNoSynonymsAdvanced = () => {
   console.log("I am here");
-  return fetch(`${API}/api/total-test/synonyms-advanced`, {
+  return fetch(`${API}/api/total-tests/synonyms-advanced`, {
     method: "GET",
     headers: {
       Accept: "application/json",

@@ -7,9 +7,11 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { isAuth } from "../actions/auth";
 import { getCookie } from "../actions/auth";
-import { getUserScores } from "../actions/userInfo";
+import { getUserScores } from "../actions/publicInfo/userScore";
+import { getCategoryRanking } from "../actions/publicInfo/categoryRank";
+
 import ScoresRightNav from "./sideBars/ScoresRightNav";
-import { getRanking } from "../actions/rank";
+
 import RankingList from "./sideBars/RankingRightNav";
 
 const rightSideNav = ({}) => {
@@ -25,43 +27,52 @@ const rightSideNav = ({}) => {
 
   useEffect(() => {
     const authenticated = isAuth();
-    if (authenticated) {
-      setAuthStatus(true);
-      loadUserInfo(authenticated._id);
-    }
+    let currentUrl = router.asPath;
 
     setCurrentUrl(router.asPath);
-
-    fetchRankingData(router.asPath);
-  }, [loading, router.query, router.asPath, currentUrl, rankLoading]);
-
-  const fetchRankingData = async (thisUrl) => {
-    let toSendSlug;
-    let requiredSlug = thisUrl.split("/");
+    let slugForRank;
+    let slugForScore;
+    let requiredSlug = currentUrl.split("/");
     const neededSlug = requiredSlug.slice(0, 4).join("/");
     switch (neededSlug) {
-      case "/vocabulary/correct-word/intermediate":
-        toSendSlug = "ranking-correct-word-intermediate";
+      case "/category/correct-word/intermediate":
+        slugForRank = "ranking-correct-word-intermediate";
+        slugForScore = "score-correct-word-intermediate";
         break;
-      case "/vocabulary/correct-word/advanced":
-        toSendSlug = "ranking-correct-word-advanced";
+      case "/category/correct-word/advanced":
+        slugForRank = "ranking-correct-word-advanced";
+        slugForScore = "score-correct-word-advanced";
         break;
-      case "/vocabulary/correct-meaning/intermediate":
-        toSendSlug = "ranking-correct-meaning-intermediate";
+
+      case "/category/correct-meaning/intermediate":
+        slugForRank = "ranking-correct-meaning-intermediate";
+        slugForScore = "score-correct-meaning-intermediate";
         break;
-      case "/vocabulary/correct-meaning/advanced":
-        toSendSlug = "ranking-correct-meaning-advanced";
+      case "/category/correct-meaning/advanced":
+        slugForRank = "ranking-correct-meaning-advanced";
+        slugForScore = "score-correct-meaning-advanced";
         break;
-      case "/vocabulary/synonyms/intermediate":
-        toSendSlug = "ranking-correct-synonyms-intermediate";
+      case "/category/synonyms/intermediate":
+        slugForRank = "ranking-synonyms-intermediate";
+        slugForScore = "score-synonyms-intermediate";
         break;
-      case "/vocabulary/synonyms/advanced":
-        toSendSlug = "ranking-correct-synonyms-advanced";
+      case "/category/synonyms/advanced":
+        slugForRank = "ranking-synonyms-advanced";
+        slugForScore = "score-synonyms-advanced";
         break;
       default:
-        toSendSlug = "ranking-correct-word-intermediate";
+        slugForRank = "ranking-correct-word-intermediate";
+        slugForScore = "score-correct-word-intermediate";
     }
-    const response = await getRanking(toSendSlug)
+    if (authenticated) {
+      setAuthStatus(true);
+      loadUserScoreInfo(authenticated._id, slugForScore);
+    }
+    fetchRankingData(slugForRank);
+  }, [loading, router.query, router.asPath, currentUrl, rankLoading]);
+
+  const fetchRankingData = async (slugForRank) => {
+    const response = await getCategoryRanking(slugForRank)
       .then((res) => {
         setRankingData(res);
         setRankLoading(false);
@@ -72,11 +83,8 @@ const rightSideNav = ({}) => {
       });
   };
 
-  const loadUserInfo = async (authenticatedId) => {
-    const token = getCookie("token");
-
-    // setUserId(authenticatedId);
-    const response = await getUserScores(authenticatedId, token)
+  const loadUserScoreInfo = async (authenticatedId, slugForScore) => {
+    const response = await getUserScores(authenticatedId, slugForScore)
       .then((res) => {
         console.log("UserScores", res);
         setScoreData(res);

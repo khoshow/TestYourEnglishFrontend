@@ -4,7 +4,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import PaginateCompo from "./paginateCompo";
 import { useRouter } from "next/router";
-import { getTotalTestNo } from "../../../../../actions/publicInfo/totalTests";
+import { getTotalTestsNoCorrectWordAdvanced } from "../../../../../actions/publicInfo/totalTests";
 
 const PaginatedList = ({ itemsPerPage, data }) => {
   const [totalTest, setTotalTest] = useState();
@@ -14,7 +14,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   //   const currentItems = indexOfLastItem - indexOfFirstItem;
   useEffect(() => {}, []);
-  getTotalTestNo()
+  getTotalTestsNoCorrectWordAdvanced()
     .then((res) => {
       console.log("res test", res);
       setTotalTest(50);
@@ -26,7 +26,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const handleChange = (event, value) => {
     // Update the route to the selected page
-    router.push(`/vocabulary/correct-word/intermediate/test-${value}`);
+    router.push(`/category/correct-word/advanced/test-${value}`);
   };
 
   if (!totalTest) {
@@ -38,7 +38,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
       <div className="text-center" style={{}}>
         <div className="heading alt-two">
           <h1>
-            Correct Word Intermediate
+            Correct Word Advanced
             <span className="subHeading">Best of Luck</span>
           </h1>
         </div>
@@ -62,45 +62,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
           </Stack>
         </div>
 
-        {/* <ul className="pagination">
-          {Array.from({ length: Math.ceil(100 / itemsPerPage) }).map(
-            (_, index) => (
-              <li
-                key={index}
-                className={`page-item ${
-                  index + 1 === currentPage ? "active" : ""
-                }`}
-              >
-                <button
-                  onClick={() => paginate(index + 1)}
-                  className="page-link"
-                >
-                  {index + 1}
-                </button>
-              </li>
-            )
-          )}
-        </ul> */}
-        {/* <ul className="pagination">
-          {pageRange.map((pageNumber) => (
-            <li
-              key={pageNumber}
-              className={`page-item ${
-                pageNumber === currentPage ? "active" : ""
-              }`}
-            >
-              <button
-                onClick={() => paginate(pageNumber)}
-                className="page-link"
-                style={{
-                  backgroundColor: pageNumber === currentPage ? "red" : "",
-                }}
-              >
-                {pageNumber}
-              </button>
-            </li>
-          ))}
-        </ul> */}
+      
       </div>
     </>
   );

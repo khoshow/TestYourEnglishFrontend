@@ -187,7 +187,7 @@ function Second2(pageData, next) {
   };
   const handlePreviousTest = () => {
     // Set the new URL
-    const newUrl = `/vocabulary/correct-word/intermediate/test-${testNo - 1}`; // Replace this with your desired URL
+    const newUrl = `/category/correct-word/intermediate/test-${testNo - 1}`; // Replace this with your desired URL
     // Change the window location to the new URL, which will reload the page
     window.location.href = newUrl;
   };
@@ -208,7 +208,7 @@ function Second2(pageData, next) {
             </div>
             <div className="d-flex">
               <Link
-                href={`/vocabulary/correct-word/intermediate/test-${
+                href={`/category/correct-word/intermediate/test-${
                   testNo - 1
                 }`}
                 onClick={(e) => {
@@ -219,7 +219,7 @@ function Second2(pageData, next) {
                 Prev Test
               </Link>
               <Link
-                href={`/vocabulary/correct-word/intermediate/test-${
+                href={`/category/correct-word/intermediate/test-${
                   testNo + 1
                 }`}
                 onClick={(e) => {
@@ -256,7 +256,7 @@ function Second2(pageData, next) {
           </div>
           <div className="d-flex">
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${testNo - 1}`}
+              href={`/category/correct-word/intermediate/test-${testNo - 1}`}
               onClick={(e) => {
                 handleNextTest(e);
               }}
@@ -265,7 +265,7 @@ function Second2(pageData, next) {
               Prev Test
             </Link>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${testNo + 1}`}
+              href={`/category/correct-word/intermediate/test-${testNo + 1}`}
               onClick={(e) => {
                 handleNextTest(e);
               }}

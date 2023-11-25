@@ -5,7 +5,7 @@ import Link from "next/link";
 import { getTestTypes } from "../../actions/test";
 import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
-import ThreeSides from "../../components/TwoSides2";
+
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -21,7 +21,7 @@ const Test = () => {
   const [currentUrl, setcurrentUrl] = useState(router.asPath);
   const testCategories = [
     {
-      url: currentUrl + "/vocabulary",
+      url: currentUrl + "/category",
       title: "Vocabulary Test",
       image: "/images/icon/vocabulary.png",
       categories: ["Correct Word", "Correct Meaning", "Synonyms"],
@@ -94,7 +94,7 @@ const Test = () => {
               </CardContent>
 
               <CardActions className="">
-                <Link href="/vocabulary/correct-word">
+                <Link href="/category/correct-word">
                   <Button
                     size="small"
                     className="btn "
@@ -106,14 +106,14 @@ const Test = () => {
               </CardActions>
               <CardActions>
                 <Link
-                  href="/vocabulary/correct-word/intermediate"
+                  href="/category/correct-word/intermediate"
                   size="small"
                   className="btn-outline plainLink"
                 >
                   Intermediate
                 </Link>
                 <Link
-                  href="/vocabulary/correct-word/advanced"
+                  href="/category/correct-word/advanced"
                   size="small"
                   className="plainLink"
                 >
@@ -150,7 +150,7 @@ const Test = () => {
                 </Typography>
               </CardContent>
               <CardActions className="">
-                <Link href="/vocabulary/correct-meaning">
+                <Link href="/category/correct-meaning">
                   <Button
                     size="small"
                     className="btn btn-info"
@@ -162,14 +162,14 @@ const Test = () => {
               </CardActions>
               <CardActions>
                 <Link
-                  href="/vocabulary/correct-meaning/intermediate"
+                  href="/category/correct-meaning/intermediate"
                   size="small"
                   className=" plainLinkLightbackground"
                 >
                   Intermediate
                 </Link>
                 <Link
-                  href="/vocabulary/correct-meaning/advanced"
+                  href="/category/correct-meaning/advanced"
                   size="small"
                   className="plainLinkLightbackground"
                 >
@@ -209,7 +209,7 @@ const Test = () => {
               </CardContent>
 
               <CardActions className="">
-                <Link href="/vocabulary/synonyms">
+                <Link href="/category/synonyms">
                   <Button
                     size="small"
                     className="btn btn-info"
@@ -221,14 +221,14 @@ const Test = () => {
               </CardActions>
               <CardActions>
                 <Link
-                  href="/vocabulary/synonyms/intermediate"
+                  href="/category/synonyms/intermediate"
                   size="small"
                   className="btn-outline plainLink"
                 >
                   Intermediate
                 </Link>
                 <Link
-                  href="/vocabulary/synonyms/advanced"
+                  href="/category/synonyms/advanced"
                   size="small"
                   className="plainLink"
                 >
@@ -248,7 +248,7 @@ const Test = () => {
                   interactive, fostering an enhanced language proficiency
                   experience.
                 </p>
-                <Link href="/vocabulary/correct-word/intermediate">
+                <Link href="/category/correct-word/intermediate">
                   <button class="btn btn-primary px-5 mb-5" type="button">
                     Start Today
                   </button>

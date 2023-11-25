@@ -4,7 +4,7 @@ import Header from "../components/header/DefaultHeader";
 import MyHeader from "./header/MyHeader";
 import React from "react";
 import ReactDOM from "react-dom";
-import TwoSides2 from "./TwoSides2";
+
 import { ClassNames } from "@emotion/react";
 import SideNav from "./SideNav";
 import RightSideNav from "./RightSideNav";

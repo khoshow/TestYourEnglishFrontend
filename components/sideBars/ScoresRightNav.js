@@ -60,7 +60,7 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
               </CardContent>
 
               <CardActions className="">
-                <Link href="/vocabulary/correct-word/intermediate">
+                <Link href="/category/correct-word/intermediate">
                   <Button
                     size="small"
                     className="btn "

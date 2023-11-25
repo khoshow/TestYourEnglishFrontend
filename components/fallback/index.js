@@ -1,9 +1,10 @@
 import DefaultHeader from "../header/DefaultHeader";
+import Layout from "../Layout"
 
 const Fallback = ({ message }) => {
   return (
     <>
-      <DefaultHeader />
+    <Layout>
       <div className="fancy-feature-twentyOne position-relative mt-50 pt-80 pb-150 lg-mt-130 lg-pt-60 lg-pb-60">
         <div className="container">
           <div className="row">
@@ -21,6 +22,7 @@ const Fallback = ({ message }) => {
           {/* End .row */}
         </div>
       </div>
+      </Layout>
     </>
   );
 };

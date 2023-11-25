@@ -26,7 +26,7 @@ const ListComponent = ({ items }) => {
            
           >
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/intermediate/test-${
                 items * 6 - 5
               }`}
             >
@@ -44,7 +44,7 @@ const ListComponent = ({ items }) => {
           
           >
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/intermediate/test-${
                 items * 6 - 4
               }`}
             >
@@ -62,7 +62,7 @@ const ListComponent = ({ items }) => {
             
           >
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/intermediate/test-${
                 items * 6 - 3
               }`}
             >
@@ -80,7 +80,7 @@ const ListComponent = ({ items }) => {
            
           >
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/intermediate/test-${
                 items * 6 - 2
               }`}
             >
@@ -98,7 +98,7 @@ const ListComponent = ({ items }) => {
             
           >
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/intermediate/test-${
                 items * 6 - 1
               }`}
             >
@@ -116,7 +116,7 @@ const ListComponent = ({ items }) => {
            
           >
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${items * 6}`}
+              href={`/category/correct-word/intermediate/test-${items * 6}`}
             >
               <h3 className="cardTitle">Test No.</h3>
               <div className="weave2">{items * 6}</div>

@@ -252,7 +252,7 @@ const ListComponent = ({ items }) => {
         >
           <Card className={`myCard text-center ${attempted1}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/intermediate/test-${
                 items * 6 - 5
               }`}
             >
@@ -276,7 +276,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted2}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/intermediate/test-${
                 items * 6 - 4
               }`}
             >
@@ -300,7 +300,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted3}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/intermediate/test-${
                 items * 6 - 3
               }`}
             >
@@ -324,7 +324,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted4}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/intermediate/test-${
                 items * 6 - 2
               }`}
             >
@@ -348,7 +348,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted5}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/intermediate/test-${
                 items * 6 - 1
               }`}
             >
@@ -372,7 +372,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted6}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${items * 6}`}
+              href={`/category/correct-word/intermediate/test-${items * 6}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore6(scoreAttempted1)

@@ -413,6 +413,10 @@ h5 {
   margin: 20px 10px;
 }
 
+.myCard .btn {
+  margin-top: 15px;
+}
+
 .scoreCard {
   background-color: #1769aa;
 }
@@ -1012,7 +1016,13 @@ hr .new1 {
   font-size: 1.2em;
   text-transform: uppercase;
 }
+.signInRequest {
+  color: #d3d3d3;
+}
 
+.myLink {
+  color: #b28900;
+}
 .test0 {
   display: none;
 }
@@ -1059,4 +1069,15 @@ hr .new1 {
   font-weight: "bold";
   margin-bottom: 4;
   letter-spacing: "1px";
+}
+
+.error-page-content {
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  padding: 180px 0 15px;
+}
+.error-page-content .shape-one {
+  bottom: 0;
+  right: 0;
 }

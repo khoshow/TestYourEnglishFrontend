@@ -62,10 +62,10 @@ const rightSideNav = ({}) => {
     let requiredSlug = thisUrl.split("/");
     const neededSlug = requiredSlug.slice(0, 4).join("/");
     switch (neededSlug) {
-      case "/vocabulary/correct-word/intermediate":
+      case "/category/correct-word/intermediate":
         toSendSlug = "ranking-correct-word-intermediate";
         break;
-      case "/vocabulary/correct-word/advanced":
+      case "/category/correct-word/advanced":
         toSendSlug = "ranking-correct-word-advanced";
         break;
       default:

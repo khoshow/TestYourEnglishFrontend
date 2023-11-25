@@ -1,45 +1,30 @@
 import Link from "next/link";
-import Seo from "../components/common/Seo";
-import DefaulHeader from "../components/header/DefaultHeader";
+
 import Layout from "../components/Layout";
 
-const Pricing = () => {
+const ErrorPage = () => {
   return (
     <>
-      <Seo pageTitle="404" />
+      <Layout>
+        <div className="text-center">
+          <h4 className="mt-4">Error: 404</h4>
+          <h3 className="mt-4">"Oops! You've navigated to the wrong page."</h3>
 
-    
-  <Layout>
+          <p className="">
+            Take a moment and do a search below or start from our Homepage.
+          </p>
+          <Link href="/" className="btn mt-4">
+            Back to home
+          </Link>
 
-     
-      <div className="error-page-content d-flex align-items-center justify-content-center">
-        <div className="container">
-          <div className="row">
-            <div className="col-xxl-6 col-lg-7 m-auto">
-              <h3>Opps! you’r on the wrong place.</h3>
-              <p className="me-xxl-5 ms-xxl-5 pt-15 pb-20">
-                Can not find what you need? Take a moment and do a search below
-                or start from our Homepage.
-              </p>
-              <Link href="/" className="btn-twentyOne fw-500 tran3s">
-                Back to home
-              </Link>
-            </div>
-          </div>
           <img src="/images/assets/ils_06.svg" alt="" className="m-auto" />
         </div>
         {/* End .container */}
 
-        <img
-          src="/images/shape/shape_178.svg"
-          alt="shape"
-          className="shapes shape-one w-100"
-        />
-      </div>
-      {/* /.error-page-content */}
+        {/* /.error-page-content */}
       </Layout>
     </>
   );
 };
 
-export default Pricing;
+export default ErrorPage;

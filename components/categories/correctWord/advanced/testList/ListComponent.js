@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import { getCookie, isAuth } from "../../../../../actions/auth";
-import { testGiveOrNot } from "../../../../../actions/categories/correct-word/intermediate";
+import { testGiveOrNot } from "../../../../../actions/privateInfo/testGiven";
 import { getCardMessages } from "../../../../../actions/publicInfo/cardMessages";
 const ListComponent = ({ items }) => {
   const [attempted1, setAttempted1] = useState();
@@ -42,7 +42,7 @@ const ListComponent = ({ items }) => {
   const testCheck = () => {
     console.log("testCheck called");
     testGiveOrNot(
-      { testCategory: "correct-word-intermediate", testNo: items * 6 - 5 },
+      { testCategory: "correct-word-advanced", testNo: items * 6 - 5 },
 
       token
     )
@@ -61,7 +61,7 @@ const ListComponent = ({ items }) => {
       });
 
     testGiveOrNot(
-      { testCategory: "correct-word-intermediate", testNo: items * 6 - 4 },
+      { testCategory: "correct-word-advanced", testNo: items * 6 - 4 },
 
       token
     )
@@ -78,7 +78,7 @@ const ListComponent = ({ items }) => {
       });
 
     testGiveOrNot(
-      { testCategory: "correct-word-intermediate", testNo: items * 6 - 3 },
+      { testCategory: "correct-word-advanced", testNo: items * 6 - 3 },
 
       token
     )
@@ -95,7 +95,7 @@ const ListComponent = ({ items }) => {
         console.log("error", err);
       });
     testGiveOrNot(
-      { testCategory: "correct-word-intermediate", testNo: items * 6 - 2 },
+      { testCategory: "correct-word-advanced", testNo: items * 6 - 2 },
 
       token
     )
@@ -111,7 +111,7 @@ const ListComponent = ({ items }) => {
         console.log("error", err);
       });
     testGiveOrNot(
-      { testCategory: "correct-word-intermediate", testNo: items * 6 - 1 },
+      { testCategory: "correct-word-advanced", testNo: items * 6 - 1 },
 
       token
     )
@@ -127,7 +127,7 @@ const ListComponent = ({ items }) => {
         console.log("error", err);
       });
     testGiveOrNot(
-      { testCategory: "correct-word-intermediate", testNo: items * 6 - 0 },
+      { testCategory: "correct-word-advanced", testNo: items * 6 - 0 },
 
       token
     )
@@ -147,8 +147,11 @@ const ListComponent = ({ items }) => {
   const cardMessages = () => {
     getCardMessages()
       .then((data) => {
-        setMyCardMessages(data);
-        console.log("Card Messahes", data);
+        if (data.length !== 0) {
+          setMyCardMessages(data);
+        } else {
+          setMyCardMessages(null);
+        }
       })
       .catch((err) => {
         console.log("error", err);
@@ -252,7 +255,7 @@ const ListComponent = ({ items }) => {
         >
           <Card className={`myCard text-center ${attempted1}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/advanced/test-${
                 items * 6 - 5
               }`}
             >
@@ -276,7 +279,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted2}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/advanced/test-${
                 items * 6 - 4
               }`}
             >
@@ -300,7 +303,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted3}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/advanced/test-${
                 items * 6 - 3
               }`}
             >
@@ -324,7 +327,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted4}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/advanced/test-${
                 items * 6 - 2
               }`}
             >
@@ -348,7 +351,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted5}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${
+              href={`/category/correct-word/advanced/test-${
                 items * 6 - 1
               }`}
             >
@@ -372,7 +375,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted6}`}>
             <Link
-              href={`/vocabulary/correct-word/intermediate/test-${items * 6}`}
+              href={`/category/correct-word/advanced/test-${items * 6}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore6(scoreAttempted1)

@@ -9,6 +9,7 @@ import { getPrivateProfile } from "../../../actions/profile/privateProfile";
 import { getUserScores } from "../../../actions/userInfo";
 import { updateStatus } from "../../../actions/profile/profile-update";
 
+
 const ProfilePage = () => {
   const router = useRouter();
   const [username, setUsername] = useState("User");
@@ -120,7 +121,11 @@ const ProfilePage = () => {
   };
 
   if (!data) {
-    return <div className="text-center">Loading...</div>;
+    return (
+      <Layout>
+        <div className="text-center">Loading...</div>
+      </Layout>
+    );
   }
 
   const displayScores = () => {
@@ -140,7 +145,7 @@ const ProfilePage = () => {
             <div className="col-md-10 mx-auto col-lg-5">
               <Link
                 className="w-100 btn btn-lg btn-primary"
-                href="/vocabulary/correct-word/intermediate"
+                href="/category/correct-word/intermediate"
               >
                 {" "}
                 Take a Test
@@ -199,7 +204,7 @@ const ProfilePage = () => {
             <div className="text-center mt-4">
               <Link
                 className="btn btn-dark"
-                href="/vocabulary/correct-word/intermediate"
+                href="/category/correct-word/intermediate"
               >
                 Take a Test
               </Link>
@@ -240,7 +245,7 @@ const ProfilePage = () => {
             <div className="text-center mt-4">
               <Link
                 className="btn btn-dark"
-                href="/vocabulary/correct-word/intermediate"
+                href="/category/correct-word/intermediate"
               >
                 Take a Test
               </Link>
@@ -281,7 +286,7 @@ const ProfilePage = () => {
             <div className="text-center mt-4">
               <Link
                 className="btn btn-dark"
-                href="/vocabulary/correct-word/intermediate"
+                href="/category/correct-word/intermediate"
               >
                 Take a Test
               </Link>
