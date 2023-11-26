@@ -1,19 +1,14 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-import {
- 
-  getTestNo,
-} from "../../../../actions/categories/correct-word/intermediate";
-import TestPage from "../../../../components/categories/correctWord/intermediate/testPage/First";
+import { getTestNo } from "../../../../actions/categories/correct-meaning/intermediate";
+import TestPage from "../../../../components/categories/correctMeaning/intermediate/testPage/First";
 import Fallback from "../../../../components/fallback";
 import Layout3 from "../../../../components/Layout3";
 import {
   getWhenCorrectMessages,
   getWhenWrongMessages,
 } from "../../../../actions/publicInfo/cardMessages";
-
-
 
 const CorrectWordsIntermediate = () => {
   const router = useRouter();

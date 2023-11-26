@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 import {
   getCorrectWordsMedium,
   getTestNo,
-} from "../../../../actions/categories/correct-word/intermediate";
-import TestPage from "../../../../components/categories/correctWord/intermediate/testPage/First";
+} from "../../../../actions/categories/synonyms/intermediate";
+import TestPage from "../../../../components/categories/synonyms/intermediate/testPage/First";
 import Fallback from "../../../../components/fallback";
 import Layout3 from "../../../../components/Layout3";
 import {

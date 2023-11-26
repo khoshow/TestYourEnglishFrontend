@@ -2,17 +2,17 @@ import fetch from "isomorphic-fetch";
 import { API } from "../../../../config";
 import { isAuth, handleResponse } from "../../../auth";
 
-export const create = (correctWordsIntermediate, token) => {
-  console.log("Data from action", correctWordsIntermediate);
+export const createSynonymsIntermediate = (synonymsIntermediate, token) => {
+  console.log("Data from action", synonymsIntermediate);
   console.log("Token", token);
-  return fetch(`${API}/api/correct-word-intermediate`, {
+  return fetch(`${API}/api/synonyms-intermediate`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(correctWordsIntermediate),
+    body: JSON.stringify(synonymsIntermediate),
   })
     .then((response) => {
       // console.log(category.name);
@@ -22,8 +22,8 @@ export const create = (correctWordsIntermediate, token) => {
     .catch((err) => console.log(err));
 };
 
-export const getCorrectWordsIntermediate = () => {
-  return fetch(`${API}/api/correct-words-intermediate`, {
+export const getSynonymsIntermediate = () => {
+  return fetch(`${API}/api/synonyms-intermediate`, {
     Accept: "json/application",
     method: "GET",
   })
@@ -34,7 +34,7 @@ export const getCorrectWordsIntermediate = () => {
 };
 
 export const getTestNo = (testNo) => {
-  return fetch(`${API}/api/correct-words-intermediate/${testNo}`, {
+  return fetch(`${API}/api/synonyms-intermediate/${testNo}`, {
     Accept: "json/application",
     method: "GET",
   })
@@ -44,18 +44,18 @@ export const getTestNo = (testNo) => {
     .catch((err) => console.log(err));
 };
 
-export const singleCorrectWordMedium = (slug) => {
-  return fetch(`${API}/correct-word-medium/${slug}`, {
-    method: "GET",
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => console.log(err));
-};
+// export const singleSynonym = (slug) => {
+//   return fetch(`${API}/synonyms-intermediate/${slug}`, {
+//     method: "GET",
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .catch((err) => console.log(err));
+// };
 
-export const removeCorrectWordMedium = (slug, token) => {
-  return fetch(`${API}/correct-word-medium/${slug}`, {
+export const removeSynonymsIntermediate = (slug, token) => {
+  return fetch(`${API}/synonyms-intermediate/${slug}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
@@ -70,15 +70,15 @@ export const removeCorrectWordMedium = (slug, token) => {
     .catch((err) => console.log(err));
 };
 
-export const update = (correctWordMedium, slug, token) => {
+export const update = (synonymsIntermediate, slug, token) => {
   // console.log("categroy: "+ category);
-  return fetch(`${API}/correct-word-medium/update/${slug}`, {
+  return fetch(`${API}/synonyms-intermediate/update/${slug}`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: correctWordMedium,
+    body: synonymsIntermediate,
   })
     .then((response) => {
       // console.log(category.name);
@@ -110,7 +110,7 @@ export const postScore = (data, token) => {
 
 export const getTestData = (userId, token) => {
   return fetch(
-    `${API}/api/correct-words-intermediate/user-test-data/${userId}`,
+    `${API}/api/synonyms-intermediate/user-test-data/${userId}`,
     {
       method: "GET",
       headers: {
@@ -127,27 +127,3 @@ export const getTestData = (userId, token) => {
     .catch((err) => console.log(err));
 };
 
-
-export const testGiveOrNot = (testCategory, token) => {
-  const queryString = Object.keys(testCategory)
-    .map(
-      (key) =>
-        encodeURIComponent(key) + "=" + encodeURIComponent(testCategory[key])
-    )
-    .join("&");
-
-  console.log("test Given", testCategory);
-  return fetch(`${API}/api/test-given/${queryString}`, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  })
-    .then((response) => {
-      console.log("hello this is not working");
-      handleResponse(response);
-      return response.json();
-    })
-    .catch((err) => console.log(err));
-};

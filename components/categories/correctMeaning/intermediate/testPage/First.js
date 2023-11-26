@@ -2,15 +2,13 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Second2 from "./Second";
 
-const CorrectWordsMedium = (data, next) => {
+const CorrectMeaningIntermediate = (data, next) => {
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(router.asPath);
   //   const [data, setData] = useState(null);
   const [dataToSend, setDataToSend] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-
 
   const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -98,4 +96,4 @@ const CorrectWordsMedium = (data, next) => {
   );
 };
 
-export default CorrectWordsMedium;
+export default CorrectMeaningIntermediate;

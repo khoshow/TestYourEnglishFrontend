@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PaginatedList from "../../../../components/categories/correctWord/intermediate/testList/PaginatedComponent";
+import PaginatedList from "../../../../components/categories/synonyms/advanced/testList/PaginatedComponent";
 
 import Layout3 from "../../../../components/Layout3";
 

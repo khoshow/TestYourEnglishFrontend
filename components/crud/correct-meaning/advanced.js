@@ -104,8 +104,8 @@ const CorrectMeaningAdvanced = () => {
   const newCorrectMeaningForm = () => (
     <form onSubmit={clickSubmit}>
       <div className="form-group mt-4">
-        <label className="text-muted">Write the sentence</label>
-        <textarea
+        <label className="text-muted">Write the word</label>
+        <input
           type="text"
           name="question"
           className="form-control"
@@ -114,8 +114,8 @@ const CorrectMeaningAdvanced = () => {
         />
       </div>
       <div className="form-group  ">
-        <label className="text-muted">Write the correct Option</label>
-        <input
+        <label className="text-muted">Write the correct meaning</label>
+        <textarea
           type="text"
           name="correctOption"
           className="form-control "
@@ -126,7 +126,7 @@ const CorrectMeaningAdvanced = () => {
       </div>
       <div className="form-group margin10">
         <label className="text-muted">Wrong option 1</label>
-        <input
+        <textarea
           type="text"
           name="wrongOption1"
           className="form-control"
@@ -136,7 +136,7 @@ const CorrectMeaningAdvanced = () => {
       </div>
       <div className="form-group">
         <label className="text-muted">Wrong option 2</label>
-        <input
+        <textarea
           type="text"
           name="wrongOption2"
           className="form-control"
@@ -146,7 +146,7 @@ const CorrectMeaningAdvanced = () => {
       </div>
       <div className="form-group">
         <label className="text-muted">Wrong option 3</label>
-        <input
+        <textarea
           type="text"
           name="wrongOption3"
           className="form-control"
@@ -169,7 +169,8 @@ const CorrectMeaningAdvanced = () => {
       {success ? (
         <div className="mt-4" style={{ borderRadius: "20px" }}>
           <p className="bg-success text-light p-4">
-            A new Word for 'Choose the Correct Meaning' section is created
+            A new item for 'Choose the Correct Meaning' of Advanced level is
+            created
           </p>
         </div>
       ) : (

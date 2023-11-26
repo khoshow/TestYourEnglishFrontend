@@ -4,7 +4,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import PaginateCompo from "./paginateCompo";
 import { useRouter } from "next/router";
-import { getTotalTestNo } from "../../../../../actions/publicInfo/totalTests";
+import { getTotalTestsNoSynonymsIntermediate } from "../../../../../actions/publicInfo/totalTests";
 
 const PaginatedList = ({ itemsPerPage, data }) => {
   const [totalTest, setTotalTest] = useState();
@@ -14,7 +14,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   //   const currentItems = indexOfLastItem - indexOfFirstItem;
   useEffect(() => {}, []);
-  getTotalTestNo()
+  getTotalTestsNoSynonymsIntermediate()
     .then((res) => {
       console.log("res test", res);
       setTotalTest(50);
@@ -26,7 +26,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const handleChange = (event, value) => {
     // Update the route to the selected page
-    router.push(`/category/correct-word/intermediate/test-${value}`);
+    router.push(`/category/synonyms/intermediate/test-${value}`);
   };
 
   if (!totalTest) {

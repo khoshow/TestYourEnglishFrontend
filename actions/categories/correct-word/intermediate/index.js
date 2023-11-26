@@ -2,8 +2,8 @@ import fetch from "isomorphic-fetch";
 import { API } from "../../../../config";
 import { isAuth, handleResponse } from "../../../auth";
 
-export const create = (correctWordsIntermediate, token) => {
-  console.log("Data from action", correctWordsIntermediate);
+export const create = (correctWordIntermediate, token) => {
+  console.log("Data from action", correctWordIntermediate);
   console.log("Token", token);
   return fetch(`${API}/api/correct-word-intermediate`, {
     method: "POST",
@@ -12,7 +12,7 @@ export const create = (correctWordsIntermediate, token) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(correctWordsIntermediate),
+    body: JSON.stringify(correctWordIntermediate),
   })
     .then((response) => {
       // console.log(category.name);

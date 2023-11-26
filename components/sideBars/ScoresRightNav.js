@@ -7,10 +7,13 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
     if (loading == true) {
       setScore("Loading");
     } else {
-      if (!data.correctWordIntermediate) {
+      console.log("data score", data);
+      const keys = Object.keys(data);
+
+      if (!data[keys] || data[keys].scores == 0) {
         setScore("-");
       } else {
-        setScore(data.correctWordIntermediate.scores);
+        setScore(data[keys].scores);
       }
     }
   }, [loading]);
@@ -25,7 +28,7 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
                 className="textCenter subHeading"
                 style={{ marginTop: "50px" }}
               >
-               My Sectional Score
+                My Sectional Score
               </h3>
             </div>
             <div className="aboveRoundedFrame">

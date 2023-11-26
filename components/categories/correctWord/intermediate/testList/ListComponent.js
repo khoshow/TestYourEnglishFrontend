@@ -47,7 +47,7 @@ const ListComponent = ({ items }) => {
       token
     )
       .then((res) => {
-        console.log("test given or not 1", res);
+        console.log("res correct word intermediate 1 test", res);
         if (res.attempt == true) {
           setAttempted1("attemptedCard");
           setScoreAttempted1(res.data.testArray[0]);
@@ -66,6 +66,7 @@ const ListComponent = ({ items }) => {
       token
     )
       .then((res) => {
+        console.log("res correct word intermediate 2 test", res);
         if (res.attempt == true) {
           setAttempted2("attemptedCard");
           setScoreAttempted2(res.data.testArray[0]);
@@ -83,7 +84,7 @@ const ListComponent = ({ items }) => {
       token
     )
       .then((res) => {
-        console.log("res 3", res.attempt);
+        console.log("res correct word intermediate 3 test", res);
         if (res.attempt == true) {
           setAttempted3("attemptedCard");
           setScoreAttempted3(res.data.testArray[0]);
@@ -255,9 +256,7 @@ const ListComponent = ({ items }) => {
         >
           <Card className={`myCard text-center ${attempted1}`}>
             <Link
-              href={`/category/correct-word/intermediate/test-${
-                items * 6 - 5
-              }`}
+              href={`/category/correct-word/intermediate/test-${items * 6 - 5}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore1(scoreAttempted1)
@@ -279,9 +278,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted2}`}>
             <Link
-              href={`/category/correct-word/intermediate/test-${
-                items * 6 - 4
-              }`}
+              href={`/category/correct-word/intermediate/test-${items * 6 - 4}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore2(scoreAttempted1)
@@ -303,9 +300,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted3}`}>
             <Link
-              href={`/category/correct-word/intermediate/test-${
-                items * 6 - 3
-              }`}
+              href={`/category/correct-word/intermediate/test-${items * 6 - 3}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore3(scoreAttempted1)
@@ -327,9 +322,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted4}`}>
             <Link
-              href={`/category/correct-word/intermediate/test-${
-                items * 6 - 2
-              }`}
+              href={`/category/correct-word/intermediate/test-${items * 6 - 2}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore4(scoreAttempted1)
@@ -351,9 +344,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted5}`}>
             <Link
-              href={`/category/correct-word/intermediate/test-${
-                items * 6 - 1
-              }`}
+              href={`/category/correct-word/intermediate/test-${items * 6 - 1}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore5(scoreAttempted1)

@@ -31,7 +31,7 @@ export const getTotalTestsNoCorrectWordAdvanced = () => {
     .catch((err) => console.log(err));
 };
 
-export const getTotalTestNoCorrectMeaningIntermediate = () => {
+export const getTotalTestsNoCorrectMeaningIntermediate = () => {
   console.log("I am here");
   return fetch(`${API}/api/total-tests/correct-meaning-intermediate`, {
     method: "GET",
@@ -46,7 +46,7 @@ export const getTotalTestNoCorrectMeaningIntermediate = () => {
     .catch((err) => console.log(err));
 };
 
-export const getTotalTestNoCorrectMeaningAdvanced = () => {
+export const getTotalTestsNoCorrectMeaningAdvanced = () => {
   return fetch(`${API}/api/total-tests/correct-meaning-advanced`, {
     method: "GET",
     headers: {
@@ -60,7 +60,7 @@ export const getTotalTestNoCorrectMeaningAdvanced = () => {
     .catch((err) => console.log(err));
 };
 
-export const getTotalTestNoSynonymsIntermediate = () => {
+export const getTotalTestsNoSynonymsIntermediate = () => {
   console.log("I am here");
   return fetch(`${API}/api/total-tests/synonyms-intermediate`, {
     method: "GET",
@@ -75,7 +75,7 @@ export const getTotalTestNoSynonymsIntermediate = () => {
     .catch((err) => console.log(err));
 };
 
-export const getTotalTestNoSynonymsAdvanced = () => {
+export const getTotalTestsNoSynonymsAdvanced = () => {
   console.log("I am here");
   return fetch(`${API}/api/total-tests/synonyms-advanced`, {
     method: "GET",

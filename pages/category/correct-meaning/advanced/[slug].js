@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-import {
-  getTestNo,
-} from "../../../../actions/categories/correct-word/intermediate";
-import TestPage from "../../../../components/categories/correctWord/intermediate/testPage/First";
+import { getTestNo } from "../../../../actions/categories/correct-meaning/advanced";
+import TestPage from "../../../../components/categories/correctMeaning/advanced/testPage/First";
 import Fallback from "../../../../components/fallback";
 import Layout3 from "../../../../components/Layout3";
 import {
@@ -12,7 +10,7 @@ import {
   getWhenWrongMessages,
 } from "../../../../actions/publicInfo/cardMessages";
 
-const CorrectWordsIntermediate = () => {
+const CorrectMeaningsAdvanced = () => {
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(null);
   const [data, setData] = useState(null);
@@ -127,4 +125,4 @@ const CorrectWordsIntermediate = () => {
   );
 };
 
-export default CorrectWordsIntermediate;
+export default CorrectMeaningsAdvanced;

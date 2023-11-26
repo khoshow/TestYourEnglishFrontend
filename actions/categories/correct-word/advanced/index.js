@@ -22,7 +22,7 @@ export const createCorrectWordAdvanced = (correctWordsAdvanced, token) => {
     .catch((err) => console.log(err));
 };
 
-export const getcorrectWordsAdvanced = () => {
+export const getCorrectWordsAdvanced = () => {
   return fetch(`${API}/api/correct-word-advanced`, {
     Accept: "json/application",
     method: "GET",

@@ -4,7 +4,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import PaginateCompo from "./paginateCompo";
 import { useRouter } from "next/router";
-import { getTotalTestNo } from "../../../../../actions/publicInfo/totalTests";
+import { getTotalTestsNoCorrectMeaningIntermediate } from "../../../../../actions/publicInfo/totalTests";
 
 const PaginatedList = ({ itemsPerPage, data }) => {
   const [totalTest, setTotalTest] = useState();
@@ -14,7 +14,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   //   const currentItems = indexOfLastItem - indexOfFirstItem;
   useEffect(() => {}, []);
-  getTotalTestNo()
+  getTotalTestsNoCorrectMeaningIntermediate()
     .then((res) => {
       console.log("res test", res);
       setTotalTest(50);
@@ -38,7 +38,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
       <div className="text-center" style={{}}>
         <div className="heading alt-two">
           <h1>
-            Correct Word Intermediate
+            Correct Meaning Intermediate
             <span className="subHeading">Best of Luck</span>
           </h1>
         </div>

@@ -3,11 +3,11 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { isAuth } from "../../../../../actions/auth";
 import { getCookie } from "../../../../../actions/auth";
-import { postScore } from "../../../../../actions/categories/correct-word/intermediate";
+import { postScore } from "../../../../../actions/categories/correct-meaning/intermediate";
 import Card from "@mui/material/Card";
-import { testGiveOrNot } from "../../../../../actions/categories/correct-word/intermediate";
+import { testGiveOrNot } from "../../../../../actions/privateInfo/testGiven";
 import Layout3 from "../../../../Layout3";
-// import { getRanking } from "../../../../../actions/correct-word";
+
 
 function Second2(pageData, next) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -50,7 +50,7 @@ function Second2(pageData, next) {
   if (isAuth()) {
     console.log("testCheck called");
     testGiveOrNot(
-      { testCategory: "correct-word-intermediate", testNo: testNo },
+      { testCategory: "correct-meaning-intermediate", testNo: testNo },
 
       token
     )
@@ -158,9 +158,9 @@ function Second2(pageData, next) {
     // Check if the selected option is correct
 
     setDisableAfterSelect(false);
-    if (selectedOption === quizInfo[currentQuestion].correctAnswer) {
-      setScore(score + 1);
-    }
+    // if (selectedOption === quizInfo[currentQuestion].correctAnswer) {
+    //   setScore(score + 1);
+    // }
 
     const nextQuestion = currentQuestion + 1;
 
@@ -187,7 +187,7 @@ function Second2(pageData, next) {
   };
   const handlePreviousTest = () => {
     // Set the new URL
-    const newUrl = `/category/correct-word/intermediate/test-${testNo - 1}`; // Replace this with your desired URL
+    const newUrl = `/category/correct-meaning/intermediate/test-${testNo - 1}`; // Replace this with your desired URL
     // Change the window location to the new URL, which will reload the page
     window.location.href = newUrl;
   };
@@ -208,7 +208,7 @@ function Second2(pageData, next) {
             </div>
             <div className="d-flex">
               <Link
-                href={`/category/correct-word/intermediate/test-${
+                href={`/category/correct-meaning/intermediate/test-${
                   testNo - 1
                 }`}
                 onClick={(e) => {
@@ -219,7 +219,7 @@ function Second2(pageData, next) {
                 Prev Test
               </Link>
               <Link
-                href={`/category/correct-word/intermediate/test-${
+                href={`/category/correct-meaning/intermediate/test-${
                   testNo + 1
                 }`}
                 onClick={(e) => {
@@ -231,14 +231,14 @@ function Second2(pageData, next) {
               </Link>
             </div>
 
-            <div className="quote-content pt-4">
+            <div className="signInRequest mt-4">
               <p>
                 Sign in to track your score and continue learning.<br></br>
-                <span>
-                  <Link className=" btn-outline tx-danger" href="/signin">
+                
+                  <Link className="myLink " href="/signin">
                     Sign In
                   </Link>
-                </span>
+              
               </p>
             </div>
           </Card>
@@ -256,7 +256,7 @@ function Second2(pageData, next) {
           </div>
           <div className="d-flex">
             <Link
-              href={`/category/correct-word/intermediate/test-${testNo - 1}`}
+              href={`/category/correct-meaning/intermediate/test-${testNo - 1}`}
               onClick={(e) => {
                 handleNextTest(e);
               }}
@@ -265,7 +265,7 @@ function Second2(pageData, next) {
               Prev Test
             </Link>
             <Link
-              href={`/category/correct-word/intermediate/test-${testNo + 1}`}
+              href={`/category/correct-meaning/intermediate/test-${testNo + 1}`}
               onClick={(e) => {
                 handleNextTest(e);
               }}
@@ -323,7 +323,7 @@ function Second2(pageData, next) {
     <div>
       <div className="heading alt-two">
         <h1>
-          Choose the Correct Word
+          Choose the Correct Meaning
           <span className="subHeading">Intermediate Level</span>
         </h1>
       </div>

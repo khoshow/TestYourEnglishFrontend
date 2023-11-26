@@ -15,13 +15,10 @@ const RankingList = ({ rankTop10, loading }) => {
   if (!rankingData) {
     return (
       <div className="">
-        <div className="">
-          
-        </div>
+        <div className=""></div>
 
         <nav className="navigation">
           <div className="level-side-category">
-            
             <p>Loading</p>
           </div>
           ;
@@ -49,18 +46,12 @@ const RankingList = ({ rankTop10, loading }) => {
                 >
                   <span className="rankItem">{index + 1}.</span>
                   <span>
-                    <img src={item.photoUrl} /> 
+                    <img src={item.photoUrl} />
                   </span>
                   <span>
-                  &nbsp; {item.name} ({item.score})
+                    &nbsp; {item.name} ({item.score})
                   </span>
                 </Link>
-                {/* <Link
-                href={`/profile/${firstName}`}
-                className="login-btn-three rounded-circle d-flex"
-              >
-                <p>{firstName}</p> <i className="bi bi-person" />
-              </Link> */}
               </div>
             </div>
           );

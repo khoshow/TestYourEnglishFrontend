@@ -4,9 +4,9 @@ import ReactDOM from "react-dom";
 import Link from "next/link";
 import Router from "next/router";
 import { getCookie } from "../../../actions/auth";
-import { createSynonymIntermediate } from "../../../actions/categories/synonyms/intermediate";
+import { createSynonymsIntermediate } from "../../../actions/categories/synonyms/intermediate";
 
-const SynonymIntermediate = () => {
+const SynonymsIntermediate = () => {
   const [values, setValues] = useState({
     name: "",
     error: false,
@@ -46,13 +46,13 @@ const SynonymIntermediate = () => {
   const deleteConfirm = (slug) => {
     let answer = window.confirm("Are you sure you want to delete this word?");
     if (answer) {
-      deleteSynonymIntermediate(slug);
+      deleteSynonymsIntermediate(slug);
     }
   };
 
-  const deleteSynonymIntermediate = (slug) => {
+  const deleteSynonymsIntermediate = (slug) => {
     // console.log('delete', slug);
-    removeSynonymIntermediate(slug, token).then((data) => {
+    removeSynonymsIntermediate(slug, token).then((data) => {
       if (data.error) {
         console.log(data.error);
       } else {
@@ -71,7 +71,7 @@ const SynonymIntermediate = () => {
     e.preventDefault();
     console.log("create Data values", values);
 
-    createSynonymIntermediate(values, token).then((data) => {
+    createSynonymsIntermediate(values, token).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error, success: false });
       } else {
@@ -101,11 +101,11 @@ const SynonymIntermediate = () => {
   //   setValues({ ...values, error: false, success: false, removed: "" });
   // };
 
-  const newSynonymForm = () => (
+  const newSynonymsIntermediateForm = () => (
     <form onSubmit={clickSubmit}>
       <div className="form-group mt-4">
-        <label className="text-muted">Write the sentence</label>
-        <textarea
+        <label className="text-muted">Write the word</label>
+        <input
           type="text"
           name="question"
           className="form-control"
@@ -165,11 +165,11 @@ const SynonymIntermediate = () => {
 
   return (
     <React.Fragment>
-      <div>{newSynonymForm()}</div>
+      <div>{newSynonymsIntermediateForm()}</div>
       {success ? (
         <div className="mt-4" style={{ borderRadius: "20px" }}>
           <p className="bg-success text-light p-4">
-            A new item for 'Synonym Intermediate' section is created
+            A new item for 'Synonyms' intermediate level has been created
           </p>
         </div>
       ) : (
@@ -180,4 +180,4 @@ const SynonymIntermediate = () => {
   );
 };
 
-export default SynonymIntermediate;
+export default SynonymsIntermediate;
