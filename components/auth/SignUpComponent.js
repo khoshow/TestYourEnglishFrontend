@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Link from "next/link";
 import Router from "next/router";
-import { preSignup, isAuth, signup,  } from "../../actions/auth";
+import { preSignup, isAuth, signup } from "../../actions/auth";
 
 // import Router from "next/router";
 // import SignupGoogle from "./SignupGoogle";
@@ -38,11 +38,11 @@ const SignupForm = () => {
   // const [isUsernameAvailable, setIsUsernameAvailable] = useState(false);
 
   // const handleUsernameChange = (e) => {
-    
+
   //     // Set the state after 1 second (1000 milliseconds)
   //     setUsername(e.target.value);
   //     console.log(username);
-    
+
   // };
 
   // const checkUsernameAvailability = (username) => {
@@ -116,7 +116,6 @@ const SignupForm = () => {
           message: data.message,
           showForm: false,
         });
-       
       }
     });
     // Call your signup API endpoint here
@@ -135,12 +134,13 @@ const SignupForm = () => {
 
   const signUpForm = () => {
     return (
-      <form className="user-data-form mt-40 lg-mt-30" onSubmit={handleSubmit}>
+      <form className="mt-40 lg-mt-30 p-2" onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-12">
             <div className="input-group-meta mb-25">
-              <label>Name</label>
+              <label className="form-label">Name</label>
               <input
+                className="form-control"
                 type="text"
                 placeholder="Your Name"
                 value={name}
@@ -166,8 +166,9 @@ const SignupForm = () => {
 
           <div className="col-12">
             <div className="input-group-meta mb-30">
-              <label>Email</label>
+              <label className="form-label">Email</label>
               <input
+                className="form-control"
                 value={email}
                 onChange={handleChange("email")}
                 type="email"
@@ -179,58 +180,65 @@ const SignupForm = () => {
 
           <div className="col-12">
             <div className="input-group-meta mb-25">
-              <label>Password</label>
-              <input
-                value={password}
-                onChange={handleChange("password")}
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                className="pass_log_id"
-                required
-              />
-              <span className="placeholder_icon" onClick={handleTogglePassword}>
-                <span className=" d-flex align-items-center">
-                  {showPassword ? (
-                    <>
-                      <i className="fa-regular fa-eye"></i>
-                    </>
-                  ) : (
-                    <>
-                      <i className=" fa-regular fa-eye-slash"></i>
-                    </>
-                  )}
+              <label className="form-label">Password</label>
+              <div className="d-flex">
+                <input
+                  className="form-control pass_log_id"
+                  value={password}
+                  onChange={handleChange("password")}
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  required
+                />
+                <span
+                  className="placeholder_icon"
+                  onClick={handleTogglePassword}
+                >
+                  <span className=" d-flex align-items-center">
+                    {showPassword ? (
+                      <>
+                        <i className="fa-regular fa-eye"></i>
+                      </>
+                    ) : (
+                      <>
+                        <i className=" fa-regular fa-eye-slash"></i>
+                      </>
+                    )}
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
 
           <div className="col-12">
             <div className="input-group-meta mb-25">
-              <label>Confirm Password</label>
-              <input
-                value={confirmPassword}
-                onChange={handleChange("confirmPassword")}
-                type={showConfirmPassword ? "text" : "password"}
-                placeholder="Confirm Password"
-                className="pass_log_id"
-                required
-              />
-              <span
-                className="placeholder_icon"
-                onClick={handleToggleConfirmPassword}
-              >
-                <span className=" d-flex align-items-center">
-                  {showConfirmPassword ? (
-                    <>
-                      <i className="fa-regular fa-eye"></i>
-                    </>
-                  ) : (
-                    <>
-                      <i className=" fa-regular fa-eye-slash"></i>
-                    </>
-                  )}
+              <label className="form-label">Confirm Password</label>
+              <div className="d-flex">
+                <input
+                  value={confirmPassword}
+                  onChange={handleChange("confirmPassword")}
+                  type={showConfirmPassword ? "text" : "password"}
+                  placeholder="Confirm Password"
+                  className="form-control pass_log_id"
+                  required
+                />
+                <span
+                  className="placeholder_icon align-item-center d-flex"
+                  onClick={handleToggleConfirmPassword}
+                >
+                  <span className=" ">
+                    {showConfirmPassword ? (
+                      <>
+                        <i className="fa-regular fa-eye"></i>
+                      </>
+                    ) : (
+                      <>
+                        <i className=" fa-regular fa-eye-slash"></i>
+                      </>
+                    )}
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
           {/* End .col-12 */}
@@ -249,9 +257,7 @@ const SignupForm = () => {
         </div> */}
 
           <div className=" text-center">
-            <button className="btn btn-outline-primary mt-30">
-              Sign Up
-            </button>
+            <button className="btn  mt-30">Sign Up</button>
           </div>
         </div>
       </form>

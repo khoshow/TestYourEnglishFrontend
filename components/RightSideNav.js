@@ -100,7 +100,7 @@ const RightSideNav = ({}) => {
   };
   return (
     <>
-      <div className="">
+      <div className="text-center">
         {authStatus ? (
           <ScoresRightNav
             data={scoreData}
@@ -109,39 +109,41 @@ const RightSideNav = ({}) => {
             loading={loading}
           />
         ) : (
-          <Card className="signUpLoginCard text-center ">
-            <i className="bi bi-door-open cardIcon " style={{}}></i>
+          <div className="marginCenter text-center">
+            <Card className="signUpLoginCard text-center ">
+              <i className="bi bi-door-open cardIcon " style={{}}></i>
 
-            <CardContent>
-              <p>There is so much more you can do here.</p>
-            </CardContent>
+              <CardContent>
+                <p>There is so much more you can do here.</p>
+              </CardContent>
 
-            <CardActions className="">
-              <Link href="/signin">
-                <Button
-                  size="small"
-                  className="btn "
-                  style={{ margin: "auto auto" }}
-                >
-                  Sign In
-                </Button>
-              </Link>
-            </CardActions>
-            <CardContent>
-              <span style={{ fontSize: "0.8em" }}>
-                Don&apos;t have an account? Create one.
-              </span>
-              <Link href="/signup">
-                <Button
-                  size="small"
-                  className=" btn-primary"
-                  style={{ margin: "auto auto" }}
-                >
-                  Sign Up
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
+              <CardActions className="">
+                <Link href="/signin">
+                  <Button
+                    size="small"
+                    className="btn "
+                    style={{ margin: "auto auto" }}
+                  >
+                    Sign In
+                  </Button>
+                </Link>
+              </CardActions>
+              <CardContent>
+                <span style={{ fontSize: "0.8em" }}>
+                  Don&apos;t have an account? Create one.
+                </span>
+                <Link href="/signup">
+                  <Button
+                    size="small"
+                    className=" btn-primary"
+                    style={{ margin: "auto auto" }}
+                  >
+                    Sign Up
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
         )}
         {!rankLoading ? (
           <RankingList rankTop10={rankingData} loading={rankLoading} />

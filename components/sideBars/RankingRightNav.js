@@ -30,7 +30,9 @@ const RankingList = ({ rankTop10, loading }) => {
   return (
     <div className="">
       <div className="mt-4">
-        <h3 className="px-3 subHeading">Top Scorers</h3>
+        <h3 className="px-3 subHeading" style={{ textAlign: "left" }}>
+          Top Scorers
+        </h3>
       </div>
 
       <nav className="navigation">

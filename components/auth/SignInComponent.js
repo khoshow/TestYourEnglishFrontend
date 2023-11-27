@@ -65,12 +65,13 @@ const SigninForm = () => {
     message ? <div className="alert alert-info">{message}</div> : "";
   const signinForm = () => {
     return (
-      <form className="user-data-form mt-40 lg-mt-30" onSubmit={handleSubmit}>
+      <form className="form-control mt-40 lg-mt-30" onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-12">
             <div className="input-group-meta mb-30">
-              <label>Email</label>
+              <label className="form-label">Email</label>
               <input
+                className="form-control"
                 value={email}
                 onChange={handleChange("email")}
                 type="email"
@@ -83,42 +84,44 @@ const SigninForm = () => {
 
           <div className="col-12">
             <div className="input-group-meta mb-25">
-              <label>Password</label>
-              <input
-                value={password}
-                onChange={handleChange("password")}
-                type={showPassword ? "text" : "password"}
-                placeholder="Enter Password"
-                className="pass_log_id"
-                required
-              />
-              <span className="placeholder_icon" onClick={handleTogglePassword}>
-                <span className=" d-flex align-items-center">
-                  {showPassword ? (
-                    <>
-                      <i className="fa-regular fa-eye"></i>
-                    </>
-                  ) : (
-                    <>
-                      <i className=" fa-regular fa-eye-slash"></i>
-                    </>
-                  )}
+              <label className="form-label">Password</label>
+              <div className="d-flex">
+                <input
+                  className="form-control pass_log_id"
+                  value={password}
+                  onChange={handleChange("password")}
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter Password"
+                  required
+                />
+                <span
+                  className="placeholder_icon"
+                  onClick={handleTogglePassword}
+                >
+                  <span className=" d-flex align-items-center">
+                    {showPassword ? (
+                      <>
+                        <i className="fa-regular fa-eye"></i>
+                      </>
+                    ) : (
+                      <>
+                        <i className=" fa-regular fa-eye-slash"></i>
+                      </>
+                    )}
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
           {/* End .col-12 */}
 
-          <div className="col-12">
+          {/* <div className="col-12">
             <div className="agreement-checkbox d-flex justify-content-between align-items-center">
               <div>
                 <input type="checkbox" id="remember" />
-                {/* <label htmlFor="remember">Keep me logged in</label> */}
               </div>
-              {/* <a href="#">Forget Password?</a> */}
             </div>
-            {/* /.agreement-checkbox */}
-          </div>
+          </div> */}
           {/* End .col-12 */}
 
           <div className="text-center">
@@ -135,7 +138,7 @@ const SigninForm = () => {
       {showLoading()}
       {showMessage()}
       {/* <LoginGoogle /> */}
-      <p>OR</p>
+      {/* <p className="text-center">OR</p> */}
       {showForm && signinForm()}
       <div className="text-center">
         <br />
