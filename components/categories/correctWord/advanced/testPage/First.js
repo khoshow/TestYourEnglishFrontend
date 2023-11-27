@@ -58,7 +58,7 @@ const CorrectWordsMedium = (data, next) => {
 
     const fetchData = async () => {
       const incomingData = data.data.questionNo;
-      console.log("Dat TO get suername", data);
+     
 
       try {
         const response = await shuffle(incomingData);

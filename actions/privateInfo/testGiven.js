@@ -10,7 +10,7 @@ export const testGiveOrNot = (testCategory, token) => {
       )
       .join("&");
   
-    console.log("test Givenfhgf", testCategory);
+  
     return fetch(`${API}/api/test-given/${queryString}`, {
       method: "GET",
       headers: {
@@ -19,7 +19,7 @@ export const testGiveOrNot = (testCategory, token) => {
       },
     })
       .then((response) => {
-        console.log("hello this is not working");
+       
         handleResponse(response);
         return response.json();
       })

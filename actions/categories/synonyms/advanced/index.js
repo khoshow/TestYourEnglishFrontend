@@ -3,8 +3,7 @@ import { API } from "../../../../config";
 import { isAuth, handleResponse } from "../../../auth";
 
 export const createSynonymsAdvanced = (synonymsAdvanced, token) => {
-  console.log("Data from action", synonymsAdvanced);
-  console.log("Token", token);
+ 
   return fetch(`${API}/api/synonyms-advanced`, {
     method: "POST",
     headers: {
@@ -15,7 +14,7 @@ export const createSynonymsAdvanced = (synonymsAdvanced, token) => {
     body: JSON.stringify(synonymsAdvanced),
   })
     .then((response) => {
-      // console.log(category.name);
+     
       handleResponse(response);
       return response.json();
     })
@@ -44,15 +43,7 @@ export const getTestNo = (testNo) => {
     .catch((err) => console.log(err));
 };
 
-// export const singleSynonym = (slug) => {
-//   return fetch(`${API}/synonyms-advanced/${slug}`, {
-//     method: "GET",
-//   })
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .catch((err) => console.log(err));
-// };
+
 
 export const removeSynonymsAdvanced = (slug, token) => {
   return fetch(`${API}/synonyms-advanced/${slug}`, {
@@ -71,7 +62,7 @@ export const removeSynonymsAdvanced = (slug, token) => {
 };
 
 export const update = (synonymsAdvanced, slug, token) => {
-  // console.log("categroy: "+ category);
+ 
   return fetch(`${API}/synonyms-advanced/update/${slug}`, {
     method: "PUT",
     headers: {
@@ -81,7 +72,7 @@ export const update = (synonymsAdvanced, slug, token) => {
     body: synonymsAdvanced,
   })
     .then((response) => {
-      // console.log(category.name);
+ 
       handleResponse(response);
       return response.json();
     })
@@ -89,8 +80,7 @@ export const update = (synonymsAdvanced, slug, token) => {
 };
 
 export const postScore = (data, token) => {
-  console.log("da", data);
-  console.log("token here", token);
+
   return fetch(`${API}/api/synonyms-advanced/score-update`, {
     method: "PUT",
     headers: {
@@ -101,7 +91,7 @@ export const postScore = (data, token) => {
     body: JSON.stringify(data),
   })
     .then((response) => {
-      // console.log(category.name);
+     
       handleResponse(response);
       return response.json();
     })
@@ -120,7 +110,7 @@ export const getTestData = (userId, token) => {
     }
   )
     .then((response) => {
-      // console.log(category.name);
+ 
       handleResponse(response);
       return response.json();
     })

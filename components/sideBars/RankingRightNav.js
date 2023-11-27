@@ -19,9 +19,8 @@ const RankingList = ({ rankTop10, loading }) => {
 
         <nav className="navigation">
           <div className="level-side-category">
-            <p>Loading</p>
+            <p>Loading...</p>
           </div>
-          ;
         </nav>
       </div>
     );

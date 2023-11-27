@@ -56,9 +56,9 @@ function ResponsiveAppBar() {
   const token = getCookie("token");
   useEffect(() => {
     const checkIsAuth = isAuth();
-    console.log("IsAu", checkIsAuth);
+ 
     if (checkIsAuth) {
-      console.log("Is Auth", isAuth());
+     
       setAuthStatus(true);
       let fullName = isAuth().name;
       let displayName = fullName.split(" ")[0];
@@ -77,11 +77,11 @@ function ResponsiveAppBar() {
     setLoading(true);
     try {
       const res = await getPrivateProfile(user);
-      console.log("resdsgf", res);
+    
       setData(res);
       setImageUrl(res.photoUrl);
     } catch (err) {
-      console.log("err", err);
+     
       setError(true);
     } finally {
       setLoading(false);

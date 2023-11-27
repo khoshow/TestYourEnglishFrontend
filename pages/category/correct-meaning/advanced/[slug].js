@@ -60,7 +60,7 @@ const CorrectMeaningsAdvanced = () => {
     getWhenCorrectMessages()
       .then((data) => {
         setCorrectMessages(data);
-        console.log("Card Correct Messahes", data);
+       
       })
       .catch((err) => {
         console.log("error", err);
@@ -71,7 +71,7 @@ const CorrectMeaningsAdvanced = () => {
     getWhenWrongMessages()
       .then((data) => {
         setWrongMessages(data);
-        console.log("Card Wrong Messahes", data);
+       
       })
       .catch((err) => {
         console.log("error", err);

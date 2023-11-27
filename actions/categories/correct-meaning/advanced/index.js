@@ -3,8 +3,7 @@ import { API } from "../../../../config";
 import { isAuth, handleResponse } from "../../../auth";
 
 export const createCorrectMeaningAdvanced = (correctMeaningAdvanced, token) => {
-  console.log("Data from action", correctMeaningAdvanced);
-  console.log("Token", token);
+
   return fetch(`${API}/api/correct-meaning-advanced`, {
     method: "POST",
     headers: {
@@ -15,7 +14,7 @@ export const createCorrectMeaningAdvanced = (correctMeaningAdvanced, token) => {
     body: JSON.stringify(correctMeaningAdvanced),
   })
     .then((response) => {
-      // console.log(category.name);
+    
       handleResponse(response);
       return response.json();
     })
@@ -71,7 +70,7 @@ export const removeCorrectMeaningAdvanced = (slug, token) => {
 };
 
 export const update = (correctMeaningAdvanced, slug, token) => {
-  // console.log("categroy: "+ category);
+
   return fetch(`${API}/correct-meaning-advanced/update/${slug}`, {
     method: "PUT",
     headers: {
@@ -81,7 +80,7 @@ export const update = (correctMeaningAdvanced, slug, token) => {
     body: correctMeaningAdvanced,
   })
     .then((response) => {
-      // console.log(category.name);
+    
       handleResponse(response);
       return response.json();
     })
@@ -99,7 +98,7 @@ export const postScore = (data, token) => {
     body: JSON.stringify(data),
   })
     .then((response) => {
-      // console.log(category.name);
+    
       handleResponse(response);
       return response.json();
     })
@@ -114,7 +113,7 @@ export const getTestData = (userId, token) => {
     },
   })
     .then((response) => {
-      // console.log(category.name);
+     
       handleResponse(response);
       return response.json();
     })

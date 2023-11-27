@@ -4,9 +4,7 @@ import { API } from "../../config";
 import { handleResponse } from "../auth";
 
 export const updateStatus = async (data, token) => {
-  console.log("t Chnage:", data);
-  console.log("Data:", token);
-  console.log("API:", API);
+ 
 
   try {
     const response = await axios.put(`${API}/api/profile-update/status`, data, {
@@ -17,7 +15,7 @@ export const updateStatus = async (data, token) => {
       },
     });
 
-    console.log("Response:", response);
+   
     handleResponse(response);
 
     return response.data;
@@ -157,10 +155,10 @@ export const updateAbout = async (data, token) => {
 };
 
 export const updateUserPhoto = async (image, token) => {
-  console.log("Form Data Action", image);
+
   const formData = new FormData();
   formData.append("photo", image);
-  console.log("formPhoto", formData);
+ 
   return fetch(`${API}/api/profile-update/photo`, {
     method: "PUT",
     headers: {

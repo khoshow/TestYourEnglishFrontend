@@ -55,9 +55,9 @@ const ProfileEdit = () => {
   const token = getCookie("token");
   useEffect(() => {
     const checkIsAuth = isAuth();
-    console.log("IsAu", checkIsAuth);
+   
     if (checkIsAuth) {
-      console.log("Is Auth", isAuth());
+    
       setAuthStatus(true);
 
       const user = isAuth().username;
@@ -72,11 +72,11 @@ const ProfileEdit = () => {
     setLoading(true);
     try {
       const res = await getPrivateProfile(user);
-      console.log("resdsgf", res);
+    
       setData(res);
       setImageUrl(res.photoUrl);
     } catch (err) {
-      console.log("err", err);
+      
       setError(true);
     } finally {
       setLoading(false);
@@ -95,11 +95,11 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setStatusLoading("loading");
-    console.log("Status", formData.status);
+   
     let toChange = { newStatus: formData.status };
     try {
       const res = await updateStatus(toChange, token);
-      console.log("res", res);
+  
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -112,11 +112,11 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setMessageLoading("loading");
-    console.log("Status", formData.message);
+   
     let toChange = { newMessage: formData.message };
     try {
       const res = await updateMessage(toChange, token);
-      console.log("res", res);
+   
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -129,11 +129,11 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setNameLoading("loading");
-    console.log("Message", formData.name);
+ 
     let toChange = { newName: formData.name };
     try {
       const res = await updateName(toChange, token);
-      console.log("res", res);
+  
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -145,11 +145,11 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setUsernameLoading("loading");
-    console.log("Username", formData.username);
+ 
     let toChange = { newUsername: formData.username };
     try {
       const res = await updateUsername(toChange, token);
-      console.log("res", res);
+    
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -161,11 +161,11 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setSexLoading("loading");
-    console.log("Sex", formData.sex);
+  
     let toChange = { newSex: formData.sex };
     try {
       const res = await updateSex(toChange, token);
-      console.log("res", res);
+    
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -177,11 +177,11 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setDobLoading("loading");
-    console.log("DOB", formData.dob);
+ 
     let toChange = { newDob: formData.dob };
     try {
       const res = await updateDOB(toChange, token);
-      console.log("res", res);
+      
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -193,11 +193,11 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setCountryLoading("loading");
-    console.log("Country", formData.country);
+ 
     let toChange = { newCountry: formData.country };
     try {
       const res = await updateCountry(toChange, token);
-      console.log("res", res);
+      
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -209,11 +209,11 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setStateLoading("loading");
-    console.log("State", formData.state);
+  
     let toChange = { newStatus: formData.state };
     try {
       const res = await updateState(toChange, token);
-      console.log("res", res);
+
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -225,11 +225,11 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setAboutLoading("loading");
-    console.log("About", formData.about);
+  
     let toChange = { newAbout: formData.about };
     try {
       const res = await updateAbout(toChange, token);
-      console.log("res", res);
+      
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -463,13 +463,13 @@ const ProfileEdit = () => {
   const handleSubmitPhoto = (event) => {
     event.preventDefault();
     if (file) {
-      console.log("Phot", file);
+  
       const formData = new FormData();
       formData.append("photo", file);
-      console.log("Phot form", formData);
+     
       try {
         const res = updateUserPhoto(formData, token);
-        console.log("res", res);
+      
       } catch (err) {
         console.log("err", err);
       } finally {
@@ -502,10 +502,10 @@ const ProfileEdit = () => {
       const canvas = editor.current.getImageScaledToCanvas();
       canvas.toBlob((blob) => {
         // You can use the resized blob or send it to the server
-        console.log("Image", blob);
+      
         try {
           const res = updateUserPhoto(blob, token);
-          console.log("res", res);
+         
         } catch (err) {
           console.log("err", err);
         } finally {

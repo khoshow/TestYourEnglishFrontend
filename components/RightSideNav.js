@@ -86,7 +86,7 @@ const RightSideNav = ({}) => {
   const loadUserScoreInfo = async (authenticatedId, slugForScore) => {
     const response = await getUserScores(authenticatedId, slugForScore)
       .then((res) => {
-        console.log("UserScores", res);
+       
         setScoreData(res);
         setLoading(false);
         // setInterMediateScore(res[0].correctWordIntermediate.score);

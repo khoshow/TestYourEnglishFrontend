@@ -6,12 +6,12 @@ import { getCookie, isAuth } from "../../../../../actions/auth";
 import { testGiveOrNot } from "../../../../../actions/privateInfo/testGiven";
 import { getCardMessages } from "../../../../../actions/publicInfo/cardMessages";
 const ListComponent = ({ items }) => {
-  const [attempted1, setAttempted1] = useState();
-  const [attempted2, setAttempted2] = useState();
-  const [attempted3, setAttempted3] = useState();
-  const [attempted4, setAttempted4] = useState();
-  const [attempted5, setAttempted5] = useState();
-  const [attempted6, setAttempted6] = useState();
+  const [attempted1, setAttempted1] = useState("notAttemptedCard");
+  const [attempted2, setAttempted2] = useState("notAttemptedCard");
+  const [attempted3, setAttempted3] = useState("notAttemptedCard");
+  const [attempted4, setAttempted4] = useState("notAttemptedCard");
+  const [attempted5, setAttempted5] = useState("notAttemptedCard");
+  const [attempted6, setAttempted6] = useState("notAttemptedCard");
   const [scoreAttempted1, setScoreAttempted1] = useState();
   const [scoreAttempted2, setScoreAttempted2] = useState();
   const [scoreAttempted3, setScoreAttempted3] = useState();
@@ -20,38 +20,31 @@ const ListComponent = ({ items }) => {
   const [scoreAttempted6, setScoreAttempted6] = useState();
   const [loading, setLoading] = useState(true);
   const [myCardMessages, setMyCardMessages] = useState();
-  console.log("Items", items);
+  
   const token = getCookie("token");
 
   useEffect(() => {
     if (isAuth()) {
-      console.log("I am here 4534");
+     
 
       testCheck();
-    } else {
-      setAttempted1("notSignedInCard");
-      setAttempted2("notSignedInCard");
-      setAttempted3("notSignedInCard");
-      setAttempted4("notSignedInCard");
-      setAttempted5("notSignedInCard");
-      setAttempted6("notSignedInCard");
     }
     cardMessages();
   }, [items]);
 
   const testCheck = () => {
-    console.log("testCheck called");
+    
     testGiveOrNot(
       { testCategory: "synonyms-intermediate", testNo: items * 6 - 5 },
 
       token
     )
       .then((res) => {
-        console.log("test given or not 1", res);
+       
         if (res.attempt == true) {
           setAttempted1("attemptedCard");
           setScoreAttempted1(res.data.testArray[0]);
-          console.log("Test 1 detail", scoreAttempted1);
+        
         } else {
           setAttempted1("notAttemptedCard");
         }
@@ -83,7 +76,7 @@ const ListComponent = ({ items }) => {
       token
     )
       .then((res) => {
-        console.log("res 3", res.attempt);
+        
         if (res.attempt == true) {
           setAttempted3("attemptedCard");
           setScoreAttempted3(res.data.testArray[0]);
@@ -148,7 +141,7 @@ const ListComponent = ({ items }) => {
     getCardMessages()
       .then((data) => {
         setMyCardMessages(data);
-        console.log("Card Messahes", data);
+      
       })
       .catch((err) => {
         console.log("error", err);
@@ -252,9 +245,7 @@ const ListComponent = ({ items }) => {
         >
           <Card className={`myCard text-center ${attempted1}`}>
             <Link
-              href={`/category/synonyms/intermediate/test-${
-                items * 6 - 5
-              }`}
+              href={`/category/synonyms/intermediate/test-${items * 6 - 5}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore1(scoreAttempted1)
@@ -276,9 +267,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted2}`}>
             <Link
-              href={`/category/synonyms/intermediate/test-${
-                items * 6 - 4
-              }`}
+              href={`/category/synonyms/intermediate/test-${items * 6 - 4}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore2(scoreAttempted1)
@@ -300,9 +289,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted3}`}>
             <Link
-              href={`/category/synonyms/intermediate/test-${
-                items * 6 - 3
-              }`}
+              href={`/category/synonyms/intermediate/test-${items * 6 - 3}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore3(scoreAttempted1)
@@ -324,9 +311,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted4}`}>
             <Link
-              href={`/category/synonyms/intermediate/test-${
-                items * 6 - 2
-              }`}
+              href={`/category/synonyms/intermediate/test-${items * 6 - 2}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore4(scoreAttempted1)
@@ -348,9 +333,7 @@ const ListComponent = ({ items }) => {
           </Card>
           <Card className={`myCard text-center ${attempted5}`}>
             <Link
-              href={`/category/synonyms/intermediate/test-${
-                items * 6 - 1
-              }`}
+              href={`/category/synonyms/intermediate/test-${items * 6 - 1}`}
             >
               {attempted1 == "attemptedCard"
                 ? attemptedScore5(scoreAttempted1)
@@ -371,9 +354,7 @@ const ListComponent = ({ items }) => {
             </Link>
           </Card>
           <Card className={`myCard text-center ${attempted6}`}>
-            <Link
-              href={`/category/synonyms/intermediate/test-${items * 6}`}
-            >
+            <Link href={`/category/synonyms/intermediate/test-${items * 6}`}>
               {attempted1 == "attemptedCard"
                 ? attemptedScore6(scoreAttempted1)
                 : ""}

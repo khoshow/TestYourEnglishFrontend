@@ -6,12 +6,12 @@ import { getCookie, isAuth } from "../../../../../actions/auth";
 import { testGiveOrNot } from "../../../../../actions/privateInfo/testGiven";
 import { getCardMessages } from "../../../../../actions/publicInfo/cardMessages";
 const ListComponent = ({ items }) => {
-  const [attempted1, setAttempted1] = useState();
-  const [attempted2, setAttempted2] = useState();
-  const [attempted3, setAttempted3] = useState();
-  const [attempted4, setAttempted4] = useState();
-  const [attempted5, setAttempted5] = useState();
-  const [attempted6, setAttempted6] = useState();
+  const [attempted1, setAttempted1] = useState("notAttemptedCard");
+  const [attempted2, setAttempted2] = useState("notAttemptedCard");
+  const [attempted3, setAttempted3] = useState("notAttemptedCard");
+  const [attempted4, setAttempted4] = useState("notAttemptedCard");
+  const [attempted5, setAttempted5] = useState("notAttemptedCard");
+  const [attempted6, setAttempted6] = useState("notAttemptedCard");
   const [scoreAttempted1, setScoreAttempted1] = useState();
   const [scoreAttempted2, setScoreAttempted2] = useState();
   const [scoreAttempted3, setScoreAttempted3] = useState();
@@ -20,38 +20,31 @@ const ListComponent = ({ items }) => {
   const [scoreAttempted6, setScoreAttempted6] = useState();
   const [loading, setLoading] = useState(true);
   const [myCardMessages, setMyCardMessages] = useState();
-  console.log("Items", items);
+  
   const token = getCookie("token");
 
   useEffect(() => {
     if (isAuth()) {
-      console.log("I am here 4534");
+    
 
       testCheck();
-    } else {
-      setAttempted1("notSignedInCard");
-      setAttempted2("notSignedInCard");
-      setAttempted3("notSignedInCard");
-      setAttempted4("notSignedInCard");
-      setAttempted5("notSignedInCard");
-      setAttempted6("notSignedInCard");
-    }
+    } 
     cardMessages();
   }, [items]);
 
   const testCheck = () => {
-    console.log("testCheck called");
+  
     testGiveOrNot(
       { testCategory: "correct-word-intermediate", testNo: items * 6 - 5 },
 
       token
     )
       .then((res) => {
-        console.log("res correct word intermediate 1 test", res);
+       
         if (res.attempt == true) {
           setAttempted1("attemptedCard");
           setScoreAttempted1(res.data.testArray[0]);
-          console.log("Test 1 detail", scoreAttempted1);
+         
         } else {
           setAttempted1("notAttemptedCard");
         }
@@ -66,7 +59,7 @@ const ListComponent = ({ items }) => {
       token
     )
       .then((res) => {
-        console.log("res correct word intermediate 2 test", res);
+       
         if (res.attempt == true) {
           setAttempted2("attemptedCard");
           setScoreAttempted2(res.data.testArray[0]);
@@ -84,7 +77,7 @@ const ListComponent = ({ items }) => {
       token
     )
       .then((res) => {
-        console.log("res correct word intermediate 3 test", res);
+     
         if (res.attempt == true) {
           setAttempted3("attemptedCard");
           setScoreAttempted3(res.data.testArray[0]);

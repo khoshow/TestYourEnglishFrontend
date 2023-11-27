@@ -53,9 +53,9 @@ const ProfileEditImage = () => {
   const token = getCookie("token");
   useEffect(() => {
     const checkIsAuth = isAuth();
-    console.log("IsAu", checkIsAuth);
+  
     if (checkIsAuth) {
-      console.log("Is Auth", isAuth());
+      
       setAuthStatus(true);
 
       const user = isAuth().username;
@@ -78,11 +78,11 @@ const ProfileEditImage = () => {
     e.preventDefault();
     setLoading(true);
     setStatusLoading("loading");
-    console.log("Status", formData.status);
+   
     let toChange = { newStatus: formData.status };
     try {
       const res = await updateStatus(toChange, token);
-      console.log("res", res);
+    
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -120,13 +120,13 @@ const ProfileEditImage = () => {
   const handleSubmitPhoto = (event) => {
     event.preventDefault();
     if (file) {
-      console.log("Phot", file);
+     
       const formData = new FormData();
       formData.append("photo", file);
-      console.log("Phot form", formData);
+    
       try {
         const res = updateUserPhoto(formData, token);
-        console.log("res", res);
+      
       } catch (err) {
         console.log("err", err);
       } finally {
@@ -159,10 +159,10 @@ const ProfileEditImage = () => {
       const canvas = editor.current.getImageScaledToCanvas();
       canvas.toBlob((blob) => {
         // You can use the resized blob or send it to the server
-        console.log("Image", blob);
+       
         try {
           const res = updateUserPhoto(blob, token);
-          console.log("res", res);
+         
         } catch (err) {
           console.log("err", err);
         } finally {

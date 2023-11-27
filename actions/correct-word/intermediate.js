@@ -3,8 +3,7 @@ import { API } from "../../config";
 import { isAuth, handleResponse } from "../auth";
 
 export const create = (correctWordsIntermediate, token) => {
-  console.log("Data from action", correctWordsIntermediate);
-  console.log("Token", token);
+ 
   return fetch(`${API}/api/correct-word-intermediate`, {
     method: "POST",
     headers: {
@@ -71,7 +70,7 @@ export const removeCorrectWordMedium = (slug, token) => {
 };
 
 export const update = (correctWordMedium, slug, token) => {
-  // console.log("categroy: "+ category);
+ 
   return fetch(`${API}/correct-word-medium/update/${slug}`, {
     method: "PUT",
     headers: {
@@ -81,7 +80,7 @@ export const update = (correctWordMedium, slug, token) => {
     body: correctWordMedium,
   })
     .then((response) => {
-      // console.log(category.name);
+      
       handleResponse(response);
       return response.json();
     })
@@ -89,8 +88,7 @@ export const update = (correctWordMedium, slug, token) => {
 };
 
 export const postScore = (data, token) => {
-  console.log("da", data);
-  console.log("token here", token);
+ 
   return fetch(`${API}/api/correct-words-intermediate/score-update`, {
     method: "PUT",
     headers: {

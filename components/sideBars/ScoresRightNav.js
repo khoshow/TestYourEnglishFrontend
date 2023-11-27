@@ -12,7 +12,7 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
     if (loading == true) {
       setScore("Loading");
     } else {
-      console.log("data score", data);
+    
       const keys = Object.keys(data);
 
       if (!data[keys] || data[keys].scores == 0) {

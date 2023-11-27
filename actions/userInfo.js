@@ -12,7 +12,7 @@ export const getUserScores = (user, token) => {
   })
     .then((response) => {
       if (!response.ok) {
-        console.log("ressss", response);
+       
         // Check if the response status is not in the 2xx range
         throw new Error(`HTTP error! Status: ${response.status}`);
       }

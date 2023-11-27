@@ -18,7 +18,7 @@ export const handleResponse = (response) => {
 };
 
 export const checkUsername = (username) => {
-  console.log("USer2", username);
+
   return fetch(`${API}/username-availability/${username}`, {
     method: "GET",
   })
@@ -30,8 +30,7 @@ export const checkUsername = (username) => {
 };
 
 export const preSignup = (user) => {
-  console.log("Uaiu: " + user);
-  console.log("API: " + `${API}/api/pre-signup`);
+ 
   return fetch(`${API}/api/pre-signup`, {
     method: "POST",
     headers: {
@@ -107,7 +106,7 @@ export const signout = async (req, res) => {
     }
 
     const data = await response.json();
-    console.log("sig", data); // Log the parsed JSON data
+    
     return data;
   } catch (err) {
     console.error("Error during signout:", err);

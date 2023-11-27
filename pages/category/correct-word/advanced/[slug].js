@@ -64,7 +64,7 @@ const CorrectWordsAdvanced = () => {
     getWhenCorrectMessages()
       .then((data) => {
         setCorrectMessages(data);
-        console.log("Card Correct Messahes", data);
+    
       })
       .catch((err) => {
         console.log("error", err);
@@ -75,7 +75,7 @@ const CorrectWordsAdvanced = () => {
     getWhenWrongMessages()
       .then((data) => {
         setWrongMessages(data);
-        console.log("Card Wrong Messahes", data);
+       
       })
       .catch((err) => {
         console.log("error", err);

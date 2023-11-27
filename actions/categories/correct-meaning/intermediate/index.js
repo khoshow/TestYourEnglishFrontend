@@ -6,8 +6,7 @@ export const createCorrectMeaningIntermediate = (
   correctMeaningIntermediate,
   token
 ) => {
-  console.log("Data from action", correctMeaningIntermediate);
-  console.log("Token", token);
+
   return fetch(`${API}/api/correct-meaning-intermediate`, {
     method: "POST",
     headers: {
@@ -18,7 +17,7 @@ export const createCorrectMeaningIntermediate = (
     body: JSON.stringify(correctMeaningIntermediate),
   })
     .then((response) => {
-      // console.log(category.name);
+    
       handleResponse(response);
       return response.json();
     })
@@ -74,7 +73,7 @@ export const removeCorrectMeaningIntermediate = (slug, token) => {
 };
 
 export const update = (correctMeaningIntermediate, slug, token) => {
-  // console.log("categroy: "+ category);
+
   return fetch(`${API}/correct-meaning-intermediate/update/${slug}`, {
     method: "PUT",
     headers: {
@@ -84,7 +83,7 @@ export const update = (correctMeaningIntermediate, slug, token) => {
     body: correctWordMedium,
   })
     .then((response) => {
-      // console.log(category.name);
+     
       handleResponse(response);
       return response.json();
     })
@@ -102,7 +101,7 @@ export const postScore = (data, token) => {
     body: JSON.stringify(data),
   })
     .then((response) => {
-      // console.log(category.name);
+  
       handleResponse(response);
       return response.json();
     })
@@ -121,7 +120,7 @@ export const getTestData = (userId, token) => {
     }
   )
     .then((response) => {
-      // console.log(category.name);
+   
       handleResponse(response);
       return response.json();
     })

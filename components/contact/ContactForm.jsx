@@ -35,7 +35,7 @@ const ContactForm = () => {
     e.preventDefault();
     setLoading(true);
     const formData = {};
-    // console.log("fier: "+e.currentTarget.elements.robot[4])
+  
     Array.from(e.currentTarget.elements).forEach((field) => {
       if (!field.name) return;
       formData[field.name] = field.value;

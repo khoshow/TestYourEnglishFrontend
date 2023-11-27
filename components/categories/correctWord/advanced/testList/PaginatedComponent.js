@@ -16,7 +16,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   useEffect(() => {}, []);
   getTotalTestsNoCorrectWordAdvanced()
     .then((res) => {
-      console.log("res test", res);
+  
       setTotalTest(50);
     })
     .catch((err) => {

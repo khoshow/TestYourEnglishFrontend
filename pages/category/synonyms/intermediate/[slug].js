@@ -65,7 +65,7 @@ const CorrectWordsIntermediate = () => {
     getWhenCorrectMessages()
       .then((data) => {
         setCorrectMessages(data);
-        console.log("Card Correct Messahes", data);
+     
       })
       .catch((err) => {
         console.log("error", err);
@@ -76,7 +76,7 @@ const CorrectWordsIntermediate = () => {
     getWhenWrongMessages()
       .then((data) => {
         setWrongMessages(data);
-        console.log("Card Wrong Messahes", data);
+        
       })
       .catch((err) => {
         console.log("error", err);

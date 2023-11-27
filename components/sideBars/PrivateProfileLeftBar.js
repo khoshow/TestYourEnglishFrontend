@@ -16,8 +16,7 @@ const privateProfileLeftNavBar = ({ username, authStatus }) => {
   //     router.push(`/signin`);
   //   }
   // }, []);
-  console.log("Usre", username);
-  console.log("AuthStatus", authStatus);
+
 
   return (
     <nav className="navigation">

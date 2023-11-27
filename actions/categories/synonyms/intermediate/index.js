@@ -3,8 +3,6 @@ import { API } from "../../../../config";
 import { isAuth, handleResponse } from "../../../auth";
 
 export const createSynonymsIntermediate = (synonymsIntermediate, token) => {
-  console.log("Data from action", synonymsIntermediate);
-  console.log("Token", token);
   return fetch(`${API}/api/synonyms-intermediate`, {
     method: "POST",
     headers: {
@@ -15,7 +13,6 @@ export const createSynonymsIntermediate = (synonymsIntermediate, token) => {
     body: JSON.stringify(synonymsIntermediate),
   })
     .then((response) => {
-      // console.log(category.name);
       handleResponse(response);
       return response.json();
     })
@@ -44,16 +41,6 @@ export const getTestNo = (testNo) => {
     .catch((err) => console.log(err));
 };
 
-// export const singleSynonym = (slug) => {
-//   return fetch(`${API}/synonyms-intermediate/${slug}`, {
-//     method: "GET",
-//   })
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .catch((err) => console.log(err));
-// };
-
 export const removeSynonymsIntermediate = (slug, token) => {
   return fetch(`${API}/synonyms-intermediate/${slug}`, {
     method: "DELETE",
@@ -71,7 +58,6 @@ export const removeSynonymsIntermediate = (slug, token) => {
 };
 
 export const update = (synonymsIntermediate, slug, token) => {
-  // console.log("categroy: "+ category);
   return fetch(`${API}/synonyms-intermediate/update/${slug}`, {
     method: "PUT",
     headers: {
@@ -81,7 +67,6 @@ export const update = (synonymsIntermediate, slug, token) => {
     body: synonymsIntermediate,
   })
     .then((response) => {
-      // console.log(category.name);
       handleResponse(response);
       return response.json();
     })
@@ -89,8 +74,6 @@ export const update = (synonymsIntermediate, slug, token) => {
 };
 
 export const postScore = (data, token) => {
-  console.log("da", data);
-  console.log("token here", token);
   return fetch(`${API}/api/synonyms-intermediate/score-update`, {
     method: "PUT",
     headers: {
@@ -101,7 +84,6 @@ export const postScore = (data, token) => {
     body: JSON.stringify(data),
   })
     .then((response) => {
-      // console.log(category.name);
       handleResponse(response);
       return response.json();
     })
@@ -109,21 +91,16 @@ export const postScore = (data, token) => {
 };
 
 export const getTestData = (userId, token) => {
-  return fetch(
-    `${API}/api/synonyms-intermediate/user-test-data/${userId}`,
-    {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  )
+  return fetch(`${API}/api/synonyms-intermediate/user-test-data/${userId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
     .then((response) => {
-      // console.log(category.name);
       handleResponse(response);
       return response.json();
     })
     .catch((err) => console.log(err));
 };
-

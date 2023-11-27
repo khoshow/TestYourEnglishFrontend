@@ -42,16 +42,16 @@ const RightSideNavPublic = ({}) => {
   }, [loading, router.query, router.asPath, currentUrl, rankLoading]);
 
   const loadPublicProfile = (username) => {
-    console.log("Username", username);
+   
     let requiredSlug = username.split("/");
     const usernameToSend = requiredSlug[requiredSlug.length - 1];
     getPublicProfile(usernameToSend)
       .then((res) => {
-        console.log("User", res);
+       
         setPublicprofile(res);
       })
       .catch((error) => {
-        console.log("err");
+       
         return;
       });
   };
@@ -87,7 +87,7 @@ const RightSideNavPublic = ({}) => {
     // setUserId(authenticatedId);
     const response = await getUserScores(authenticatedId, token)
       .then((res) => {
-        console.log("righ score", res);
+       
         setScoreData(res);
         setLoading(false);
         // setInterMediateScore(res[0].correctWordIntermediate.score);

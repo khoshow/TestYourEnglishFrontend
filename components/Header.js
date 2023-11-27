@@ -63,11 +63,11 @@ const Header = () => {
 
   const loadSignout = async () => {
     try {
-      console.log("Before signout call"); // Add this line for debugging
+     
       const res = await signout();
-      console.log("After signout call"); // Add this line for debugging
+     
       if (res) {
-        console.log("Hee", res);
+      
         router.push("/login");
       } else {
         console.log("No response from signout");

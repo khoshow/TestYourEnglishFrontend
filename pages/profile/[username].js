@@ -61,10 +61,10 @@ const ProfilePage = () => {
     setScoresLoading(true);
     try {
       const res = await getPublicDisplayUserScores(user);
-      console.log("Scores", res);
+    
       setUserScores(res);
     } catch (error) {
-      console.log("An error occured", error);
+    
       setError(true);
       setUserScores(null);
     } finally {
@@ -99,7 +99,7 @@ const ProfilePage = () => {
         </div>
       );
     } else {
-      console.log("USer score", userScores);
+      
       return (
         <div>
           <div className="heading alt-two">

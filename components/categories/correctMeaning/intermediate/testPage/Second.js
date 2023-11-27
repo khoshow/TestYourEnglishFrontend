@@ -8,7 +8,6 @@ import Card from "@mui/material/Card";
 import { testGiveOrNot } from "../../../../../actions/privateInfo/testGiven";
 import Layout3 from "../../../../Layout3";
 
-
 function Second2(pageData, next) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
@@ -31,8 +30,7 @@ function Second2(pageData, next) {
   const testNo = parseInt(slug.split("-").pop());
 
   const finalSlug = "test-" + testNo;
-  console.log("Page Data2", pageData);
-  console.log("Final Slug Tes no", testNo);
+
   const [hydrated, setHydrated] = React.useState(false);
 
   React.useEffect(() => {
@@ -48,14 +46,12 @@ function Second2(pageData, next) {
   const username = isAuth().username;
 
   if (isAuth()) {
-    console.log("testCheck called");
     testGiveOrNot(
       { testCategory: "correct-meaning-intermediate", testNo: testNo },
 
       token
     )
       .then((res) => {
-        console.log("test given or not 1", res);
         if (res.attempt == true) {
           setAttempted(true);
         } else {
@@ -234,11 +230,9 @@ function Second2(pageData, next) {
             <div className="signInRequest mt-4">
               <p>
                 Sign in to track your score and continue learning.<br></br>
-                
-                  <Link className="myLink " href="/signin">
-                    Sign In
-                  </Link>
-              
+                <Link className="myLink " href="/signin">
+                  Sign In
+                </Link>
               </p>
             </div>
           </Card>
@@ -347,7 +341,7 @@ function Second2(pageData, next) {
             <div className="contentSection">
               <div className="questionSection">
                 <div className="questionText">
-                 Q. {quizInfo[currentQuestion].question}
+                  Q. {quizInfo[currentQuestion].question}
                 </div>
               </div>
               <div className="optionSection">

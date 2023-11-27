@@ -31,8 +31,7 @@ function Second2(pageData, next) {
   const testNo = parseInt(slug.split("-").pop());
 
   const finalSlug = "test-" + testNo;
-  console.log("Page Data2", pageData);
-  console.log("Final Slug Tes no", testNo);
+
   const [hydrated, setHydrated] = React.useState(false);
 
   React.useEffect(() => {
@@ -48,14 +47,14 @@ function Second2(pageData, next) {
   const username = isAuth().username;
 
   if (isAuth()) {
-    console.log("testCheck called");
+   
     testGiveOrNot(
       { testCategory: "correct-meaning-advanced", testNo: testNo },
 
       token
     )
       .then((res) => {
-        console.log("test given or not 1", res);
+      
         if (res.attempt == true) {
           setAttempted(true);
         } else {

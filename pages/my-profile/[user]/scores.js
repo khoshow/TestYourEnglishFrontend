@@ -27,10 +27,10 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const checkIsAuth = isAuth();
-    console.log("IsAu", checkIsAuth);
+  
     if (checkIsAuth) {
       const token = getCookie("token");
-      console.log("Is Auth", isAuth());
+   
       setAuthStatus(true);
       const user = isAuth().username;
       setUsername(user);
@@ -45,10 +45,10 @@ const ProfilePage = () => {
     setProfileLoading(true);
     try {
       const res = await getPrivateProfile(user);
-      console.log("resdsgf", res);
+      
       setData(res);
     } catch (err) {
-      console.log("err", err);
+      
       setError(true);
     } finally {
       setLoading(false);
@@ -59,10 +59,10 @@ const ProfilePage = () => {
     setScoresLoading(true);
     try {
       const res = await getUserScores(user, token);
-      console.log("Scores", res);
+      
       setUserScores(res);
     } catch (error) {
-      console.log("An error occured", error);
+     
       setError(true);
       setUserScores(null);
     } finally {
@@ -82,11 +82,12 @@ const ProfilePage = () => {
     e.preventDefault();
     setLoading(true);
     setStatusLoading("loading");
-    console.log("Status", formData.status);
+  
+    
     let toChange = { newStatus: formData.status };
     try {
       const res = await updateStatus(toChange, token);
-      console.log("res", res);
+      
       setData(res);
     } catch (err) {
       console.log("err", err);
@@ -149,7 +150,7 @@ const ProfilePage = () => {
         </div>
       );
     } else {
-      console.log("USer score", userScores);
+     
       return (
         <div className="tiles">
           <article className="tile">

@@ -3,8 +3,7 @@ import { API } from "../../../../config";
 import { isAuth, handleResponse } from "../../../auth";
 
 export const createCorrectWordAdvanced = (correctWordsAdvanced, token) => {
-  console.log("Data from action", correctWordsAdvanced);
-  console.log("Token", token);
+
   return fetch(`${API}/api/correct-word-advanced`, {
     method: "POST",
     headers: {
@@ -15,7 +14,7 @@ export const createCorrectWordAdvanced = (correctWordsAdvanced, token) => {
     body: JSON.stringify(correctWordsAdvanced),
   })
     .then((response) => {
-      // console.log(category.name);
+     
       handleResponse(response);
       return response.json();
     })
@@ -71,7 +70,7 @@ export const removeCorrectWordAdvanced = (slug, token) => {
 };
 
 export const update = (correctWordAdvanced, slug, token) => {
-  // console.log("categroy: "+ category);
+ 
   return fetch(`${API}/correct-word-advanced/update/${slug}`, {
     method: "PUT",
     headers: {
@@ -81,7 +80,7 @@ export const update = (correctWordAdvanced, slug, token) => {
     body: correctWordAdvanced,
   })
     .then((response) => {
-      // console.log(category.name);
+    
       handleResponse(response);
       return response.json();
     })
@@ -99,7 +98,7 @@ export const postScore = (data, token) => {
     body: JSON.stringify(data),
   })
     .then((response) => {
-      // console.log(category.name);
+      
       handleResponse(response);
       return response.json();
     })
@@ -118,7 +117,7 @@ export const getTestData = (userId, token) => {
     }
   )
     .then((response) => {
-      // console.log(category.name);
+     
       handleResponse(response);
       return response.json();
     })
@@ -134,7 +133,7 @@ export const testGiveOrNot = (testCategory, token) => {
     )
     .join("&");
 
-  console.log("test Given", testCategory);
+
   return fetch(`${API}/api/test-given/${queryString}`, {
     method: "GET",
     headers: {
@@ -143,7 +142,7 @@ export const testGiveOrNot = (testCategory, token) => {
     },
   })
     .then((response) => {
-      console.log("hello this is not working");
+     
       handleResponse(response);
       return response.json();
     })
