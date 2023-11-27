@@ -273,26 +273,26 @@ function Second2(pageData, next) {
   const messageContent = () => {
     if (correctAnswer) {
       return (
-        <div class="messageBarContent">
-          <div class="correctAnswerColumn1 d-flex">
+        <div className="messageBarContent">
+          <div className="correctAnswerColumn1 d-flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
               height="30"
               fill="currentColor"
-              class="bi bi-emoji-sunglasses-fill"
+              className="bi bi-emoji-sunglasses-fill"
               viewBox="0 0 16 16"
             >
               <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16M2.31 5.243A1 1 0 0 1 3.28 4H6a1 1 0 0 1 1 1v.116A4.22 4.22 0 0 1 8 5c.35 0 .69.04 1 .116V5a1 1 0 0 1 1-1h2.72a1 1 0 0 1 .97 1.243l-.311 1.242A2 2 0 0 1 11.439 8H11a2 2 0 0 1-1.994-1.839A2.99 2.99 0 0 0 8 6c-.393 0-.74.064-1.006.161A2 2 0 0 1 5 8h-.438a2 2 0 0 1-1.94-1.515zM4.969 9.75A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .866-.5z" />
             </svg>
           </div>
-          <div class="correctAnswerColumn2">{messageToDisplay}</div>
+          <div className="correctAnswerColumn2">{messageToDisplay}</div>
         </div>
       );
     } else {
       return (
-        <div class="messageBarContent">
-          <div class="wrongAnswerColumn1 d-flex">
+        <div className="messageBarContent">
+          <div className="wrongAnswerColumn1 d-flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -304,7 +304,7 @@ function Second2(pageData, next) {
               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.5 3.5a.5.5 0 0 0 .5.5c.838 0 1.65.416 2.053 1.224a.5.5 0 1 0 .894-.448C12.351 3.584 11.162 3 10 3a.5.5 0 0 0-.5.5M7 6.5C7 5.672 6.552 5 6 5s-1 .672-1 1.5S5.448 8 6 8s1-.672 1-1.5M4.5 13c.828 0 1.5-.746 1.5-1.667 0-.706-.882-2.29-1.294-2.99a.238.238 0 0 0-.412 0C3.882 9.044 3 10.628 3 11.334 3 12.253 3.672 13 4.5 13M8 11.197c.916 0 1.607.408 2.25.826.212.138.424-.069.282-.277-.564-.83-1.558-2.049-2.532-2.049-.53 0-1.066.361-1.536.824.083.179.162.36.232.535.045.115.092.241.135.373A3.1 3.1 0 0 1 8 11.197M10 8c.552 0 1-.672 1-1.5S10.552 5 10 5s-1 .672-1 1.5S9.448 8 10 8M6.5 3c-1.162 0-2.35.584-2.947 1.776a.5.5 0 1 0 .894.448C4.851 4.416 5.662 4 6.5 4a.5.5 0 0 0 0-1" />
             </svg>
           </div>
-          <div class="wrongAnswerColumn2">{messageToDisplay}</div>
+          <div className="wrongAnswerColumn2">{messageToDisplay}</div>
         </div>
       );
     }

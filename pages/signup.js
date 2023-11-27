@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Seo from "../components/common/Seo";
-import SignupForm from "../components/auth/signUpComponent";
+import SignupForm from "../components/auth/SignUpComponent";
 import Layout from "../components/Layout";
 
 const SignUp = () => {
@@ -8,8 +8,6 @@ const SignUp = () => {
   return (
     <>
       <Layout>
-      
-
         <div className="user-data-section d-flex align-items-center justify-content-center flex-column position-relative">
           <div className="form-wrapper position-relative m-auto">
             <div className="text-center">

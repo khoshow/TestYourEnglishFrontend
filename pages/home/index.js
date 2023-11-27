@@ -238,18 +238,18 @@ const Test = () => {
             </Card>
           </div>
           <div className="container">
-            <div class="container my-5">
-              <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
-                <h1 class="text-body-emphasis">
+            <div className="container my-5">
+              <div className="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
+                <h1 className="text-body-emphasis">
                   Time to enhance your English skills!
                 </h1>
-                <p class="col-lg-6 mx-auto mb-4">
+                <p className="col-lg-6 mx-auto mb-4">
                   Our approach is crafted to be enjoyable, complimentary, and
                   interactive, fostering an enhanced language proficiency
                   experience.
                 </p>
                 <Link href="/category/correct-word/intermediate">
-                  <button class="btn btn-primary px-5 mb-5" type="button">
+                  <button className="btn btn-primary px-5 mb-5" type="button">
                     Start Today
                   </button>
                 </Link>
