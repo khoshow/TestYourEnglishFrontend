@@ -129,7 +129,7 @@ const SideNav = ({ children }) => {
           zIndex: 900,
           borderRadius: 0,
 
-          alignItems: "center" /* Center vertically */,
+          alignItems: "center",
           justifyContent: "center",
         }}
         className="leftSideNavMenu"
@@ -207,7 +207,6 @@ const SideNav = ({ children }) => {
                     }}
                   >
                     <ListItemButton
-                      alignItems=""
                       onClick={() => setOpenCorrectWord(!openCorrectWord)}
                       sx={{
                         px: 3,
@@ -281,7 +280,6 @@ const SideNav = ({ children }) => {
                     }}
                   >
                     <ListItemButton
-                      alignItems=""
                       onClick={() => setOpenCorrectMeaning(!openCorrectMeaning)}
                       sx={{
                         px: 3,
@@ -355,7 +353,6 @@ const SideNav = ({ children }) => {
                     }}
                   >
                     <ListItemButton
-                      alignItems=""
                       onClick={() => setOpenSynonym(!openSynonym)}
                       sx={{
                         px: 3,
@@ -508,7 +505,6 @@ const SideNav = ({ children }) => {
                   }}
                 >
                   <ListItemButton
-                    alignItems=""
                     onClick={() => setOpenCorrectWord(!openCorrectWord)}
                     sx={{
                       px: 3,
@@ -583,7 +579,6 @@ const SideNav = ({ children }) => {
                   }}
                 >
                   <ListItemButton
-                    alignItems=""
                     onClick={() => setOpenCorrectMeaning(!openCorrectMeaning)}
                     sx={{
                       px: 3,
@@ -653,7 +648,6 @@ const SideNav = ({ children }) => {
                   }}
                 >
                   <ListItemButton
-                    alignItems=""
                     onClick={() => setOpenSynonym(!openSynonym)}
                     sx={{
                       px: 3,

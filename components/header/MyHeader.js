@@ -56,9 +56,8 @@ function ResponsiveAppBar() {
   const token = getCookie("token");
   useEffect(() => {
     const checkIsAuth = isAuth();
- 
+
     if (checkIsAuth) {
-     
       setAuthStatus(true);
       let fullName = isAuth().name;
       let displayName = fullName.split(" ")[0];
@@ -77,11 +76,10 @@ function ResponsiveAppBar() {
     setLoading(true);
     try {
       const res = await getPrivateProfile(user);
-    
+
       setData(res);
       setImageUrl(res.photoUrl);
     } catch (err) {
-     
       setError(true);
     } finally {
       setLoading(false);
@@ -225,12 +223,14 @@ function ResponsiveAppBar() {
             </Tooltip> */}
             <Link href="/signup" className="noMobileDisplay">
               <MenuItem>
-                <Typography textAlign="center">Sign Up</Typography>
+                <Typography textAlign="center" className="btn">
+                  Sign Up
+                </Typography>
               </MenuItem>
             </Link>
-            <Link href="/signin" className="" style={{}}>
+            <Link href="/signin"  style={{}}>
               <MenuItem>
-                <Typography textAlign="center">Sign In</Typography>
+                <Typography textAlign="center" className="btn">Sign In</Typography>
               </MenuItem>
             </Link>
             <Menu

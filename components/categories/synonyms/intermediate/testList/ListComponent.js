@@ -20,31 +20,33 @@ const ListComponent = ({ items }) => {
   const [scoreAttempted6, setScoreAttempted6] = useState();
   const [loading, setLoading] = useState(true);
   const [myCardMessages, setMyCardMessages] = useState();
-  
+
   const token = getCookie("token");
 
   useEffect(() => {
     if (isAuth()) {
-     
-
       testCheck();
+    } else {
+      setAttempted1("notSignedInCard");
+      setAttempted2("notSignedInCard");
+      setAttempted3("notSignedInCard");
+      setAttempted4("notSignedInCard");
+      setAttempted5("notSignedInCard");
+      setAttempted6("notSignedInCard");
     }
     cardMessages();
   }, [items]);
 
   const testCheck = () => {
-    
     testGiveOrNot(
       { testCategory: "synonyms-intermediate", testNo: items * 6 - 5 },
 
       token
     )
       .then((res) => {
-       
         if (res.attempt == true) {
           setAttempted1("attemptedCard");
           setScoreAttempted1(res.data.testArray[0]);
-        
         } else {
           setAttempted1("notAttemptedCard");
         }
@@ -76,7 +78,6 @@ const ListComponent = ({ items }) => {
       token
     )
       .then((res) => {
-        
         if (res.attempt == true) {
           setAttempted3("attemptedCard");
           setScoreAttempted3(res.data.testArray[0]);
@@ -141,7 +142,6 @@ const ListComponent = ({ items }) => {
     getCardMessages()
       .then((data) => {
         setMyCardMessages(data);
-      
       })
       .catch((err) => {
         console.log("error", err);

@@ -97,7 +97,7 @@ const Test = () => {
                 <Link href="/category/correct-word">
                   <Button
                     size="small"
-                    className="btn "
+                    className="btn btn-success"
                     style={{ margin: "auto auto" }}
                   >
                     Start

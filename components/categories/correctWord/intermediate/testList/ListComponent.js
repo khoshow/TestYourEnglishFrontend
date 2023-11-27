@@ -28,7 +28,14 @@ const ListComponent = ({ items }) => {
     
 
       testCheck();
-    } 
+    } else {
+      setAttempted1("notSignedInCard");
+      setAttempted2("notSignedInCard");
+      setAttempted3("notSignedInCard");
+      setAttempted4("notSignedInCard");
+      setAttempted5("notSignedInCard");
+      setAttempted6("notSignedInCard");
+    }
     cardMessages();
   }, [items]);
 
