@@ -136,7 +136,9 @@ li {
 .cardIconGreen {
   color: var(--color3);
 }
-
+.mainContent {
+  padding-top: 100px;
+}
 @media only screen and (max-width: 576px) {
   .quote-content {
     height: auto !important;

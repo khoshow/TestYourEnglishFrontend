@@ -21,12 +21,9 @@ const Layout = ({ children }) => {
         <div className="makeItFixed " style={{ width: "256", zIndex: "1000" }}>
           <SideNav />
         </div>
-        <div
-          className=""
-          style={{ flex: "1", zIndex: "900", paddingBottom: "50px" }}
-        >
+        <div className="" style={{ flex: "1", paddingBottom: "50px" }}>
           <MyHeader />
-          {children}
+          <div className="mainContent"> {children}</div>
         </div>
       </div>
     </React.Fragment>

@@ -39,23 +39,23 @@ const Layout = ({ children }) => {
           >
             <SideNav />
           </div>
-          <div
-            className=""
-            style={{ flex: "1", zIndex: "900", paddingBottom: "50px" }}
-          >
+          <div className="" style={{ flex: "1", paddingBottom: "50px" }}>
             <MyHeader />
             <div className=" d-flex">
-              <div style={{ flex: "1", zIndex: "900" }}> {children}</div>
-              <div
-                style={{
-                  flex: "0",
-                  width: "300px",
-                  zIndex: "900",
-                  backgroundColor: "#f1f1f1",
-                  paddingLeft: "10px",
-                }}
-              >
-                <RightSideNav />
+              <div className="mainContent">
+                {" "}
+                <div style={{ flex: "1", zIndex: "900" }}> {children}</div>
+                <div
+                  style={{
+                    flex: "0",
+                    width: "300px",
+                    zIndex: "900",
+                    backgroundColor: "#f1f1f1",
+                    paddingLeft: "10px",
+                  }}
+                >
+                  <RightSideNav />
+                </div>
               </div>
             </div>
           </div>

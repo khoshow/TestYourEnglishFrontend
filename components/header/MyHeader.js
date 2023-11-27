@@ -123,7 +123,11 @@ function ResponsiveAppBar() {
         style={{ justifyContent: "space-between" }}
       >
         <Link href="/" className="mobileLogo" style={{}}>
-          <img src="/images/logo/logo5.png" alt="" width={250} />
+          <img
+            src="/images/logo/logo5.png"
+            alt="logo"
+            style={{ width: "220px" }}
+          />
         </Link>
 
         <Box sx={{ marginRight: "auto", display: { xs: "none", md: "flex" } }}>
