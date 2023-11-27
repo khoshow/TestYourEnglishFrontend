@@ -100,7 +100,7 @@ const RightSideNav = ({}) => {
   };
   return (
     <>
-      <div className="text-center">
+      <div className="text-center p-2">
         {authStatus ? (
           <ScoresRightNav
             data={scoreData}

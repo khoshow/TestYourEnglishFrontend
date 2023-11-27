@@ -65,7 +65,7 @@ const SigninForm = () => {
     message ? <div className="alert alert-info">{message}</div> : "";
   const signinForm = () => {
     return (
-      <form className="form-control mt-40 lg-mt-30" onSubmit={handleSubmit}>
+      <form className=" mt-40 lg-mt-30 p-4" onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-12">
             <div className="input-group-meta mb-30">

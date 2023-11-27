@@ -113,56 +113,6 @@ const SideNav = ({ children }) => {
       fontSize: 20,
     },
   });
-  // const fetchRankingData = async (thisUrl) => {
-  //   // if (!router.asPath) {
-  //   //   return; //If slug value is undefined/null returns before getting updated value. use the dependency array for the updated value
-  //   // }
-  //   // let toSendSlug;
-  //   // const slug = router.asPath;
-  //   let toSendSlug;
-  //   let requiredSlug = thisUrl.split("/");
-  //   const neededSlug = requiredSlug.slice(0, 4).join("/");
-  //   switch (neededSlug) {
-  //     case "/category/correct-word/intermediate":
-  //       toSendSlug = "ranking-correct-word-intermediate";
-  //       break;
-  //     case "/category/correct-word/advanced":
-  //       toSendSlug = "ranking-correct-word-advanced";
-  //       break;
-  //     default:
-  //       toSendSlug = "ranking-correct-word-intermediate";
-  //   }
-  //   const response = await getRanking(toSendSlug)
-  //     .then((res) => {
-  //       setRankingData(res);
-  //       setRankLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       console.log("err");
-  //       return;
-  //     });
-  // };
-
-  // const loadUserInfo = async (authenticatedId) => {
-  //   const token = getCookie("token");
-
-  //   // setUserId(authenticatedId);
-  //   const response = await getUserScores(
-  //     authenticatedId,
-  //     token
-  //   )
-  //     .then((res) => {
-  //       setScoreData(res);
-  //       setLoading(false);
-  //       // setInterMediateScore(res[0].correctWordIntermediate.score);
-  //       // console.log("Score", res[0].correctWordIntermediate.score);
-  //       // setInterMediateRank(res[0].correctWordIntermediate.rank);
-  //     })
-  //     .catch((err) => {
-  //       console.log("err", err);
-  //       return;
-  //     });
-  // };
 
   return (
     <div className="sticky-top parentop">
@@ -178,7 +128,7 @@ const SideNav = ({ children }) => {
           padding: "5px",
           zIndex: 10,
           borderRadius: 0,
-          display: "flex",
+
           alignItems: "center" /* Center vertically */,
           justifyContent: "center",
         }}
@@ -216,7 +166,12 @@ const SideNav = ({ children }) => {
             keepMounted: true, // Better open performance on mobile.
           }}
         >
-          <Box sx={{ display: "flex", height: "100vh", width: "256" }}>
+          <Box
+            sx={{
+              display: "flex",
+              height: "100vh",
+            }}
+          >
             <ThemeProvider
               theme={createTheme({
                 components: {
@@ -252,7 +207,7 @@ const SideNav = ({ children }) => {
                     }}
                   >
                     <ListItemButton
-                      alignItems="flex-start"
+                      alignItems=""
                       onClick={() => setOpenCorrectWord(!openCorrectWord)}
                       sx={{
                         px: 3,
@@ -326,7 +281,7 @@ const SideNav = ({ children }) => {
                     }}
                   >
                     <ListItemButton
-                      alignItems="flex-start"
+                      alignItems=""
                       onClick={() => setOpenCorrectMeaning(!openCorrectMeaning)}
                       sx={{
                         px: 3,
@@ -400,7 +355,7 @@ const SideNav = ({ children }) => {
                     }}
                   >
                     <ListItemButton
-                      alignItems="flex-start"
+                      alignItems=""
                       onClick={() => setOpenSynonym(!openSynonym)}
                       sx={{
                         px: 3,
@@ -479,12 +434,13 @@ const SideNav = ({ children }) => {
         {/* <Drawer variant="permanent" anchor="left" open /> */}
         {/* Sidebar content */}
         <Box
-          className="sticky-top"
+          className="sticky-top "
           sx={{
             height: "100vh",
-            // top: "88px",
 
+            width: "230px",
             zIndex: 2,
+            display: "flex",
           }}
         >
           <ThemeProvider
@@ -503,86 +459,30 @@ const SideNav = ({ children }) => {
               },
             })}
           >
-            <Paper
-              className=""
-              elevation={0}
-              sx={{ width: 265, left: 0, height: "100vh" }}
-            >
+            <Paper className="" elevation={0} sx={{ left: 0, height: "100vh" }}>
               <FireNav component="nav" disablePadding className="" style={{}}>
-                <Link href="/">
-                  <ListItemButton component="a" href="#customized-list">
-                    <ListItemIcon sx={{ fontSize: 20, paddingTop: "10px" }}>
+                {/* <ListItemButton component="a" href="#customized-list">
+                  <ListItemIcon sx={{ fontSize: 20, paddingTop: "10px" }}>
+                    <Link href="/">
                       <img src="/images/logo/logo5.png" alt="" width={220} />
-                    </ListItemIcon>
-                  </ListItemButton>
-                </Link>
+                    </Link>
+                  </ListItemIcon>
+                </ListItemButton> */}
+
                 <br></br>
-                {/* <Divider />
-                <ListItem component="div" disablePadding>
-                  <ListItemButton sx={{ height: 56 }}>
-                    <ListItemIcon>
-                      <Home color="primary" />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary="Project Overview"
-                      primaryTypographyProps={{
-                        color: "primary",
-                        fontWeight: "medium",
-                        variant: "body2",
-                      }}
-                    />
-                  </ListItemButton>
-                  <Tooltip title="Project Settings">
-                    <IconButton
-                      size="large"
-                      sx={{
-                        "& svg": {
-                          color: "rgba(255,255,255,0.8)",
-                          transition: "0.2s",
-                          transform: "translateX(0) rotate(0)",
-                        },
-                        "&:hover, &:focus": {
-                          bgcolor: "unset",
-                          "& svg:first-of-type": {
-                            transform: "translateX(-4px) rotate(-20deg)",
-                          },
-                          "& svg:last-of-type": {
-                            right: 0,
-                            opacity: 1,
-                          },
-                        },
-                        "&:after": {
-                          content: '""',
-                          position: "absolute",
-                          height: "80%",
-                          display: "block",
-                          left: 0,
-                          width: "1px",
-                          bgcolor: "divider",
-                        },
-                      }}
-                    >
-                      <Settings />
-                      <ArrowRight
-                        sx={{
-                          position: "absolute",
-                          right: 4,
-                          opacity: 0,
-                        }}
-                      />
-                    </IconButton>
-                  </Tooltip>
-                </ListItem> */}
+
                 <Divider />
                 <Box
                   className=""
                   sx={{
                     bgcolor: openCorrectWord ? "rgba(71, 98, 130, 0.2)" : null,
                     pb: openCorrectWord ? 2 : 0,
+                    marginTop: "65px",
+                    display: "block",
                   }}
                 >
                   <ListItemButton
-                    alignItems="flex-start"
+                    alignItems=""
                     onClick={() => setOpenCorrectWord(!openCorrectWord)}
                     sx={{
                       px: 3,
@@ -657,7 +557,7 @@ const SideNav = ({ children }) => {
                   }}
                 >
                   <ListItemButton
-                    alignItems="flex-start"
+                    alignItems=""
                     onClick={() => setOpenCorrectMeaning(!openCorrectMeaning)}
                     sx={{
                       px: 3,
@@ -727,7 +627,7 @@ const SideNav = ({ children }) => {
                   }}
                 >
                   <ListItemButton
-                    alignItems="flex-start"
+                    alignItems=""
                     onClick={() => setOpenSynonym(!openSynonym)}
                     sx={{
                       px: 3,

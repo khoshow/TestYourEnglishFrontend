@@ -134,10 +134,10 @@ const SignupForm = () => {
 
   const signUpForm = () => {
     return (
-      <form className="mt-40 lg-mt-30 p-2" onSubmit={handleSubmit}>
+      <form className=" mt-40 lg-mt-30 p-4" onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-12">
-            <div className="input-group-meta mb-25">
+            <div className="input-group-meta mb-30">
               <label className="form-label">Name</label>
               <input
                 className="form-control"

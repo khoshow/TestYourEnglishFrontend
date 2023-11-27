@@ -117,25 +117,15 @@ function ResponsiveAppBar() {
       className="sticky-top"
       style={{ padding: "10px", backgroundColor: "#6c757d" }}
     >
-      <Toolbar disableGutters className="d-flex ">
-        <Typography
-          variant="h5"
-          noWrap
-          component="a"
-          href="#app-bar-with-responsive-menu"
-          sx={{
-            display: { xs: "flex", md: "none" },
-            margin: "auto auto",
-
-            fontFamily: "monospace",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "inherit",
-            textDecoration: "none",
-          }}
-        >
+      <Toolbar
+        disableGutters
+        className="d-flex "
+        style={{ justifyContent: "space-between" }}
+      >
+        <Link href="/" className="mobileLogo" style={{}}>
           <img src="/images/logo/logo5.png" alt="" width={250} />
-        </Typography>
+        </Link>
+
         <Box sx={{ marginRight: "auto", display: { xs: "none", md: "flex" } }}>
           {pages.map((page) => (
             <Link href={page.url} key={page.url}>

@@ -16,7 +16,9 @@ const SignUp = () => {
                 Have an account? <Link href="/signin">Login Here</Link>
               </p>
             </div>
-            <SignupForm />
+            <div>
+              <SignupForm />
+            </div>
           </div>
           {/* End form-wrapper */}
 
@@ -24,6 +26,7 @@ const SignUp = () => {
             Copyright @{currentYear} Test My English Online.
           </p>
         </div>
+        
       </Layout>
     </>
   );

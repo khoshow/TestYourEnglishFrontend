@@ -20,10 +20,12 @@ const Layout = ({ children }) => {
           <div className="makeItFixed " style={{ zIndex: "1000" }}>
             <SideNav />
           </div>
-          <div className="" style={{ flex: "3", zIndex: "900" }}>
+          <div className="" style={{ zIndex: "900" }}>
             <MyHeader />
             <div className="">
-              <div style={{ zIndex: "900" }}> {children}</div>
+              <div style={{ zIndex: "900", padding: "100px 0 50px 0" }}>
+                {children}
+              </div>
               <div style={{ zIndex: "900", backgroundColor: "#f1f1f1" }}>
                 <RightSideNav />
               </div>
@@ -31,19 +33,23 @@ const Layout = ({ children }) => {
           </div>
         </div>
         <div className="d-flex desktopLayout3" style={{}}>
-          <div className="makeItFixed " style={{ zIndex: "1001" }}>
+          <div
+            className="makeItFixed "
+            style={{ width: "256", zIndex: "1001" }}
+          >
             <SideNav />
           </div>
           <div
             className=""
-            style={{ flex: "3", zIndex: "900", paddingBottom: "50px" }}
+            style={{ flex: "1", zIndex: "900", paddingBottom: "50px" }}
           >
             <MyHeader />
-            <div className="d-flex ">
-              <div style={{ flex: "3", zIndex: "900" }}> {children}</div>
+            <div className=" d-flex">
+              <div style={{ flex: "1", zIndex: "900" }}> {children}</div>
               <div
                 style={{
-                  flex: "1",
+                  flex: "0",
+                  width: "300px",
                   zIndex: "900",
                   backgroundColor: "#f1f1f1",
                   paddingLeft: "10px",
