@@ -93,17 +93,13 @@ const Test = () => {
                 </Typography>
               </CardContent>
 
-              <CardActions className="">
-                <Link href="/category/correct-word">
-                  <Button
-                    size="small"
-                    className="btn btn-success"
-                    style={{ margin: "auto auto" }}
-                  >
-                    Start
-                  </Button>
-                </Link>
-              </CardActions>
+              <Link
+                href="/category/correct-word"
+                className="btn btn-lg"
+                style={{ margin: "auto auto" }}
+              >
+                Start
+              </Link>
               <CardActions>
                 <Link
                   href="/category/correct-word/intermediate"
@@ -149,17 +145,14 @@ const Test = () => {
                   four options.
                 </Typography>
               </CardContent>
-              <CardActions className="">
-                <Link href="/category/correct-meaning">
-                  <Button
-                    size="small"
-                    className="btn btn-info"
-                    style={{ margin: "auto auto" }}
-                  >
-                    Start
-                  </Button>
-                </Link>
-              </CardActions>
+
+              <Link
+                href="/category/correct-meaning"
+                className="btn btn-lg"
+                style={{ margin: "auto auto" }}
+              >
+                Start
+              </Link>
               <CardActions>
                 <Link
                   href="/category/correct-meaning/intermediate"
@@ -208,17 +201,14 @@ const Test = () => {
                 </Typography>
               </CardContent>
 
-              <CardActions className="">
-                <Link href="/category/synonyms">
-                  <Button
-                    size="small"
-                    className="btn btn-info"
-                    style={{ margin: "auto auto" }}
-                  >
-                    Start
-                  </Button>
-                </Link>
-              </CardActions>
+              <Link
+                href="/category/synonyms"
+                className="btn btn-lg"
+                style={{ margin: "auto auto" }}
+              >
+                Start
+              </Link>
+
               <CardActions>
                 <Link
                   href="/category/synonyms/intermediate"
