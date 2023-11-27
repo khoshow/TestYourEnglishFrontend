@@ -17,15 +17,32 @@ import IconButton from "@mui/material/IconButton";
 const Layout = ({ children }) => {
   return (
     <React.Fragment>
-      <div className=" d-flex" style={{}}>
-        <div className="makeItFixed " style={{ width: "256", zIndex: "1000" }}>
-          <SideNav />
+      <>
+        <div className=" d-flex mobileLayout3" style={{}}>
+          <div
+            className="makeItFixed "
+            style={{ width: "256", zIndex: "10" }}
+          >
+            <SideNav />
+          </div>
+          <div className="" style={{zIndex:"9", flex: "1", paddingBottom: "50px" }}>
+            <MyHeader />
+            <div className="mainContent"> {children}</div>
+          </div>
         </div>
-        <div className="" style={{ flex: "1", paddingBottom: "50px" }}>
-          <MyHeader />
-          <div className="mainContent"> {children}</div>
+        <div className=" d-flex desktopLayout3" style={{}}>
+          <div
+            className="makeItFixed "
+            style={{ width: "256", zIndex: "9" }}
+          >
+            <SideNav />
+          </div>
+          <div className="" style={{ flex: "1", paddingBottom: "50px" }}>
+            <MyHeader />
+            <div className="mainContent"> {children}</div>
+          </div>
         </div>
-      </div>
+      </>
     </React.Fragment>
   );
 };

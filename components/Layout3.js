@@ -17,39 +17,35 @@ const Layout = ({ children }) => {
     <React.Fragment>
       <>
         <div className="d-flex mobileLayout3" style={{}}>
-          <div className="makeItFixed " style={{ zIndex: "1000" }}>
+          <div className="makeItFixed " style={{ zIndex: "10" }}>
             <SideNav />
           </div>
-          <div className="" style={{ zIndex: "900" }}>
+          <div className="" style={{ zIndex: "9" }}>
             <MyHeader />
             <div className="">
-              <div style={{ zIndex: "900", padding: "100px 0 50px 0" }}>
+              <div style={{ zIndex: "9", padding: "100px 0 50px 0" }}>
                 {children}
               </div>
-              <div style={{ zIndex: "900", backgroundColor: "#f1f1f1" }}>
+              <div style={{ zIndex: "9", backgroundColor: "#f1f1f1" }}>
                 <RightSideNav />
               </div>
             </div>
           </div>
         </div>
         <div className="d-flex desktopLayout3" style={{}}>
-          <div
-            className="makeItFixed "
-            style={{ width: "256", zIndex: "1001" }}
-          >
+          <div className="makeItFixed " style={{ width: "256", zIndex: "10" }}>
             <SideNav />
           </div>
           <div className="" style={{ flex: "1", paddingBottom: "50px" }}>
             <MyHeader />
             <div className=" d-flex">
               <div className="mainContent">
-                {" "}
-                <div style={{ flex: "1", zIndex: "900" }}> {children}</div>
+                <div style={{ flex: "1", zIndex: "9" }}> {children}</div>
                 <div
                   style={{
                     flex: "0",
                     width: "300px",
-                    zIndex: "900",
+                    zIndex: "9",
                     backgroundColor: "#f1f1f1",
                     paddingLeft: "10px",
                   }}

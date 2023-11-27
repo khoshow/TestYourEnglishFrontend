@@ -126,7 +126,7 @@ const SideNav = ({ children }) => {
           width: "60px",
           //   border: "1px solid white",
           padding: "5px",
-          zIndex: 10,
+          zIndex: 900,
           borderRadius: 0,
 
           alignItems: "center" /* Center vertically */,
