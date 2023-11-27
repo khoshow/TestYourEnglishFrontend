@@ -28,11 +28,11 @@ import Public from "@mui/icons-material/Public";
 import { Hidden, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const sideNav = ({ children }) => {
+const SideNav = ({ children }) => {
   const router = useRouter();
   const [openCorrectWord, setOpenCorrectWord] = React.useState(true);
-  const [openCorrectMeaning, setOpenCorrectMeaning] = React.useState(false);
-  const [openSynonym, setOpenSynonym] = React.useState(false);
+  const [openCorrectMeaning, setOpenCorrectMeaning] = React.useState(true);
+  const [openSynonym, setOpenSynonym] = React.useState(true);
   const [open, setOpen] = React.useState(true);
   //   const [open5, setOpen] = React.useState(true);
   //   const [open6, setOpen] = React.useState(true);
@@ -293,7 +293,7 @@ const sideNav = ({ children }) => {
                     </ListItemButton>
                     {openCorrectWord &&
                       data1.map((item) => (
-                        <Link href={item.url}>
+                        <Link href={item.url} key={item.label}>
                           <ListItemButton
                             key={item.label}
                             sx={{
@@ -369,7 +369,7 @@ const sideNav = ({ children }) => {
                     </ListItemButton>
                     {openCorrectMeaning &&
                       data2.map((item) => (
-                        <Link href={item.url}>
+                        <Link href={item.url} key={item.label}>
                           <ListItemButton
                             key={item.label}
                             sx={{
@@ -443,7 +443,7 @@ const sideNav = ({ children }) => {
                     </ListItemButton>
                     {openSynonym &&
                       data3.map((item) => (
-                        <Link href={item.url}>
+                        <Link href={item.url} key={item.label}>
                           <ListItemButton
                             key={item.label}
                             sx={{
@@ -623,7 +623,7 @@ const sideNav = ({ children }) => {
                   </ListItemButton>
                   {openCorrectWord &&
                     data1.map((item) => (
-                      <Link href={item.url}>
+                      <Link href={item.url} key={item.label}>
                         <ListItemButton
                           key={item.label}
                           sx={{
@@ -696,7 +696,7 @@ const sideNav = ({ children }) => {
                   </ListItemButton>
                   {openCorrectMeaning &&
                     data2.map((item) => (
-                      <Link href={item.url}>
+                      <Link href={item.url} key={item.label}>
                         <ListItemButton
                           key={item.label}
                           sx={{
@@ -768,7 +768,7 @@ const sideNav = ({ children }) => {
                   </ListItemButton>
                   {openSynonym &&
                     data3.map((item) => (
-                      <Link href={item.url}>
+                      <Link href={item.url} key={item.label}>
                         <ListItemButton
                           key={item.label}
                           sx={{
@@ -824,4 +824,4 @@ const sideNav = ({ children }) => {
   );
 };
 
-export default sideNav;
+export default SideNav;

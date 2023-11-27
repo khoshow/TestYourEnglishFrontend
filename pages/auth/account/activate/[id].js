@@ -70,14 +70,14 @@ const ActivateAccount = ({ router }) => {
                 <p>
                   We are thrilled to have you as a member of our community. Your
                   presence makes us stronger, and we look forward to the
-                  positive contributions you'll bring.
+                  positive contributions you&apos;ll bring.
                 </p>
                 <p>
                   Feel free to explore our platform, connect with other members,
                   and make the most out of your experience.
                 </p>
                 <p>
-                  If you have any questions or need assistance, don't hesitate
+                  If you have any questions or need assistance, don&apos;t hesitate
                   to reach out to us.
                 </p>
                 <p className="mt-4">

@@ -70,9 +70,9 @@ const MainMenu = () => {
           </li>
           {/* End li */}
           <li className="nav-item active">
-            <a className="nav-link" href="/" role="button">
+            <Link className="nav-link" href="/" role="button">
               Home
-            </a>
+            </Link>
           </li>
           {/* End li (home mega menu) */}
           <li className="nav-item">

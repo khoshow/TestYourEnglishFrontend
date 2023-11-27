@@ -169,8 +169,8 @@ const CorrectMeaningAdvanced = () => {
       {success ? (
         <div className="mt-4" style={{ borderRadius: "20px" }}>
           <p className="bg-success text-light p-4">
-            A new item for 'Choose the Correct Meaning' of Advanced level is
-            created
+            A new item for &apos;Choose the Correct Meaning&apos; of Advanced
+            level is created
           </p>
         </div>
       ) : (

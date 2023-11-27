@@ -17,7 +17,7 @@ import {
 } from "../../../actions/profile/profile-update";
 import { isAuth, getCookie } from "../../../actions/auth";
 
-const profileEdit = () => {
+const ProfileEditImage = () => {
   const [imageUrl, setImageUrl] = useState(
     "https://cdn.pixabay.com/photo/2023/01/28/20/23/ai-generated-7751688_1280.jpg"
   );
@@ -237,4 +237,4 @@ const profileEdit = () => {
   );
 };
 
-export default profileEdit;
+export default ProfileEditImage;

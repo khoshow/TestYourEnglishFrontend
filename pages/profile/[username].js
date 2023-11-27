@@ -105,7 +105,7 @@ const ProfilePage = () => {
           <div className="heading alt-two">
             <h2>
               <span className="subHeading">
-                "Hi there! 👋 Excited to have you visit my profile."
+              &quot;Hi there! 👋 Excited to have you visit my profile.&quot;
               </span>
             </h2>
           </div>

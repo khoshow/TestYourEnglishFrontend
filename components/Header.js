@@ -22,12 +22,9 @@ import {
 } from "reactstrap";
 import ".././node_modules/nprogress/nprogress.css";
 
-
 Router.onRouteChangeStart = (url) => NProgress.start();
 Router.onRouteChangeComplete = (url) => NProgress.done();
 Router.onRouteChangeError = (url) => NProgress.done();
-
-
 
 const Header = () => {
   const router = useRouter();
@@ -66,22 +63,20 @@ const Header = () => {
 
   const loadSignout = async () => {
     try {
-      console.log('Before signout call'); // Add this line for debugging
+      console.log("Before signout call"); // Add this line for debugging
       const res = await signout();
-      console.log('After signout call'); // Add this line for debugging
+      console.log("After signout call"); // Add this line for debugging
       if (res) {
-        console.log('Hee', res);
-        router.push('/login');
+        console.log("Hee", res);
+        router.push("/login");
       } else {
-        console.log('No response from signout');
+        console.log("No response from signout");
       }
-     
     } catch (error) {
-      console.error('Error during signout:', error);
+      console.error("Error during signout:", error);
       // Handle errors if needed
     }
   };
-  
 
   return (
     mounted && (
@@ -89,9 +84,9 @@ const Header = () => {
         <div className="nav-top container">
           <Navbar light expand="md">
             <div className="container-fluid">
-              <a href="/" className="font-weight-bold navbar-brand">
+              <Link href="/" className="font-weight-bold navbar-brand">
                 {APP_NAME}
-              </a>
+              </Link>
               <NavbarToggler onClick={() => toggle()} />
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
@@ -132,25 +127,25 @@ const Header = () => {
                     </div>
                   )}
                   <NavItem>
-                    <a href="/discover" className="nav-link">
+                    <Link href="/discover" className="nav-link">
                       Discover
-                    </a>
+                    </Link>
                   </NavItem>
                   <NavItem>
-                    <a href="/blogs" className="nav-link">
+                    <Link href="/blogs" className="nav-link">
                       Blogs
-                    </a>
+                    </Link>
                   </NavItem>
                   {!isAuth() ? (
                     <React.Fragment>
                       <NavItem className="nav-item">
                         <Link href="/signin">
-                          <a className="nav-link">Sign In</a>
+                          <Link className="nav-link">Sign In</Link>
                         </Link>
                       </NavItem>
                       <NavItem className="nav-item">
                         <Link href="/signup">
-                          <a className="nav-link">Sign Up</a>
+                          <Link className="nav-link">Sign Up</Link>
                         </Link>
                       </NavItem>
                     </React.Fragment>
@@ -160,8 +155,8 @@ const Header = () => {
 
                   {isAuth() && isAuth().role === 0 ? (
                     <NavItem>
-                      <Link href="/user">
-                        <a className="nav-link">{firstName}</a>
+                      <Link href="/user" className="nav-link">
+                        {firstName}
                       </Link>
                     </NavItem>
                   ) : (
@@ -170,8 +165,8 @@ const Header = () => {
 
                   {isAuth() && isAuth().role === 1 ? (
                     <NavItem>
-                      <Link href="/admin">
-                        <a className="nav-link">{firstName}</a>
+                      <Link href="/admin" className="nav-link">
+                        {firstName}
                       </Link>
                     </NavItem>
                   ) : (

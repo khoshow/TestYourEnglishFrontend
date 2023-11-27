@@ -12,11 +12,10 @@ import { isAuth } from "../actions/auth";
 import { getCookie } from "../actions/auth";
 import { getUserScores } from "../actions/userInfo";
 import ScoresRightNav from "./sideBars/ScoresRightNav";
-import { getRanking } from "../actions/rank";
 import RankingList from "./sideBars/RankingRightNav";
 import { getPublicProfile } from "../actions/publicInfo/userProfile";
 
-const rightSideNav = ({}) => {
+const RightSideNavPublic = ({}) => {
   const router = useRouter();
   const [currentUrl, setCurrentUrl] = useState();
   const [authStatus, setAuthStatus] = useState(false);
@@ -153,4 +152,4 @@ const rightSideNav = ({}) => {
   );
 };
 
-export default rightSideNav;
+export default RightSideNavPublic;

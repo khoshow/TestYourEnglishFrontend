@@ -4,7 +4,6 @@ import Header from "../components/header/DefaultHeader";
 import MyHeader from "./header/MyHeader";
 import React from "react";
 import ReactDOM from "react-dom";
-
 import { ClassNames } from "@emotion/react";
 import SideNav from "./SideNav";
 import RightSideNav from "./RightSideNav";
@@ -25,26 +24,34 @@ const Layout = ({ children }) => {
             <MyHeader />
             <div className="">
               <div style={{ zIndex: "900" }}> {children}</div>
-              <div style={{ zIndex: "900", backgroundColor:"#f1f1f1" }}>
+              <div style={{ zIndex: "900", backgroundColor: "#f1f1f1" }}>
                 <RightSideNav />
               </div>
             </div>
-          
           </div>
         </div>
         <div className="d-flex desktopLayout3" style={{}}>
           <div className="makeItFixed " style={{ zIndex: "1001" }}>
             <SideNav />
           </div>
-          <div className="" style={{ flex: "3", zIndex: "900",  paddingBottom:"50px" }}>
+          <div
+            className=""
+            style={{ flex: "3", zIndex: "900", paddingBottom: "50px" }}
+          >
             <MyHeader />
             <div className="d-flex ">
               <div style={{ flex: "3", zIndex: "900" }}> {children}</div>
-              <div style={{ flex: "1", zIndex: "900", backgroundColor:"#f1f1f1", paddingLeft:"10px" }} >
+              <div
+                style={{
+                  flex: "1",
+                  zIndex: "900",
+                  backgroundColor: "#f1f1f1",
+                  paddingLeft: "10px",
+                }}
+              >
                 <RightSideNav />
               </div>
             </div>
-           
           </div>
         </div>
       </>

@@ -19,7 +19,7 @@ import {
 import { getPrivateProfile } from "../../../actions/profile/privateProfile";
 import { isAuth, getCookie } from "../../../actions/auth";
 
-const profileEdit = () => {
+const ProfileEdit = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState();
   const [authStatus, setAuthStatus] = useState();
@@ -1221,7 +1221,7 @@ const profileEdit = () => {
                                 value="People's Democratic Republic of Yemen"
                                 label="People's Democratic Republic of Yemen"
                               >
-                                People's Democratic Republic of Yemen
+                                People&apos;s Democratic Republic of Yemen
                               </option>
                               <option value="Philippines" label="Philippines">
                                 Philippines
@@ -1691,4 +1691,4 @@ const profileEdit = () => {
   );
 };
 
-export default profileEdit;
+export default ProfileEdit;

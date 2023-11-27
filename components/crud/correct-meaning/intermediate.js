@@ -169,7 +169,7 @@ const CorrectMeaningIntermediate = () => {
       {success ? (
         <div className="mt-4" style={{ borderRadius: "20px" }}>
           <p className="bg-success text-light p-4">
-            A new item for 'Choose the Correct Meaning Intermediate' section is
+            A new item for &apos;Choose the Correct Meaning Intermediate&apos; section is
             created
           </p>
         </div>

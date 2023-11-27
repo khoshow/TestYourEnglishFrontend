@@ -138,7 +138,7 @@ function ResponsiveAppBar() {
         </Typography>
         <Box sx={{ marginRight: "auto", display: { xs: "none", md: "flex" } }}>
           {pages.map((page) => (
-            <Link href={page.url}>
+            <Link href={page.url} key={page.url}>
               <Button
                 key={page}
                 sx={{ my: 2, color: "white", display: "block" }}

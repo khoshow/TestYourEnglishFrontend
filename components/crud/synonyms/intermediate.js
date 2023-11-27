@@ -169,7 +169,7 @@ const SynonymsIntermediate = () => {
       {success ? (
         <div className="mt-4" style={{ borderRadius: "20px" }}>
           <p className="bg-success text-light p-4">
-            A new item for 'Synonyms' intermediate level has been created
+            A new item for &apos;Synonyms&apos; intermediate level has been created
           </p>
         </div>
       ) : (

@@ -51,7 +51,7 @@ export default function Rules() {
                       The total score will be displayed at the end of each test.
                     </li>
                     <li>
-                      For logged-in users, it's important to note that if you
+                      For logged-in users, it&apos;s important to note that if you
                       have already taken a test, reattempting it will not impact
                       your overall score. This ensures that your cumulative
                       score accurately reflects your initial performance,
@@ -66,7 +66,7 @@ export default function Rules() {
                       progress over time.
                     </li>
                     <li>
-                      Please note that if you're not logged in or do not have an
+                      Please note that if you&apos;re not logged in or do not have an
                       account, your scores will not be saved.
                     </li>
                     <li>
@@ -87,7 +87,7 @@ export default function Rules() {
                     </li>
                     <li>
                       So what are you waiting for! Join us, have some fun, and
-                      let's continue enhancing our English skills together.
+                      let&apos;s continue enhancing our English skills together.
                     </li>
                     <li>
                       For any queries or feedback, please contact us at

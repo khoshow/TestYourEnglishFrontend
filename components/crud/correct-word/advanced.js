@@ -169,7 +169,7 @@ const CorrectWordAdvanced = () => {
       {success ? (
         <div className="mt-4" style={{ borderRadius: "20px" }}>
           <p className="bg-success text-light p-4">
-            A new Word for 'Choose the Correct Word' of advanced level is
+            A new Word for &apos;Choose the Correct Word&apos; of advanced level is
             created
           </p>
         </div>

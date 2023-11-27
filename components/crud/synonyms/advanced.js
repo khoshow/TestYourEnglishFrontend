@@ -167,7 +167,7 @@ const SynonymsAdvanced = () => {
       {success ? (
         <div className="mt-4" style={{ borderRadius: "20px" }}>
           <p className="bg-success text-light p-4">
-            A new item for 'Synonyms' of advanced level has been
+            A new item for &apos;Synonyms&apos; of advanced level has been
             created
           </p>
         </div>

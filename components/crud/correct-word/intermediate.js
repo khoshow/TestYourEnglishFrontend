@@ -169,7 +169,7 @@ const CorrectWordMedium = () => {
       {success ? (
         <div className="mt-4" style={{ borderRadius: "20px" }}>
           <p className="bg-success text-light p-4">
-            A new Word for 'Choose the Correct Word' section is created
+            A new Word for &apos;Choose the Correct Word&apos; section is created
           </p>
         </div>
       ) : (

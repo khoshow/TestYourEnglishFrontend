@@ -14,7 +14,7 @@ import ScoresRightNav from "./sideBars/ScoresRightNav";
 
 import RankingList from "./sideBars/RankingRightNav";
 
-const rightSideNav = ({}) => {
+const RightSideNav = ({}) => {
   const router = useRouter();
   const [currentUrl, setCurrentUrl] = useState();
   const [authStatus, setAuthStatus] = useState(false);
@@ -129,7 +129,7 @@ const rightSideNav = ({}) => {
             </CardActions>
             <CardContent>
               <span style={{ fontSize: "0.8em" }}>
-                Don't have an account? Create one.
+                Don&apos;t have an account? Create one.
               </span>
               <Link href="/signup">
                 <Button
@@ -153,4 +153,4 @@ const rightSideNav = ({}) => {
   );
 };
 
-export default rightSideNav;
+export default RightSideNav;
