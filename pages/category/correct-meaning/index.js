@@ -52,17 +52,13 @@ const CorrectWordsMedium = ({}) => {
                   <h5 className="cardTitle">Intermediate</h5>
                 </CardContent>
 
-                <CardActions className="">
-                  <Link href="/category/correct-word/intermediate">
-                    <Button
-                      size="small"
-                      className="btn "
-                      style={{ margin: "auto auto" }}
-                    >
-                      Start
-                    </Button>
-                  </Link>
-                </CardActions>
+                <Link
+                  href="/category/correct-word/intermediate"
+                  className="btn btn-lg"
+                  style={{ margin: "auto auto" }}
+                >
+                  Start
+                </Link>
               </Card>
               <Card
                 className=" text-center "

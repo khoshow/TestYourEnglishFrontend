@@ -18,7 +18,6 @@ export const handleResponse = (response) => {
 };
 
 export const checkUsername = (username) => {
-
   return fetch(`${API}/username-availability/${username}`, {
     method: "GET",
   })
@@ -30,7 +29,7 @@ export const checkUsername = (username) => {
 };
 
 export const preSignup = (user) => {
- 
+  console.log("Api Production", `${API}/api/pre-signup`);
   return fetch(`${API}/api/pre-signup`, {
     method: "POST",
     headers: {
@@ -82,7 +81,7 @@ export const signin = (user) => {
 //   return await fetch(`${API}/api/signout`, {
 //     method: "GET",
 //     Accept: "application/json",
-   
+
 //   })
 //     .then((response) => {
 //       console.log("sig", response);
@@ -106,14 +105,13 @@ export const signout = async (req, res) => {
     }
 
     const data = await response.json();
-    
+
     return data;
   } catch (err) {
     console.error("Error during signout:", err);
     throw err; // Rethrow the error to be handled in the calling code
   }
 };
-
 
 // set cookie
 export const setCookie = (key, value) => {
