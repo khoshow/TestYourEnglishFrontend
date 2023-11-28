@@ -1,5 +1,7 @@
 import fetch from "isomorphic-fetch";
-import { API } from "../config";
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
+const API = publicRuntimeConfig.API;
 
 export const getUserScores = (user, token) => {
   return fetch(`${API}/api/get-user-scores/${user}`, {

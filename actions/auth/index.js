@@ -1,8 +1,11 @@
 import fetch from "isomorphic-fetch";
 import cookie from "js-cookie";
-import { API } from "../../config";
+// import { API } from "../../config";
 import Router from "next/router";
 import { useRouter } from "next/router";
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
+const API = publicRuntimeConfig.API;
 
 export const handleResponse = (response) => {
   if (response.status === 401) {
@@ -29,7 +32,7 @@ export const checkUsername = (username) => {
 };
 
 export const preSignup = (user) => {
-  console.log("Api Production", `${API}/api/pre-signup`);
+  console.log("Api Production 2", `${API}/api/pre-signup`);
   return fetch(`${API}/api/pre-signup`, {
     method: "POST",
     headers: {
@@ -60,6 +63,7 @@ export const signup = (token) => {
 };
 
 export const signin = (user) => {
+  console.log("Sign in", `${API}/api/signin`);
   return fetch(`${API}/api/signin`, {
     method: "POST",
     headers: {

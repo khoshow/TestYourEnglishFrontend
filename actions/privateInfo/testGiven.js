@@ -1,5 +1,7 @@
 import fetch from "isomorphic-fetch";
-import { API } from "../../config";
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
+const API = publicRuntimeConfig.API;
 import { isAuth, handleResponse } from "../auth";
 
 export const testGiveOrNot = (testCategory, token) => {
