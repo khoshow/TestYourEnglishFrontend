@@ -6,8 +6,6 @@ const API = publicRuntimeConfig.API;
 import { handleResponse } from "../auth";
 
 export const updateStatus = async (data, token) => {
- 
-
   try {
     const response = await axios.put(`${API}/api/profile-update/status`, data, {
       headers: {
@@ -17,7 +15,6 @@ export const updateStatus = async (data, token) => {
       },
     });
 
-   
     handleResponse(response);
 
     return response.data;
@@ -157,10 +154,10 @@ export const updateAbout = async (data, token) => {
 };
 
 export const updateUserPhoto = async (image, token) => {
-
+  console.log("I am in photo update");
   const formData = new FormData();
   formData.append("photo", image);
- 
+
   return fetch(`${API}/api/profile-update/photo`, {
     method: "PUT",
     headers: {

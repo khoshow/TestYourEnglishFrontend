@@ -38,6 +38,7 @@ const ProfileEdit = () => {
   const [errorMessage, setErrorMessage] = useState();
   const [file, setFile] = useState(null);
   const [error, setError] = useState();
+
   const [imageUrl, setImageUrl] = useState();
   const editor = useRef(null);
   const [formData, setFormData] = useState({
@@ -55,9 +56,8 @@ const ProfileEdit = () => {
   const token = getCookie("token");
   useEffect(() => {
     const checkIsAuth = isAuth();
-   
+
     if (checkIsAuth) {
-    
       setAuthStatus(true);
 
       const user = isAuth().username;
@@ -72,11 +72,10 @@ const ProfileEdit = () => {
     setLoading(true);
     try {
       const res = await getPrivateProfile(user);
-    
+
       setData(res);
       setImageUrl(res.photoUrl);
     } catch (err) {
-      
       setError(true);
     } finally {
       setLoading(false);
@@ -95,11 +94,10 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setStatusLoading("loading");
-   
+
     let toChange = { newStatus: formData.status };
     try {
       const res = await updateStatus(toChange, token);
-  
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -112,11 +110,10 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setMessageLoading("loading");
-   
+
     let toChange = { newMessage: formData.message };
     try {
       const res = await updateMessage(toChange, token);
-   
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -129,11 +126,10 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setNameLoading("loading");
- 
+
     let toChange = { newName: formData.name };
     try {
       const res = await updateName(toChange, token);
-  
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -145,11 +141,10 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setUsernameLoading("loading");
- 
+
     let toChange = { newUsername: formData.username };
     try {
       const res = await updateUsername(toChange, token);
-    
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -161,11 +156,10 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setSexLoading("loading");
-  
+
     let toChange = { newSex: formData.sex };
     try {
       const res = await updateSex(toChange, token);
-    
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -177,11 +171,10 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setDobLoading("loading");
- 
+
     let toChange = { newDob: formData.dob };
     try {
       const res = await updateDOB(toChange, token);
-      
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -193,11 +186,10 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setCountryLoading("loading");
- 
+
     let toChange = { newCountry: formData.country };
     try {
       const res = await updateCountry(toChange, token);
-      
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -209,11 +201,10 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setStateLoading("loading");
-  
+
     let toChange = { newStatus: formData.state };
     try {
       const res = await updateState(toChange, token);
-
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -225,11 +216,10 @@ const ProfileEdit = () => {
     e.preventDefault();
     setLoading(true);
     setAboutLoading("loading");
-  
+
     let toChange = { newAbout: formData.about };
     try {
       const res = await updateAbout(toChange, token);
-      
     } catch (err) {
       console.log("err", err);
     } finally {
@@ -434,53 +424,53 @@ const ProfileEdit = () => {
       );
     }
   };
-  const buttonLoadPhoto = () => {
-    if (photoLoading == "loading") {
-      return (
-        <div className="p-2 bg-primary">
-          <i className="clock-loader bg-warning"></i>
-        </div>
-      );
-    } else if (photoLoading == "loaded") {
-      return (
-        <div className="p-2 bg-warning">
-          <i className="bi bi-check-circle-fill bg-warning"></i>
-        </div>
-      );
-    } else {
-      return (
-        <button className="p-2 bg-primary ">
-          <i className="bi bi-check2-circle bg-primary text-white"></i>
-        </button>
-      );
-    }
-  };
+  // const buttonLoadPhoto = () => {
+  //   if (photoLoading == "loading") {
+  //     return (
+  //       <div className="p-2 bg-primary">
+  //         <i className="clock-loader bg-warning"></i>
+  //       </div>
+  //     );
+  //   } else if (photoLoading == "loaded") {
+  //     return (
+  //       <div className="p-2 bg-warning">
+  //         <i className="bi bi-check-circle-fill bg-warning"></i>
+  //       </div>
+  //     );
+  //   } else {
+  //     return (
+  //       <button className="p-2 bg-primary ">
+  //         <i className="bi bi-check2-circle bg-primary text-white"></i>
+  //       </button>
+  //     );
+  //   }
+  // };
 
-  const handlePhotoChange = (event) => {
-    setFile(event.target.files[0]);
-  };
+  // const handlePhotoChange = (event) => {
+  //   setFile(event.target.files[0]);
+  // };
 
-  const handleSubmitPhoto = (event) => {
-    event.preventDefault();
-    if (file) {
-  
-      const formData = new FormData();
-      formData.append("photo", file);
-     
-      try {
-        const res = updateUserPhoto(formData, token);
-      
-      } catch (err) {
-        console.log("err", err);
-      } finally {
-        setLoading(false);
-        setPhotoLoading("loaded");
-      }
-    } else {
-      setLoading(true);
-      setErrorMessage("No photo selected! ");
-    }
-  };
+  // const handleSubmitPhoto = (event) => {
+  //   event.preventDefault();
+  //   if (file) {
+
+  //     const formData = new FormData();
+  //     formData.append("photo", file);
+
+  //     try {
+  //       const res = updateUserPhoto(formData, token);
+
+  //     } catch (err) {
+  //       console.log("err", err);
+  //     } finally {
+  //       setLoading(false);
+  //       setPhotoLoading("loaded");
+  //     }
+  //   } else {
+  //     setLoading(true);
+  //     setErrorMessage("No photo selected! ");
+  //   }
+  // };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -498,14 +488,14 @@ const ProfileEdit = () => {
   };
 
   const handleSave = () => {
+    setPhotoLoading("uploading");
     if (editor.current) {
       const canvas = editor.current.getImageScaledToCanvas();
       canvas.toBlob((blob) => {
         // You can use the resized blob or send it to the server
-      
+
         try {
           const res = updateUserPhoto(blob, token);
-         
         } catch (err) {
           console.log("err", err);
         } finally {
@@ -516,6 +506,20 @@ const ProfileEdit = () => {
     } else {
       setLoading(true);
       setErrorMessage("No photo selected! ");
+    }
+  };
+
+  const buttonPhotoUpload = () => {
+    if (photoLoading == "loading") {
+      return <div className="btn p-2 bg-primary">Uploading</div>;
+    } else if (photoLoading == "loaded") {
+      return <div className="btn p-2 bg-warning">Uploaded</div>;
+    } else {
+      return (
+        <button className="btn p-2 bg-success" onClick={handleSave}>
+          Upload
+        </button>
+      );
     }
   };
 
@@ -545,12 +549,8 @@ const ProfileEdit = () => {
                             type="file"
                             onChange={handleImageChange}
                           />
-                          <button
-                            onClick={handleSave}
-                            className="btn btn-primary"
-                          >
-                            Save
-                          </button>
+                          <br></br>
+                          {buttonPhotoUpload()}
                         </div>
                       </div>
                     )}
