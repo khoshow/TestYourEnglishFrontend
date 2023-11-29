@@ -513,7 +513,17 @@ const ProfileEdit = () => {
     if (photoLoading == "loading") {
       return <div className="btn p-2 bg-primary">Uploading</div>;
     } else if (photoLoading == "loaded") {
-      return <div className="btn p-2 bg-warning">Uploaded</div>;
+      return (
+        <div>
+          <div className="btn p-2 bg-secondary">Uploaded</div>{" "}
+          <div>
+            <p>
+              Log out and log in again to view your profile updated across the
+              app.
+            </p>
+          </div>
+        </div>
+      );
     } else {
       return (
         <button className="btn p-2 bg-success" onClick={handleSave}>

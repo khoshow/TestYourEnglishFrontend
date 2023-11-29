@@ -71,7 +71,7 @@ function ResponsiveAppBar() {
       setFirstName(displayName);
       setProfilePhoto(isAuth().photoUrl);
     }
-  }, [router]);
+  }, [router, token]);
   const loadUserProfile = async (user) => {
     setLoading(true);
     try {
@@ -155,7 +155,7 @@ function ResponsiveAppBar() {
             <Tooltip title="Open settings">
               <span className="noMobileDisplay">{firstName} &nbsp;</span>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src={profilePhoto} />
+                <Avatar alt="Profile Photo" src={profilePhoto} />
               </IconButton>
             </Tooltip>
             <Menu
