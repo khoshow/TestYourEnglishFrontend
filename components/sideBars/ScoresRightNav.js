@@ -10,7 +10,7 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
 
   useEffect(() => {
     if (loading == true) {
-      setScore("Loading");
+      setScore("...");
     } else {
       const keys = Object.keys(data);
 

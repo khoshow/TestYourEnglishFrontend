@@ -44,7 +44,7 @@ const Layout = ({ children }) => {
                 <div
                   style={{
                     flex: "0",
-                    width: "300px",
+                    minWidth: "300px",
                     zIndex: "9",
                     backgroundColor: "#f1f1f1",
                     paddingLeft: "10px",
