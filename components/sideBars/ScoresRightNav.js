@@ -12,7 +12,6 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
     if (loading == true) {
       setScore("Loading");
     } else {
-    
       const keys = Object.keys(data);
 
       if (!data[keys] || data[keys].scores == 0) {
@@ -26,7 +25,7 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
   return (
     <div>
       <div>
-        {authStatus ? (
+        {authStatus && score ? (
           <div className="">
             <div className="">
               <h3
@@ -37,9 +36,9 @@ const ScoresRightNav = ({ data, user, authStatus, loading }) => {
               </h3>
             </div>
             <div className="aboveRoundedFrame">
-              <div className="roundedScoreFrame">{score ? score : ""}</div>
+              <div className="roundedScoreFrame"> {score}</div>
               <div></div>
-            </div>{" "}
+            </div>
           </div>
         ) : (
           <div>

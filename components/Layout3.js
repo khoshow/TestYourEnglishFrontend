@@ -38,8 +38,8 @@ const Layout = ({ children }) => {
           </div>
           <div className="" style={{ flex: "1", paddingBottom: "50px" }}>
             <MyHeader />
-            <div className=" d-flex">
-              <div className="mainContent">
+            <div className=" ">
+              <div className="mainContent d-flex">
                 <div style={{ flex: "1", zIndex: "9" }}> {children}</div>
                 <div
                   style={{
