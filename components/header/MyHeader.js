@@ -122,7 +122,7 @@ function ResponsiveAppBar() {
       >
         <Link href="/" className="mobileLogo" style={{}}>
           <img
-            src="/images/logo/logo8.png"
+            src="/images/logo/Logo8.png"
             alt="logo"
             style={{ width: "220px" }}
           />
