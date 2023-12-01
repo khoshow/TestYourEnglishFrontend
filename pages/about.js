@@ -9,11 +9,11 @@ import Layout from "../components/Layout";
 export default function About() {
   const head = () => (
     <Head>
-      <title>Test My English Online || About</title>
-      <meta name="title" content="About Test My English Online" />
+      <title>Test My English Level || About</title>
+      <meta name="title" content="About Test My English Level" />
       <meta
         name="description"
-        content="About Page for Test My English Online"
+        content="About Page for Test My English Level"
       />
 
       <meta name="robots" content="index, follow" />

@@ -30,7 +30,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   };
 
   if (!totalTest) {
-    return <div>Empty Test. Please wait for tests to be published.</div>;
+    return <div className="text-center">Please wait while we load the tests for you...</div>;
   }
 
   return (
