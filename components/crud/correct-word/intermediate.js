@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import Link from "next/link";
 import Router from "next/router";
 import { getCookie } from "../../../actions/auth";
-import { create } from "../../../actions/correct-word/intermediate";
+import { create } from "../../../actions/categories/correct-word/intermediate";
 
 const CorrectWordMedium = () => {
   const [values, setValues] = useState({

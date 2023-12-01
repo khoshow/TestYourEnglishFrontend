@@ -511,11 +511,11 @@ const ProfileEdit = () => {
 
   const buttonPhotoUpload = () => {
     if (photoLoading == "loading") {
-      return <div className="btn p-2 bg-primary">Uploading</div>;
+      return <div className="btn p-2 bg-primary">Uploading...</div>;
     } else if (photoLoading == "loaded") {
       return (
         <div>
-          <div className="btn p-2 bg-secondary">Uploaded</div>{" "}
+          <div className="btn p-2 bg-secondary">Uploaded</div>
           <div>
             <p>
               Log out and log in again to view your profile updated across the
