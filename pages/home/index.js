@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-
+import Head from "next/head";
 import DefaultHeader from "../../components/header/DefaultHeader";
 import Link from "next/link";
 import { getTestTypes } from "../../actions/test";
@@ -18,10 +18,12 @@ import Paper from "@mui/material/Paper";
 
 const Test = () => {
   const head = () => {
-    const title = "An enjoyable, complimentary, and interactive platform o upgrade your English skills";
-    const metaDesc = "Time to enhance your English skills! Our approach is crafted to be enjoyable, complimentary, and interactive, fostering an enhanced language proficiency experience."
+    const title =
+      "An enjoyable, complimentary, and interactive platform o upgrade your English skills";
+    const metaDesc =
+      "Time to enhance your English skills! Our approach is crafted to be enjoyable, complimentary, and interactive, fostering an enhanced language proficiency experience.";
     const websiteUrl = "https://www.testmyenglishlevel.com";
-    const cononicalURL =websiteUrl;
+    const cononicalURL = websiteUrl;
     const websiteName = "Test My English Level";
     const imageUrl = websiteUrl + "/images/logo/logo5.png";
 
@@ -81,6 +83,7 @@ const Test = () => {
   };
   return (
     <>
+      {head()}
       <div style={{ backgroundColor: "#dee1ec" }}>
         <Layout>
           <div className="heading alt-two">
