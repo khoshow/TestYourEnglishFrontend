@@ -4,7 +4,7 @@ const { publicRuntimeConfig } = getConfig();
 const API = publicRuntimeConfig.API;
 import { isAuth, handleResponse } from "../../../auth";
 
-console.log("publicRuntimeConfig:", publicRuntimeConfig);
+
 
 export const create = (correctWordIntermediate, token) => {
  
