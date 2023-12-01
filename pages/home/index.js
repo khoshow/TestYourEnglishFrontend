@@ -17,6 +17,37 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 
 const Test = () => {
+  const head = () => {
+    const title = "An enjoyable, complimentary, and interactive platform o upgrade your English skills";
+    const metaDesc = "Time to enhance your English skills! Our approach is crafted to be enjoyable, complimentary, and interactive, fostering an enhanced language proficiency experience."
+    const websiteUrl = "https://www.testmyenglishlevel.com";
+    const cononicalURL =websiteUrl;
+    const websiteName = "Test My English Level";
+    const imageUrl = websiteUrl + "/images/logo/logo5.png";
+
+    return (
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={metaDesc} />
+        <link rel="canonical" href={cononicalURL} />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={metaDesc} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={websiteUrl} />
+        {/* {console.log("Url", process.env.DOMAIN_WEBSITE_URL)} */}
+        <meta property="og:site_name" content={websiteName} />
+        <meta property="og:image" content={imageUrl} />
+
+        <meta property="og:image:type" content="image/png" />
+
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
+      </Head>
+    );
+  };
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(router.asPath);
   const testCategories = [
