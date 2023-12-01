@@ -12,7 +12,7 @@ const CorrectWordMedium = () => {
     error: false,
     success: false,
     question: "",
-    wrongOptions: [],
+
     correctOption: "",
     wrongOption1: "",
     wrongOption2: "",
@@ -27,7 +27,7 @@ const CorrectWordMedium = () => {
     error,
     success,
     question,
-    wrongOptions,
+   
     correctOption,
     wrongOption1,
     wrongOption2,
@@ -93,7 +93,7 @@ const CorrectWordMedium = () => {
     setValues({
       ...values,
       [name]: value,
-      wrongOptions: [wrongOption1, wrongOption2, wrongOption3],
+   
     });
   };
 
