@@ -22,7 +22,7 @@ const Test = () => {
       "An enjoyable, complimentary, and interactive platform to upgrade your English skills";
     const metaDesc =
       "Time to enhance your English skills! Our approach is crafted to be enjoyable, complimentary, and interactive, fostering an enhanced language proficiency experience.";
-    const websiteUrl = "https://www.testmyenglishlevel.com";
+    const websiteUrl = "https://testmyenglishlevel.com";
     const cononicalURL = websiteUrl;
     const websiteName = "Test My English Level";
     const imageUrl = websiteUrl + "/images/logo/logo8.png";

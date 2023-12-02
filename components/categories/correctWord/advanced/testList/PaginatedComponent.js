@@ -16,8 +16,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   useEffect(() => {}, []);
   getTotalTestsNoCorrectWordAdvanced()
     .then((res) => {
-  
-      setTotalTest(50);
+      setTotalTest(res);
     })
     .catch((err) => {
       console.log("error", err);
@@ -30,7 +29,11 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   };
 
   if (!totalTest) {
-    return <div className="text-center">Please wait while we load the tests for you...</div>;
+    return (
+      <div className="text-center">
+        Please wait while we load the tests for you...
+      </div>
+    );
   }
 
   return (
@@ -61,8 +64,6 @@ const PaginatedList = ({ itemsPerPage, data }) => {
             />
           </Stack>
         </div>
-
-      
       </div>
     </>
   );

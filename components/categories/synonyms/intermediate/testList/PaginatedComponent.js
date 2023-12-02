@@ -16,7 +16,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   useEffect(() => {}, []);
   getTotalTestsNoSynonymsIntermediate()
     .then((res) => {
-      setTotalTest(50);
+      setTotalTest(res);
     })
     .catch((err) => {
       console.log("error", err);

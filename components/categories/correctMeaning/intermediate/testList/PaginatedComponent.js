@@ -16,8 +16,8 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   useEffect(() => {}, []);
   getTotalTestsNoCorrectMeaningIntermediate()
     .then((res) => {
-      console.log("res test", res);
-      setTotalTest(50);
+      // console.log("res test", res);
+      setTotalTest(res);
     })
     .catch((err) => {
       console.log("error", err);
@@ -30,7 +30,11 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   };
 
   if (!totalTest) {
-    return <div className="text-center">Please wait while we load the tests for you...</div>;
+    return (
+      <div className="text-center">
+        Please wait while we load the tests for you...
+      </div>
+    );
   }
 
   return (

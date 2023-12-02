@@ -441,7 +441,7 @@ const SideNav = ({ children }) => {
                       Contact
                     </Link>
                     <Link href="/" className="p-2">
-                      © {new Date().getFullYear()} Test My English Online
+                      © {new Date().getFullYear()} Test My English Level
                     </Link>
                   </div>
                 </Box>
@@ -731,7 +731,7 @@ const SideNav = ({ children }) => {
                     Contact
                   </Link>
                   <Link href="/" className="p-2">
-                    © {new Date().getFullYear()} Test My English Online
+                    © {new Date().getFullYear()} Test My English Level
                   </Link>
                 </div>
               </Box>

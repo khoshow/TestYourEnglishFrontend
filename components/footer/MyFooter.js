@@ -28,7 +28,7 @@ const Footer = () => {
               </Link>
             </Typography>
             <Typography variant="body2" color="textSecondary">
-              © {new Date().getFullYear()} Test My English Online
+              © {new Date().getFullYear()} Test My English Level
             </Typography>
           </Box>
         </Container>
