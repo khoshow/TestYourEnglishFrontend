@@ -89,7 +89,7 @@ const CorrectWordsMedium = ({}) => {
                   <Link href="/category/correct-word/advanced">
                     <Button
                       size="small"
-                      className="btn btn-success"
+                      className="btn myBtn"
                       style={{ margin: "auto auto" }}
                     >
                       Start

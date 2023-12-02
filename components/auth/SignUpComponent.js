@@ -3,7 +3,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Link from "next/link";
 import Router from "next/router";
-import { preSignup, isAuth, signup } from "../../actions/auth";
+import {
+  preSignup,
+  isAuth,
+  signupWithoutPreSignUp,
+  signup,
+} from "../../actions/auth";
 
 // import Router from "next/router";
 // import SignupGoogle from "./SignupGoogle";
@@ -101,7 +106,7 @@ const SignupForm = () => {
         showForm: true,
       });
     }
-    preSignup(user).then((data) => {
+    signupWithoutPreSignUp(user).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error, loading: false });
       } else {
@@ -118,6 +123,23 @@ const SignupForm = () => {
         });
       }
     });
+    // preSignup(user).then((data) => {
+    //   if (data.error) {
+    //     setValues({ ...values, error: data.error, loading: false });
+    //   } else {
+    //     setValues({
+    //       ...values,
+    //       name: "",
+
+    //       email: "",
+    //       password: "",
+    //       error: "",
+    //       loading: false,
+    //       message: data.message,
+    //       showForm: false,
+    //     });
+    //   }
+    // });
     // Call your signup API endpoint here
   };
 
@@ -130,7 +152,16 @@ const SignupForm = () => {
   const showError = () =>
     error ? <div className="alert alert-danger">{error}</div> : "";
   const showMessage = () =>
-    message ? <div className="alert alert-info">{message}</div> : "";
+    message ? (
+      <div className="alert alert-info text-center">
+        {message} <br></br>
+        <Link className="btn text-center" href="/signin">
+          Sign In
+        </Link>
+      </div>
+    ) : (
+      ""
+    );
 
   const signUpForm = () => {
     return (

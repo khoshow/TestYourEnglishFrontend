@@ -4,7 +4,8 @@ const { publicRuntimeConfig } = getConfig();
 const API = publicRuntimeConfig.API;
 
 export const getUserScores = (user, token) => {
-  return fetch(`${API}/api/get-user-scores/${user}`, {
+  console.log("I am herer");
+  return fetch(`${API}/api/public-display-user-scores/${user}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -14,7 +15,6 @@ export const getUserScores = (user, token) => {
   })
     .then((response) => {
       if (!response.ok) {
-       
         // Check if the response status is not in the 2xx range
         throw new Error(`HTTP error! Status: ${response.status}`);
       }

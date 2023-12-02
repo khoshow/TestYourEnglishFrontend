@@ -31,9 +31,25 @@ export const checkUsername = (username) => {
     .catch((err) => console.log(err));
 };
 
-export const preSignup = (user) => {
-  console.log("Api Production 2", `${API}/api/pre-signup`);
-  return fetch(`${API}/api/pre-signup`, {
+// export const preSignup = (user) => {
+//   console.log("Api Production 2", `${API}/api/pre-signup`);
+//   return fetch(`${API}/api/pre-signup`, {
+//     method: "POST",
+//     headers: {
+//       Accept: "application/json",
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(user),
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .catch((err) => console.log(err));
+// };
+
+export const signupWithoutPreSignUp = (user) => {
+  console.log("Api Production 2", `${API}/api/without-pre-signup`);
+  return fetch(`${API}/api/without-pre-signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -63,7 +79,6 @@ export const signup = (token) => {
 };
 
 export const signin = (user) => {
-  
   console.log("Sign in", `${API}/api/signin`);
   return fetch(`${API}/api/signin`, {
     method: "POST",

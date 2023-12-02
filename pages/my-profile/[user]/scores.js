@@ -27,10 +27,10 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const checkIsAuth = isAuth();
-  
+
     if (checkIsAuth) {
       const token = getCookie("token");
-   
+
       setAuthStatus(true);
       const user = isAuth().username;
       setUsername(user);
@@ -45,10 +45,9 @@ const ProfilePage = () => {
     setProfileLoading(true);
     try {
       const res = await getPrivateProfile(user);
-      
+
       setData(res);
     } catch (err) {
-      
       setError(true);
     } finally {
       setLoading(false);
@@ -58,11 +57,12 @@ const ProfilePage = () => {
   const loadUserScores = async (user, token) => {
     setScoresLoading(true);
     try {
+      console.log("User", user);
       const res = await getUserScores(user, token);
-      
+
       setUserScores(res);
+      console.log("user Scores", res);
     } catch (error) {
-     
       setError(true);
       setUserScores(null);
     } finally {
@@ -82,12 +82,11 @@ const ProfilePage = () => {
     e.preventDefault();
     setLoading(true);
     setStatusLoading("loading");
-  
-    
+
     let toChange = { newStatus: formData.status };
     try {
       const res = await updateStatus(toChange, token);
-      
+
       setData(res);
     } catch (err) {
       console.log("err", err);
@@ -120,7 +119,11 @@ const ProfilePage = () => {
   };
 
   if (!data) {
-    return <Layout><div className="text-center">Loading...</div></Layout>;
+    return (
+      <Layout>
+        <div className="text-center">Loading...</div>
+      </Layout>
+    );
   }
 
   const displayScores = () => {
@@ -150,7 +153,6 @@ const ProfilePage = () => {
         </div>
       );
     } else {
-     
       return (
         <div className="tiles">
           <article className="tile">
@@ -165,14 +167,20 @@ const ProfilePage = () => {
                 </span>
 
                 <span className="ms-1">
-                  Score: {userScores.correctWordIntermediate.scores}
+                  Score:{" "}
+                  {userScores.correctWordIntermediate.score
+                    ? userScores.correctWordIntermediate.score
+                    : ""}
                 </span>
                 <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
                 <span className="ms-1">
                   {" "}
-                  Rank: {userScores.correctWordIntermediate.rank}
+                  Rank:{" "}
+                  {userScores.correctWordIntermediate.rank
+                    ? userScores.correctWordIntermediate.rank
+                    : ""}
                 </span>
               </div>
             </div>
@@ -186,14 +194,20 @@ const ProfilePage = () => {
                 <span className="ms-1">
                   {" "}
                   Score:{" "}
-                  {userScores.correctWordAdvanced.scores
-                    ? userScores.correctWordAdvanced.scores
+                  {userScores.correctWordAdvanced.score
+                    ? userScores.correctWordAdvanced.score
                     : ""}
                 </span>
                 <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
-                <span className="ms-1"> Rank:</span>
+                <span className="ms-1">
+                  {" "}
+                  Rank:{" "}
+                  {userScores.correctWordAdvanced.rank
+                    ? userScores.correctWordAdvanced.rank
+                    : ""}
+                </span>
               </div>
             </div>
             <div className="text-center mt-4">
@@ -216,11 +230,22 @@ const ProfilePage = () => {
                   <i className="bi bi-award "></i>
                 </span>
 
-                <span className="ms-1"> Score:</span>
-                <span className="icon-button roundedScoreFrameSmall ms-4">
+                <span className="ms-1">
+                  Score:{" "}
+                  {userScores.correctMeaningIntermediate.score
+                    ? userScores.correctMeaningIntermediate.score
+                    : ""}
+                </span>
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
-                <span className="ms-1"> Rank:</span>
+                <span className="ms-1">
+                  {" "}
+                  Rank:{" "}
+                  {userScores.correctMeaningIntermediate.rank
+                    ? userScores.correctMeaningIntermediate.rank
+                    : ""}
+                </span>
               </div>
             </div>
             <div className="mt-2">
@@ -230,17 +255,28 @@ const ProfilePage = () => {
                   <i className="bi bi-award "></i>
                 </span>
 
-                <span className="ms-1"> Score:</span>
-                <span className="icon-button roundedScoreFrameSmall ms-4">
+                <span className="ms-1">
+                  Score:{" "}
+                  {userScores.correctMeaningAdvanced.score
+                    ? userScores.correctMeaningAdvanced.score
+                    : ""}
+                </span>
+                <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
-                <span className="ms-1"> Rank:</span>
+                <span className="ms-1">
+                  {" "}
+                  Rank:{" "}
+                  {userScores.correctMeaningAdvanced.rank
+                    ? userScores.correctMeaningAdvanced.rank
+                    : ""}
+                </span>
               </div>
             </div>
             <div className="text-center mt-4">
               <Link
                 className="btn btn-dark"
-                href="/category/correct-word/intermediate"
+                href="/category/correct-meaning/advanced"
               >
                 Take a Test
               </Link>
@@ -256,12 +292,22 @@ const ProfilePage = () => {
                 <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-award "></i>
                 </span>
-
-                <span className="ms-1"> Score:</span>
+                <span className="ms-1">
+                  Score:{" "}
+                  {userScores.synonymsIntermediate.score
+                    ? userScores.synonymsIntermediate.score
+                    : ""}
+                </span>
                 <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
-                <span className="ms-1"> Rank:</span>
+                <span className="ms-1">
+                  {" "}
+                  Rank:{" "}
+                  {userScores.synonymsIntermediate.rank
+                    ? userScores.synonymsIntermediate.rank
+                    : ""}
+                </span>
               </div>
             </div>
             <div className="mt-2">
@@ -271,17 +317,28 @@ const ProfilePage = () => {
                   <i className="bi bi-award "></i>
                 </span>
 
-                <span className="ms-1"> Score:</span>
+                <span className="ms-1">
+                  Score:{" "}
+                  {userScores.synonymsAdvanced.score
+                    ? userScores.synonymsAdvanced.score
+                    : ""}
+                </span>
                 <span className="icon-button roundedScoreFrameSmall">
                   <i className="bi bi-bar-chart-line "></i>
                 </span>
-                <span className="ms-1"> Rank:</span>
+                <span className="ms-1">
+                  {" "}
+                  Rank:{" "}
+                  {userScores.synonymsAdvanced.rank
+                    ? userScores.synonymsAdvanced.rank
+                    : ""}
+                </span>
               </div>
             </div>
             <div className="text-center mt-4">
               <Link
                 className="btn btn-dark"
-                href="/category/correct-word/intermediate"
+                href="/category/synonymsd/intermediate"
               >
                 Take a Test
               </Link>
@@ -296,10 +353,7 @@ const ProfilePage = () => {
     <>
       <Layout>
         <div className="row">
-          <div
-            className=" "
-            style={{ marginTop: "50px", padding: "2rem" }}
-          >
+          <div className=" " style={{ marginTop: "50px", padding: "2rem" }}>
             <h2 className="heading">My Score Board</h2>
             <section className="service-section">{displayScores()}</section>
           </div>
