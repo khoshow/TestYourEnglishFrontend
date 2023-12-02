@@ -61,10 +61,9 @@ const ProfilePage = () => {
     setScoresLoading(true);
     try {
       const res = await getPublicDisplayUserScores(user);
-    
+
       setUserScores(res);
     } catch (error) {
-    
       setError(true);
       setUserScores(null);
     } finally {
@@ -76,7 +75,10 @@ const ProfilePage = () => {
     if (!userScores) {
       return (
         <div className="container col-xl-10 col-xxl-8 px-4 py-5 bg-warning">
-          <div className="row align-items-center g-lg-5 ">
+          <div
+            className="row align-items-center g-lg-5 "
+            style={{ marginTop: "50px" }}
+          >
             <div className="col-lg-7 text-center text-lg-start">
               <h2 className="fw-bold lh-1 text-body-emphasis mb-3 text-dark">
                 Get your English test scores out there!
@@ -99,13 +101,12 @@ const ProfilePage = () => {
         </div>
       );
     } else {
-      
       return (
-        <div>
-          <div className="heading alt-two">
+        <div className="text-center">
+          <div className="heading alt-two" style={{ marginTop: "100px" }}>
             <h2>
               <span className="subHeading">
-              &quot;Hi there! 👋 Excited to have you visit my profile.&quot;
+                &quot;Hi there! 👋 Excited to have you visit my profile.&quot;
               </span>
             </h2>
           </div>
