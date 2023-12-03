@@ -152,7 +152,7 @@ function ResponsiveAppBar() {
 
         {authStatus ? (
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Profile">
               <span className="noMobileDisplay">{firstName} &nbsp;</span>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Profile Photo" src={profilePhoto} />
@@ -228,9 +228,11 @@ function ResponsiveAppBar() {
                 </Typography>
               </MenuItem>
             </Link>
-            <Link href="/signin"  style={{}}>
+            <Link href="/signin" style={{}}>
               <MenuItem>
-                <Typography textAlign="center" className="btn">Sign In</Typography>
+                <Typography textAlign="center" className="btn">
+                  Sign In
+                </Typography>
               </MenuItem>
             </Link>
             <Menu
