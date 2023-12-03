@@ -18,7 +18,8 @@ export const getUserProfile = (user, token) => {
 };
 
 export const getPublicProfile = (username) => {
-  return fetch(`${API}/api/getPublicProfile/${username}`, {
+  console.log("Username", username);
+  return fetch(`${API}/api/public-profile/${username}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
