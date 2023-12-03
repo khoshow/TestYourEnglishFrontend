@@ -9,7 +9,6 @@ import { getPrivateProfile } from "../../../actions/profile/privateProfile";
 import { getUserScores } from "../../../actions/userInfo";
 import { updateStatus } from "../../../actions/profile/profile-update";
 
-
 const ProfilePage = () => {
   const router = useRouter();
   const [username, setUsername] = useState("User");
@@ -29,10 +28,10 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const checkIsAuth = isAuth();
-    
+
     if (checkIsAuth) {
       const token = getCookie("token");
-      
+
       setAuthStatus(true);
       const user = isAuth().username;
       setUsername(user);
@@ -47,7 +46,7 @@ const ProfilePage = () => {
     setProfileLoading(true);
     try {
       const res = await getPrivateProfile(user);
-      
+
       setData(res);
     } catch (err) {
       console.log("err", err);
@@ -61,10 +60,9 @@ const ProfilePage = () => {
     setScoresLoading(true);
     try {
       const res = await getUserScores(user, token);
-  
+
       setUserScores(res);
     } catch (error) {
-     
       setError(true);
       setUserScores(null);
     } finally {
@@ -88,7 +86,7 @@ const ProfilePage = () => {
     let toChange = { newStatus: formData.status };
     try {
       const res = await updateStatus(toChange, token);
-     
+
       setData(res);
     } catch (err) {
       console.log("err", err);
@@ -155,7 +153,6 @@ const ProfilePage = () => {
         </div>
       );
     } else {
-      
       return (
         <div className="tiles">
           <article className="tile">
@@ -318,7 +315,7 @@ const ProfilePage = () => {
                     <p className="">@{data.username}</p>
                   </div>
                   <div className="col-md-8">
-                    <div className="position-relative p-5  mt-4 border border-dashed rounded-5">
+                    <div className="position-relative p-5  mt-4 border border-dashed rounded-5 bg-info">
                       <h3 className="text-body-emphasis position-absolute top-0 start-0 bg-warning">
                         Status
                       </h3>
