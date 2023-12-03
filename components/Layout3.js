@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
           <div className="makeItFixed " style={{ zIndex: "10" }}>
             <SideNav />
           </div>
-          <div className="" style={{ zIndex: "9" }}>
+          <div className="" style={{ zIndex: "9", margin: "0 auto" }}>
             <MyHeader />
             <div className="">
               <div style={{ zIndex: "9", padding: "100px 0 50px 0" }}>
