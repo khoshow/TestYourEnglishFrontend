@@ -23,10 +23,9 @@ const SignUp = () => {
           {/* End form-wrapper */}
 
           <p className="mt-auto pt-50">
-            Copyright @{currentYear} Test My English Online.
+            Copyright @{currentYear} Test My English Level.
           </p>
         </div>
-        
       </Layout>
     </>
   );

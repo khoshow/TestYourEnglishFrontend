@@ -50,7 +50,7 @@ export default function About() {
                     <li>Best of Luck</li>
                   </ol>
                   <Link
-                    href="/vocabulary/correct-word/intermediate"
+                    href="/category/correct-meaning/intermediate"
                     className="btn m-2"
                   >
                     Take a Test
