@@ -30,7 +30,7 @@ const PaginatedList = ({ itemsPerPage, data }) => {
 
   if (!totalTest) {
     return (
-      <div>
+      <div className="text-center">
         <div className="heading alt-two">
           <h1>
             Choose the Correct Meaning
