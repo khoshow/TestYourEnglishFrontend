@@ -4,11 +4,11 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta
+        {/* <meta
           name="description"
           content="Test My English Level - Created to upgrade your English skills enjoyable, complimentary, and interactive."
         />
-        <meta name="keywords" content="English Learning" />
+        <meta name="keywords" content="English Learning" /> */}
 
         <link rel="icon" href="/favicon.png" />
       </Head>

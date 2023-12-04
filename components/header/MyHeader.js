@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
+import Image from "next/image";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
@@ -121,9 +122,11 @@ function ResponsiveAppBar() {
         style={{ justifyContent: "space-between" }}
       >
         <Link href="/" className="mobileLogo" style={{}}>
-          <img
+          <Image
             src="/images/logo/Logo8.png"
             alt="logo"
+            width="220"
+            height="50"
             style={{ width: "220px" }}
           />
         </Link>

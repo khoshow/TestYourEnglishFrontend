@@ -730,6 +730,9 @@ const SideNav = ({ children }) => {
                   <Link href="/contact" className="p-2">
                     Contact
                   </Link>
+                  <Link href="/privacy-policy" className="p-2">
+                    Privacy
+                  </Link>
                   <Link href="/" className="p-2">
                     © {new Date().getFullYear()} Test My English Level
                   </Link>

@@ -321,7 +321,6 @@ const ProfilePage = () => {
                       </h3>
                       <p className="">{data.status}</p>
                     </div>
-
                     <button
                       type="button"
                       className="btn btn-primary mt-4"

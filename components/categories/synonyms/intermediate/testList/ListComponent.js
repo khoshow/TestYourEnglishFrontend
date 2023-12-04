@@ -1,11 +1,47 @@
 import React from "react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
 import Card from "@mui/material/Card";
 import { getCookie, isAuth } from "../../../../../actions/auth";
 import { testGiveOrNot } from "../../../../../actions/privateInfo/testGiven";
 import { getCardMessages } from "../../../../../actions/publicInfo/cardMessages";
 const ListComponent = ({ items }) => {
+  const pathName = useRouter().asPath;
+  const head = () => {
+    const siteName = "Test My English Level";
+    const siteUrl = "https://www.testmyenglishlevel.com"; // Replace with your actual website URL
+    const metaTitle = "Choose the correct synonym || Master English Vocabulary";
+    const metaDesc =
+      "Begin your learning journey by choosing a test and diving into an interactive experience that makes vocabulary improvement both effective and enjoyable!";
+    const canonicalLink = siteUrl + pathName;
+    const metaImage =
+      "https://www.testmyenglishlevel.com/images/logo/Logo8.png";
+    return (
+      <Head>
+        {/* Meta Tags */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content={metaDesc} />
+
+        {/* Open Graph and Twitter Meta Tags */}
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDesc} />
+        <meta property="og:url" content={siteUrl || canonicalLink} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={metaImage} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDesc} />
+        <meta name="twitter:image" content={metaImage} />
+
+        <title>{`${metaTitle}`}</title>
+        <link rel="canonical" href={canonicalLink} />
+      </Head>
+    );
+  };
   const [attempted1, setAttempted1] = useState("notAttemptedCard");
   const [attempted2, setAttempted2] = useState("notAttemptedCard");
   const [attempted3, setAttempted3] = useState("notAttemptedCard");
@@ -239,6 +275,7 @@ const ListComponent = ({ items }) => {
   return (
     <>
       <div>
+        {head()}
         <div
           className=" d-flex flex-wrap "
           style={{ justifyContent: "center", marginTop: "2rem" }}

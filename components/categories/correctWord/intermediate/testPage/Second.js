@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
 import { isAuth } from "../../../../../actions/auth";
 import { getCookie } from "../../../../../actions/auth";
 import { postScore } from "../../../../../actions/categories/correct-word/intermediate";
@@ -9,6 +10,54 @@ import { testGiveOrNot } from "../../../../../actions/privateInfo/testGiven";
 import Layout3 from "../../../../Layout3";
 
 function Second2(pageData, next) {
+  const pathName = useRouter().asPath;
+  const head = () => {
+    const siteName = "Test My English Level";
+    const siteUrl = "https://www.testmyenglishlevel.com"; // Replace with your actual website URL
+    const metaTitle = "Choose the correct word || Enhance your English";
+    const metaDesc =
+      pageData.data.questions[0].question +
+      ":" +
+      " " +
+      "1." +
+      pageData.data.questions[0].options[0] +
+      " " +
+      "2." +
+      pageData.data.questions[0].options[1] +
+      " " +
+      "3." +
+      pageData.data.questions[0].options[2] +
+      " " +
+      "4." +
+      pageData.data.questions[0].options[3];
+    const canonicalLink = siteUrl + pathName;
+    const metaImage =
+      "https://www.testmyenglishlevel.com/images/logo/Logo8.png";
+    return (
+      <Head>
+        {/* Meta Tags */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content={metaDesc} />
+
+        {/* Open Graph and Twitter Meta Tags */}
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDesc} />
+        <meta property="og:url" content={siteUrl || canonicalLink} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={metaImage} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDesc} />
+        <meta name="twitter:image" content={metaImage} />
+
+        <title>{`${metaTitle}`}</title>
+        <link rel="canonical" href={canonicalLink} />
+      </Head>
+    );
+  };
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
@@ -311,6 +360,7 @@ function Second2(pageData, next) {
 
   return (
     <div>
+      {head()}
       <div className="heading alt-two">
         <h1>
           Choose the Correct Word

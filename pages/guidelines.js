@@ -1,26 +1,60 @@
 import Head from "next/head";
 import Image from "next/image";
-
+import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 
 import Link from "next/link";
 import Layout from "../components/Layout";
 
 export default function Rules() {
-  const head = () => (
-    <Head>
-      <title>Test My English Online || Guidelines</title>
-      <meta name="title" content="Rules and usage of Test My English Online" />
-      <meta
-        name="description"
-        content="Rules for scores, ranking, tests and other guidelines of Test My English Level"
-      />
+  const pathName = useRouter().asPath;
+  const head = () => {
+    const siteName = "Test My English Level";
+    const siteUrl = "https://www.testmyenglishlevel.com"; // Replace with your actual website URL
+    const metaTitle = "Guidelines || Test My English Level";
+    const metaDesc =
+      "Rules and user information for scores, ranking, tests and other guidelines for Test My English Level.";
+    const canonicalLink = siteUrl + pathName;
+    const metaImage =
+      "https://www.testmyenglishlevel.com/images/logo/Logo8.png";
+    return (
+      <Head>
+        {/* Meta Tags */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content={metaDesc} />
 
-      <meta name="robots" content="index, follow" />
-      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="language" content="English"></meta>
-    </Head>
-  );
+        {/* Open Graph and Twitter Meta Tags */}
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDesc} />
+        <meta property="og:url" content={siteUrl || canonicalLink} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={metaImage} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDesc} />
+        <meta name="twitter:image" content={metaImage} />
+
+        <title>{`${metaTitle}`}</title>
+        <link rel="canonical" href={canonicalLink} />
+      </Head>
+    );
+  };
+  // const head = () => (
+  //   <Head>
+  //     <title>Test My English Online || Guidelines</title>
+  //     <meta name="title" content="Rules and usage of Test My English Online" />
+  //     <meta
+  //       name="description"
+  //       content="Rules for scores, ranking, tests and other guidelines of Test My English Level"
+  //     />
+
+  //     <meta name="robots" content="index, follow" />
+  //     <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+  //     <meta name="language" content="English"></meta>
+  //   </Head>
+  // );
   return (
     <div>
       {head()}
@@ -98,7 +132,7 @@ export default function Rules() {
                     </li>
                     <li>
                       For any queries or feedback, please contact us at
-                      khoshow.official@gmail.com or use the &nbsp;
+                      testmyenglish123@gmail.com or use the &nbsp;
                       <Link style={{ color: "#6c757D" }} href="/contact">
                         contact form.
                       </Link>

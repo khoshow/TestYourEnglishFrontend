@@ -2,8 +2,9 @@ import { useState, useRef } from "react";
 import Head from "next/head";
 import DefaultHeader from "../../components/header/DefaultHeader";
 import Link from "next/link";
-import { getTestTypes } from "../../actions/test";
 import { useRouter } from "next/router";
+import { getTestTypes } from "../../actions/test";
+
 import Layout from "../../components/Layout";
 
 import Card from "@mui/material/Card";
@@ -16,37 +17,38 @@ import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 
-const Test = () => {
+const Home = () => {
+  const pathName = useRouter().asPath;
   const head = () => {
-    const title =
-      "An enjoyable, complimentary, and interactive platform to upgrade your English skills";
+    const siteName = "Test My English Level";
+    const siteUrl = "https://www.testmyenglishlevel.com"; // Replace with your actual website URL
+    const metaTitle = "Test My English Level";
     const metaDesc =
-      "Time to enhance your English skills! Our approach is crafted to be enjoyable, complimentary, and interactive, fostering an enhanced language proficiency experience.";
-    const websiteUrl = "https://www.testmyenglishlevel.com";
-    const cononicalURL = websiteUrl;
-    const websiteName = "Test My English Level";
-    const imageUrl = websiteUrl + "/images/logo/logo8.png";
-
+      "Explore the world of language mastery at Test My English Level. Immerse yourself in an enriching platform designed to make your English learning journey enjoyable and interactive.";
+    const canonicalLink = siteUrl + pathName;
+    const metaImage =
+      "https://www.testmyenglishlevel.com/images/logo/Logo8.png";
     return (
       <Head>
-        <title>{title}</title>
+        {/* Meta Tags */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content={metaDesc} />
-        <link rel="canonical" href={cononicalURL} />
 
-        <meta property="og:title" content={title} />
+        {/* Open Graph and Twitter Meta Tags */}
+        <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDesc} />
+        <meta property="og:url" content={siteUrl || canonicalLink} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={websiteUrl} />
-        {/* {console.log("Url", process.env.DOMAIN_WEBSITE_URL)} */}
-        <meta property="og:site_name" content={websiteName} />
-        <meta property="og:image" content={imageUrl} />
+        <meta property="og:image" content={metaImage} />
 
-        <meta property="og:image:type" content="image/png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDesc} />
+        <meta name="twitter:image" content={metaImage} />
 
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet"
-        />
+        <title>{`${metaTitle}`}</title>
+        <link rel="canonical" href={canonicalLink} />
       </Head>
     );
   };
@@ -286,4 +288,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Home;

@@ -31,7 +31,16 @@ const PaginatedList = ({ itemsPerPage, data }) => {
   if (!totalTest) {
     return (
       <div className="text-center">
-        Please wait while we load the tests for you...
+        <div className="heading alt-two">
+          <h1>
+            Choose the Correct Word
+            <span className="subHeading"> Advanced Level</span>
+          </h1>
+        </div>
+        <br></br>
+        <div>
+          <p> Please wait while we load the tests for you...</p>
+        </div>
       </div>
     );
   }
@@ -41,8 +50,8 @@ const PaginatedList = ({ itemsPerPage, data }) => {
       <div className="text-center" style={{}}>
         <div className="heading alt-two">
           <h1>
-            Correct Word Advanced
-            <span className="subHeading">Best of Luck</span>
+            Choose the Correct Word
+            <span className="subHeading"> Advanced Level</span>
           </h1>
         </div>
         <Stack spacing={2}>

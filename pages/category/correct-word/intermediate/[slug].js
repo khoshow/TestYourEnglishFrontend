@@ -14,6 +14,8 @@ import {
 } from "../../../../actions/publicInfo/cardMessages";
 
 const CorrectWordsIntermediate = () => {
+
+  
   const router = useRouter();
   const [currentUrl, setcurrentUrl] = useState(null);
   const [data, setData] = useState(null);
